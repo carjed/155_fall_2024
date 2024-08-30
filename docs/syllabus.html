@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>STAT 155 - </title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">STAT 155</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./syllabus.html" aria-current="page">
+ <span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./schedule.html">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-activities" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Activities</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-activities">    
+        <li>
+    <a class="dropdown-item" href="./activities/01_foundations_welcome.html">
+ <span class="dropdown-text">Collecting and Summarizing Data</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-homework" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Homework</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-homework">    
+        <li>
+    <a class="dropdown-item" href="./assignments/pp1.html">
+ <span class="dropdown-text">Practice Problems 1</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./project.html">
+ <span class="menu-text">Project</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./tech_setup.html">
+ <span class="menu-text">Tech Setup</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#stat-155-intro-to-statistical-modeling" id="toc-stat-155-intro-to-statistical-modeling" class="nav-link active" data-scroll-target="#stat-155-intro-to-statistical-modeling">STAT 155: Intro to Statistical Modeling</a>
+  <ul class="collapse">
+  <li><a href="#your-instructor" id="toc-your-instructor" class="nav-link" data-scroll-target="#your-instructor">Your instructor</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#required-resources" id="toc-required-resources" class="nav-link" data-scroll-target="#required-resources">Required resources</a></li>
+  <li><a href="#what-to-expect-in-and-out-of-class" id="toc-what-to-expect-in-and-out-of-class" class="nav-link" data-scroll-target="#what-to-expect-in-and-out-of-class">What to expect in and out of class</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#communication" id="toc-communication" class="nav-link" data-scroll-target="#communication">Communication</a>
+  <ul class="collapse">
+  <li><a href="#course-website" id="toc-course-website" class="nav-link" data-scroll-target="#course-website">Course website</a></li>
+  <li><a href="#moodle" id="toc-moodle" class="nav-link" data-scroll-target="#moodle">Moodle</a></li>
+  <li><a href="#email" id="toc-email" class="nav-link" data-scroll-target="#email">Email</a></li>
+  <li><a href="#drop-in-office-hours" id="toc-drop-in-office-hours" class="nav-link" data-scroll-target="#drop-in-office-hours">Drop-in (office) hours</a></li>
+  <li><a href="#preceptors" id="toc-preceptors" class="nav-link" data-scroll-target="#preceptors">Preceptors</a></li>
+  </ul></li>
+  <li><a href="#grading-and-feedback" id="toc-grading-and-feedback" class="nav-link" data-scroll-target="#grading-and-feedback">Grading and feedback</a>
+  <ul class="collapse">
+  <li><a href="#assignments-and-assessments" id="toc-assignments-and-assessments" class="nav-link" data-scroll-target="#assignments-and-assessments">Assignments and assessments</a>
+  <ul class="collapse">
+  <li><a href="#checkpoints" id="toc-checkpoints" class="nav-link" data-scroll-target="#checkpoints">Checkpoints</a></li>
+  <li><a href="#practice-problems" id="toc-practice-problems" class="nav-link" data-scroll-target="#practice-problems">Practice problems</a></li>
+  <li><a href="#quizzes" id="toc-quizzes" class="nav-link" data-scroll-target="#quizzes">Quizzes</a></li>
+  <li><a href="#project" id="toc-project" class="nav-link" data-scroll-target="#project">Project</a></li>
+  </ul></li>
+  <li><a href="#course-grading-system" id="toc-course-grading-system" class="nav-link" data-scroll-target="#course-grading-system">Course grading system</a></li>
+  </ul></li>
+  <li><a href="#other-policies" id="toc-other-policies" class="nav-link" data-scroll-target="#other-policies">Other policies</a>
+  <ul class="collapse">
+  <li><a href="#attendance" id="toc-attendance" class="nav-link" data-scroll-target="#attendance">Attendance</a></li>
+  <li><a href="#late-work" id="toc-late-work" class="nav-link" data-scroll-target="#late-work">Late work</a></li>
+  <li><a href="#religious-observance" id="toc-religious-observance" class="nav-link" data-scroll-target="#religious-observance">Religious Observance</a></li>
+  <li><a href="#academic-integrity" id="toc-academic-integrity" class="nav-link" data-scroll-target="#academic-integrity">Academic integrity</a></li>
+  <li><a href="#artificial-intelligence-ai-use" id="toc-artificial-intelligence-ai-use" class="nav-link" data-scroll-target="#artificial-intelligence-ai-use">Artificial Intelligence (AI) Use</a></li>
+  <li><a href="#well-being" id="toc-well-being" class="nav-link" data-scroll-target="#well-being">Well-being</a></li>
+  </ul></li>
+  <li><a href="#guiding-values-course-manifesto" id="toc-guiding-values-course-manifesto" class="nav-link" data-scroll-target="#guiding-values-course-manifesto">Guiding Values / Course Manifesto</a>
+  <ul class="collapse">
+  <li><a href="#you-belong-here" id="toc-you-belong-here" class="nav-link" data-scroll-target="#you-belong-here">You belong here!</a></li>
+  <li><a href="#informed-skepticism" id="toc-informed-skepticism" class="nav-link" data-scroll-target="#informed-skepticism">Informed skepticism</a></li>
+  <li><a href="#a-commitment-to-ethical-deliberation-and-conduct" id="toc-a-commitment-to-ethical-deliberation-and-conduct" class="nav-link" data-scroll-target="#a-commitment-to-ethical-deliberation-and-conduct">A commitment to ethical deliberation and conduct</a></li>
+  <li><a href="#mistakes-and-uncertainty-are-essential" id="toc-mistakes-and-uncertainty-are-essential" class="nav-link" data-scroll-target="#mistakes-and-uncertainty-are-essential">Mistakes and uncertainty are essential</a></li>
+  <li><a href="#context-before-content" id="toc-context-before-content" class="nav-link" data-scroll-target="#context-before-content">Context before content</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"> </h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="stat-155-intro-to-statistical-modeling" class="level1">
+<h1>STAT 155: Intro to Statistical Modeling</h1>
+<p>Macalester College, Fall 2024</p>
+<ul>
+<li><strong>Section 05</strong>: Tu/Th 1:20-2:50pm, THTR 202</li>
+<li><strong>Section 06</strong>: Tu/Th 3:00-4:30pm, THTR 202</li>
+</ul>
+<section id="your-instructor" class="level2">
+<h2 class="anchored" data-anchor-id="your-instructor">Your instructor</h2>
+<p><img src="https://www.macalester.edu/mscs/wp-content/uploads/sites/591/2024/08/Carlson_headshot-scaled-150x0-c-default.jpg" width="200" style="float: right; padding-right: 20px; padding-bottom: 20px;"></p>
+<p><strong>Jedidiah (Jed) Carlson, PhD</strong></p>
+<p><strong>Pronouns</strong>: he/him</p>
+<p><strong>Pronunciation</strong>: <a href="https://namedrop.io/jedidiahcarlson">listen here</a></p>
+<p><strong>Office</strong>: Olin-Rice 235</p>
+<p><strong>Website</strong>: <a href="https://jedidiahcarlson.com">https://jedidiahcarlson.com</a></p>
+<p><strong>Email</strong>: <a href="mailto:jcarls13@macalester.edu" class="email">jcarls13@macalester.edu</a></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body" title="Call me &quot;Jed&quot;">
+<p>You may call me (in order of my personal preference), <em>Jed</em>, <em>Professor Carlson</em>, or <em>Dr.&nbsp;Carlson</em>–but please use whichever of these options you are most comfortable with!</p>
+</div>
+</div>
+<p><strong>Drop-in (office) hours</strong>:</p>
+<ul>
+<li><strong>location</strong>: My office (OLRI 235)</li>
+<li><strong>times</strong>: See <a href="https://calendar.google.com/calendar/u/5?cid=Y19iZmU1MWU2MGYyY2U0MzQxZTY1MGE3YjUyNzI0NWUyNjRmMzg0MmQxNDVkNTY4NWMxNTEyMGVlNjM2MmQ5ZGEwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20">this calendar</a> (Generally from <strong>10am-12pm on Wednesdays</strong> and <strong>10am-11am on Thursdays</strong>, but subject to change).</li>
+<li><strong>1:1 appointments</strong>: I’m also happy to meet one-on-one if my normal drop-in hours don’t work for you. You can schedule a time to meet with me using <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0pNmQwIYzKQcogC3cRSjfg9gDZvzT8Bk_LqXnsmO8NYA0vRJBoz_wGl4IXfk3vxIreKIqA2vbW">this link</a>.</li>
+</ul>
+</section>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This course provides an introduction to statistical modeling. In other words, you will develop the basic skills to <strong>analyze data</strong>, <strong>test research hypotheses</strong>, and <strong>make predictions</strong> about the world.</p>
+<p>Being able to <strong>summarize</strong>, <strong>interpret</strong>, and <strong>communicate</strong> about data are crucial for navigating today’s information landscape, and these are precisely the skills that we’ll build in this class. Throughout the semester, we’ll study the fundamental methods that statisticians use to extract knowledge from data, emphasizing statistical literacy &amp; intuition, real data applications, and modern computing over memorizing facts and formulas.</p>
+<section id="learning-goals" class="level3">
+<h3 class="anchored" data-anchor-id="learning-goals">Learning goals</h3>
+<p>By actively participating in this course, you will develop and/or strengthen your abilities to:</p>
+<ul>
+<li><p><strong>Visualize</strong>: explore, understand, and describe patterns in data with plots and graphics</p></li>
+<li><p><strong>Model</strong>: build, interpret, and evaluate statistical models to identify trends in data</p></li>
+<li><p><strong>Infer</strong>: extend observations from sample data to draw conclusions and make predictions</p></li>
+<li><p><strong>Compute</strong>: use the (free!) statistical software R to analyze real data and create reproducible reports</p></li>
+<li><p><strong>Contextualize</strong>: interpret results in context, by considering the methods of data collection, the scientific and social contexts, and ethical dimensions</p></li>
+<li><p><strong>Communicate</strong>: accurately describe methods and results in a way that is scientifically sound and widely accessible</p></li>
+<li><p><strong>Collaborate</strong>: work productively and effectively in a group setting</p></li>
+</ul>
+</section>
+<section id="required-resources" class="level3">
+<h3 class="anchored" data-anchor-id="required-resources">Required resources</h3>
+<section id="textbook" class="level4">
+<h4 class="anchored" data-anchor-id="textbook">Textbook</h4>
+<p>There is no required textbook for this course. Throughout the course, readings may be assigned from these notes, or other sources. All links and materials needed will be provided on the <a href="./index.html">home page</a> of this website.</p>
+<p>The best resources for this course are course content videos, attending and participating in class / assignments, and office hours. I am happy to talk about possible additional materials / strategies for effective learning at any time throughout the semester!</p>
+</section>
+<section id="statistical-software" class="level4">
+<h4 class="anchored" data-anchor-id="statistical-software">Statistical software</h4>
+<p>We will use the (completely free and open source) R programming language extensively throughout this course. RStudio (an interface for R) will facilitate our use of R. You may use RStudio in one of two ways:</p>
+<ol type="1">
+<li><p>Desktop version: Download for Windows or Mac at <a href="https://posit.co/downloads/">https://posit.co/downloads/</a>. Note: You first need to download and install R on your computer in order to use the desktop version of RStudio</p></li>
+<li><p>Online: Go to <a href="https://rstudio.macalester.edu">https://rstudio.macalester.edu</a>, and log in with your full Mac email address and your usual Mac password to get access. (Note that this is a shared resource across MSCS, and you may experience performance issues due to high traffic, server outages, etc.)</p></li>
+</ol>
+<p>More detailed instructions on downloading, installing, and getting started with R, RStudio, and an important package called Quarto is available on the <a href="./tech_setup.html">Tech Setup</a> tab.</p>
+</section>
+</section>
+<section id="what-to-expect-in-and-out-of-class" class="level3">
+<h3 class="anchored" data-anchor-id="what-to-expect-in-and-out-of-class">What to expect in and out of class</h3>
+<p>When taking a new course, figuring out the right workflow/cadence of effort throughout the week can be a big adjustment. And most of you are doing this for 4 different courses! Below are some suggestions for what to expect in the course and how to focus your time and attention during and outside of class.</p>
+<section id="outside-of-class" class="level4">
+<h4 class="anchored" data-anchor-id="outside-of-class">Outside of class</h4>
+<p><strong>Pre-class videos/readings:</strong> Some class periods will have required videos or reading to get acquainted with new concepts before seeing them again in class. My goal for these videos and readings is for you to get the most out of class time by being able to more easily follow explanations in class and to engage most fully in class activities. When there are required readings or videos, there will be an associated checkpoint to complete on Moodle (due 30 minutes before the start of the next class).</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body" title="Suggestions">
+<ul>
+<li>As you take notes on videos/readings, highlight or otherwise mark all the areas where you have questions. Gather up all of these questions in one place, and bring them to class with you.</li>
+<li>Record any reflections from in-class time about your learning process or interactions with peers while they are still fresh.</li>
+<li>After learning a new topic in class, it is helpful to attempt the upcoming assignment as soon as possible. Just by getting some rough ideas down quickly, you avoid the difficulty of starting from a blank slate.</li>
+<li>Come to instructor and preceptor drop-in hours (office hours) to chat about the course or anything else!</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="during-class" class="level4">
+<h4 class="anchored" data-anchor-id="during-class">During class</h4>
+<p>Class time will be a mix of interactive lecture and longer stretches of group work. During the lecture portion, I will pause explanation frequently to prompt a short exercise or ask questions that you’ll reflect on individually or together.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body" title="Suggestions">
+<ul>
+<li>As we review the material at the start of class and as you work on the class activity, reference your set of questions from the pre-class material. Have you made progress on addressing those questions? Who or what helped with improving your understanding, and how?</li>
+</ul>
+</div>
+</div>
+<p><br><br><br><br></p>
+<p><br><br><br><br></p>
+</section>
+</section>
+</section>
+</section>
+<section id="communication" class="level1">
+<h1>Communication</h1>
+<section id="course-website" class="level2">
+<h2 class="anchored" data-anchor-id="course-website">Course website</h2>
+<p>All course materials will be posted on the <a href="https://carjed.github.io/155_fall_2024">course website</a>. The <a href="./index.html">home tab</a> of this website will contain information about due dates, in-class activities, and general day-to-day going-ons.</p>
+</section>
+<section id="moodle" class="level2">
+<h2 class="anchored" data-anchor-id="moodle">Moodle</h2>
+<p>Moodle will be used to submit assignments/checkpoint quizzes, post grades, assignment feedback, announcements, and more. Please check the course Moodle page every day before class!</p>
+</section>
+<section id="email" class="level2">
+<h2 class="anchored" data-anchor-id="email">Email</h2>
+<p>Please send any personal questions or administrative updates (e.g., attendance, accommodations) to me via email. <strong>Please put “STAT 155” in the subject line of all emails</strong> to help ensure that it does not get lost in my inbox!</p>
+<p>I will generally not respond to emails outside of business hours (9am-5pm M-F). Please <strong>allow 1 business day for a response</strong> (e.g.&nbsp;an email sent on Friday may not get a response until the following Monday).</p>
+<p>Any urgent announcements (e.g.&nbsp;unexpected class cancellations, notice of modifications to assignments) will be made over email.</p>
+</section>
+<section id="drop-in-office-hours" class="level2">
+<h2 class="anchored" data-anchor-id="drop-in-office-hours">Drop-in (office) hours</h2>
+<p>Office hours are an open-ended time for you to go over coursework, clarify concepts, solicit my <del>biased opinions</del> sage wisdom on career planning/graduate school, discuss research/internship opportunities, find resources you need, or chat about life in general. To encourage attendance at office hours, <strong>there may be individual and/or collective incentives along the way and/or at the end of the semester</strong>, depending on how well you utilize office hours (but please be respectful of your peers and do not monopolize this time).</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body" title="First time office hours user?">
+<p>If you are nervous about coming to office hours for the first time, I encourage you to <strong>come with a friend!</strong> (they don’t even have to be enrolled in STAT 155!). You may also find it useful to come prepared with a specific question or topic you would like to discuss (some examples <a href="https://studentlife.uoregon.edu/node/149">here</a>–and remember, it does not have to be about STAT 155 material!).</p>
+</div>
+</div>
+</section>
+<section id="preceptors" class="level2">
+<h2 class="anchored" data-anchor-id="preceptors">Preceptors</h2>
+<p>We are supported by 9 preceptors across the 6 sections of STAT 155 this semester. All MSCS courses will also share a dedicated R preceptor (Kyle Suelflow), who can help with any issues you have with your R code or RStudio configuration.</p>
+<p>Samina, Owen, and Rana will be the preceptors dedicated to grading practice problems in our section and will sometimes come to class to help with activities. Preceptor drop-in hours (office hours) will be shared across all sections of the course and posted on our <a href="./index.html">course homepage</a>.</p>
+<ul>
+<li><strong>Samina Stack</strong></li>
+<li><strong>Owen Carr</strong></li>
+<li><strong>Rana Rishmawi</strong></li>
+<li>Ryan Mickelborough</li>
+<li>Ilhaan Dhegadub</li>
+<li>Julia Van Orman</li>
+<li>Tanisha Dodla</li>
+<li>Sydney Ohr</li>
+<li>Lucas Nelson</li>
+<li>Kyle Suelflow (R preceptor)</li>
+</ul>
+<p>In addition, the Macalester Academic Excellence (MAX) Center provides tutoring for STAT 155. Check out their <a href="https://www.macalester.edu/max/science-quantitative-support/stats/">website</a> for more information and their tutoring schedule.</p>
+<p><br><br><br><br></p>
+</section>
+</section>
+<section id="grading-and-feedback" class="level1">
+<h1>Grading and feedback</h1>
+<p>This course uses a non-traditional grading system, designed with the goals of aligning your grades with our course learning objectives, allowing space to make and learn from mistakes, and encouraging self-reflection.</p>
+<section id="assignments-and-assessments" class="level2">
+<h2 class="anchored" data-anchor-id="assignments-and-assessments">Assignments and assessments</h2>
+<section id="checkpoints" class="level3">
+<h3 class="anchored" data-anchor-id="checkpoints">Checkpoints</h3>
+<p>For class days where some reading and/or videos are required beforehand, there will be a short multiple-choice Moodle checkpoint due 30 minutes before class starts (12:50pm for Section 05, and 2:30pm for Section 06).</p>
+<p>You can attempt a checkpoint quiz as many times as you want, but there is a 33% point deduction for each successive attempt on a question. For example, if your first attempt on a 1-point question is incorrect, the maximum possible score on that question is 0.67 points for the second attempt. On the third attempt, the maximum score is 0.33 points. No points are awarded for the 4th attempt and beyond.</p>
+</section>
+<section id="practice-problems" class="level3">
+<h3 class="anchored" data-anchor-id="practice-problems">Practice problems</h3>
+<p>To practice concepts that we cover in class, there will be 8 weekly practice problems (PPs) due on Fridays at 5pm. (Note that if needed, extensions are possible—see the <a href="./syllabus.html#late-work">late work policy</a>.)</p>
+<p>You will receive qualitative feedback on all questions on these practice problem sets. These assignments will receive on overall score on the following scale:</p>
+<ul>
+<li>High pass: 2 points</li>
+<li>Pass: 1 point</li>
+<li>Needs improvement: 0 points</li>
+</ul>
+<p><strong>Showing growth:</strong> If, on a quiz, you demonstrate stronger understanding of the concepts that you missed on a PP, you have the chance to earn a higher score on the PP. Either via email or through an in-person conversation with the instructor, you must discuss how your understanding of the concept(s) changed from the PP to the quiz by addressing feedback from both the PP and the quiz. You can do this once for each quiz (excluding the final), and you can show improvement on multiple PPs using a single quiz.</p>
+</section>
+<section id="quizzes" class="level3">
+<h3 class="anchored" data-anchor-id="quizzes">Quizzes</h3>
+<p>There will be 3 quizzes over the course of the semester.</p>
+<ul>
+<li>Quiz 1: Thursday, 9/26. 1 hour in class.</li>
+<li>Quiz 2: Thursday, 10/31. 1 hour in class. Will cover material from the first quiz to some extent because of the way that material in this course builds on earlier ideas.</li>
+<li>Quiz 3: ~1.25 hours during our final exam slot. Will cover content from the whole course.</li>
+</ul>
+<p>Section 05: Saturday, 12/14 1:30-3:30pm. Section 06: Monday, 12/16 1:30-3:30pm.</p>
+<p>Each quiz question will be graded on the following scale:</p>
+<ul>
+<li>3 points: fully correct</li>
+<li>2 points: mostly correct with minor errors</li>
+<li>1 point: missing key understanding</li>
+<li>0 points: fully off target or blank</li>
+</ul>
+<p>Quiz format:</p>
+<ul>
+<li>Fully pen/pencil and paper. You will not need to write code or use a calculator, but you will need to be able to read and interpret output from R code.</li>
+<li>You are allowed to bring a 3x5 index card with notes written on both sides. Typing your notes and pasting them on the card is fine.</li>
+</ul>
+<p><strong>Showing growth:</strong> You can earn up to 50% of missed points back on quizzes if you complete a quiz correction and reflection. You must:</p>
+<ul>
+<li>Write a reflection of how you prepared for the quiz and where you felt strongest and more uncertain in your understanding before taking the quiz</li>
+<li>Schedule a meeting with the instructor. During our conversation, you will correct your quiz responses and discuss the above reflection. You will get immediate feedback at this meeting. Use my <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0pNmQwIYzKQcogC3cRSjfg9gDZvzT8Bk_LqXnsmO8NYA0vRJBoz_wGl4IXfk3vxIreKIqA2vbW">appointment booking link</a> to schedule this meeting.</li>
+</ul>
+</section>
+<section id="project" class="level3">
+<h3 class="anchored" data-anchor-id="project">Project</h3>
+<p>The goal of the course project is to apply the data analysis skills from our course to investigate a research question in a dataset of your choosing. Through milestones over the course of the semester, you will make steady progress on your projects and iterate on feedback. Full details about the project will be available on the <a href="./project.html">Project page</a>.</p>
+</section>
+</section>
+<section id="course-grading-system" class="level2">
+<h2 class="anchored" data-anchor-id="course-grading-system">Course grading system</h2>
+<p>In order to earn a given letter grade, <strong>all</strong> requirements listed under that column need to be met.</p>
+
+<style type="text/css">
+.tab-grading {
+    border-collapse: collapse;
+    border-spacing:0;
+}
+.tab-grading td {
+    border-color:black;
+    border-style:solid;
+    border-width:1px;
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break:normal;
+}
+.tab-grading th{
+    border-color:black;
+    border-style:solid;
+    border-width:1px;
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding:10px 5px;
+    word-break:normal;
+}
+.tab-grading .tg-0pky {
+    border-color:inherit;
+    text-align:left;
+    vertical-align:top
+}
+</style>
+<table class="tab-grading"><thead>
+  <tr>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky">Grade: A</th>
+    <th class="tg-0pky">Grade: B</th>
+    <th class="tg-0pky">Grade: C</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">Checkpoint average</td>
+    <td class="tg-0pky">≥ 80%</td>
+    <td class="tg-0pky">≥ 70%</td>
+    <td class="tg-0pky">≥ 60%</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Practice problems (PPs)</td>
+    <td class="tg-0pky">14 out of 16 points across all 8 PPs.<br>Must submit all 8 PPs.</td>
+    <td class="tg-0pky">12 out of 16 points across all 8 PPs.</td>
+    <td class="tg-0pky">10 out of 16 points across all 8 PPs.</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Quiz average</td>
+    <td class="tg-0pky">≥ 90%</td>
+    <td class="tg-0pky">≥ 80%</td>
+    <td class="tg-0pky">≥ 70%</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Project</td>
+    <td class="tg-0pky">Earn highest level (Excellent) on all 6 rubric categories</td>
+    <td class="tg-0pky">Earn highest level (Excellent) on all but 1 rubric category</td>
+    <td class="tg-0pky">Earn highest level (Excellent) on all but 2 rubric categories</td>
+  </tr>
+</tbody></table>
+<p>If your work for different course components falls under different letter grades, your final letter grade will be an “average” of the letter grades for the different components.</p>
+<pre><code>C  C  C  C --&gt; C
+C  C  C  B --&gt; C+
+C  C  C  A --&gt; C+
+C  C  B  B --&gt; B-
+C  C  B  A --&gt; B-
+C  C  A  A --&gt; B
+C  B  B  B --&gt; B-
+C  B  B  A --&gt; B
+C  B  A  A --&gt; B+
+C  A  A  A --&gt; B+
+B  B  B  B --&gt; B
+B  B  B  A --&gt; B+
+B  B  A  A --&gt; A-
+B  A  A  A --&gt; A-
+A  A  A  A --&gt; A</code></pre>
+<p><br><br><br><br></p>
+</section>
+</section>
+<section id="other-policies" class="level1">
+<h1>Other policies</h1>
+<section id="attendance" class="level2">
+<h2 class="anchored" data-anchor-id="attendance">Attendance</h2>
+<p>Attendance is not (directly) a part of your grade–I recognize that some students may learn more effectively when working through the material independently, and mandating attendance can create a barrier to accessibility. However, because this course is designed to be interactive and community-oriented, regular attendance will likely improve your experience and help you get the most out of the course (remember, that encompasses lots of intangibles and is more than just your final grade!).</p>
+<p>Note that I <em>will</em> still take attendance each class period–this is strictly for my own record-keeping and to ensure you are staying connected and have all have the resources you need to succeed. If you do miss class, I expect you to complete the in-class activity on your own. Check the solutions in the online manual and come to office hours with any follow-up questions.</p>
+</section>
+<section id="late-work" class="level2">
+<h2 class="anchored" data-anchor-id="late-work">Late work</h2>
+<p>Homework assignments will generally be due <strong>weekly on Fridays at 5pm</strong>.</p>
+<p>Throughout the semester, you may use up to <strong>three</strong> self-set extensions on practice problems. These three extensions can be used on practice problems only, not checkpoints or quizzes. The purpose of deadlines (and extensions) is to keep you accountable for your own learning, to keep you on track with the pace of the course (which builds upon itself throughout the semester), and to provide preceptors and myself the ability to give you timely feedback on assignments.</p>
+<p>In order to use an extension, you must email me (<a href="mailto:jcarls13@macalester.edu" class="email">jcarls13@macalester.edu</a>) <strong>before</strong> the practice problem deadline to inform me you plan to use an extension. In your email, please specify (1) that you are using an extension, and (2) your self-set deadline is for the assignment. You do not need to specify a reason. For example, you could say “I am using my second extension. I will have Practice Problems #7 in by 5:00pm two days from now.” Once you set your deadline, I expect you to stick to it. If you do not e-mail me prior to the practice problem deadline, the extension will not be counted, and your assignment will be counted as late. Late homework without prior communication receives no credit.</p>
+<p>If you have run out of extensions and/or an extenuating circumstance occurs that impacts your ability to submit assignments on time, please email me to discuss the situation. I am happy to be flexible as long as you communicate!</p>
+</section>
+<section id="religious-observance" class="level2">
+<h2 class="anchored" data-anchor-id="religious-observance">Religious Observance</h2>
+<p>Students may wish to take part in religious observances that occur during the semester. If you have a religious observance/practice that conflicts with your participation in the course, please contact me before the end of the second week of the semester to discuss appropriate accommodations.</p>
+<p>In an effort to respect religious diversity, I request that students who plan to observe a religious holiday that conflicts with class meetings or class requirements talk to me about reasonable consideration by the end of the second week of the course.</p>
+</section>
+<section id="academic-integrity" class="level2">
+<h2 class="anchored" data-anchor-id="academic-integrity">Academic integrity</h2>
+<p>Academic integrity is the cornerstone of our learning community. Students are expected to be familiar with the <a href="http://www.macalester.edu/academicprograms/academicpolicies/academicintegrity/">college’s standards</a> on academic integrity.</p>
+<p>I encourage you to work with your classmates to discuss material and ideas for assignments, but in order for you to receive individualized feedback on your own learning, you must submit your own work. This involves writing your own code and putting explanations into your own words. Always cite any sources you use, including AI (see section below).</p>
+</section>
+<section id="artificial-intelligence-ai-use" class="level2">
+<h2 class="anchored" data-anchor-id="artificial-intelligence-ai-use">Artificial Intelligence (AI) Use</h2>
+<p>Some of you may actively use (or be interested in using) Generative AI tools (ChatGPT, Google Gemini, Claude, etc.) to find/synthesize information or augment your writing/coding. Building literacy with how these tools work may be extremely important in your future for economic reasons (job skills) as well as cultural ones (meme skills).</p>
+<p>However, in an introductory course like this one, I <em>strongly discourage</em> the use of AI, for three main reasons:</p>
+<ol type="1">
+<li><p>We are learning the essentials of a new language and way of thinking. My mandate as an educator is to help build new neural networks <strong>in your own squishy, magnificent brains that cost $0, take up about 1.3 liters of space, and consume 20 watts of energy</strong>, not in a <a href="https://www.datacenterdynamics.com/en/opinions/is-microsoft-openais-5gw-stargate-supercomputer-feasible/">$100 billion, 1000-acre supercomputing cluster that consumes 5 gigawatts of energy</a>.</p></li>
+<li><p>I care much more about developing your ability to identify interesting problems, iteratively seek a solution, and convince the world that your solution works than I do about your ability to find answers that are already known (using AI or otherwise). Remember that “generative” AI is only capable of remixing existing information–it cannot <em>create</em> new knowledge, situate that knowledge in the context of your lived experience, or instigate change.</p></li>
+<li><p>In this course, I hope to emphasize the importance of <strong>process</strong> over <strong>output</strong>. Consider an analogy of a painting class at Macalester. You’re a novice painter, but you have a strong point of view and a solid understanding of context and tradition, so you decide to write an AI prompt to generate the artwork and translate it to physical media. After lots of wordsmithing and iterations on Midjourney, your AI-generated image ready. It’s provocative and beautiful…it will look even better on canvas! You get to work, admiring yourself for finishing faster than your classmates because you knew <em>exactly</em> what your final product would look like. You step back to admire your masterpiece, and realize it’s at best a paint-by-numbers, and at worst, complete garbage because you were so focused on crafting the perfect AI prompt that you didn’t really learn how to mix colors or use different brush techniques.</p></li>
+</ol>
+<p>Learning how to do something the “long” or “hard” way is beneficial not only for developing critical thinking skills, but because that process can be enriching and fulfilling in its own right. Though AI can (sometimes) put access to answers at your fingertips, it cannot replace the <em>physical, sensory, and emotional</em> experience of sketching out ideas on a whiteboard with friends, <a href="#drop-in-office-hours">stopping by your professor’s office for a donut</a>, or the satisfaction of knowing that you can do something hard from scratch.</p>
+<p>In addition, please be aware of the many technical limitations and ethical considerations of using AI:</p>
+<ul>
+<li>AI does not always generate accurate output. If it gives you a number, fact, or code, assume it is wrong unless you either know the answer or can check in with another source. AI works best for topics you already understand to a sufficient extent.</li>
+<li>If you provide minimum effort prompts, you will get low quality results. You will need to refine your prompts in order to get good outcomes. This will take work.</li>
+<li>Be thoughtful about when this tool is useful. Don’t use it if it isn’t appropriate for the case or circumstance.</li>
+<li>The environmental impact of AI should not be ignored. The building and usage of AI tools consumes a lot of energy (see <a href="https://www.nature.com/articles/s42256-020-0219-9">here</a> and <a href="https://www.cfr.org/blog/artificial-intelligences-environmental-costs-and-promise">here</a>). For this reason, we will be very thoughtful about when we use AI and will discuss other sustainability behaviors that we can incorporate into our lives to offset this usage.</li>
+</ul>
+<p>All of that being said, I cannot (nor do I want to) enforce my personal perspective on students who wish to use AI to enhance their learning. <strong>If you do choose to use AI</strong>, any ideas, language, or code that is produced by AI must be cited, just like any other resource. - <strong>How to cite AI:</strong> If you have used AI in any assignment, please include a paragraph at the end explaining what you used the AI for and what prompts you used to get the results. Failure to do so is in violation of the academic integrity policy at Macalester College.</p>
+<p>If you have any questions about your use of AI tools, please contact me to discuss them.</p>
+<p><br><br><br><br></p>
+</section>
+<section id="well-being" class="level2">
+<h2 class="anchored" data-anchor-id="well-being">Well-being</h2>
+<p>I want you to succeed. Both here at Macalester and beyond. To help make this happen, I am committed to the following.</p>
+<p><strong>Respect:</strong> Everyone comes from a different path through life, and it is our moral duty as human beings to listen to each other without judgment and to respect one another. I have no tolerance for discrimination of any kind, in and out of the classroom. If you are seeking campus resources regarding discrimination, the <a href="https://www.macalester.edu/multiculturallife/">Department of Multicultural Life</a> and the <a href="https://www.macalester.edu/religiouslife/">Center for Religious and Spiritual Life</a> are wonderful resources. We will also respect the <a href="https://docs.google.com/document/d/e/2PACX-1vSlLLWmyOf8WKGDKJ_qypgA_kQI1dNFGEKH0mtFoqfAUARZN7ypVCgivnmPjccks9jJzW1rgEzt7QMI/pub">MSCS Community Guidelines</a>.</p>
+<p><strong>Sensitive Topics:</strong> Applications in this course span issues in science, policy, and society. As such, we may sometimes address topics that are sensitive for you. I will try to announce in class if an assignment or activity involves a potentially sensitive topic. If you have reservations about a particular topic, please come talk to me to discuss possible options.</p>
+<p><strong>Accommodations:</strong> If you need accommodations for any reason, please contact <a href="https://www.macalester.edu/studentaffairs/disabilityservices/accommodations/">Disability Services</a> to discuss your needs, and speak with me as soon as possible afterwards so that we can discuss your accommodation plan. If you already have official accommodations, please discuss these with me within the first week of class so that you get off to a great start. Contact me if you have other special circumstances. I will find resources for you.</p>
+<p><strong>Title IX:</strong> You deserve a community free from discrimination, sexual harassment, hostility, sexual assault, domestic violence, dating violence, and stalking. If you or anyone you know has experienced harassment or discrimination, know that you are not alone. Macalester provides staff and resources to help you find support. <strong>Please be aware that as a faculty member, it is my responsibility to report disclosure about sexual harassment, sexual misconduct, relationship violence, and stalking to the Title IX Office.</strong> The purpose of this report is to ensure that anyone experiencing harm receives the resources and support they need. I will keep this information private, and it will not be shared beyond this required report.</p>
+<p>You may also contact Macalester’s Title IX Coordinator directly (phone: 651-696-6258; e-mail: titleixcordinator@macalester.edu); they will provide you with supportive measures, resources, and referrals. Additional information about how to file a report (including anonymously) is available on the <a href="https://www.macalester.edu/titleix/">Title IX website</a>.</p>
+<p><strong>General Health and Well-being:</strong> I care that you prioritize your well-being in this semester and beyond. Investing time into taking care of yourself will have profound impacts on all aspects of your life. Remember that beyond being a student, you are a human being carrying your own experiences, thoughts, emotions, and identities. It is important to acknowledge any stressors you may be facing, which can be mental, emotional, physical, cultural, financial, etc., and how they can have an impact on you. I encourage you to remember that you have a body with needs. In the classroom, eat when you are hungry, drink water, use the restroom, and step out if you are upset and need some air. Please do what is necessary so long as it does not impede your or others’ ability to be mentally and emotionally present in the course. Outside of the classroom, sleeping well, moving your body, and connecting with others can be strategies can help nourish you. If you are having difficulties maintaining your well-being, please don’t hesitate to contact me and/or find support from physical and mental health resources <a href="https://docs.google.com/document/d/1lz-ii5yze_OSkQJqz_7pap7fRjG81LJh0_saBniP-zg/edit">here</a>, <a href="https://docs.google.com/document/d/1iC-ykD8QJ-w2BVO1Gb0AobD-00Zq_8mznWR5C2mNiF0/edit?usp=sharing">here</a>, and <a href="https://www.macalester.edu/current-students/">here</a>.</p>
+</section>
+</section>
+<section id="guiding-values-course-manifesto" class="level1">
+<h1>Guiding Values / Course Manifesto</h1>
+<section id="you-belong-here" class="level2">
+<h2 class="anchored" data-anchor-id="you-belong-here">You belong here!</h2>
+<p>Statistics–like most other areas of science–has a long history of excluding and exploiting people from marginalized communities and identities. Many of the earliest statisticians in the 19th and 20th centuries used and abused statistics to justify <a href="https://nautil.us/how-eugenics-shaped-statistics-238014/">colonialism, ableism, classism, sexism, eugenics, and white supremacy</a>.</p>
+<p>On top of this, cultural norms around academic performance in quantitative disciplines can make courses like this one feel intimidating and exclusionary, rather than collaborative and interdisciplinary.</p>
+<p>To counter these problematic aspects of the field, my central goal as an instructor is to <strong>intentionally foster community and connectedness.</strong> I believe that your unique voices and perspectives in this class will enrich our collective learning process and, in turn, your college experience. I encourage you to get to know your classmates (<a href="#drop-in-office-hours">and me!</a>) beyond a superficial familiarity and connect over our shared interests, identities, and ideas. You can help cultivate that community by being thoughtful about the way you engage with others and stretching your comfort zone to interact with people who are outside of your established social circles.</p>
+</section>
+<section id="informed-skepticism" class="level2">
+<h2 class="anchored" data-anchor-id="informed-skepticism">Informed skepticism</h2>
+<p>In virtually all of contemporary Western science, statistical reasoning is foundational to establishing trust in scientific theories. However, it is shockingly common to come across results that are 1) not generalizable or cannot be replicated, 2) invalidated by honest coding/modeling mistakes, 3) based on deliberately cherry-picked models, or–in extreme cases–4) data that have been outright fabricated/falsified. Like in all aspects of life, trust in scientific claims must be earned.</p>
+<p>In this course and beyond, I encourage you to approach any statistical results you encounter with a healthy skepticism, informed by both your gut intuition and the material you’ve learned. Know that <a href="#mistakes-and-uncertainty-are-essential">you may be wrong</a> (counter-intuitive results are abundant!) but you should <strong>always</strong> feel empowered to respectfully and rigorously challenge statistical claims.</p>
+</section>
+<section id="a-commitment-to-ethical-deliberation-and-conduct" class="level2">
+<h2 class="anchored" data-anchor-id="a-commitment-to-ethical-deliberation-and-conduct">A commitment to ethical deliberation and conduct</h2>
+<p>Because statistics is a way to make sense of the world around us, it is also a way to influence it. This comes with an inherent responsibility to grapple with the ethical and sociopolitical dimensions of the content in this course. This includes delving into the context of how methods were developed, questioning assumptions, and considering the potential for misuse and misinterpretation. Throughout the course, you will be challenged to consider the broader impact of your work: How might your results and interpretations directly or indirectly affect the environment, specific individuals, or human culture &amp; society? Whose prior scientific contributions are you amplifying or ignoring? How do your assumptions and biases shape your scientific approach and communication?</p>
+</section>
+<section id="mistakes-and-uncertainty-are-essential" class="level2">
+<h2 class="anchored" data-anchor-id="mistakes-and-uncertainty-are-essential">Mistakes and uncertainty are essential</h2>
+<p>I expect that you and I will make lots of mistakes along the way in this course. Perhaps paradoxically, this is an important way to gain confidence: as we <em>make</em> mistakes, we will develop skills for <em>recognizing</em> and correcting them. These skills are <strong>vital</strong> for succeeding in STEM careers (and life in general). This course will provide a low-stakes environment for us to practice accountability, reflection, and troubleshooting when mistakes occur.</p>
+</section>
+<section id="context-before-content" class="level2">
+<h2 class="anchored" data-anchor-id="context-before-content">Context before content</h2>
+<p>Rigorous statistical reasoning demands that we understand the context of our data and our research questions before we run a model and obtain/interpret results. I also aim to be mindful of various other contexts that shape our learning experience: our individual identities/histories, the classroom environment, the campus climate, etc. Throughout the semester, we will create space to address and discuss whatever contexts might impact our ability to engage the material (and how they may even relate to the material!), whether it’s a flickering light in the classroom that’s distracting, a looming election, or anywhere in between.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Jedidiah Carlson, 2024<br> All content licensed under <img src="https://static.thenounproject.com/png/70967-200.png" height="20"> (<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>)</div>   
+    <div class="nav-footer-right">Site built with <a href="https://quarto.org/">Quarto</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

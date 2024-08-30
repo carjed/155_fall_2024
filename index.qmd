@@ -1,0 +1,214 @@
+---
+title: ""
+sidebar: false
+---
+
+# STAT 155: Introduction to Statistical Modeling
+
+Macalester College, Fall 2024
+
+<div style="font-size: 20px;">Learn the fundamentals of summarizing, visualizing, and modeling data to answer research questions.</div> <br>
+
+**Instructor:** [Jedidiah Carlson](https://jedidiahcarlson.com) <br>
+**Class meeting times:** 
+
+- **Section 05**: Tu/Th 1:20-2:50pm
+- **Section 06**: Tu/Th 3:00-4:30pm
+
+**Class location:** THEATR 202 <br>
+
+**Instructor drop-in hours:**
+
+- **location**: My office (OLRI 235)
+- **times**: See [this calendar](https://calendar.google.com/calendar/u/5?cid=Y19iZmU1MWU2MGYyY2U0MzQxZTY1MGE3YjUyNzI0NWUyNjRmMzg0MmQxNDVkNTY4NWMxNTEyMGVlNjM2MmQ5ZGEwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20) (Generally from **10am-12pm on Wednesdays** and **10am-11am on Thursdays**, but subject to change).
+- **1:1 appointments**: I'm also happy to meet one-on-one if my normal drop-in hours don't work for you. You can schedule a time to meet with me using [this link](https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0pNmQwIYzKQcogC3cRSjfg9gDZvzT8Bk_LqXnsmO8NYA0vRJBoz_wGl4IXfk3vxIreKIqA2vbW).
+
+## Course Schedule & Announcements
+
+::: {.callout-note icon=false collapse=false}
+
+### Week of 9/2
+
+#### Announcements
+
+Welcome (back) to campus!
+
+#### Tuesday
+
+Before class:
+
+- review the [course syllabus](syllabus.qmd) 
+- complete the [Introductions survey](https://forms.gle/mXYCQfrz7Qryk1vW8)
+- try [downloading R and RStudio](tech_setup.qmd)
+
+
+#### Thursday
+
+Before class:
+
+- [Download and familiarize yourself with R and RStudio](tech_setup.qmd)
+- Complete the [Introductions survey](https://forms.gle/mXYCQfrz7Qryk1vW8) (if you haven’t already!)
+- Complete today’s checkpoint on Moodle
+  - Do either the readings or videos for the Day 2 Activity (see Moodle for links)
+  - due 30 minutes before class on 9/5
+
+:::
+
+
+::: {.callout-note icon=false collapse=true}
+
+### Week of 9/9
+
+#### Announcements
+
+#### Tuesday
+
+#### Thursday
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+
+### Week of 9/16
+
+#### Announcements
+
+#### Tuesday
+
+#### Thursday
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+
+### Week of 9/23
+
+#### Announcements
+
+#### Tuesday
+
+#### Thursday
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+
+### Week of 9/30
+
+#### Announcements
+
+#### Tuesday
+
+#### Thursday
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+
+### Week of 10/7
+
+#### Announcements
+
+#### Tuesday
+
+#### Thursday
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+
+### Week of 10/14
+
+#### Announcements
+
+#### Tuesday
+
+#### Thursday
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+
+### Week of 10/21
+
+#### Announcements
+
+#### Tuesday
+
+#### Thursday
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+
+### Week of 10/28
+
+#### Announcements
+
+#### Tuesday
+
+#### Thursday
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+
+### Week of 11/4
+
+#### Announcements
+
+#### Tuesday
+
+#### Thursday
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+
+### Week of 11/11
+
+#### Announcements
+
+#### Tuesday
+
+#### Thursday
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+
+### Week of 11/25
+
+#### Announcements
+
+#### Tuesday
+
+#### Thursday
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+
+### Week of 12/2
+
+#### Announcements
+
+#### Tuesday
+
+#### Thursday
+
+:::
+
+::: {.callout-note icon=false collapse=true}
+
+### Last week + finals
+
+#### Announcements
+
+#### Tuesday
+
+#### Thursday
+
+:::
+
+If you find any typos, bugs, dead links, or have other questions, please email <jcarls13@macalester.edu>

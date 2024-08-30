@@ -1,0 +1,414 @@
+---
+title: "&#32;"
+sidebar: false
+---
+
+# STAT 155: Intro to Statistical Modeling
+
+Macalester College, Fall 2024
+
+- **Section 05**: Tu/Th 1:20-2:50pm, THTR 202
+- **Section 06**: Tu/Th 3:00-4:30pm, THTR 202
+
+## Your instructor
+
+<img src="https://www.macalester.edu/mscs/wp-content/uploads/sites/591/2024/08/Carlson_headshot-scaled-150x0-c-default.jpg" width="200" style="float: right; padding-right: 20px; padding-bottom: 20px;"/>
+
+**Jedidiah (Jed) Carlson, PhD**
+
+**Pronouns**: he/him
+
+**Pronunciation**: [listen here](https://namedrop.io/jedidiahcarlson) 
+
+**Office**: Olin-Rice 235
+
+**Website**: [https://jedidiahcarlson.com](https://jedidiahcarlson.com)
+
+**Email**: <jcarls13@macalester.edu>
+
+::: {.callout-note title="Call me \"Jed\""}
+You may call me (in order of my personal preference), *Jed*, *Professor Carlson*, or *Dr. Carlson*--but please use whichever of these options you are most comfortable with!
+:::
+
+
+**Drop-in (office) hours**:
+
+- **location**: My office (OLRI 235)
+- **times**: See [this calendar](https://calendar.google.com/calendar/u/5?cid=Y19iZmU1MWU2MGYyY2U0MzQxZTY1MGE3YjUyNzI0NWUyNjRmMzg0MmQxNDVkNTY4NWMxNTEyMGVlNjM2MmQ5ZGEwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20) (Generally from **10am-12pm on Wednesdays** and **10am-11am on Thursdays**, but subject to change).
+- **1:1 appointments**: I'm also happy to meet one-on-one if my normal drop-in hours don't work for you. You can schedule a time to meet with me using [this link](https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0pNmQwIYzKQcogC3cRSjfg9gDZvzT8Bk_LqXnsmO8NYA0vRJBoz_wGl4IXfk3vxIreKIqA2vbW).
+
+
+## Overview 
+
+This course provides an introduction to statistical modeling. In other words, you will develop the basic skills to **analyze data**, **test research hypotheses**, and **make predictions** about the world.  
+
+Being able to **summarize**, **interpret**, and **communicate** about data are crucial for navigating today's information landscape, and these are precisely the skills that we'll build in this class. Throughout the semester, we'll study the fundamental methods that statisticians use to extract knowledge from data, emphasizing statistical literacy & intuition, real data applications, and modern computing over memorizing facts and formulas. 
+
+### Learning goals
+
+By actively participating in this course, you will develop and/or strengthen your abilities to:
+
+-   **Visualize**: explore, understand, and describe patterns in data with plots and graphics
+
+-   **Model**: build, interpret, and evaluate statistical models to identify trends in data
+
+-   **Infer**: extend observations from sample data to draw conclusions and make predictions
+
+-   **Compute**: use the (free!) statistical software R to analyze real data and create reproducible reports
+
+-   **Contextualize**: interpret results in context, by considering the methods of data collection, the scientific and social contexts, and ethical dimensions
+
+-   **Communicate**: accurately describe methods and results in a way that is scientifically sound and widely accessible
+
+-   **Collaborate**: work productively and effectively in a group setting
+
+### Required resources
+
+#### Textbook
+
+There is no required textbook for this course. Throughout the course, readings may be assigned from these notes, or other sources. All links and materials needed will be provided on the [home page](index.qmd) of this website.
+
+The best resources for this course are course content videos, attending and participating in class / assignments, and office hours. I am happy to talk about possible additional materials / strategies for effective learning at any time throughout the semester!
+
+#### Statistical software
+
+We will use the (completely free and open source) R programming language extensively throughout this course. RStudio (an interface for R) will facilitate our use of R. You may use RStudio in one of two ways:
+
+1. Desktop version: Download for Windows or Mac at [https://posit.co/downloads/](https://posit.co/downloads/). Note: You first need to download and install R on your computer in order to use the desktop version of RStudio
+
+2. Online: Go to [https://rstudio.macalester.edu](https://rstudio.macalester.edu), and log in with your full Mac email address and your usual Mac password to get access. (Note that this is a shared resource across MSCS, and you may experience performance issues due to high traffic, server outages, etc.)
+
+More detailed instructions on downloading, installing, and getting started with R, RStudio, and an important package called Quarto is available on the [Tech Setup](tech_setup.qmd) tab.
+
+### What to expect in and out of class
+
+When taking a new course, figuring out the right workflow/cadence of effort throughout the week can be a big adjustment. And most of you are doing this for 4 different courses! Below are some suggestions for what to expect in the course and how to focus your time and attention during and outside of class.
+
+#### Outside of class
+
+**Pre-class videos/readings:** Some class periods will have required videos or reading to get acquainted with new concepts before seeing them again in class. My goal for these videos and readings is for you to get the most out of class time by being able to more easily follow explanations in class and to engage most fully in class activities. When there are required readings or videos, there will be an associated checkpoint to complete on Moodle (due 30 minutes before the start of the next class).
+
+::: {.callout-tip title="Suggestions"}
+- As you take notes on videos/readings, highlight or otherwise mark all the areas where you have questions. Gather up all of these questions in one place, and bring them to class with you.
+- Record any reflections from in-class time about your learning process or interactions with peers while they are still fresh.
+- After learning a new topic in class, it is helpful to attempt the upcoming assignment as soon as possible. Just by getting some rough ideas down quickly, you avoid the difficulty of starting from a blank slate.
+- Come to instructor and preceptor drop-in hours (office hours) to chat about the course or anything else!
+:::
+
+
+#### During class
+
+Class time will be a mix of interactive lecture and longer stretches of group work. During the lecture portion, I will pause explanation frequently to prompt a short exercise or ask questions that you'll reflect on individually or together.
+
+::: {.callout-tip title="Suggestions"}
+- As we review the material at the start of class and as you work on the class activity, reference your set of questions from the pre-class material. Have you made progress on addressing those questions? Who or what helped with improving your understanding, and how?
+:::
+
+<br><br><br><br>
+
+<br><br><br><br>
+
+# Communication
+
+## Course website
+
+All course materials will be posted on the [course website](https://carjed.github.io/155_fall_2024). The [home tab](index.qmd) of this website will contain information about due dates, in-class activities, and general day-to-day going-ons.
+
+## Moodle
+
+Moodle will be used to submit assignments/checkpoint quizzes, post grades, assignment feedback, announcements, and more. Please check the course Moodle page every day before class!
+
+## Email
+
+Please send any personal questions or administrative updates (e.g., attendance, accommodations) to me via email. **Please put "STAT 155" in the subject line of all emails** to help ensure that it does not get lost in my inbox!
+
+I will generally not respond to emails outside of business hours (9am-5pm M-F). Please **allow 1 business day for a response** (e.g. an email sent on Friday may not get a response until the following Monday). 
+
+Any urgent announcements (e.g. unexpected class cancellations, notice of modifications to assignments) will be made over email.
+
+## Drop-in (office) hours
+
+Office hours are an open-ended time for you to go over coursework, clarify concepts, solicit my ~~biased opinions~~ sage wisdom on career planning/graduate school, discuss research/internship opportunities, find resources you need, or chat about life in general. To encourage attendance at office hours, **there may be individual and/or collective incentives along the way and/or at the end of the semester**, depending on how well you utilize office hours (but please be respectful of your peers and do not monopolize this time).
+
+::: {.callout-note title="First time office hours user?"}
+If you are nervous about coming to office hours for the first time, I encourage you to **come with a friend!** (they don't even have to be enrolled in STAT 155!). You may also find it useful to come prepared with a specific question or topic you would like to discuss (some examples [here](https://studentlife.uoregon.edu/node/149)--and remember, it does not have to be about STAT 155 material!).
+:::
+
+## Preceptors
+
+We are supported by 9 preceptors across the 6 sections of STAT 155 this semester. All MSCS courses will also share a dedicated R preceptor (Kyle Suelflow), who can help with any issues you have with your R code or RStudio configuration. 
+
+Samina, Owen, and Rana will be the preceptors dedicated to grading practice problems in our section and will sometimes come to class to help with activities. Preceptor drop-in hours (office hours) will be shared across all sections of the course and posted on our [course homepage](index.qmd).
+
+- **Samina Stack**
+- **Owen Carr**
+- **Rana Rishmawi**
+- Ryan Mickelborough
+- Ilhaan Dhegadub
+- Julia Van Orman
+- Tanisha Dodla
+- Sydney Ohr
+- Lucas Nelson
+- Kyle Suelflow (R preceptor)
+
+In addition, the Macalester Academic Excellence (MAX) Center provides tutoring for STAT 155. Check out their [website](https://www.macalester.edu/max/science-quantitative-support/stats/) for more information and their tutoring schedule.
+
+
+<br><br><br><br>
+
+# Grading and feedback
+
+This course uses a non-traditional grading system, designed with the goals of aligning your grades with our course learning objectives, allowing space to make and learn from mistakes, and encouraging self-reflection. 
+
+## Assignments and assessments
+
+### Checkpoints
+
+For class days where some reading and/or videos are required beforehand, there will be a short multiple-choice Moodle checkpoint due 30 minutes before class starts (12:50pm for Section 05, and 2:30pm for Section 06).
+
+You can attempt a checkpoint quiz as many times as you want, but there is a 33% point deduction for each successive attempt on a question. For example, if your first attempt on a 1-point question is incorrect, the maximum possible score on that question is 0.67 points for the second attempt. On the third attempt, the maximum score is 0.33 points. No points are awarded for the 4th attempt and beyond.
+
+### Practice problems
+
+To practice concepts that we cover in class, there will be 8 weekly practice problems (PPs) due on Fridays at 5pm. (Note that if needed, extensions are possible---see the [late work policy](syllabus.qmd#late-work).)
+
+You will receive qualitative feedback on all questions on these practice problem sets. These assignments will receive on overall score on the following scale:
+
+- High pass: 2 points
+- Pass: 1 point
+- Needs improvement: 0 points
+
+**Showing growth:**  If, on a quiz, you demonstrate stronger understanding of the concepts that you missed on a PP, you have the chance to earn a higher score on the PP. Either via email or through an in-person conversation with the instructor, you must discuss how your understanding of the concept(s) changed from the PP to the quiz by addressing feedback from both the PP and the quiz. You can do this once for each quiz (excluding the final), and you can show improvement on multiple PPs using a single quiz.
+
+### Quizzes
+
+There will be 3 quizzes over the course of the semester.
+
+- Quiz 1: Thursday, 9/26. 1 hour in class.
+- Quiz 2: Thursday, 10/31. 1 hour in class. Will cover material from the first quiz to some extent because of the way that material in this course builds on earlier ideas.
+- Quiz 3: ~1.25 hours during our final exam slot. Will cover content from the whole course.
+
+Section 05: Saturday, 12/14 1:30-3:30pm. 
+Section 06: Monday, 12/16 1:30-3:30pm. 
+
+Each quiz question will be graded on the following scale:
+
+- 3 points: fully correct
+- 2 points: mostly correct with minor errors
+- 1 point: missing key understanding
+- 0 points: fully off target or blank
+
+Quiz format:
+
+- Fully pen/pencil and paper. You will not need to write code or use a calculator, but you will need to be able to read and interpret output from R code.
+- You are allowed to bring a 3x5 index card with notes written on both sides. Typing your notes and pasting them on the card is fine.
+
+**Showing growth:** You can earn up to 50% of missed points back on quizzes if you complete a quiz correction and reflection. You must:
+
+- Write a reflection of how you prepared for the quiz and where you felt strongest and more uncertain in your understanding before taking the quiz
+- Schedule a meeting with the instructor. During our conversation, you will correct your quiz responses and discuss the above reflection. You will get immediate feedback at this meeting. Use my [appointment booking link](https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0pNmQwIYzKQcogC3cRSjfg9gDZvzT8Bk_LqXnsmO8NYA0vRJBoz_wGl4IXfk3vxIreKIqA2vbW) to schedule this meeting.
+
+### Project
+
+The goal of the course project is to apply the data analysis skills from our course to investigate a research question in a dataset of your choosing. Through milestones over the course of the semester, you will make steady progress on your projects and iterate on feedback. Full details about the project will be available on the [Project page](project.qmd).
+
+
+## Course grading system
+
+In order to earn a given letter grade, **all** requirements listed under that column need to be met.
+
+```{=html}
+<style type="text/css">
+.tab-grading {
+    border-collapse: collapse;
+    border-spacing:0;
+}
+.tab-grading td {
+    border-color:black;
+    border-style:solid;
+    border-width:1px;
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break:normal;
+}
+.tab-grading th{
+    border-color:black;
+    border-style:solid;
+    border-width:1px;
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding:10px 5px;
+    word-break:normal;
+}
+.tab-grading .tg-0pky {
+    border-color:inherit;
+    text-align:left;
+    vertical-align:top
+}
+</style>
+<table class="tab-grading"><thead>
+  <tr>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky">Grade: A</th>
+    <th class="tg-0pky">Grade: B</th>
+    <th class="tg-0pky">Grade: C</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">Checkpoint average</td>
+    <td class="tg-0pky">≥ 80%</td>
+    <td class="tg-0pky">≥ 70%</td>
+    <td class="tg-0pky">≥ 60%</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Practice problems (PPs)</td>
+    <td class="tg-0pky">14 out of 16 points across all 8 PPs.<br>Must submit all 8 PPs.</td>
+    <td class="tg-0pky">12 out of 16 points across all 8 PPs.</td>
+    <td class="tg-0pky">10 out of 16 points across all 8 PPs.</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Quiz average</td>
+    <td class="tg-0pky">≥ 90%</td>
+    <td class="tg-0pky">≥ 80%</td>
+    <td class="tg-0pky">≥ 70%</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Project</td>
+    <td class="tg-0pky">Earn highest level (Excellent) on all 6 rubric categories</td>
+    <td class="tg-0pky">Earn highest level (Excellent) on all but 1 rubric category</td>
+    <td class="tg-0pky">Earn highest level (Excellent) on all but 2 rubric categories</td>
+  </tr>
+</tbody></table>
+```
+
+If your work for different course components falls under different letter grades, your final letter grade will be an "average" of the letter grades for the different components.
+
+```
+C  C  C  C --> C
+C  C  C  B --> C+
+C  C  C  A --> C+
+C  C  B  B --> B-
+C  C  B  A --> B-
+C  C  A  A --> B
+C  B  B  B --> B-
+C  B  B  A --> B
+C  B  A  A --> B+
+C  A  A  A --> B+
+B  B  B  B --> B
+B  B  B  A --> B+
+B  B  A  A --> A-
+B  A  A  A --> A-
+A  A  A  A --> A
+```
+
+
+<br><br><br><br>
+
+
+# Other policies
+
+## Attendance
+
+Attendance is not (directly) a part of your grade--I recognize that some students may learn more effectively when working through the material independently, and mandating attendance can create a barrier to accessibility. However, because this course is designed to be interactive and community-oriented, regular attendance will likely improve your experience and help you get the most out of the course (remember, that encompasses lots of intangibles and is more than just your final grade!).
+
+Note that I *will* still take attendance each class period--this is strictly for my own record-keeping and to ensure you are staying connected and have all have the resources you need to succeed. If you do miss class, I expect you to complete the in-class activity on your own. Check the solutions in the online manual and come to office hours with any follow-up questions.
+
+
+## Late work
+
+Homework assignments will generally be due **weekly on Fridays at 5pm**. 
+
+Throughout the semester, you may use up to **three** self-set extensions on practice problems. These three extensions can be used on practice problems only, not checkpoints or quizzes. The purpose of deadlines (and extensions) is to keep you accountable for your own learning, to keep you on track with the pace of the course (which builds upon itself throughout the semester), and to provide preceptors and myself the ability to give you timely feedback on assignments.
+
+In order to use an extension, you must email me (<jcarls13@macalester.edu>) **before** the practice problem deadline to inform me you plan to use an extension. In your email, please specify (1) that you are using an extension, and (2) your self-set deadline is for the assignment. You do not need to specify a reason. For example, you could say "I am using my second extension. I will have Practice Problems #7 in by 5:00pm two days from now." Once you set your deadline, I expect you to stick to it. If you do not e-mail me prior to the practice problem deadline, the extension will not be counted, and your assignment will be counted as late. Late homework without prior communication receives no credit.
+
+If you have run out of extensions and/or an extenuating circumstance occurs that impacts your ability to submit assignments on time, please email me to discuss the situation. I am happy to be flexible as long as you communicate!
+
+## Religious Observance
+
+Students may wish to take part in religious observances that occur during the semester. If you have a religious observance/practice that conflicts with your participation in the course, please contact me before the end of the second week of the semester to discuss appropriate accommodations.
+
+In an effort to respect religious diversity, I request that students who plan to observe a religious holiday that conflicts with class meetings or class requirements talk to me about reasonable consideration by the end of the second week of the course.
+
+## Academic integrity
+
+Academic integrity is the cornerstone of our learning community. Students are expected to be familiar with the [college's standards](http://www.macalester.edu/academicprograms/academicpolicies/academicintegrity/) on academic integrity.
+
+I encourage you to work with your classmates to discuss material and ideas for assignments, but in order for you to receive individualized feedback on your own learning, you must submit your own work. This involves writing your own code and putting explanations into your own words. Always cite any sources you use, including AI (see section below).
+
+## Artificial Intelligence (AI) Use
+
+Some of you may actively use (or be interested in using) Generative AI tools (ChatGPT, Google Gemini, Claude, etc.) to find/synthesize information or augment your writing/coding. Building literacy with how these tools work may be extremely important in your future for economic reasons (job skills) as well as cultural ones (meme skills).
+
+However, in an introductory course like this one, I *strongly discourage* the use of AI, for three main reasons:
+
+1. We are learning the essentials of a new language and way of thinking. My mandate as an educator is to help build new neural networks **in your own squishy, magnificent brains that cost $0, take up about 1.3 liters of space, and consume 20 watts of energy**, not in a [$100 billion, 1000-acre supercomputing cluster that consumes 5 gigawatts of energy](https://www.datacenterdynamics.com/en/opinions/is-microsoft-openais-5gw-stargate-supercomputer-feasible/).
+
+1. I care much more about developing your ability to identify interesting problems, iteratively seek a solution, and convince the world that your solution works than I do about your ability to find answers that are already known (using AI or otherwise). Remember that "generative" AI is only capable of remixing existing information--it cannot *create* new knowledge, situate that knowledge in the context of your lived experience, or instigate change.
+
+1. In this course, I hope to emphasize the importance of **process** over **output**. Consider an analogy of a painting class at Macalester. You're a novice painter, but you have a strong point of view and a solid understanding of context and tradition, so you decide to write an AI prompt to generate the artwork and translate it to physical media. After lots of wordsmithing and iterations on Midjourney, your AI-generated image ready. It's provocative and beautiful...it will look even better on canvas! You get to work, admiring yourself for finishing faster than your classmates because you knew *exactly* what your final product would look like. You step back to admire your masterpiece, and realize it's at best a paint-by-numbers, and at worst, complete garbage because you were so focused on crafting the perfect AI prompt that you didn't really learn how to mix colors or use different brush techniques.
+
+Learning how to do something the "long" or "hard" way is beneficial not only for developing critical thinking skills, but because that process can be enriching and fulfilling in its own right. Though AI can (sometimes) put access to answers at your fingertips, it cannot replace the *physical, sensory, and emotional* experience of sketching out ideas on a whiteboard with friends, [stopping by your professor's office for a donut](#drop-in-office-hours), or the satisfaction of knowing that you can do something hard from scratch.
+
+In addition, please be aware of the many technical limitations and ethical considerations of using AI:
+
+- AI does not always generate accurate output. If it gives you a number, fact, or code, assume it is wrong unless you either know the answer or can check in with another source. AI works best for topics you already understand to a sufficient extent.
+- If you provide minimum effort prompts, you will get low quality results. You will need to refine your prompts in order to get good outcomes. This will take work.
+- Be thoughtful about when this tool is useful. Don't use it if it isn't appropriate for the case or circumstance.
+- The environmental impact of AI should not be ignored. The building and usage of AI tools consumes a lot of energy (see [here](https://www.nature.com/articles/s42256-020-0219-9) and [here](https://www.cfr.org/blog/artificial-intelligences-environmental-costs-and-promise)). For this reason, we will be very thoughtful about when we use AI and will discuss other sustainability behaviors that we can incorporate into our lives to offset this usage.
+
+All of that being said, I cannot (nor do I want to) enforce my personal perspective on students who wish to use AI to enhance their learning. **If you do choose to use AI**, any ideas, language, or code that is produced by AI must be cited, just like any other resource.
+    - **How to cite AI:** If you have used AI in any assignment, please include a paragraph at the end explaining what you used the AI for and what prompts you used to get the results. Failure to do so is in violation of the academic integrity policy at Macalester College.
+
+If you have any questions about your use of AI tools, please contact me to discuss them.
+
+<br><br><br><br>
+
+## Well-being
+
+I want you to succeed. Both here at Macalester and beyond. To help make this happen, I am committed to the following.
+
+**Respect:** Everyone comes from a different path through life, and it is our moral duty as human beings to listen to each other without judgment and to respect one another. I have no tolerance for discrimination of any kind, in and out of the classroom. If you are seeking campus resources regarding discrimination, the [Department of Multicultural Life](https://www.macalester.edu/multiculturallife/) and the [Center for Religious and Spiritual Life](https://www.macalester.edu/religiouslife/) are wonderful resources. We will also respect the [MSCS Community Guidelines](https://docs.google.com/document/d/e/2PACX-1vSlLLWmyOf8WKGDKJ_qypgA_kQI1dNFGEKH0mtFoqfAUARZN7ypVCgivnmPjccks9jJzW1rgEzt7QMI/pub).
+
+**Sensitive Topics:** Applications in this course span issues in science, policy, and society. As such, we may sometimes address topics that are sensitive for you. I will try to announce in class if an assignment or activity involves a potentially sensitive topic. If you have reservations about a particular topic, please come talk to me to discuss possible options.
+
+**Accommodations:** If you need accommodations for any reason, please contact [Disability Services](https://www.macalester.edu/studentaffairs/disabilityservices/accommodations/) to discuss your needs, and speak with me as soon as possible afterwards so that we can discuss your accommodation plan. If you already have official accommodations, please discuss these with me within the first week of class so that you get off to a great start. Contact me if you have other special circumstances. I will find resources for you.
+
+**Title IX:** You deserve a community free from discrimination, sexual harassment, hostility, sexual assault, domestic violence, dating violence, and stalking. If you or anyone you know has experienced harassment or discrimination, know that you are not alone. Macalester provides staff and resources to help you find support.  **Please be aware that as a faculty member, it is my responsibility to report disclosure about sexual harassment, sexual misconduct, relationship violence, and stalking to the Title IX Office.** The purpose of this report is to ensure that anyone experiencing harm receives the resources and support they need. I will keep this information private, and it will not be shared beyond this required report. 
+
+You may also contact Macalester’s Title IX Coordinator directly (phone: 651-696-6258; e-mail: titleixcordinator@macalester.edu); they will provide you with supportive measures, resources, and referrals. Additional information about how to file a report (including anonymously) is available on the [Title IX website](https://www.macalester.edu/titleix/).
+
+**General Health and Well-being:** I care that you prioritize your well-being in this semester and beyond. Investing time into taking care of yourself will have profound impacts on all aspects of your life. Remember that beyond being a student, you are a human being carrying your own experiences, thoughts, emotions, and identities. It is important to acknowledge any stressors you may be facing, which can be mental, emotional, physical, cultural, financial, etc., and how they can have an impact on you. I encourage you to remember that you have a body with needs. In the classroom, eat when you are hungry, drink water, use the restroom, and step out if you are upset and need some air. Please do what is necessary so long as it does not impede your or others' ability to be mentally and emotionally present in the course. Outside of the classroom, sleeping well, moving your body, and connecting with others can be strategies can help nourish you. If you are having difficulties maintaining your well-being, please don't hesitate to contact me and/or find support from physical and mental health resources [here](https://docs.google.com/document/d/1lz-ii5yze_OSkQJqz_7pap7fRjG81LJh0_saBniP-zg/edit), [here](https://docs.google.com/document/d/1iC-ykD8QJ-w2BVO1Gb0AobD-00Zq_8mznWR5C2mNiF0/edit?usp=sharing), and [here](https://www.macalester.edu/current-students/).
+
+
+# Guiding Values / Course Manifesto
+
+## You belong here!
+
+Statistics--like most other areas of science--has a long history of excluding and exploiting people from marginalized communities and identities. Many of the earliest statisticians in the 19th and 20th centuries used and abused statistics to justify [colonialism, ableism, classism, sexism, eugenics, and white supremacy](https://nautil.us/how-eugenics-shaped-statistics-238014/).
+
+On top of this, cultural norms around academic performance in quantitative disciplines can make courses like this one feel intimidating and exclusionary, rather than collaborative and interdisciplinary.
+
+To counter these problematic aspects of the field, my central goal as an instructor is to **intentionally foster community and connectedness.** I believe that your unique voices and perspectives in this class will enrich our collective learning process and, in turn, your college experience. I encourage you to get to know your classmates ([and me!](#drop-in-office-hours)) beyond a superficial familiarity and connect over our shared interests, identities, and ideas. You can help cultivate that community by being thoughtful about the way you engage with others and stretching your comfort zone to interact with people who are outside of your established social circles.
+
+## Informed skepticism
+
+In virtually all of contemporary Western science, statistical reasoning is foundational to establishing trust in scientific theories. However, it is shockingly common to come across results that are 1) not generalizable or cannot be replicated, 2) invalidated by honest coding/modeling mistakes, 3) based on deliberately cherry-picked models, or--in extreme cases--4) data that have been outright fabricated/falsified. Like in all aspects of life, trust in scientific claims must be earned.
+
+In this course and beyond, I encourage you to approach any statistical results you encounter with a healthy skepticism, informed by both your gut intuition and the material you've learned. Know that [you may be wrong](#mistakes-and-uncertainty-are-essential) (counter-intuitive results are abundant!) but you should **always** feel empowered to respectfully and rigorously challenge statistical claims. 
+
+## A commitment to ethical deliberation and conduct
+
+Because statistics is a way to make sense of the world around us, it is also a way to influence it. This comes with an inherent responsibility to grapple with the ethical and sociopolitical dimensions of the content in this course. This includes delving into the context of how methods were developed, questioning assumptions, and considering the potential for misuse and misinterpretation. Throughout the course, you will be challenged to consider the broader impact of your work: How might your results and interpretations directly or indirectly affect the environment, specific individuals, or human culture & society? Whose prior scientific contributions are you amplifying or ignoring? How do your assumptions and biases shape your scientific approach and communication? 
+
+## Mistakes and uncertainty are essential
+
+I expect that you and I will make lots of mistakes along the way in this course. Perhaps paradoxically, this is an important way to gain confidence: as we *make* mistakes, we will develop skills for *recognizing* and correcting them. These skills are **vital** for succeeding in STEM careers (and life in general). This course will provide a low-stakes environment for us to practice accountability, reflection, and troubleshooting when mistakes occur.
+
+## Context before content
+
+Rigorous statistical reasoning demands that we understand the context of our data and our research questions before we run a model and obtain/interpret results. I also aim to be mindful of various other contexts that shape our learning experience: our individual identities/histories, the classroom environment, the campus climate, etc. Throughout the semester, we will create space to address and discuss whatever contexts might impact our ability to engage the material (and how they may even relate to the material!), whether it's a flickering light in the classroom that's distracting, a looming election, or anywhere in between.
