@@ -52,9 +52,7 @@ Optional: For a tour of RStudio features, watch this [video](https://www.youtube
 
 **Required:** Set essential RStudio options.
 
-Go to Edit > Preferences (or Settings...) > General
-
-Navigate to the "Workspace" section. You'll see 2 options:
+Go to Tools -> Global Options -> General -> Workplace. You'll see 2 options:
 
 - Restore `.RData` into workspace at startup: **Leave this unchecked**
 - Save workspace to `.RData` on exit: **Select "Never"**
