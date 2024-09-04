@@ -5,10 +5,7 @@ format:
   html:
     embed-resources: true
     toc: true
-eval: false
 ---
-
-Download the `.qmd` file for this activity [here](../activity_templates/02_foundations_univariate.qmd). For this and all future activities, you will download the `.qmd` file, open it in Rstudio, and use it to type your answers/code to the exercises and reflection on the in-class activities. 
 
 # Notes
 
@@ -76,7 +73,7 @@ c. What term do we use for the columns of the dataset?
 
 d. Try out each function below. Identify what each function tells you about the `abby` data and note this in the `???`:
 
-```{r explore1}
+```{r explore0}
 # ??? [what do both numbers mean?]
 dim(abby)
 
@@ -388,11 +385,3 @@ ggplot(weather, aes(x = raintoday)) +
 c. Check out the `ggplot2` [cheat sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf). Try making some of the other kinds of univariate plots outlined there.
 
 d. What else would you like to change about your plot? Try it!
-
-
-
-<br><br><br><br><br><br>
-
-
-
-[Solutions](../solutions/02_foundations_univariate.qmd)

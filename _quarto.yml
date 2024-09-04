@@ -2,9 +2,9 @@ project:
   type: website
   output-dir: docs
   render:
-    - "!activity_templates/"
-    - "!stat155/"
     - "*.qmd"
+    - "!activity_templates/"
+  post-render: "cp -r activity_templates docs/"
   resources:
     - "data/*.csv"
 
