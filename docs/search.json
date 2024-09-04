@@ -98,94 +98,146 @@
     "text": "Exercise 15: Customizing! (CHALLENGE)\n\n\n\n\nggplot(weather, aes(x = maxtemp)) + \n    geom_histogram() + \n    labs(x = \"Maximum temperature\", y = \"Number of days\", title = \"Distribution of max temperatures in Perth\")\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\nWarning: Removed 34 rows containing non-finite outside the scale range\n(`stat_bin()`).\n\n\n\n\n\n\n\n\n\n\n\n\n\n# Make the bars green\nggplot(weather, aes(x = raintoday)) + \n    geom_bar(fill = \"green\")"
   },
   {
-    "objectID": "assignments/pp1.html",
-    "href": "assignments/pp1.html",
-    "title": "Practice Problems 1",
+    "objectID": "tech_setup.html",
+    "href": "tech_setup.html",
+    "title": "Tech Setup",
     "section": "",
-    "text": "Due Friday, 9/13 at 5pm on Moodle.",
+    "text": "Follow these instructions to set up the software that we’ll be using throughout the semester. Even if you’ve already downloaded both R and RStudio, you’ll want to re-download to make sure that you have the most current versions.\n\nRequired: Change the default file download location for your internet browser.\n\nGenerally by default, internet browsers automatically save all files to the Downloads folder on your computer. This does not encourage good file organization practices. You need to change this option so that your browser asks you where to save each file before downloading it.\nThis page has information on how to do this for the most common browsers.\n\n\nRequired: Download R and RStudio.\n\nFIRST: Download R here.\n\nIn the top section, you will see three links “Download R for …”\nChoose the link that corresponds to your computer.\nAs of August 27, 2024, the latest version of R is 4.4.1 (“Race for Your Life”).\n\nSECOND: Download RStudio here.\n\nClick the button under step 2 to install the version of RStudio recommended for your computer.\nAs of August 27, 2024, the latest version of RStudio is 2024.04.2+764.\n\n\n\nSuggested: Watch this video describing key configuration options for RStudio.\n\nRequired: Install required packages.\n\nAn R package is an extra bit of functionality that will help us in our data analysis efforts in a variety of ways.\nOpen RStudio and click inside the Console pane (by default, the bottom left pane). Copy and paste the following command into the Console. You should see the text below appear to the right of the &gt;, which is called the R prompt. After you paste, hit Enter.\n\n\ninstall.packages(c(\"tidyverse\"))\n\n\nYou will see a lot of text from status messages appearing in the Console as the packages are being installed. Wait until you see the &gt; again.\nEnter the command library(tidyverse) and hit Enter.\nIf you see an error message, then there was a problem installing the package. Talk to the instructor or a preceptor for help.\nQuit RStudio. You’re done setting up!\n\n\nOptional: For a tour of RStudio features, watch this video. It also shows you how to customize the layout and color scheme of RStudio.\n\nRequired: Set essential RStudio options.\nGo to Tools -&gt; Global Options -&gt; General -&gt; Workplace. You’ll see 2 options:\n\nRestore .RData into workspace at startup: Leave this unchecked\nSave workspace to .RData on exit: Select “Never”\n\nWithout doing this RStudio will save and reload everything that you’ve been working on from the start of the semester. Since we’ll be working with new data each class, we want to keep our digital environment clean. Essentially, this is like an artist getting a clean canvas for each new painting rather than trying to paint all paintings on a single canvas."
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Week\nT\nTh\nHomework\n\n\n\n\n1 (9/2 - 9/6)\nFirst day\n01: Welcome and data fundamentals\n02: Univariate vizualization + summaries\n\n\n\n2 (9/9 - 9/13)\n03: SLR discovery day + Start 04\nReview 04: SLR formalization + 05: SLR model eval\nHomework 1 due Friday at 5pm\n\n\n3 (9/16 - 9/20)\n06: SLR transformations\n07: SLR categorical predictor + Library Activity\nHomework 2 due\n\n\n4 (9/23 - 9/27)\n08: MLR intro\nQuiz 1 (60 mins)\nOH/project work\n\n\n\n5 (9/30 - 10/4)\n09: MLR principles\n10: MLR confounding\nHomework 3 due\n\n\n6 (10/7 - 10/11)\n11: MLR interaction discovery + Start 12: MLR interaction practice\nReview 12: MLR interaction practice + 13: MLR Model Building 1\nHomework 4 due\nProject Checkpoint 1 due\n\n\n7 (10/14 - 10/18)\n14: MLR Model Building 2\nFALL BREAK \n\n\n\n8 (10/21 - 10/25)\n15+16\nMIDTERM GRADES (Wed)\n17: Multiple logistic, prediction, evaluation\nHomework 5 due\n\n\n9 (10/28 - 11/1)\n18: Tools for inference (sampling variation, sampling distributions)\nQuiz 2 (60 mins) + OH/project work\n\n\n\n\n10 (11/4 - 11/8)\nELECTION DAY \n19: Tools for inference (bootstrapping, normal distribution)\n20: Confidence intervals\nLAST DAY TO WITHDRAW (Fri)\nHomework 6 due\n\n\n11 (11/11 - 11/15)\n21: Hypothesis testing discovery + start 22: Hypothesis testing details\nReview 22 + 23: Hypothesis testing practice\nHomework 7 due\n\n\n12 (11/18 - 11/22)\n24: Hypothesis testing (F-test)\n25: ASA statement on p-values\nHomework 8 due\n\n\n13 (11/25 - 11/29)\nProject Time\nTHANKSGIVING\nProject Checkpoint 2 due\n(Tuesday at 5pm)\n\n\n14 (12/2 - 12/6)\nProject Time\nProject Time\n\n\n\n15 (12/9 - 12/13)\nLast Day of Class\nProject Paper Due, Presentations\nFinal Exam Period - \nQuiz 3"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT 155: Introduction to Statistical Modeling",
+    "section": "",
+    "text": "Macalester College, Fall 2024\n\nLearn the fundamentals of summarizing, visualizing, and modeling data to answer research questions.\n\n\nInstructor: Jedidiah Carlson  Class meeting times:\n\nSection 05: Tu/Th 1:20-2:50pm\nSection 06: Tu/Th 3:00-4:30pm\n\nClass location: THEATR 202 \nInstructor drop-in hours:\n\nlocation: My office (OLRI 235)\ntimes: See this calendar (Tentatively from 1-3pm on Wednesdays and 10am-11am on Thursdays, but subject to change based on responses to the introductions survey).\n1:1 appointments: I’m also happy to meet one-on-one if my normal drop-in hours don’t work for you. You can schedule a time to meet with me using this link.\n\n\n\n\n\n\n\n\n\nWeek of 9/2\n\n\n\n\n\n\n\nWelcome (back) to campus!\n\n\n\nBefore class:\n\nreview the course syllabus\ncomplete the Introductions survey\ntry downloading R and RStudio\n\n\n\n\nBefore class:\n\nDownload and familiarize yourself with R and RStudio\nComplete the Introductions survey (if you haven’t already!)\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 2 Activity (see Moodle for links)\ndue 30 minutes before class on 9/5\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 11/4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 11/11\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 11/25\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 12/2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLast week + finals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIf you find any typos, bugs, dead links, or have other questions, please email jcarls13@macalester.edu"
+  },
+  {
+    "objectID": "index.html#course-schedule-announcements",
+    "href": "index.html#course-schedule-announcements",
+    "title": "STAT 155: Introduction to Statistical Modeling",
+    "section": "",
+    "text": "Week of 9/2\n\n\n\n\n\n\n\nWelcome (back) to campus!\n\n\n\nBefore class:\n\nreview the course syllabus\ncomplete the Introductions survey\ntry downloading R and RStudio\n\n\n\n\nBefore class:\n\nDownload and familiarize yourself with R and RStudio\nComplete the Introductions survey (if you haven’t already!)\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 2 Activity (see Moodle for links)\ndue 30 minutes before class on 9/5\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 11/4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 11/11\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 11/25\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 12/2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLast week + finals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIf you find any typos, bugs, dead links, or have other questions, please email jcarls13@macalester.edu"
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html",
+    "href": "activities/01_foundations_welcome.html",
+    "title": "Collecting and Summarizing Data",
+    "section": "",
+    "text": "Welcome to our first in-class activity! Today we will collect and summarize some data. Our goals are to get to know the people in this class and to start working with data.\nBy the end of this lesson, you should be able to:\n\nDefine cases and variables\nApply the 5 W’s + H (who, what, when, where, why, and how) to data collection\n\nLinks to related reading(s):\n\nWhat is Data?\nData Context\n\nThis activity is structured a bit differently than the activities for the remainder of the class. In this section, you’ll typically find a mini-lecture, review material, or guided / structural examples, followed by exercises.\nFor today, you’ll have some steps to follow for an interactive, tactile activity at your tables before working through the exercises below together.\n\n\nAt your table, write a one to two word answer to each of the following 7 question(s), each on a separate post-it note (do this individually). If there are two questions: write your answer to the first question on the left-hand side of the post-it note, and your answer to the second question on the bottom of the post-it note.\n\nHow many hours of sleep did you get last night? How many cups of coffee did you drink this morning?\nWhat is your declared or potential major? (If you are a double major, just pick whichever one you think of first.)\nWhat is your class year? (first year, sophomore, junior, senior)\nHow many stats courses have you taken in the past?\nOn a scale of 1 (get me out of here) to 10 (yay!), how excited are you about this course?\nIs it your birthday this semester? (yes/no)\nHow many unread emails do you have in your inbox right now?\nHave you used R/RStudio a lot, a little, or never?\n\n\n\n\nDesignate one person from your table to distribute your group’s answers to the questions to the corresponding “station” around the classroom. Each table should have a number on it, corresponding to the “station”/question.\n\n\n\nFill out an electronic version of these questions. We’ll come back to this in a future class. Wait until everyone in your group is done with this before moving on to the exercises.",
     "crumbs": [
-      "Practice Problems 1"
+      "Collecting and Summarizing Data"
     ]
   },
   {
-    "objectID": "assignments/pp1.html#context",
-    "href": "assignments/pp1.html#context",
-    "title": "Practice Problems 1",
-    "section": "Context",
-    "text": "Context\nThis cartoon by Alison Bechdel inspired the “Bechdel test” (image source):\n\nA movie passes the test if it meets the following criteria:\n\nthere are at least 2 women-identifying characters;\n\nthese characters talk to each other at least 1 time; and\n\nthey talk about something other than a male-identifying character\n\nWe’ll work with the bechdel data within the fivethirtyeight package. You can enter ?bechdel in the Console to view the codebook.\n\n# Load the data\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(fivethirtyeight)\n\nSome larger datasets need to be installed separately, like senators and\nhouse_district_forecast. To install these, we recommend you install the\nfivethirtyeightdata package by running:\ninstall.packages('fivethirtyeightdata', repos =\n'https://fivethirtyeightdata.github.io/drat/', type = 'source')\n\ndata(bechdel)",
+    "objectID": "activities/01_foundations_welcome.html#step-1",
+    "href": "activities/01_foundations_welcome.html#step-1",
+    "title": "Collecting and Summarizing Data",
+    "section": "",
+    "text": "At your table, write a one to two word answer to each of the following 7 question(s), each on a separate post-it note (do this individually). If there are two questions: write your answer to the first question on the left-hand side of the post-it note, and your answer to the second question on the bottom of the post-it note.\n\nHow many hours of sleep did you get last night? How many cups of coffee did you drink this morning?\nWhat is your declared or potential major? (If you are a double major, just pick whichever one you think of first.)\nWhat is your class year? (first year, sophomore, junior, senior)\nHow many stats courses have you taken in the past?\nOn a scale of 1 (get me out of here) to 10 (yay!), how excited are you about this course?\nIs it your birthday this semester? (yes/no)\nHow many unread emails do you have in your inbox right now?\nHave you used R/RStudio a lot, a little, or never?",
     "crumbs": [
-      "Practice Problems 1"
+      "Collecting and Summarizing Data"
     ]
   },
   {
-    "objectID": "assignments/pp1.html#exercise-1-define-two-new-variables",
-    "href": "assignments/pp1.html#exercise-1-define-two-new-variables",
-    "title": "Practice Problems 1",
-    "section": "Exercise 1: Define two new variables",
-    "text": "Exercise 1: Define two new variables\nWe can use the mutate() function from dplyr to define new variables. For example:\n\n# Define a new variable which measures years_since_1900\nbechdel &lt;- bechdel %&gt;% \n    mutate(years_since_1900 = year - 1900)\n\n# Check it out / confirm it's right\nbechdel %&gt;% \n    select(year, years_since_1900) %&gt;% \n    head(3)\n\n# A tibble: 3 × 2\n   year years_since_1900\n  &lt;int&gt;            &lt;dbl&gt;\n1  2013              113\n2  2012              112\n3  2013              113\n\n\nYour turn. Define a new variable budget_mil which measures budget in MILLIONS of dollars (on the 2013 scale). Similarly, define a new variable intgross_mil which measures international gross in MILLIONS of dollars (on the 2013 scale). Store these in bechdel and confirm your results match those here:\n## # A tibble: 3 x 2\n##   budget_mil intgross_mil\n##        &lt;dbl&gt;        &lt;dbl&gt;\n## 1       13           42.2\n## 2       45.7         41.5\n## 3       20          159.",
+    "objectID": "activities/01_foundations_welcome.html#step-2",
+    "href": "activities/01_foundations_welcome.html#step-2",
+    "title": "Collecting and Summarizing Data",
+    "section": "",
+    "text": "Designate one person from your table to distribute your group’s answers to the questions to the corresponding “station” around the classroom. Each table should have a number on it, corresponding to the “station”/question.",
     "crumbs": [
-      "Practice Problems 1"
+      "Collecting and Summarizing Data"
     ]
   },
   {
-    "objectID": "assignments/pp1.html#exercise-2-get-to-know-the-data",
-    "href": "assignments/pp1.html#exercise-2-get-to-know-the-data",
-    "title": "Practice Problems 1",
-    "section": "Exercise 2: Get to know the data",
-    "text": "Exercise 2: Get to know the data\nComplete each task below using dim(), nrow(), head(), or one of the dplyr functions: filter(), summarize(), select(). For any questions about movie budget and gross earnings, use budget_mil and gross_mil. NOTE: You don’t need to write out any discussion for this exercise, just include your code and output.\n\n# How many films are in the dataset?\n\n# When was the oldest film in the dataset made?\n\n# When was the most recent film in the dataset made?\n\n# What is the median film budget in 2013 dollars?\n\n# What films had budgets that exceeded 300 million in 2013 dollars?\n# (Just show the films and budgets, not all variables)\n\n# What films were made in 1971?\n# (Just show the films and year, not all variables)\n\n# What were the budget_mil and intgross_mil values for \"Titanic\"?\n# (Just show the budget_mil and intgross_mil values)",
+    "objectID": "activities/01_foundations_welcome.html#step-3",
+    "href": "activities/01_foundations_welcome.html#step-3",
+    "title": "Collecting and Summarizing Data",
+    "section": "",
+    "text": "Fill out an electronic version of these questions. We’ll come back to this in a future class. Wait until everyone in your group is done with this before moving on to the exercises.",
     "crumbs": [
-      "Practice Problems 1"
+      "Collecting and Summarizing Data"
     ]
   },
   {
-    "objectID": "assignments/pp1.html#exercise-3-does-it-pass-the-bechdel",
-    "href": "assignments/pp1.html#exercise-3-does-it-pass-the-bechdel",
-    "title": "Practice Problems 1",
-    "section": "Exercise 3: Does it pass the Bechdel?",
-    "text": "Exercise 3: Does it pass the Bechdel?\nThe clean_test variable records the Bechdel category into which each movie falls. From worst to best (if you care about the representation of women in film):\n\nnowomen = there are no significant women characters in the film\nnotalk = there are women characters but they don’t talk to one another\nmen = there are women characters that talk to one another but they only talk about men\ndubious = barely passes the Bechdel test\nok = passes the Bechdel test\n\nConstruct a visualization of the clean_test variable, and construct a corresponding table of counts. In one sentence, summarize your findings about clean_test as if you were writing a newspaper article about movies.",
+    "objectID": "activities/01_foundations_welcome.html#exercise-1",
+    "href": "activities/01_foundations_welcome.html#exercise-1",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nWith your group, in no more than two sentences per question, respond to the questions posed by the 5 W’s + H for the data at your group’s table. If you need a refresher on the 5 W’s + H, check out the related readings posted at the top of this activity!\nWho\n\nResponse: Type your response here.\n\nWhat\n\nResponse: Type your response here.\n\nWhen\n\nResponse: Type your response here.\n\nWhere\n\nResponse: Type your response here.\n\nWhy\n\nResponse: Type your response here.\n\nHow\n\nResponse: Type your response here.",
     "crumbs": [
-      "Practice Problems 1"
+      "Collecting and Summarizing Data"
     ]
   },
   {
-    "objectID": "assignments/pp1.html#exercise-4-how-much-money-did-it-make",
-    "href": "assignments/pp1.html#exercise-4-how-much-money-did-it-make",
-    "title": "Practice Problems 1",
-    "section": "Exercise 4: How much money did it make?",
-    "text": "Exercise 4: How much money did it make?\nThe intgross_mil variable records each movie’s total international gross, in millions of dollars (and adjusted to 2013).\n\nConstruct a visualization of the intgross_mil variable. Summarize your findings as if you were writing a newspaper article about movies.\nCalculate the mean and median values of intgross_mil. Explain why the mean exceeds the median by quite a bit and which is the more appropriate measure of trend here.\n\nNOTE: Since some films are missing information on intgross_mil, you’ll need to use mean(___, na.rm = TRUE) where na.rm = TRUE says to remove the NA (missing) values from the calculation. Similarly for the median.\n\nCalculate the standard deviations for the intgross_mil and budget_mil variables. Comment on whether there’s more variability among how much money is spent making movies (budgets) or how much money a movie makes (grosses)?",
+    "objectID": "activities/01_foundations_welcome.html#exercise-2",
+    "href": "activities/01_foundations_welcome.html#exercise-2",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nMove the post-it notes around to construct a visualization of the responses at your station.",
     "crumbs": [
-      "Practice Problems 1"
+      "Collecting and Summarizing Data"
     ]
   },
   {
-    "objectID": "assignments/pp1.html#exercise-5-explaining-intgross_mil",
-    "href": "assignments/pp1.html#exercise-5-explaining-intgross_mil",
-    "title": "Practice Problems 1",
-    "section": "Exercise 5: Explaining intgross_mil",
-    "text": "Exercise 5: Explaining intgross_mil\nNext, let’s try to explain some of the variability in how much money films gross. To this end, we’ll focus on modeling intgross_mil by budget_mil. That is, to what extent is the money a film makes related to its budget?\n\nIn the relationship between intgross_mil and budget_mil, which is the response variable?\nConstruct a visualization of the relationship between intgross_mil and budget_mil. Include a regression line that represents the trend in this relationship.\nIn 1-3 sentences, summarize your findings about this relationship as if you were writing a newspaper article about movies. Be sure to comment on both the trend and variability in this relationship.",
+    "objectID": "activities/01_foundations_welcome.html#exercise-3",
+    "href": "activities/01_foundations_welcome.html#exercise-3",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nCalculate at least one numerical summary of the post-it note responses at your station, and record your numerical summary in the response text below. Write a complete sentence, not just the numerical summary alone! This is good practice for summarizing data in more formal writing.\n\nResponse: Type your response here.",
     "crumbs": [
-      "Practice Problems 1"
+      "Collecting and Summarizing Data"
     ]
   },
   {
-    "objectID": "assignments/pp1.html#exercise-6-modeling-intgross_mil",
-    "href": "assignments/pp1.html#exercise-6-modeling-intgross_mil",
-    "title": "Practice Problems 1",
-    "section": "Exercise 6: Modeling intgross_mil",
-    "text": "Exercise 6: Modeling intgross_mil\nLet’s examine the relationship between intgross_mil and budget_mil in more detail.\n\nUse lm() to construct a linear regression model of the trend in the relationship between intgross_mil and budget_mil. Store this as movie_model and report a model summary table.\nWrite out a formula for the trend.\nProvide a newspaper appropriate interpretation of the budget_mil coefficient. Make sure to use non-causal language, include units, and talk about averages rather than individual cases.\nDoes it make sense to interpret the intercept in this model? Explain.",
+    "objectID": "activities/01_foundations_welcome.html#exercise-4",
+    "href": "activities/01_foundations_welcome.html#exercise-4",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nIn no more than three sentences, describe what you learn about from the visual and numerical summaries. Try to write your description in a way that tells an interesting story about the people in this class.\n\nResponse: Type your response here.",
     "crumbs": [
-      "Practice Problems 1"
+      "Collecting and Summarizing Data"
     ]
   },
   {
-    "objectID": "assignments/pp1.html#exercise-7-predictions-and-residuals",
-    "href": "assignments/pp1.html#exercise-7-predictions-and-residuals",
-    "title": "Practice Problems 1",
-    "section": "Exercise 7: Predictions and residuals",
-    "text": "Exercise 7: Predictions and residuals\n\nIn exercise 2 you identified the budget (budget_mil) for the movie Titanic. Use the model formula above to predict its international gross. You can check your work using the predict() function. This provides a more accurate prediction (it doesn’t round the model coefficients) so don’t worry if your calculation doesn’t exactly match.\n\n\npredict(___, newdata = data.frame(budget_mil = ___))\n\n\nCalculate the Titanic residual. HINT: You’ll need to use the observed intgross_mil value from exercise 2.\nBased on your calculation in part b, did the model over- or under-estimate Titanic’s gross?",
+    "objectID": "activities/01_foundations_welcome.html#exercise-5",
+    "href": "activities/01_foundations_welcome.html#exercise-5",
+    "title": "Collecting and Summarizing Data",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nImagine that you took all the post-it notes in this room and organized them into a spreadsheet. What would each row in the underlying data set represent? What would each column of the data set represent? Check out the first related reading, linked at the top of this activity, if you need assistance!\n\nResponse: Type your response here.",
     "crumbs": [
-      "Practice Problems 1"
+      "Collecting and Summarizing Data"
     ]
+  },
+  {
+    "objectID": "activities/01_foundations_welcome.html#reflection",
+    "href": "activities/01_foundations_welcome.html#reflection",
+    "title": "Collecting and Summarizing Data",
+    "section": "Reflection",
+    "text": "Reflection\nIn three to four sentences, reflect upon today’s activity. Some reflection prompts are found below:\n\nDo you think the context in which the data was collected influenced the results you found?\nWho would the numerical summaries you calculated potentially be represented of? Could you generalize the information you learned to a broader population (all students at Mac, perhaps), or would you have ethical concerns with generalizing your results?\nWhat (if anything) surprised you about the numerical summaries calculated by your group, or other groups?\nDid your data visualization help you better understand, or discover new things about the data that otherwise would have been difficult to distinguish? Why or why not?\n\n\nResponse: Type your response here.",
+    "crumbs": [
+      "Collecting and Summarizing Data"
+    ]
+  },
+  {
+    "objectID": "assignments.html",
+    "href": "assignments.html",
+    "title": "Practice Problems",
+    "section": "",
+    "text": "…due Fridays at 5pm Central on Moodle!\n\nPractice Problems 1, due 9/13\nPractice Problems 2, due 9/20\nPractice Problems 3, due 10/4\nPractice Problems 4, due 10/11\nPractice Problems 5, due 10/25\nPractice Problems 6, due 11/8\nPractice Problems 7, due 11/15\nPractice Problems 8, due 11/22"
+  },
+  {
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Project",
+    "section": "",
+    "text": "As noted in the syllabus, a detailed description of the group project can be found here. Important dates and additional information are listed below.\n\nImportant Dates\nDetails coming soon!\n\n\nGrading\nThe final draft will be graded using the rubric found here. Although the first two checkpoints will not directly contribute to your course grade, the feedback they allow me to provide will ensure the success of your final draft!\n\n\nResources\nLater in the semester, I will post at least one example of a successful final draft, as well as a google doc template for the final draft.\n\n\nProject Groups\nProject groups will ultimately be determined by me, with the assistance of a Project Group Preferences survey. The survey will be sent out early in the semester (exact date TBD) and will allow you to either list people you would like to be in a group with or specify that you would like to be placed in a group randomly by me. I will do my best to ensure that groups are constructed as closely to survey responses as possible. Since one component of the project involves an in-class presentation, you may not work with students in different sections on the project.\nIf for any reason there is an individual (or individuals) with whom you do not feel safe participating in a project group with, there will be a space to note this on the survey. You will not be expected to provide any justification for your response to this question, but note that as I need to place you in groups, the survey will not be anonymous.\nGroup work and collaboration are important components of nearly all statistical analyses and projects. I recognize that individual contributions to a group project are not always consistent between group members. To this end, you will (as a group) be expected to explicitly specify the project tasks completed by each team member along with the final draft of your paper.\nIf there are any concerns with project groups throughout the semester, I am happy to meet with groups or individuals to discuss ways to move forward."
   },
   {
     "objectID": "syllabus.html",
@@ -333,141 +385,6 @@
     "title": " ",
     "section": "Context before content",
     "text": "Context before content\nRigorous statistical reasoning demands that we understand the context of our data and our research questions before we run a model and obtain/interpret results. I also aim to be mindful of various other contexts that shape our learning experience: our individual identities/histories, the classroom environment, the campus climate, etc. Throughout the semester, we will create space to address and discuss whatever contexts might impact our ability to engage the material (and how they may even relate to the material!), whether it’s a flickering light in the classroom that’s distracting, a looming election, or anywhere in between."
-  },
-  {
-    "objectID": "project.html",
-    "href": "project.html",
-    "title": "Project",
-    "section": "",
-    "text": "As noted in the syllabus, a detailed description of the group project can be found here. Important dates and additional information are listed below.\n\nImportant Dates\nDetails coming soon!\n\n\nGrading\nThe final draft will be graded using the rubric found here. Although the first two checkpoints will not directly contribute to your course grade, the feedback they allow me to provide will ensure the success of your final draft!\n\n\nResources\nLater in the semester, I will post at least one example of a successful final draft, as well as a google doc template for the final draft.\n\n\nProject Groups\nProject groups will ultimately be determined by me, with the assistance of a Project Group Preferences survey. The survey will be sent out early in the semester (exact date TBD) and will allow you to either list people you would like to be in a group with or specify that you would like to be placed in a group randomly by me. I will do my best to ensure that groups are constructed as closely to survey responses as possible. Since one component of the project involves an in-class presentation, you may not work with students in different sections on the project.\nIf for any reason there is an individual (or individuals) with whom you do not feel safe participating in a project group with, there will be a space to note this on the survey. You will not be expected to provide any justification for your response to this question, but note that as I need to place you in groups, the survey will not be anonymous.\nGroup work and collaboration are important components of nearly all statistical analyses and projects. I recognize that individual contributions to a group project are not always consistent between group members. To this end, you will (as a group) be expected to explicitly specify the project tasks completed by each team member along with the final draft of your paper.\nIf there are any concerns with project groups throughout the semester, I am happy to meet with groups or individuals to discuss ways to move forward."
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html",
-    "href": "activities/01_foundations_welcome.html",
-    "title": "Collecting and Summarizing Data",
-    "section": "",
-    "text": "Welcome to our first in-class activity! Today we will collect and summarize some data. Our goals are to get to know the people in this class and to start working with data.\nBy the end of this lesson, you should be able to:\n\nDefine cases and variables\nApply the 5 W’s + H (who, what, when, where, why, and how) to data collection\n\nLinks to related reading(s):\n\nWhat is Data?\nData Context\n\nThis activity is structured a bit differently than the activities for the remainder of the class. In this section, you’ll typically find a mini-lecture, review material, or guided / structural examples, followed by exercises.\nFor today, you’ll have some steps to follow for an interactive, tactile activity at your tables before working through the exercises below together.\n\n\nAt your table, write a one to two word answer to each of the following 7 question(s), each on a separate post-it note (do this individually). If there are two questions: write your answer to the first question on the left-hand side of the post-it note, and your answer to the second question on the bottom of the post-it note.\n\nHow many hours of sleep did you get last night? How many cups of coffee did you drink this morning?\nWhat is your declared or potential major? (If you are a double major, just pick whichever one you think of first.)\nWhat is your class year? (first year, sophomore, junior, senior)\nHow many stats courses have you taken in the past?\nOn a scale of 1 (get me out of here) to 10 (yay!), how excited are you about this course?\nIs it your birthday this semester? (yes/no)\nHow many unread emails do you have in your inbox right now?\nHave you used R/RStudio a lot, a little, or never?\n\n\n\n\nDesignate one person from your table to distribute your group’s answers to the questions to the corresponding “station” around the classroom. Each table should have a number on it, corresponding to the “station”/question.\n\n\n\nFill out an electronic version of these questions. We’ll come back to this in a future class. Wait until everyone in your group is done with this before moving on to the exercises.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#step-1",
-    "href": "activities/01_foundations_welcome.html#step-1",
-    "title": "Collecting and Summarizing Data",
-    "section": "",
-    "text": "At your table, write a one to two word answer to each of the following 7 question(s), each on a separate post-it note (do this individually). If there are two questions: write your answer to the first question on the left-hand side of the post-it note, and your answer to the second question on the bottom of the post-it note.\n\nHow many hours of sleep did you get last night? How many cups of coffee did you drink this morning?\nWhat is your declared or potential major? (If you are a double major, just pick whichever one you think of first.)\nWhat is your class year? (first year, sophomore, junior, senior)\nHow many stats courses have you taken in the past?\nOn a scale of 1 (get me out of here) to 10 (yay!), how excited are you about this course?\nIs it your birthday this semester? (yes/no)\nHow many unread emails do you have in your inbox right now?\nHave you used R/RStudio a lot, a little, or never?",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#step-2",
-    "href": "activities/01_foundations_welcome.html#step-2",
-    "title": "Collecting and Summarizing Data",
-    "section": "",
-    "text": "Designate one person from your table to distribute your group’s answers to the questions to the corresponding “station” around the classroom. Each table should have a number on it, corresponding to the “station”/question.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#step-3",
-    "href": "activities/01_foundations_welcome.html#step-3",
-    "title": "Collecting and Summarizing Data",
-    "section": "",
-    "text": "Fill out an electronic version of these questions. We’ll come back to this in a future class. Wait until everyone in your group is done with this before moving on to the exercises.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-1",
-    "href": "activities/01_foundations_welcome.html#exercise-1",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nWith your group, in no more than two sentences per question, respond to the questions posed by the 5 W’s + H for the data at your group’s table. If you need a refresher on the 5 W’s + H, check out the related readings posted at the top of this activity!\nWho\n\nResponse: Type your response here.\n\nWhat\n\nResponse: Type your response here.\n\nWhen\n\nResponse: Type your response here.\n\nWhere\n\nResponse: Type your response here.\n\nWhy\n\nResponse: Type your response here.\n\nHow\n\nResponse: Type your response here.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-2",
-    "href": "activities/01_foundations_welcome.html#exercise-2",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nMove the post-it notes around to construct a visualization of the responses at your station.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-3",
-    "href": "activities/01_foundations_welcome.html#exercise-3",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nCalculate at least one numerical summary of the post-it note responses at your station, and record your numerical summary in the response text below. Write a complete sentence, not just the numerical summary alone! This is good practice for summarizing data in more formal writing.\n\nResponse: Type your response here.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-4",
-    "href": "activities/01_foundations_welcome.html#exercise-4",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nIn no more than three sentences, describe what you learn about from the visual and numerical summaries. Try to write your description in a way that tells an interesting story about the people in this class.\n\nResponse: Type your response here.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#exercise-5",
-    "href": "activities/01_foundations_welcome.html#exercise-5",
-    "title": "Collecting and Summarizing Data",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nImagine that you took all the post-it notes in this room and organized them into a spreadsheet. What would each row in the underlying data set represent? What would each column of the data set represent? Check out the first related reading, linked at the top of this activity, if you need assistance!\n\nResponse: Type your response here.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "activities/01_foundations_welcome.html#reflection",
-    "href": "activities/01_foundations_welcome.html#reflection",
-    "title": "Collecting and Summarizing Data",
-    "section": "Reflection",
-    "text": "Reflection\nIn three to four sentences, reflect upon today’s activity. Some reflection prompts are found below:\n\nDo you think the context in which the data was collected influenced the results you found?\nWho would the numerical summaries you calculated potentially be represented of? Could you generalize the information you learned to a broader population (all students at Mac, perhaps), or would you have ethical concerns with generalizing your results?\nWhat (if anything) surprised you about the numerical summaries calculated by your group, or other groups?\nDid your data visualization help you better understand, or discover new things about the data that otherwise would have been difficult to distinguish? Why or why not?\n\n\nResponse: Type your response here.",
-    "crumbs": [
-      "Collecting and Summarizing Data"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STAT 155: Introduction to Statistical Modeling",
-    "section": "",
-    "text": "Macalester College, Fall 2024\n\nLearn the fundamentals of summarizing, visualizing, and modeling data to answer research questions.\n\n\nInstructor: Jedidiah Carlson  Class meeting times:\n\nSection 05: Tu/Th 1:20-2:50pm\nSection 06: Tu/Th 3:00-4:30pm\n\nClass location: THEATR 202 \nInstructor drop-in hours:\n\nlocation: My office (OLRI 235)\ntimes: See this calendar (Tentatively from 1-3pm on Wednesdays and 10am-11am on Thursdays, but subject to change based on responses to the introductions survey).\n1:1 appointments: I’m also happy to meet one-on-one if my normal drop-in hours don’t work for you. You can schedule a time to meet with me using this link.\n\n\n\n\n\n\n\n\n\nWeek of 9/2\n\n\n\n\n\n\n\nWelcome (back) to campus!\n\n\n\nBefore class:\n\nreview the course syllabus\ncomplete the Introductions survey\ntry downloading R and RStudio\n\n\n\n\nBefore class:\n\nDownload and familiarize yourself with R and RStudio\nComplete the Introductions survey (if you haven’t already!)\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 2 Activity (see Moodle for links)\ndue 30 minutes before class on 9/5\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 11/4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 11/11\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 11/25\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 12/2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLast week + finals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIf you find any typos, bugs, dead links, or have other questions, please email jcarls13@macalester.edu"
-  },
-  {
-    "objectID": "index.html#course-schedule-announcements",
-    "href": "index.html#course-schedule-announcements",
-    "title": "STAT 155: Introduction to Statistical Modeling",
-    "section": "",
-    "text": "Week of 9/2\n\n\n\n\n\n\n\nWelcome (back) to campus!\n\n\n\nBefore class:\n\nreview the course syllabus\ncomplete the Introductions survey\ntry downloading R and RStudio\n\n\n\n\nBefore class:\n\nDownload and familiarize yourself with R and RStudio\nComplete the Introductions survey (if you haven’t already!)\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 2 Activity (see Moodle for links)\ndue 30 minutes before class on 9/5\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/9\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/16\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 9/30\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/7\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 10/28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 11/4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 11/11\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 11/25\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek of 12/2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLast week + finals\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIf you find any typos, bugs, dead links, or have other questions, please email jcarls13@macalester.edu"
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "Week\nT\nTh\nHomework\n\n\n\n\n1 (9/2 - 9/6)\nFirst day\n01: Welcome and data fundamentals\n02: Univariate vizualization + summaries\n\n\n\n2 (9/9 - 9/13)\n03: SLR discovery day + Start 04\nReview 04: SLR formalization + 05: SLR model eval\nHomework 1 due Friday at 5pm\n\n\n3 (9/16 - 9/20)\n06: SLR transformations\n07: SLR categorical predictor + Library Activity\nHomework 2 due\n\n\n4 (9/23 - 9/27)\n08: MLR intro\nQuiz 1 (60 mins)\nOH/project work\n\n\n\n5 (9/30 - 10/4)\n09: MLR principles\n10: MLR confounding\nHomework 3 due\n\n\n6 (10/7 - 10/11)\n11: MLR interaction discovery + Start 12: MLR interaction practice\nReview 12: MLR interaction practice + 13: MLR Model Building 1\nHomework 4 due\nProject Checkpoint 1 due\n\n\n7 (10/14 - 10/18)\n14: MLR Model Building 2\nFALL BREAK \n\n\n\n8 (10/21 - 10/25)\n15+16\nMIDTERM GRADES (Wed)\n17: Multiple logistic, prediction, evaluation\nHomework 5 due\n\n\n9 (10/28 - 11/1)\n18: Tools for inference (sampling variation, sampling distributions)\nQuiz 2 (60 mins) + OH/project work\n\n\n\n\n10 (11/4 - 11/8)\nELECTION DAY \n19: Tools for inference (bootstrapping, normal distribution)\n20: Confidence intervals\nLAST DAY TO WITHDRAW (Fri)\nHomework 6 due\n\n\n11 (11/11 - 11/15)\n21: Hypothesis testing discovery + start 22: Hypothesis testing details\nReview 22 + 23: Hypothesis testing practice\nHomework 7 due\n\n\n12 (11/18 - 11/22)\n24: Hypothesis testing (F-test)\n25: ASA statement on p-values\nHomework 8 due\n\n\n13 (11/25 - 11/29)\nProject Time\nTHANKSGIVING\nProject Checkpoint 2 due\n(Tuesday at 5pm)\n\n\n14 (12/2 - 12/6)\nProject Time\nProject Time\n\n\n\n15 (12/9 - 12/13)\nLast Day of Class\nProject Paper Due, Presentations\nFinal Exam Period - \nQuiz 3"
-  },
-  {
-    "objectID": "tech_setup.html",
-    "href": "tech_setup.html",
-    "title": "Tech Setup",
-    "section": "",
-    "text": "Follow these instructions to set up the software that we’ll be using throughout the semester. Even if you’ve already downloaded both R and RStudio, you’ll want to re-download to make sure that you have the most current versions.\n\nRequired: Change the default file download location for your internet browser.\n\nGenerally by default, internet browsers automatically save all files to the Downloads folder on your computer. This does not encourage good file organization practices. You need to change this option so that your browser asks you where to save each file before downloading it.\nThis page has information on how to do this for the most common browsers.\n\n\nRequired: Download R and RStudio.\n\nFIRST: Download R here.\n\nIn the top section, you will see three links “Download R for …”\nChoose the link that corresponds to your computer.\nAs of August 27, 2024, the latest version of R is 4.4.1 (“Race for Your Life”).\n\nSECOND: Download RStudio here.\n\nClick the button under step 2 to install the version of RStudio recommended for your computer.\nAs of August 27, 2024, the latest version of RStudio is 2024.04.2+764.\n\n\n\nSuggested: Watch this video describing key configuration options for RStudio.\n\nRequired: Install required packages.\n\nAn R package is an extra bit of functionality that will help us in our data analysis efforts in a variety of ways.\nOpen RStudio and click inside the Console pane (by default, the bottom left pane). Copy and paste the following command into the Console. You should see the text below appear to the right of the &gt;, which is called the R prompt. After you paste, hit Enter.\n\n\ninstall.packages(c(\"tidyverse\"))\n\n\nYou will see a lot of text from status messages appearing in the Console as the packages are being installed. Wait until you see the &gt; again.\nEnter the command library(tidyverse) and hit Enter.\nIf you see an error message, then there was a problem installing the package. Talk to the instructor or a preceptor for help.\nQuit RStudio. You’re done setting up!\n\n\nOptional: For a tour of RStudio features, watch this video. It also shows you how to customize the layout and color scheme of RStudio.\n\nRequired: Set essential RStudio options.\nGo to Tools -&gt; Global Options -&gt; General -&gt; Workplace. You’ll see 2 options:\n\nRestore .RData into workspace at startup: Leave this unchecked\nSave workspace to .RData on exit: Select “Never”\n\nWithout doing this RStudio will save and reload everything that you’ve been working on from the start of the semester. Since we’ll be working with new data each class, we want to keep our digital environment clean. Essentially, this is like an artist getting a clean canvas for each new painting rather than trying to paint all paintings on a single canvas."
   },
   {
     "objectID": "activities/02_foundations_univariate.html",

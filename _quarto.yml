@@ -4,9 +4,12 @@ project:
   render:
     - "*.qmd"
     - "!activity_templates/"
-  post-render: "cp -r activity_templates docs/"
+    - "!assignments/"
+  # post-render: "cp -r activity_templates docs/"
   resources:
     - "data/*.csv"
+    - "activity_templates/*.qmd"
+    - "assignments/*.qmd"
 
 website:
   title: "STAT 155"
@@ -21,7 +24,8 @@ website:
       - file: schedule.qmd
         text: "Schedule"
       - sidebar:activities
-      - sidebar:homework
+      - file: assignments.qmd
+        text: "Practice Problems"
       - file: project.qmd
         text: "Project"
       - file: tech_setup.qmd
@@ -51,10 +55,10 @@ website:
         # - 17-joins.qmd
         # - 18-project-work.qmd
 
-    - id: homework
-      title: "Homework"
-      contents:
-        - "assignments/pp1.qmd"
+    # - id: homework
+    #   title: "Homework"
+    #   contents:
+    #     - "assignments"
     
     # - id: skills_sessions
     #   title: "Skills Sessions"
