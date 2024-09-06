@@ -166,7 +166,7 @@ This course uses a non-traditional grading system, designed with the goals of al
 
 For class days where some reading and/or videos are required beforehand, there will be a short multiple-choice Moodle checkpoint due 30 minutes before class starts (12:50pm for Section 05, and 2:30pm for Section 06).
 
-You can attempt a checkpoint quiz as many times as you want, but there is a 33% point deduction for each successive attempt on a question. For example, if your first attempt on a 1-point question is incorrect, the maximum possible score on that question is 0.67 points for the second attempt. On the third attempt, the maximum score is 0.33 points. No points are awarded for the 4th attempt and beyond.
+You can attempt a checkpoint question as many times as you want, but there is a 33% point deduction for each successive attempt on a question. For example, if your first attempt on a 1-point question is incorrect, the maximum possible score on that question is 0.67 points for the second attempt. On the third attempt, the maximum score is 0.33 points. No points are awarded for the 4th attempt and beyond.
 
 ### Practice problems
 

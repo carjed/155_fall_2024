@@ -8,7 +8,13 @@ format:
 eval: false
 ---
 
-Download the `.qmd` file for this activity [here](../activity_templates/02_foundations_univariate.qmd). For this and all future activities, you will download the `.qmd` file, open it in Rstudio, and use it to type your answers/code to the exercises and reflection on the in-class activities. 
+- Download the `.qmd` file for this activity [here](../activity_templates/02_foundations_univariate.qmd).
+
+- **File organization:** Save this file in the "Activities" subfolder of your "STAT155" folder.
+
+- Open the `qmd` file in Rstudio, and use it to type your answers/code to the exercises and reflection on the in-class activities. 
+
+- Follow this process for this and all future activities
 
 # Notes
 
@@ -35,10 +41,6 @@ Choose either the reading or the videos to go through **before** class.
     - [R Code for Quantitative Visualization and Summarization](https://voicethread.com/share/14923042/)
 
 <!-- This section is for any mini-lecture, review material, material to motivate today's lesson, more guided / structured examples than the exercises section below. -->
-
-
-
-**File organization:** Save this file in the "Activities" subfolder of your "STAT155" folder.
 
 # Exercises
 
