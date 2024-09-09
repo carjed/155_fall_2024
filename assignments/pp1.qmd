@@ -130,6 +130,10 @@ The `clean_test` variable records the Bechdel category into which each movie fal
 
 Construct a visualization of the `clean_test` variable, and construct a corresponding table of counts. In one sentence, summarize your findings about `clean_test` as if you were writing a newspaper article about movies.
 
+```{r}
+ggplot(bechdel, aes(x = clean_test)) + 
+    geom_bar()
+```
 
 
 ## Exercise 4: How much money did it make?
