@@ -5,6 +5,7 @@ format:
   html:
     embed-resources: true
     toc: true
+    code-tools: true
 eval: false # change this to "true" if you want to render a complete .qmd    
 ---
 
