@@ -1,7 +1,7 @@
 ---
 title: "Practice Problems 1"
 author: "STUDENT NAME"
-format: 
+format:
   html:
     embed-resources: true
     code-tools: true    
