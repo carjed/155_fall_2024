@@ -7,7 +7,7 @@ format:
 ---
 
 <center>
-**Due Friday, 9/13 at 5pm on [Moodle](INSERT_LINK_TO_MOODLE_ASSIGNMENT).**
+**Due Friday, 9/13 at 5pm on [Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=134185).**
 </center>
 
 # Purpose
@@ -18,7 +18,7 @@ The goal of this set of practice problems is to practice the following skills:
 - Data wrangling
 - Constructing and interpreting simple linear regression models
 
-**You can download a template to start from [here](../activity_templates/pp1.qmd).**
+**You can download a template to start from [here](../assignments/pp1.qmd).**
 
 # Directions
 

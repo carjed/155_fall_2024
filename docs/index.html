@@ -68,7 +68,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -112,6 +111,14 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./activities/02_foundations_univariate.html">
  <span class="dropdown-text">Univariate visualization and summaries</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./activities/03_slr_introduction.html">
+ <span class="dropdown-text">Simple linear regression: Visualization and Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./activities/04_slr_formalization.html">
+ <span class="dropdown-text">Simple linear regression: formalizing concepts</span></a>
   </li>  
     </ul>
   </li>
@@ -177,17 +184,17 @@ Learn the fundamentals of summarizing, visualizing, and modeling data to answer 
 </ul>
 <section id="course-schedule-announcements" class="level2">
 <h2 class="anchored" data-anchor-id="course-schedule-announcements">Course Schedule &amp; Announcements</h2>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 1: 9/2 - 9/6 (Data fundamentals, univariate visualization and summaries)">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Week of 9/2
+Week 1: 9/2 - 9/6 (Data fundamentals, univariate visualization and summaries)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <section id="announcements" class="level4">
 <h4 class="anchored" data-anchor-id="announcements">Announcements</h4>
@@ -218,38 +225,58 @@ Week of 9/2
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 2: 9/9 - 9/13 (Simple linear regression)">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Week of 9/9
+Week 2: 9/9 - 9/13 (Simple linear regression)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <section id="announcements-1" class="level4">
 <h4 class="anchored" data-anchor-id="announcements-1">Announcements</h4>
+<ul>
+<li>Practice Problems #1 will be due on Friday, 9/13 at 5pm!</li>
+<li>Friday, 9/13 is also the add/drop deadline</li>
+<li>Preceptor office hours start this week–see the course calendar for times</li>
+</ul>
 </section>
 <section id="tuesday-1" class="level4">
 <h4 class="anchored" data-anchor-id="tuesday-1">Tuesday</h4>
 <p>Before class:</p>
+<ul>
+<li>Complete today’s checkpoint on Moodle
+<ul>
+<li>Do either the readings or videos for the Day 3 Activity (see Moodle for links)</li>
+<li>due 30 minutes before class on 9/10</li>
+</ul></li>
+</ul>
 </section>
 <section id="thursday-1" class="level4">
 <h4 class="anchored" data-anchor-id="thursday-1">Thursday</h4>
+<p>Before class:</p>
+<ul>
+<li>Complete today’s checkpoint on Moodle
+<ul>
+<li>Do either the readings or videos for the Day 4 Activity (see Moodle for links)</li>
+<li>due 30 minutes before class on 9/12</li>
+</ul></li>
+</ul>
 </section>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 3: 9/16 - 9/20 (Simple linear regression: model evaluation and variable transformations)">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Week of 9/16
+Week 3: 9/16 - 9/20 (Simple linear regression: model evaluation and variable transformations)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -263,17 +290,18 @@ Week of 9/16
 </section>
 <section id="thursday-2" class="level4">
 <h4 class="anchored" data-anchor-id="thursday-2">Thursday</h4>
+<p>Library data discovery day!</p>
 </section>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 4: 9/23 - 9/27 (Simple linear regression: categorical predictors)">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Week of 9/23
+Week 4: 9/23 - 9/27 (Simple linear regression: categorical predictors)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -287,17 +315,18 @@ Week of 9/23
 </section>
 <section id="thursday-3" class="level4">
 <h4 class="anchored" data-anchor-id="thursday-3">Thursday</h4>
+<p>Quiz 1 (1 hour in class)</p>
 </section>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 5: 9/30 - 10/4 (Multiple linear regression: confounding)">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Week of 9/30
+Week 5: 9/30 - 10/4 (Multiple linear regression: confounding)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -315,13 +344,13 @@ Week of 9/30
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 6: 10/7 - 10/11 (Multiple linear regression: interaction)">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Week of 10/7
+Week 6: 10/7 - 10/11 (Multiple linear regression: interaction)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -339,13 +368,13 @@ Week of 10/7
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 7: 10/14 - 10/18 (Multiple linear regression: model building) (Fall Break)">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Week of 10/14
+Week 7: 10/14 - 10/18 (Multiple linear regression: model building) (Fall Break)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -363,13 +392,13 @@ Week of 10/14
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 8: 10/21 - 10/25 (Logistic regression)">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Week of 10/21
+Week 8: 10/21 - 10/25 (Logistic regression)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -387,13 +416,13 @@ Week of 10/21
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 9: 10/28 - 11/1 (Tools for statistical inference)">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Week of 10/28
+Week 9: 10/28 - 11/1 (Tools for statistical inference)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -411,13 +440,13 @@ Week of 10/28
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 10: 11/4 - 11/8 (Confidence intervals)">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Week of 11/4
+Week 10: 11/4 - 11/8 (Confidence intervals)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -435,13 +464,13 @@ Week of 11/4
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 11: 11/11 - 11/15 (Hypothesis testing)">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Week of 11/11
+Week 11: 11/11 - 11/15 (Hypothesis testing)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -459,13 +488,13 @@ Week of 11/11
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 12: 11/18 - 11/22 (Hypothesis testing)">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Week of 11/25
+Week 12: 11/18 - 11/22 (Hypothesis testing)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -483,13 +512,13 @@ Week of 11/25
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 13: 11/25 - 11/29 (Hypothesis testing, p-values) (Thanksgiving Break)">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Week of 12/2
+Week 13: 11/25 - 11/29 (Hypothesis testing, p-values) (Thanksgiving Break)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -507,13 +536,13 @@ Week of 12/2
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 14: 12/2 - 12/6 (Project work)">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Last week + finals
+Week 14: 12/2 - 12/6 (Project work)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -527,6 +556,28 @@ Last week + finals
 </section>
 <section id="thursday-13" class="level4">
 <h4 class="anchored" data-anchor-id="thursday-13">Thursday</h4>
+</section>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Week 15: 12/9 - 12/13 (Project work, paper, and presentations)">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Week 15: 12/9 - 12/13 (Project work, paper, and presentations)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="announcements-14" class="level4">
+<h4 class="anchored" data-anchor-id="announcements-14">Announcements</h4>
+</section>
+<section id="tuesday-14" class="level4">
+<h4 class="anchored" data-anchor-id="tuesday-14">Tuesday</h4>
+<p>(Last day of class)</p>
 </section>
 </div>
 </div>

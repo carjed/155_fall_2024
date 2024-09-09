@@ -5,10 +5,10 @@ project:
     - "*.qmd"
     - "!activity_templates/"
     - "!assignments/"
-  # post-render: "cp -r activity_templates docs/"
+  post-render: "cp -r activities docs/activity_templates"
   resources:
     - "data/*.csv"
-    - "activity_templates/*.qmd"
+    # - "activity_templates/*.qmd"
     - "assignments/*.qmd"
 
 website:
@@ -37,23 +37,8 @@ website:
       contents:
         - "activities/01_foundations_welcome.qmd"
         - "activities/02_foundations_univariate.qmd"
-        # - 02-adv-ggplot.qmd
-        # - 03-file-org-github.qmd
-        # - 04-adv-maps.qmd
-        # - 05-interactive-viz.qmd
-        # - 06-wrangling-1.qmd
-        # - 07-wrangling-2.qmd
-        # - 08-missing-data.qmd
-        # - 09-functions.qmd
-        # - 10-subset-str-shiny.qmd
-        # - 11-iteration-1.qmd
-        # - 12-iteration-2.qmd
-        # - 13-apis.qmd
-        # - 14-scraping.qmd
-        # - 15-strategies-principles.qmd
-        # - 16-databases.qmd
-        # - 17-joins.qmd
-        # - 18-project-work.qmd
+        - "activities/03_slr_introduction.qmd"
+        - "activities/04_slr_formalization.qmd"
 
     # - id: homework
     #   title: "Homework"
@@ -76,7 +61,7 @@ website:
 format:
   html:
     theme: solar
-    css: styles.css
+    # css: styles.css
     toc: true
     code-overflow: wrap
 

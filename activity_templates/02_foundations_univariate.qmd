@@ -57,12 +57,14 @@ American Anxieties](https://pudding.cool/2018/11/dearabby/) in which the authors
 ## Exercise 2: Importing and getting to know the data
 
 ```{r setup}
+
 # Load package
 library(tidyverse)
 library(readr)
 
 # Read in the course evaluation data
 abby <- read_csv("https://mac-stat.github.io/data/dear_abby.csv")
+
 ```
 
 a. Click on the Environment tab (generally in the upper right hand pane in RStudio). Then click the `abby` line. The `abby` data will pop up as a separate pane (like viewing a spreadsheet) -- check it out.
@@ -225,9 +227,7 @@ abby %>%
     summarize(mean(afinn_overall, na.rm = TRUE), median(afinn_overall, na.rm = TRUE), sd(afinn_overall, na.rm = TRUE))
 ```
 
-d. Write a good paragraph describing the information in the histogram (or density plot) by discussing shape, center, spread, and outliers. Incorporate the numerical summaries from part c.
-
-
+d. The distribution of sentiment scores is roughly symmetric with a mean of -1.4 and a similar median of -1. The median and mean are quite similar because the distribution is fairly symmetric. The standard deviation of the sentiment scores is about 11.08 which tells us how much variation there is from the center of the distribution. 11.08 is somewhat high given the IQR of -6 to 3 (which is a span of 9 units).
 
 ## Exercise 6: Box plots vs. histograms vs. density plots
 

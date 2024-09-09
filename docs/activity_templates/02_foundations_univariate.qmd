@@ -5,7 +5,16 @@ format:
   html:
     embed-resources: true
     toc: true
+eval: false # change this to "true" if you want to render a complete .qmd
 ---
+
+- Download the `.qmd` file for this activity [here](../activity_templates/02_foundations_univariate.qmd).
+
+- **File organization:** Save this file in the "Activities" subfolder of your "STAT155" folder.
+
+- Open the `qmd` file in Rstudio, and use it to type your answers/code to the exercises and reflection on the in-class activities. 
+
+- Follow this process for this and all future activities
 
 # Notes
 
@@ -13,6 +22,7 @@ format:
 
 By the end of this lesson, you should be able to:
 
+- Understand the basics of working with Quarto documents in RStudio
 - Describe what a **case** (or **unit of analysis**) represents in a dataset.
 - Describe what a **variable** represents in a dataset.
 - Identify whether a variable is **categorical** or **quantitative** and what summarizations and visualizations are appropriate for that variable
@@ -32,10 +42,6 @@ Choose either the reading or the videos to go through **before** class.
     - [R Code for Quantitative Visualization and Summarization](https://voicethread.com/share/14923042/)
 
 <!-- This section is for any mini-lecture, review material, material to motivate today's lesson, more guided / structured examples than the exercises section below. -->
-
-
-
-**File organization:** Save this file in the "Activities" subfolder of your "STAT155" folder.
 
 # Exercises
 
@@ -73,7 +79,7 @@ c. What term do we use for the columns of the dataset?
 
 d. Try out each function below. Identify what each function tells you about the `abby` data and note this in the `???`:
 
-```{r explore0}
+```{r explore1}
 # ??? [what do both numbers mean?]
 dim(abby)
 
@@ -385,3 +391,11 @@ ggplot(weather, aes(x = raintoday)) +
 c. Check out the `ggplot2` [cheat sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf). Try making some of the other kinds of univariate plots outlined there.
 
 d. What else would you like to change about your plot? Try it!
+
+
+
+<br><br><br><br><br><br>
+
+
+
+[Solutions](../solutions/02_foundations_univariate.qmd)
