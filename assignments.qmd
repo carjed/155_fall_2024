@@ -5,7 +5,7 @@ sidebar: false
 
 **...due Fridays at 5pm Central on Moodle!**
 
-- [Practice Problems 1](assignments/pp1.qmd), due 9/13
+- [Practice Problems 1](assignments/_pp1.qmd), due 9/13
 - Practice Problems 2, due 9/20
 - Practice Problems 3, due 10/4
 - Practice Problems 4, due 10/11
