@@ -5,6 +5,7 @@ project:
     - "*.qmd"
     - "!activity_templates/"
     - "!assignments/"
+    - "!working/"
   post-render: "cp -r activities docs/activity_templates"
   resources:
     - "data/*.csv"
@@ -39,6 +40,7 @@ website:
         - "activities/02_foundations_univariate.qmd"
         - "activities/03_slr_introduction.qmd"
         - "activities/04_slr_formalization.qmd"
+        - "activities/05_slr_model_eval.qmd"
 
     # - id: homework
     #   title: "Homework"
