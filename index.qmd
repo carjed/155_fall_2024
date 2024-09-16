@@ -53,7 +53,7 @@ Before class:
 :::
 
 
-::: {.callout-tip icon=false collapse="false" title="Week 2: 9/9 - 9/13 (Simple linear regression)"}
+::: {.callout-tip icon=false collapse="true" title="Week 2: 9/9 - 9/13 (Simple linear regression)"}
 
 #### Announcements
 
@@ -80,15 +80,25 @@ Before class:
 
 :::
 
-::: {.callout-tip icon=false collapse="true" title="Week 3: 9/16 - 9/20 (Simple linear regression: model evaluation and variable transformations)"}
+::: {.callout-tip icon=false collapse="false" title="Week 3: 9/16 - 9/20 (Simple linear regression: model evaluation and variable transformations)"}
 
 #### Announcements
 
+- Practice Problems #2 will be due Friday, 9/20 at 5pm
+
 #### Tuesday
+
+Before class:
+
+- Complete the [Project Preferences survey](https://forms.gle/1zrKb8c7pGwHjWxh7)
+- Complete today’s checkpoint on Moodle
+  - Do either the readings or videos for the Day 5 Activity (see Moodle for links)
+  - due 30 minutes before class on 9/17
+
 
 #### Thursday
 
-Library data discovery day!
+- Library data discovery day!
 
 :::
 
