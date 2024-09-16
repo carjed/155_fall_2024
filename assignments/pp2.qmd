@@ -4,6 +4,7 @@ author: "STUDENT NAME"
 format: 
   html:
     embed-resources: true
+    code-tools: true   
 ---
 
 <center>
