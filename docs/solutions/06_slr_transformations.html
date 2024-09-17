@@ -5326,23 +5326,33 @@ Residual standard error: 13.21 on 66 degrees of freedom
 Multiple R-squared:  0.6886,    Adjusted R-squared:  0.6838 
 F-statistic: 145.9 on 1 and 66 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiplicative difference of 1.1, or 10%</span></span>
+</div>
+<p>Each 1 unit increase in logged salary is associated with a 18.14 minute decrease in time to earn a Big Mac on average.</p>
+<p>We can also use a property of logarithms to interpret the slope of -18.14 in a different way. Suppose we have two salaries: <code>Salary1</code> and <code>Salary2</code>. If <code>Salary2</code> is <code>10%</code> higher than Salary1, then <code>Salary2/Salary1 = 1.1</code>. It is a property of logarithms that <code>log(Salary2/Salary1) = log(Salary2) - log(Salary1).</code> In this case <code>log(Salary2/Salary1) = log(Salary2) - log(Salary1) = log(1.1) = 0.09531018.</code> So a 10% increase in salary is a 0.09 unit increase in the log scale:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiplicative difference of 1.1, or 10% between salaries gives us the </span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="fl">1.1</span>) <span class="sc">*</span> <span class="sc">-</span><span class="fl">18.142</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.729117</code></pre>
 </div>
 </div>
-<p>On average, we expect the average individual in a country where the gross annual teaching salary is 10% greater to need to work 1.7 times fewer minutes to be able to afford a Big Mac.</p>
-<p><strong>Note</strong>: You could have chosen a different percentage difference and still have been correct!</p>
+<p>While a 1 unit increase in log salary is associated with an average decrease of 18 Big Mac minutes, a 0.0953 unit increase in log salary (which corresponds to a 10% multiplicative increase), is associated with a 1.7 minute decrease in Big Mac minutes.</p>
+<pre><code>Underlying math:
+Case 1: Salary = x
+   E[bigmacmin_1] = beta0 + beta1 log(x)
+Case 2: Salary = m*x
+   E[bigmacmin_2] = beta0 + beta1 log(m*x)
+
+E[bigmacmin_2] - E[bigmacmin_1] = beta1 log(m)</code></pre>
 <ol start="8" type="a">
 <li></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Residuals vs. fitted values plot</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mod_log, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> .resid)) <span class="sc">+</span> </span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Residuals vs. fitted values plot</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mod_log, <span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> .resid)) <span class="sc">+</span> </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 </div>

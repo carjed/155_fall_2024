@@ -85,6 +85,9 @@ Before class:
 #### Announcements
 
 - Practice Problems #2 will be due Friday, 9/20 at 5pm
+- Reminder that preceptor office hours are held in the Sub-Hub (the glass room in the middle of the *first* floor of OLRI)
+  - see Moodle for the preceptor office hours calendar, or add [this calendar](https://calendar.google.com/calendar/u/5?cid=Y181NGJlMTEzOWZmYzE1YmI0ZDBmYTc2OGM2MGJiODFjYmZiM2M2MGFhM2Y1OTFjMTM3YjBlNzBiOTkwYmQ0NjlhQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20) in your Mac Google account
+- Please remember to read your email 🥲
 
 #### Tuesday
 
@@ -97,7 +100,8 @@ Before class:
 
 
 #### Thursday
-
+- Complete today’s checkpoint on Moodle
+  - Do either the readings or videos for the Day 6 Activity (see Moodle for links)
 - Library data discovery day!
 
 :::

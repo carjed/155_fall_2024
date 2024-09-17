@@ -232,4 +232,4 @@ Think about the pros and cons of transforming your variables to satisfy linear r
 
 <br><br><br><br><br><br>
 
-[Solutions](../solutions/06_slr_transmormations.qmd)
+[Solutions](../solutions/06_slr_transformations.qmd)

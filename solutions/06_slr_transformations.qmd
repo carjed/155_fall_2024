@@ -197,14 +197,28 @@ g.
 ```{r}
 mod_log <- lm(bigmac_mins ~ log_sal, data = bigmac)
 summary(mod_log)
+```
 
-# Multiplicative difference of 1.1, or 10%
+Each 1 unit increase in logged salary is associated with a 18.14 minute decrease in time to earn a Big Mac on average.
+
+We can also use a property of logarithms to interpret the slope of -18.14 in a different way. Suppose we have two salaries: `Salary1` and `Salary2`. If `Salary2` is `10%` higher than Salary1, then `Salary2/Salary1 = 1.1`. It is a property of logarithms that `log(Salary2/Salary1) = log(Salary2) - log(Salary1).` In this case `log(Salary2/Salary1) = log(Salary2) - log(Salary1) = log(1.1) = 0.09531018.` So a 10% increase in salary is a 0.09 unit increase in the log scale:
+
+```{r}
+# Multiplicative difference of 1.1, or 10% between salaries gives us the 
 log(1.1) * -18.142
 ```
 
-On average, we expect the average individual in a country where the gross annual teaching salary is 10% greater to need to work 1.7 times fewer minutes to be able to afford a Big Mac.
+While a 1 unit increase in log salary is associated with an average decrease of 18 Big Mac minutes, a 0.0953 unit increase in log salary (which corresponds to a 10% multiplicative increase), is associated with a 1.7 minute decrease in Big Mac minutes.
 
-**Note**: You could have chosen a different percentage difference and still have been correct! 
+```
+Underlying math:
+Case 1: Salary = x
+   E[bigmacmin_1] = beta0 + beta1 log(x)
+Case 2: Salary = m*x
+   E[bigmacmin_2] = beta0 + beta1 log(m*x)
+
+E[bigmacmin_2] - E[bigmacmin_1] = beta1 log(m)
+``` 
 
 h. 
 
