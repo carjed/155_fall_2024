@@ -275,221 +275,221 @@
   {
     "objectID": "activities/04_slr_formalization.html",
     "href": "activities/04_slr_formalization.html",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "",
     "text": "Download the .qmd file for this activity here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\nOpen the qmd file in RStudio, and use it to type your answers/code to the exercises and reflection on the in-class activities.\n\n\n\nBy the end of this lesson, you should be able to:\n\nDifferentiate between a response / outcome variable and a predictor / explanatory variable\nWrite a model formula for a simple linear regression model with a quantitative predictor\nWrite R code to fit a linear regression model\nInterpret the intercept and slope coefficients in a simple linear regression model with a quantitative predictor\nCompute expected / predicted / fitted values and residuals from a linear regression model formula\nInterpret predicted values and residuals in the context of the data\nExplain the connection between residuals and the least squares criterion\n\n\n\n\nChoose either the reading or the videos to go through before class.\n\nReading: Sections 2.8, 3.1-3.3, 3.6 in the STAT 155 Notes\nVideos:\n\nSummarizing the Relationships between Two Quantitative Variables (Time: 12:12)\nIntroduction to Linear Models (Time: 10:57)\nMethod of Least Squares (Time: 5:10)\nInterpretation of Intercept and Slope (Time: 11:09)\nR Code for Fitting a Linear Model (Time: 11:07)",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/04_slr_formalization.html#learning-goals",
     "href": "activities/04_slr_formalization.html#learning-goals",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "",
     "text": "By the end of this lesson, you should be able to:\n\nDifferentiate between a response / outcome variable and a predictor / explanatory variable\nWrite a model formula for a simple linear regression model with a quantitative predictor\nWrite R code to fit a linear regression model\nInterpret the intercept and slope coefficients in a simple linear regression model with a quantitative predictor\nCompute expected / predicted / fitted values and residuals from a linear regression model formula\nInterpret predicted values and residuals in the context of the data\nExplain the connection between residuals and the least squares criterion",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/04_slr_formalization.html#readings-and-videos",
     "href": "activities/04_slr_formalization.html#readings-and-videos",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "",
     "text": "Choose either the reading or the videos to go through before class.\n\nReading: Sections 2.8, 3.1-3.3, 3.6 in the STAT 155 Notes\nVideos:\n\nSummarizing the Relationships between Two Quantitative Variables (Time: 12:12)\nIntroduction to Linear Models (Time: 10:57)\nMethod of Least Squares (Time: 5:10)\nInterpretation of Intercept and Slope (Time: 11:09)\nR Code for Fitting a Linear Model (Time: 11:07)",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/04_slr_formalization.html#exercise-1-get-to-know-the-data",
     "href": "activities/04_slr_formalization.html#exercise-1-get-to-know-the-data",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "Exercise 1: Get to know the data",
     "text": "Exercise 1: Get to know the data\nCreate a new code chunk to look at the first few rows of the data and learn how much data (in terms of cases and variables) we have.\n\nWhat does a case represent?\nHow many and what kinds of variables do we have?\nThinking about the who, what, when, where, why, and how of this data, which of the 5W’s + H seem most relevant to our investigations? Explain your thoughts.",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/04_slr_formalization.html#exercise-2-get-to-know-the-outcomeresponse-variable",
     "href": "activities/04_slr_formalization.html#exercise-2-get-to-know-the-outcomeresponse-variable",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "Exercise 2: Get to know the outcome/response variable",
     "text": "Exercise 2: Get to know the outcome/response variable\nLet’s get acquainted with the riders_registered variable.\n\nConstruct an appropriate plot to visualize the distribution of this variable, and compute appropriate numerical summaries.\nWrite a good paragraph interpreting the plot and numerical summaries.",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/04_slr_formalization.html#exercise-3-explore-the-relationship-between-ridership-and-temperature",
     "href": "activities/04_slr_formalization.html#exercise-3-explore-the-relationship-between-ridership-and-temperature",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "Exercise 3: Explore the relationship between ridership and temperature",
     "text": "Exercise 3: Explore the relationship between ridership and temperature\nWe’d like to understand how daily ridership among registered users relates with the temperature that it feels like that day (temp_feel).\n\nWhat type of plot would be appropriate to visualize this relationship? Sketch and describe what you expect this plot to look like.\nCreate an appropriate plot using ggplot(). How does the plot compare to what you predicted?\nAdd the following two lines after your plot to add a linear (blue) and curved (red) smoothing line. What do you notice? Is a simple linear regression model appropriate for this data?\n\n\n# Add a red straight line of best fit and a blue curve of best fit\nYOUR_PLOT +\n    geom_smooth(method = \"lm\", color = \"red\", se = FALSE) +\n    geom_smooth(color = \"blue\", se = FALSE)",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/04_slr_formalization.html#exercise-4-filtering-our-data",
     "href": "activities/04_slr_formalization.html#exercise-4-filtering-our-data",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "Exercise 4: Filtering our data",
     "text": "Exercise 4: Filtering our data\nThe relationship between registered riders and temperature looks linear below 80 degrees. We can use the filter() function from the dplyr package to subset our cases. (We’ll learn techniques soon for handling this nonlinear relationship.)\nIf we wanted to only keep cases where registered ridership was greater than 2000, we would use the following code:\n\n# The %&gt;% is called a \"pipe\" and feeds what comes before it\n# into what comes after (bikes data is \"fed into\" the filter() function)\nNEW_DATASET_NAME &lt;- bikes %&gt;% \n    filter(riders_registered &gt; 2000)\n\nAdapt the example above to create a new dataset called bikes_sub that only keeps cases where the felt temperature is less than 80 degrees.",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/04_slr_formalization.html#exercise-5-model-fitting-and-coefficient-interpretation",
     "href": "activities/04_slr_formalization.html#exercise-5-model-fitting-and-coefficient-interpretation",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "Exercise 5: Model fitting and coefficient interpretation",
     "text": "Exercise 5: Model fitting and coefficient interpretation\nLet’s fit a simple linear regression model and examine the results. Step through code chunk slowly, and make note of new code.\n\n# Construct and save the model as bike_mod\n# What's the purpose of \"riders_registered ~ temp_feel\"?\n# What's the purpose of \"data = bikes_sub\"?\nbike_mod &lt;- lm(riders_registered ~ temp_feel, data = bikes_sub)\n\n\n# A long summary of the model stored in bike_mod\nsummary(bike_mod)\n\n\n# A simplified model summary\ncoef(summary(bike_mod))\n\n\nUsing the model summary output, complete the following model formula:\nE[riders_registered | temp_feel] = ___ + ___ * temp_feel\nInterpret the intercept in terms of the data context. Make sure to use non-causal language, include units, and talk about averages rather than individual cases. Is the intercept meaningful in this situation?\nInterpret the slope in terms of the data context. Make sure to use non-causal language, include units, and talk about averages rather than individual cases.",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/04_slr_formalization.html#exercise-6-predictions-and-residuals",
     "href": "activities/04_slr_formalization.html#exercise-6-predictions-and-residuals",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "Exercise 6: Predictions and residuals",
     "text": "Exercise 6: Predictions and residuals\nOn August 17, 2012, the temp_feel was 53.816 degrees and there were 5665 riders. We can get data for this day using the filter() and select() dplyr functions. Note, but don’t worry about the syntax – we haven’t learned this yet:\n\nbikes_sub %&gt;% \n    filter(date == \"2012-08-17\") %&gt;% \n    select(riders_registered, temp_feel) \n\n\nPeak back at the scatterplot. Identify which point corresponds to August 17, 2012. Is it close to the trend? Were there more riders than expected or fewer than expected?\nUse your model formula from the previous exercise to predict the ridership on August 17, 2012 from the temperature on that day. (That is, where do days with this temperature fall on the model trend line? How many registered riders would we expect on a 53.816 degree day?)\nCheck your part b calculation using the predict() function. Take careful note of the syntax – there’s a lot going on!\n\n\n# What is the purpose of newdata = ___???\npredict(bike_mod, newdata = data.frame(temp_feel = 53.816))\n\n\nCalculate the residual or prediction error. How far does the observed ridership fall from the model prediction?\nresidual = observed y - predicted y = ???\nAre positive residuals above or below the trend line? When we have positive residuals, does the model over- or under-estimate ridership? Repeat these questions for negative residuals.\nFor an 85 degree day, how many registered riders would we expect? Do you think it’s a good idea to make this prediction? (Revisit the visualization and filtering we did in Exercises 3 and 4.)",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/04_slr_formalization.html#exercise-7-changing-temperature-units-challenge",
     "href": "activities/04_slr_formalization.html#exercise-7-changing-temperature-units-challenge",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "Exercise 7: Changing temperature units (CHALLENGE)",
     "text": "Exercise 7: Changing temperature units (CHALLENGE)\nSuppose we had measured temperature in degrees Celsius rather than degrees Fahrenheit. How do you think our intercept and slope estimates, and their coefficient interpretations, would change?",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/04_slr_formalization.html#reflection",
     "href": "activities/04_slr_formalization.html#reflection",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "Reflection",
     "text": "Reflection\nStatistics is a particular kind of language and collection of tools for channeling curiosity to improve our world.\nReview the learning objectives at the top of this file and the flow of today’s activity. How do the concepts we practiced today facilitate curiosity?\n\nResponse: Put your response here.",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/04_slr_formalization.html#render-your-work",
     "href": "activities/04_slr_formalization.html#render-your-work",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "Render your work",
     "text": "Render your work\n\nClick the “Render” button in the menu bar for this pane (blue arrow pointing right). This will create an HTML file containing all of the directions, code, and responses from this activity. A preview of the HTML will appear in the browser.\nScroll through and inspect the document to check that your work translated to the HTML format correctly.\nClose the browser tab.\nGo to the “Background Jobs” pane in RStudio and click the Stop button to end the rendering process.\nNavigate to your “Activities” subfolder within your “STAT155” folder and locate the HTML file. You can open it again in your browser to double check.",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/04_slr_formalization.html#exercise-8-ridership-and-windspeed",
     "href": "activities/04_slr_formalization.html#exercise-8-ridership-and-windspeed",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "Exercise 8: Ridership and windspeed",
     "text": "Exercise 8: Ridership and windspeed\nLet’s pull together everything that you’ve practiced in the preceding exercises to investigate the relationship between riders_registered and windspeed. Go back to using the bikes dataset (instead of bikes_sub) because we no longer need to only keep days less than 80 degrees.\n\n# Construct and interpret a visualization of this relationship\n# Include a representation of the relationship trend\n\n\n# Use lm to construct a model of riders_registered vs windspeed\n# Save this as bike_mod2\n\n\n# Get a short summary of this model\n\n\nSummarize your observations from the visualizations.\nWrite out a formula for the model trend.\nInterpret both the intercept and the windspeed coefficient. (Note: What does a negative slope indicate?)\nUse this model to predict the ridership on August 17, 2012 and calculate the corresponding residual. (Note: You’ll first need to find the windspeed on this date!)",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/04_slr_formalization.html#exercise-9-data-drills-filter-select-summarize",
     "href": "activities/04_slr_formalization.html#exercise-9-data-drills-filter-select-summarize",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "Exercise 9: Data drills (filter, select, summarize)",
     "text": "Exercise 9: Data drills (filter, select, summarize)\nThis exercise is designed to help you keep building your dplyr skills. These skills are important to data cleaning and digging, which in turn is important to really making meaning of our data. We’ll work with a simpler set of 10 data points:\n\nnew_bikes &lt;- bikes %&gt;% \n    select(date, temp_feel, humidity, riders_registered, day_of_week) %&gt;% \n    head(10)\n\n\nVerb 1: summarize\nThus far, in the dplyr grammar you’ve seen 3 verbs or action words: summarize(), select(), filter(). Try out the following code and then summarize the point of the summarize() function:\n\nnew_bikes %&gt;% \n    summarize(mean(temp_feel), mean(humidity))\n\n\n\nVerb 2: select\nTry out the following code and then summarize the point of the select() function:\n\nnew_bikes %&gt;%\n    select(date, temp_feel)\n\n\nnew_bikes %&gt;% \n    select(-date, -temp_feel)\n\n\n\nVerb 3: filter\nTry out the following code and then summarize the point of the filter() function:\n\nnew_bikes %&gt;% \n    filter(riders_registered &gt; 850)\n\n\nnew_bikes %&gt;% \n    filter(day_of_week == \"Sat\")\n\n\nnew_bikes %&gt;% \n    filter(riders_registered &gt; 850, day_of_week == \"Sat\")",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/04_slr_formalization.html#exercise-10-your-turn",
     "href": "activities/04_slr_formalization.html#exercise-10-your-turn",
-    "title": "Simple linear regression: formalizing concepts",
+    "title": "04. Simple linear regression: formalizing concepts",
     "section": "Exercise 10: Your turn",
     "text": "Exercise 10: Your turn\nUse dplyr verbs to complete each task below.\n\n# Keep only information about the humidity and day of week\n\n# Keep only information about the humidity and day of week using a different approach\n\n# Keep only information for Sundays\n\n# Keep only information for Sundays with temperatures below 50\n\n# Calculate the maximum and minimum temperatures\n\n\nSolutions",
     "crumbs": [
-      "Simple linear regression: formalizing concepts"
+      "04. Simple linear regression: formalizing concepts"
     ]
   },
   {
     "objectID": "activities/06_slr_transformations.html",
     "href": "activities/06_slr_transformations.html",
-    "title": "Simple linear regression: Transformations",
+    "title": "06. Simple linear regression: Transformations",
     "section": "",
     "text": "Download the .qmd file for this activity here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\nOpen the qmd file in RStudio, and use it to type your answers/code to the exercises and reflection on the in-class activities.\n\n\n\nBy the end of this lesson, you should be able to:\n\nDistinguish between the different motivations for transformations of variables (interpretation, regression assumptions, etc.)\nDetermine when a particular transformation (center, scale, or log) may be appropriate\nInterpret regression coefficients after a transformation has taken place\n\n\n\n\nPlease watch the following video before class.\n\nVideo: Simple Linear Regression: Transformations\n\nThe following reading is optional.\n\nSection 3.8.4 in the STAT 155 Notes covers log transformations, and the “ladder of power,” which we will not cover in class.",
     "crumbs": [
-      "Simple linear regression: Transformations"
+      "06. Simple linear regression: Transformations"
     ]
   },
   {
     "objectID": "activities/06_slr_transformations.html#learning-goals",
     "href": "activities/06_slr_transformations.html#learning-goals",
-    "title": "Simple linear regression: Transformations",
+    "title": "06. Simple linear regression: Transformations",
     "section": "",
     "text": "By the end of this lesson, you should be able to:\n\nDistinguish between the different motivations for transformations of variables (interpretation, regression assumptions, etc.)\nDetermine when a particular transformation (center, scale, or log) may be appropriate\nInterpret regression coefficients after a transformation has taken place",
     "crumbs": [
-      "Simple linear regression: Transformations"
+      "06. Simple linear regression: Transformations"
     ]
   },
   {
     "objectID": "activities/06_slr_transformations.html#readings-and-videos",
     "href": "activities/06_slr_transformations.html#readings-and-videos",
-    "title": "Simple linear regression: Transformations",
+    "title": "06. Simple linear regression: Transformations",
     "section": "",
     "text": "Please watch the following video before class.\n\nVideo: Simple Linear Regression: Transformations\n\nThe following reading is optional.\n\nSection 3.8.4 in the STAT 155 Notes covers log transformations, and the “ladder of power,” which we will not cover in class.",
     "crumbs": [
-      "Simple linear regression: Transformations"
+      "06. Simple linear regression: Transformations"
     ]
   },
   {
     "objectID": "activities/06_slr_transformations.html#exercise-1-location-transformations",
     "href": "activities/06_slr_transformations.html#exercise-1-location-transformations",
-    "title": "Simple linear regression: Transformations",
+    "title": "06. Simple linear regression: Transformations",
     "section": "Exercise 1: Location transformations",
     "text": "Exercise 1: Location transformations\nLocation transformations are ones that shift a predictor variable up or down by a fixed amount. Using a location transformation is sometimes also called centering a predictor.\nWe’ll use the homes data in this exercise.\n\nFit a linear regression model of Price as a function of Living.Area, and call this model home_mod.\n\n\n# Fit the model\n\n\n# Display model summary output\n\n\nInterpret the intercept and the coefficient for Living.Area. Is the interpretation of the intercept meaningful?\nWe can use a location transformation on Living.Area to “start” it at a more reasonable value. We can see from the summarize() code below that the smallest house is 616 quare feet, so let’s center this predictor at 600 square feet. There is no code to fill in here, but make note of the mutate() syntax.\n\n\nhomes %&gt;% \n    summarize(min(Living.Area))\n\n# What is mutate() doing???\nhomes &lt;- homes %&gt;%\n    mutate(Living.Area.Shifted = Living.Area-600)\n\n\nWe can actually determine the coefficients of the Price ~ Living.Area.Shifted model by hand.\n\nFirst, write out in general terms (without specific numbers) how we would interpret the intercept and slope in this model.\nUse these general interpretations as well as the summary output of home_mod to determine what these new coefficients should be.\n\nNow check your answer to part d by fitting the model.\n\n\n# Fit a model of Price vs. Living.Area.Shifted\n\n\n# Display model summary output",
     "crumbs": [
-      "Simple linear regression: Transformations"
+      "06. Simple linear regression: Transformations"
     ]
   },
   {
     "objectID": "activities/06_slr_transformations.html#exercise-2-scale-transformations",
     "href": "activities/06_slr_transformations.html#exercise-2-scale-transformations",
-    "title": "Simple linear regression: Transformations",
+    "title": "06. Simple linear regression: Transformations",
     "section": "Exercise 2: Scale transformations",
     "text": "Exercise 2: Scale transformations\nIn this exercise, we’ll explore the relationship between four-year graduation rate and admissions rate of colleges.\nIn the code chunk below, construct a visualization comparing graduation rate (our outcome variable) and admissions rate (our predictor of interest). Remember that your outcome variable should be on the y-axis, in general!\n\n# Scatterplot of graduation rate vs. admissions rate\n\n\nDescribe the relationship you observe between the two quantitative variables, in terms of correlation (weak/strong, positive/negative). Does the relationship appear to be roughly linear?\nWrite a linear regression model formula of the form E[Y | X] = … (filling in Y and X appropriately).\nFit this model in R, and report (don’t interpret yet!) the slope coefficient and intercept coefficient estimates.\n\n\n# Linear regression model with GradRate as the outcome, AdmisRate as predictor of interest\n\n\nIntercept Estimate: Your response here\n\n\nSlope Estimate: Your response here\n\n\nConsidering the units of AdmisRate, what does it mean for AdmisRate to change by one unit? What are the units for AdmisRate (and GradRate, for that matter!)?\nSuppose I want the interpretation of my slope coefficient for AdmisRate in my linear model to be in terms a “1% increase in admissions rate.” To achieve this, we could mutate our AdmisRate variable to range from 0 to 100. Let’s do that for GradRate too (just because!):\n\n\n# Mutate\ncollege &lt;- college %&gt;%\n  mutate(AdmisRate = AdmisRate * ___,\n         GradRate = ___ * ___)\n\n\nFit a new linear regression model with the updated AdmisRate and GradRate variables as your predictor of interest and outcome, respectively. Again, report the intercept and slope estimate from your model.\n\n\n# Linear regression model with updated GradRate as the outcome, updated AdmisRate as predictor of interest\n\n\nIntercept Estimate: Your response here\n\n\nSlope Estimate: Your response here\n\nHow have your intercept and slope estimates changed from the previous model, if at all?\n\nInterpret the regression coefficient that corresponds to the estimated linear relationship between admissions and graduation rates, in the context of the problem. Make sure to use non-causal language, include units, and talk about averages rather than individual cases.",
     "crumbs": [
-      "Simple linear regression: Transformations"
+      "06. Simple linear regression: Transformations"
     ]
   },
   {
     "objectID": "activities/06_slr_transformations.html#exercise-3-log-transformations",
     "href": "activities/06_slr_transformations.html#exercise-3-log-transformations",
-    "title": "Simple linear regression: Transformations",
+    "title": "06. Simple linear regression: Transformations",
     "section": "Exercise 3: Log transformations",
     "text": "Exercise 3: Log transformations\nThe Big Mac Index has been published by The Economist since 1986 as a metric for comparing purchasing power between countries, giving rise to the phrase Burgernomics. It was developed (sort of jokingly) as a way to explain exchange rates in digestible terms.\nAs an example, suppose a Big Mac in Switzerland costs 6.70 Swiss franc, and in the U.S. a Big Mac costs 5.58 USD. Then the Big Mac Index is 6.70/5.58 = 1.20, and is the implied exchange rate between Swiss franc and USD.\nIf you’d like to read more about the Big Mac index, here’s an article in The Economist (this may be behind a pay-wall for you, you can read up to 5 free articles in the Economist per month).\nFor this exercise, we’ll explore the relationship between average teaching salary in a country and the amount of time someone needs to work to be able to afford a Big Mac. The variables we’ll consider are:\n\nbigmac_mins: average minutes to earn 1 Big Mac\ngross_annual_teacher_income: average gross teacher salary in 1 year (USD)\n\n\nCreate an appropriate visualization that displays the relationship between average minutes to earn a Big Mac and gross annual, average teaching salary, and describe what you observe.\n\n\n# Visualization: Big Mac minutes vs. gross annual teacher income\n\n\nExplain why correlation might not be an appropriate numerical summary for the relationship between the two variables you plotted above.\nFit a linear regression model with bigmac_mins as the outcome and gross_annual_teacher_income as the predictor of interest, and interpret the coefficient for gross_annual_teacher_income, in context. Make sure to use non-causal language, include units, and talk about averages rather than individual cases.\n\n\n# Linear regression code\n\n\nPlot residuals vs. fitted values for the model you fit, and describe what you observe. Are there any noticeable patterns in the residuals? Describe them!\n\n\n# Residuals vs. fitted values plot\n\n\nFor which observations do the residuals from the linear regression model appear to be relatively large (i.e. for which observations would predictions fall farthest from observed outcomes)? What possible consequences would this have for people using this model to predict the amount of time it takes for them to earn enough money to afford a Big Mac?\n\nWe’ll now consider a log transformation of teaching salary. In the code chunk below, create a new variable called log_sal that contains the logged values of gross_annual_teacher_income.\n\n# Creating new variable log_sal\nbigmac &lt;- bigmac %&gt;%\n  mutate(log_sal = log(___))\n\n\nCreate an appropriate visualization that displays the relationship between average minutes to earn a Big Mac and logged gross annual, average teaching salary, and describe what you observe. Does correlation seem like it may be an appropriate numerical summary for the relationship between these two variables? Explain why or why not.\nFit a linear regression model with bigmac_mins as the outcome and log_sal as the predictor of interest, and interpret the coefficient for log_sal, in context. Make sure to use non-causal language, include units, and talk about averages rather than individual cases.\nPlot residuals vs. fitted values for the model you fit, and describe what you observe. Are there any noticeable patterns in the residuals? Describe them!\n\n\n# Residuals vs. fitted values plot",
     "crumbs": [
-      "Simple linear regression: Transformations"
+      "06. Simple linear regression: Transformations"
     ]
   },
   {
     "objectID": "activities/06_slr_transformations.html#reflection",
     "href": "activities/06_slr_transformations.html#reflection",
-    "title": "Simple linear regression: Transformations",
+    "title": "06. Simple linear regression: Transformations",
     "section": "Reflection",
     "text": "Reflection\nTwo of the main motivations for transforming variables in our regression models is to (1) intentionally change the interpretation of regression coefficients, and (2) to better satisfy linear regression assumptions (e.g. remove “patterns” from our residual plots). The first is nearly always justified by the scientific context of the research questions you are trying to answer, while the second is a bit more muddy.\nThink about the pros and cons of transforming your variables to satisfy linear regression assumptions. Is there a limit to how much you would be willing to transform your variables? Would transforming too much leave you with un-interpretable regression coefficients?\n\nResponse: Put your response here.\n\n\nSolutions",
     "crumbs": [
-      "Simple linear regression: Transformations"
+      "06. Simple linear regression: Transformations"
     ]
   },
   {
@@ -579,101 +579,101 @@
   {
     "objectID": "activities/01_foundations_welcome.html",
     "href": "activities/01_foundations_welcome.html",
-    "title": "Collecting and Summarizing Data",
+    "title": "01. Collecting and Summarizing Data",
     "section": "",
     "text": "Welcome to our first in-class activity! Today we will collect and summarize some data. Our goals are to get to know the people in this class and to start working with data.\nBy the end of this lesson, you should be able to:\n\nDefine cases and variables\nApply the 5 W’s + H (who, what, when, where, why, and how) to data collection\n\nLinks to related reading(s):\n\nWhat is Data?\nData Context\n\nThis activity is structured a bit differently than the activities for the remainder of the class. In this section, you’ll typically find a mini-lecture, review material, or guided / structural examples, followed by exercises.\nFor today, you’ll have some steps to follow for an interactive, tactile activity at your tables before working through the exercises below together.\n\n\nAt your table, write a one to two word answer to each of the following 7 question(s), each on a separate post-it note (do this individually). If there are two questions: write your answer to the first question on the left-hand side of the post-it note, and your answer to the second question on the bottom of the post-it note.\n\nHow many hours of sleep did you get last night? How many cups of coffee did you drink this morning?\nWhat is your declared or potential major? (If you are a double major, just pick whichever one you think of first.)\nWhat is your class year? (first year, sophomore, junior, senior)\nHow many stats courses have you taken in the past?\nOn a scale of 1 (get me out of here) to 10 (yay!), how excited are you about this course?\nIs it your birthday this semester? (yes/no)\nHow many unread emails do you have in your inbox right now?\nHave you used R/RStudio a lot, a little, or never?\n\n\n\n\nDesignate one person from your table to distribute your group’s answers to the questions to the corresponding “station” around the classroom. Each table should have a number on it, corresponding to the “station”/question.\n\n\n\nFill out an electronic version of these questions. We’ll come back to this in a future class. Wait until everyone in your group is done with this before moving on to the exercises.",
     "crumbs": [
-      "Collecting and Summarizing Data"
+      "01. Collecting and Summarizing Data"
     ]
   },
   {
     "objectID": "activities/01_foundations_welcome.html#step-1",
     "href": "activities/01_foundations_welcome.html#step-1",
-    "title": "Collecting and Summarizing Data",
+    "title": "01. Collecting and Summarizing Data",
     "section": "",
     "text": "At your table, write a one to two word answer to each of the following 7 question(s), each on a separate post-it note (do this individually). If there are two questions: write your answer to the first question on the left-hand side of the post-it note, and your answer to the second question on the bottom of the post-it note.\n\nHow many hours of sleep did you get last night? How many cups of coffee did you drink this morning?\nWhat is your declared or potential major? (If you are a double major, just pick whichever one you think of first.)\nWhat is your class year? (first year, sophomore, junior, senior)\nHow many stats courses have you taken in the past?\nOn a scale of 1 (get me out of here) to 10 (yay!), how excited are you about this course?\nIs it your birthday this semester? (yes/no)\nHow many unread emails do you have in your inbox right now?\nHave you used R/RStudio a lot, a little, or never?",
     "crumbs": [
-      "Collecting and Summarizing Data"
+      "01. Collecting and Summarizing Data"
     ]
   },
   {
     "objectID": "activities/01_foundations_welcome.html#step-2",
     "href": "activities/01_foundations_welcome.html#step-2",
-    "title": "Collecting and Summarizing Data",
+    "title": "01. Collecting and Summarizing Data",
     "section": "",
     "text": "Designate one person from your table to distribute your group’s answers to the questions to the corresponding “station” around the classroom. Each table should have a number on it, corresponding to the “station”/question.",
     "crumbs": [
-      "Collecting and Summarizing Data"
+      "01. Collecting and Summarizing Data"
     ]
   },
   {
     "objectID": "activities/01_foundations_welcome.html#step-3",
     "href": "activities/01_foundations_welcome.html#step-3",
-    "title": "Collecting and Summarizing Data",
+    "title": "01. Collecting and Summarizing Data",
     "section": "",
     "text": "Fill out an electronic version of these questions. We’ll come back to this in a future class. Wait until everyone in your group is done with this before moving on to the exercises.",
     "crumbs": [
-      "Collecting and Summarizing Data"
+      "01. Collecting and Summarizing Data"
     ]
   },
   {
     "objectID": "activities/01_foundations_welcome.html#exercise-1",
     "href": "activities/01_foundations_welcome.html#exercise-1",
-    "title": "Collecting and Summarizing Data",
+    "title": "01. Collecting and Summarizing Data",
     "section": "Exercise 1",
     "text": "Exercise 1\nWith your group, in no more than two sentences per question, respond to the questions posed by the 5 W’s + H for the data at your group’s table. If you need a refresher on the 5 W’s + H, check out the related readings posted at the top of this activity!\nWho\n\nResponse: Type your response here.\n\nWhat\n\nResponse: Type your response here.\n\nWhen\n\nResponse: Type your response here.\n\nWhere\n\nResponse: Type your response here.\n\nWhy\n\nResponse: Type your response here.\n\nHow\n\nResponse: Type your response here.",
     "crumbs": [
-      "Collecting and Summarizing Data"
+      "01. Collecting and Summarizing Data"
     ]
   },
   {
     "objectID": "activities/01_foundations_welcome.html#exercise-2",
     "href": "activities/01_foundations_welcome.html#exercise-2",
-    "title": "Collecting and Summarizing Data",
+    "title": "01. Collecting and Summarizing Data",
     "section": "Exercise 2",
     "text": "Exercise 2\nMove the post-it notes around to construct a visualization of the responses at your station.",
     "crumbs": [
-      "Collecting and Summarizing Data"
+      "01. Collecting and Summarizing Data"
     ]
   },
   {
     "objectID": "activities/01_foundations_welcome.html#exercise-3",
     "href": "activities/01_foundations_welcome.html#exercise-3",
-    "title": "Collecting and Summarizing Data",
+    "title": "01. Collecting and Summarizing Data",
     "section": "Exercise 3",
     "text": "Exercise 3\nCalculate at least one numerical summary of the post-it note responses at your station, and record your numerical summary in the response text below. Write a complete sentence, not just the numerical summary alone! This is good practice for summarizing data in more formal writing.\n\nResponse: Type your response here.",
     "crumbs": [
-      "Collecting and Summarizing Data"
+      "01. Collecting and Summarizing Data"
     ]
   },
   {
     "objectID": "activities/01_foundations_welcome.html#exercise-4",
     "href": "activities/01_foundations_welcome.html#exercise-4",
-    "title": "Collecting and Summarizing Data",
+    "title": "01. Collecting and Summarizing Data",
     "section": "Exercise 4",
     "text": "Exercise 4\nIn no more than three sentences, describe what you learn about from the visual and numerical summaries. Try to write your description in a way that tells an interesting story about the people in this class.\n\nResponse: Type your response here.",
     "crumbs": [
-      "Collecting and Summarizing Data"
+      "01. Collecting and Summarizing Data"
     ]
   },
   {
     "objectID": "activities/01_foundations_welcome.html#exercise-5",
     "href": "activities/01_foundations_welcome.html#exercise-5",
-    "title": "Collecting and Summarizing Data",
+    "title": "01. Collecting and Summarizing Data",
     "section": "Exercise 5",
     "text": "Exercise 5\nImagine that you took all the post-it notes in this room and organized them into a spreadsheet. What would each row in the underlying data set represent? What would each column of the data set represent? Check out the first related reading, linked at the top of this activity, if you need assistance!\n\nResponse: Type your response here.",
     "crumbs": [
-      "Collecting and Summarizing Data"
+      "01. Collecting and Summarizing Data"
     ]
   },
   {
     "objectID": "activities/01_foundations_welcome.html#reflection",
     "href": "activities/01_foundations_welcome.html#reflection",
-    "title": "Collecting and Summarizing Data",
+    "title": "01. Collecting and Summarizing Data",
     "section": "Reflection",
     "text": "Reflection\nIn three to four sentences, reflect upon today’s activity. Some reflection prompts are found below:\n\nDo you think the context in which the data was collected influenced the results you found?\nWho would the numerical summaries you calculated potentially be represented of? Could you generalize the information you learned to a broader population (all students at Mac, perhaps), or would you have ethical concerns with generalizing your results?\nWhat (if anything) surprised you about the numerical summaries calculated by your group, or other groups?\nDid your data visualization help you better understand, or discover new things about the data that otherwise would have been difficult to distinguish? Why or why not?\n\n\nResponse: Type your response here.",
     "crumbs": [
-      "Collecting and Summarizing Data"
+      "01. Collecting and Summarizing Data"
     ]
   },
   {
@@ -910,391 +910,391 @@
   {
     "objectID": "activities/05_slr_model_eval.html",
     "href": "activities/05_slr_model_eval.html",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "",
     "text": "Download the .qmd file for this activity here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\nOpen the qmd file in RStudio, and use it to type your answers/code to the exercises and reflection on the in-class activities.\n\n\n\nBy the end of this lesson, you should be able to:\n\nUse residual plots to evaluate the correctness of a model\nExplain the rationale for the R-squared metric of model strength\nInterpret the R-squared metric\nThink about ethical implications of modeling by examining the impacts of biased data, power dynamics, the role of categorization, and the role of emotion and lived experience\n\n\n\n\nRefer to the before-class reading or videos:\n\nReading: Sections 1.7, 3.7, and 3.8 in the STAT 155 Notes\nVideos:\n\nModel evaluation: is the model wrong? (slides)\nModel evaluation: is the model strong? (slides)\nModel evaluation: is the model fair? (slides)\nR Code for Evaluating and Using a Linear Model",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#learning-goals",
     "href": "activities/05_slr_model_eval.html#learning-goals",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "",
     "text": "By the end of this lesson, you should be able to:\n\nUse residual plots to evaluate the correctness of a model\nExplain the rationale for the R-squared metric of model strength\nInterpret the R-squared metric\nThink about ethical implications of modeling by examining the impacts of biased data, power dynamics, the role of categorization, and the role of emotion and lived experience",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#readings-and-videos",
     "href": "activities/05_slr_model_eval.html#readings-and-videos",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "",
     "text": "Refer to the before-class reading or videos:\n\nReading: Sections 1.7, 3.7, and 3.8 in the STAT 155 Notes\nVideos:\n\nModel evaluation: is the model wrong? (slides)\nModel evaluation: is the model strong? (slides)\nModel evaluation: is the model fair? (slides)\nR Code for Evaluating and Using a Linear Model",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#exercise-1-is-the-model-correct",
     "href": "activities/05_slr_model_eval.html#exercise-1-is-the-model-correct",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "Exercise 1: Is the model correct?",
     "text": "Exercise 1: Is the model correct?\nWe previously explored modeling daily ridership among registered users as a function of temperature. Create a plot of this relationship with both a curved and linear trend line. Based on this plot, do you think a linear model is correct?\n\n# HINT CODE (don't write in this chunk)\n# Plot temp vs day_of_year with a model trend\n___(___, aes(x = ___, y = ___)) + \n    geom___() + \n    geom___(se = FALSE) +\n    geom___(method = \"lm\", se = FALSE, color = \"red\")\n\n\n# Solution\n# Plot riders_registered vs temp_feel with both a curved and linear trend",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#exercise-2-fixing-the-model",
     "href": "activities/05_slr_model_eval.html#exercise-2-fixing-the-model",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "Exercise 2: Fixing the model",
     "text": "Exercise 2: Fixing the model\nIn this course, we have and will continue to build “linear” regression models. “Linear” means we have a linear combination of predictors. It does not mean that the models themselves must look linear! It’s possible to include “transformations” in our models in order to better match the trend. Below we create a squared version of temperature and visualize the predictions from 2 models: (1) with just temperature as a linear term and (2) with both temperature and squared temperature. (Don’t worry about the new syntax in geom_smooth().)\nHow does the quality (correctness) of the two models compare?\n\nbikes &lt;- bikes %&gt;% \n    mutate(temp_feel_squared = temp_feel^2)\n\n# Plot the model WITHOUT squared temperature\nggplot(bikes, aes(x = temp_feel, y = riders_registered)) + \n    geom_point() + \n    geom_smooth(se = FALSE) +\n    geom_smooth(method = \"lm\", se = FALSE, color = \"red\")\n# Plot the model WITH squared temperature\nggplot(bikes, aes(x = temp_feel, y = riders_registered)) + \n    geom_point() + \n    geom_smooth(se = FALSE) +\n    geom_smooth(method = \"lm\", formula = y ~ x + I(x^2), se = FALSE, color = \"red\")",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#exercise-3-residual-plots",
     "href": "activities/05_slr_model_eval.html#exercise-3-residual-plots",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "Exercise 3: Residual plots",
     "text": "Exercise 3: Residual plots\nPlotting the residuals vs the predictions (also called “fitted values”) for each case can help us assess how wrong our model is. This will be a particularly important tool when evaluating models with multiple predictors. Construct the residual plots for our two temperature models. Do these suggest that bike_mod1 is wrong? What about bike_mod2? Explain.\nNote: Information about the residuals (.resid) and predictions (.fitted) are stored within our model, thus we start our ggplot() with the model name as opposed to the raw dataset. We will rarely start ggplot() with a model instead of the data.\n\n# Fit a linear model\nbike_mod1 &lt;- lm(riders_registered ~ temp_feel, data = bikes)\n# Fit a quadratic model\nbike_mod2 &lt;- lm(riders_registered ~ temp_feel + temp_feel_squared, data = bikes)\n\n# Check out the residual plot for bike_mod1 (the incorrect model)\nggplot(bike_mod1, aes(x = .fitted, y = .resid)) + \n    geom_point() + \n    geom_hline(yintercept = 0) +\n    geom_smooth(se = FALSE)\n\n# Construct the residual plot for bike_mod2 (the good model)",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#exercise-4-another-example-of-an-incorrect-model",
     "href": "activities/05_slr_model_eval.html#exercise-4-another-example-of-an-incorrect-model",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "Exercise 4: Another example of an incorrect model",
     "text": "Exercise 4: Another example of an incorrect model\nThe Bechdel test is a test applied to films to assess the quality of women’s presence in the film. We’ll be looking at movies that have had the Bechdel test applied available in the fivethirtyeight R package. In the Console, enter install.packages(\"fivethirtyeight\") to install this package.\nWe’ll be using the bechdel data. You can view the codebook by entering ?bechdel in the Console.\nLet’s examine the relationship between international earnings (intgross) and movie budget (budget) for films made in 1997.\n\n# Import the data\nlibrary(fivethirtyeight)\ndata(bechdel)\n\n# Get only 1997 movies\nmovies_1997 &lt;- bechdel %&gt;% \n    filter(year == 1997)\n\n# Construct the model\nbechdel_model &lt;- lm(intgross ~ budget, movies_1997)\n\n\nConstruct two plots:\n\n\n# Scatterplot of earnings and budget with linear and curved trend lines\n\n\n# Residual plot for bechdel_model\n\n\nThese two plots confirm that our model is wrong. What is wrong and how might we fix it?\nIdentify which movie is causing the problem. Hint: filter() according to budget. Also, note that we could, but won’t, take that film out of the data set and re-build the model.\n\n\n# HINT CODE (do not write in this chunk)\n# NOTE: Many numbers could go in the ___\nmovies_1997 %&gt;%\n    filter(budget &gt; ___)\n\n\n# Your code",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#exercise-5-is-the-model-strong-developing-r-squared-intuition",
     "href": "activities/05_slr_model_eval.html#exercise-5-is-the-model-strong-developing-r-squared-intuition",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "Exercise 5: Is the model strong? Developing R-squared intuition",
     "text": "Exercise 5: Is the model strong? Developing R-squared intuition\nThe R-squared metric is a way to quantify the strength of a model. It measures how much variation in the outcome/response variable can be explained by the model.\nWhere does R-squared come from? Well, it turns out that we can partition the variance of the observed response values into the variability that’s explained by the model (the variance of the predictions) and the variability that’s left unexplained by the model (the variance of the residuals):\n\\[\\text{Var(observed) = Var(predicted) + Var(residuals)}\\]\n“Good” models have residuals that don’t deviate far from 0. So the smaller the variance in the residuals (thus larger the variance in the predictions), the stronger the model. Take a look at the picture below and write a few sentences addressing the following:\n\nThe two rows of plots show a stronger and a weaker model. Just by looking at the blue trend line and the dispersion of the points about the line, which row corresponds to the stronger model? How can you tell? Which row would you expect to have a higher correlation?\nWhat is different about the variance of the residuals from the first to the second row?\n\n\nPutting this together, the R-squared compares Var(predicted) to Var(response):\n\\[R^2 = \\frac{\\text{variance of predicted values}}{\\text{variance of observed response values}} = 1 - \\frac{\\text{variance of residuals}}{\\text{variance of observed response values}}\\]",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#exercise-6-further-exploring-r-squared",
     "href": "activities/05_slr_model_eval.html#exercise-6-further-exploring-r-squared",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "Exercise 6: Further exploring R-squared",
     "text": "Exercise 6: Further exploring R-squared\nIn this exercise, we’ll look at data from a synthetic dataset called Anscombe’s quartet. Load the data in as follows, and look at the first few rows:\n\ndata(anscombe)\n\n# Look at the first few rows\n\nThe anscombe data is actually 4 datasets in one: x1 and y1 go together, and so forth. Examine the coefficient estimates (in the “Estimate” column of the “Coefficients:” part) and the “Multiple R-squared” value on the second to last line. What do you notice? How do these models compare?\n\nanscombe_mod1 &lt;- lm(y1 ~ x1, data = anscombe)\nanscombe_mod2 &lt;- lm(y2 ~ x2, data = anscombe)\nanscombe_mod3 &lt;- lm(y3 ~ x3, data = anscombe)\nanscombe_mod4 &lt;- lm(y4 ~ x4, data = anscombe)\n\nsummary(anscombe_mod1)\nsummary(anscombe_mod2)\nsummary(anscombe_mod3)\nsummary(anscombe_mod4)\n\nNow take a look at the following scatterplots of the 4 pairs of variables. What do you notice? What takeaway can we draw from this exercise?\n\nggplot(anscombe, aes(x = x1, y = y1)) +\n    geom_point() + \n    geom_smooth(method = \"lm\", color = \"red\", se = FALSE)\n\nggplot(anscombe, aes(x = x2, y = y2)) +\n    geom_point() + \n    geom_smooth(method = \"lm\", color = \"red\", se = FALSE)\n\nggplot(anscombe, aes(x = x3, y = y3)) +\n    geom_point() + \n    geom_smooth(method = \"lm\", color = \"red\", se = FALSE)\n\nggplot(anscombe, aes(x = x4, y = y4)) +\n    geom_point() + \n    geom_smooth(method = \"lm\", color = \"red\", se = FALSE)",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#exercise-7-biased-data-biased-results-example-1",
     "href": "activities/05_slr_model_eval.html#exercise-7-biased-data-biased-results-example-1",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "Exercise 7: Biased data, biased results: example 1",
     "text": "Exercise 7: Biased data, biased results: example 1\nDATA ARE NOT NEUTRAL. Data can reflect personal biases, institutional biases, power dynamics, societal biases, the limits of our knowledge, and so on. In turn, biased data can lead to biased analyses. Consider an example.\n\nDo a Google image search for “statistics professor.” What do you observe?\nThese search results are produced by a search algorithm / model. Explain why the data used by this model are not neutral.\nWhat are the potential implications, personal or societal, of the search results produced from this biased data?",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#exercise-8-biased-data-biased-results-example-2",
     "href": "activities/05_slr_model_eval.html#exercise-8-biased-data-biased-results-example-2",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "Exercise 8: Biased data, biased results: example 2",
     "text": "Exercise 8: Biased data, biased results: example 2\nConsider the example of a large company that developed a model / algorithm to review the résumés of applicants for software developer & other tech positions. The model then gave each applicant a score indicating their hireability or potential for success at the company. You can think of this model as something like:\n\\[\\text{potential for success } = \\beta_0 + \\beta_1 (\\text{features from the résumé})\\]\nSkim this Reuter’s article about the company’s résumé model.\n\nExplain why the data used by this model are not neutral.\nWhat are the potential implications, personal or societal, of the results produced from this biased data?",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#exercise-9-rigid-data-collection-systems",
     "href": "activities/05_slr_model_eval.html#exercise-9-rigid-data-collection-systems",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "Exercise 9: Rigid data collection systems",
     "text": "Exercise 9: Rigid data collection systems\nWhen working with categorical variables, we’ve seen that our units of observation fall into neat groups. Reality isn’t so discrete. For example, check out questions 6 and 9 on page 2 of the 2020 US Census. With your group, discuss the following:\n\nWhat are a couple of issues you see with these questions?\nWhat impact might this type of data collection have on a subsequent analysis of the census responses and the policies it might inform?\nCan you think of a better way to write these questions while still preserving the privacy of respondents?\n\nFOR A DEEPER DISCUSSION: Read Chapter 4 of Data Feminism on “What gets counted counts”.",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#exercise-10-presenting-data-elevating-emotion-and-embodiment",
     "href": "activities/05_slr_model_eval.html#exercise-10-presenting-data-elevating-emotion-and-embodiment",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "Exercise 10: Presenting data: “Elevating emotion and embodiment”",
     "text": "Exercise 10: Presenting data: “Elevating emotion and embodiment”\nNote: The following example highlights work done by W.E.B. Du Bois in the late 1800s / early 1900s. His work uses language common to that time period and addresses the topic of slavery.\nThe types of visualizations we’ve been learning in this course are standard practice, hence widely understood. Yet these standard visualizations can also suppress the lived experiences of people represented in the data, hence can miss the larger point. W.E.B. Du Bois (1868–1963), a “sociologist, socialist, historian, civil rights activist, Pan-Africanist, author, writer, and editor”1, was a pioneer in elevating emotion and embodiment in data visualization. For the Paris World Fair of 1900, Du Bois and his team of students from Atlanta University presented 60 data visualizations of the Black experience in America, less than 50 years after the abolishment of slavery. To this end, Du Bois noted that “I wanted to set down its aim and method in some outstanding way which would bring my work to notice by the thinking world.” That is, he wanted to increase the impact of his work by partnering technical visualizations with design that better connects to lived experiences. Check out:\n\nAn article by Allen Hillery (@AlDatavizguy).\nA complete set of the data visualizations provided by Anthony Starks (@ajstarks).\n\nDiscuss your observations. In what ways do you think the W.E.B. Du Bois visualizations might have been more effective at sharing his work than, say, plainer bar charts?\nFOR A DEEPER DISCUSSION AND MORE MODERN EXAMPLES: Read Chapter 3 of Data Feminism on the principle of elevating emotion and embodiment, i.e. the value of “multiple forms of knowledge, including the knowledge that comes from people as living, feeling bodies in the world.”",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#reflection",
     "href": "activities/05_slr_model_eval.html#reflection",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "Reflection",
     "text": "Reflection\nWhat has stuck with you most in our exploration of model evaluation? Why\n\nResponse: Put your response here.",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#render-your-work",
     "href": "activities/05_slr_model_eval.html#render-your-work",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "Render your work",
     "text": "Render your work\n\nClick the “Render” button in the menu bar for this pane (blue arrow pointing right). This will create an HTML file containing all of the directions, code, and responses from this activity. A preview of the HTML will appear in the browser.\nScroll through and inspect the document to check that your work translated to the HTML format correctly.\nClose the browser tab.\nGo to the “Background Jobs” pane in RStudio and click the Stop button to end the rendering process.\nNavigate to your “Activities” subfolder within your “STAT155” folder and locate the HTML file. You can open it again in your browser to double check.\n\n\nSolutions",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/05_slr_model_eval.html#footnotes",
     "href": "activities/05_slr_model_eval.html#footnotes",
-    "title": "Simple linear regression: model evaluation",
+    "title": "05. Simple linear regression: model evaluation",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nhttps://en.wikipedia.org/wiki/W._E._B._Du_Bois↩︎",
     "crumbs": [
-      "Simple linear regression: model evaluation"
+      "05. Simple linear regression: model evaluation"
     ]
   },
   {
     "objectID": "activities/07_slr_cat_predictor.html",
     "href": "activities/07_slr_cat_predictor.html",
-    "title": "Simple linear regression: categorical predictor",
+    "title": "07. Simple linear regression with a categorical predictor",
     "section": "",
     "text": "Download the .qmd file for this activity here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\nOpen the qmd file in RStudio, and use it to type your answers/code to the exercises and reflection on the in-class activities.\n\n\n\nBy the end of this lesson, you should be able to:\n\nWrite a model formula for a simple linear regression model with a categorical predictor using indicator variables\nInterpret the intercept and slope coefficients in a simple linear regression model with a categorical predictor\n\n\n\n\nChoose either the reading or the videos to go through before class.\n\nReading: Section 3.9 in the STAT 155 Notes only up through section 3.9.1 Indicator Variables\nVideos:\n\nSimple linear regression: categorical predictor (slides)\nR Code for Categorical Predictors",
     "crumbs": [
-      "Simple linear regression: categorical predictor"
+      "07. Simple linear regression with a categorical predictor"
     ]
   },
   {
     "objectID": "activities/07_slr_cat_predictor.html#learning-goals",
     "href": "activities/07_slr_cat_predictor.html#learning-goals",
-    "title": "Simple linear regression: categorical predictor",
+    "title": "07. Simple linear regression with a categorical predictor",
     "section": "",
     "text": "By the end of this lesson, you should be able to:\n\nWrite a model formula for a simple linear regression model with a categorical predictor using indicator variables\nInterpret the intercept and slope coefficients in a simple linear regression model with a categorical predictor",
     "crumbs": [
-      "Simple linear regression: categorical predictor"
+      "07. Simple linear regression with a categorical predictor"
     ]
   },
   {
     "objectID": "activities/07_slr_cat_predictor.html#readings-and-videos",
     "href": "activities/07_slr_cat_predictor.html#readings-and-videos",
-    "title": "Simple linear regression: categorical predictor",
+    "title": "07. Simple linear regression with a categorical predictor",
     "section": "",
     "text": "Choose either the reading or the videos to go through before class.\n\nReading: Section 3.9 in the STAT 155 Notes only up through section 3.9.1 Indicator Variables\nVideos:\n\nSimple linear regression: categorical predictor (slides)\nR Code for Categorical Predictors",
     "crumbs": [
-      "Simple linear regression: categorical predictor"
+      "07. Simple linear regression with a categorical predictor"
     ]
   },
   {
     "objectID": "activities/07_slr_cat_predictor.html#exercise-1-get-to-know-the-data",
     "href": "activities/07_slr_cat_predictor.html#exercise-1-get-to-know-the-data",
-    "title": "Simple linear regression: categorical predictor",
+    "title": "07. Simple linear regression with a categorical predictor",
     "section": "Exercise 1: Get to know the data",
     "text": "Exercise 1: Get to know the data\nWrite R code to answer the following:\n\nHow many cases and variables do we have? What does a case represent?\nWhat do the first few rows of the data look like?\nConstruct and interpret two different visualizations of the price variable.\nConstruct and interpret a visualization of the cut variable.",
     "crumbs": [
-      "Simple linear regression: categorical predictor"
+      "07. Simple linear regression with a categorical predictor"
     ]
   },
   {
     "objectID": "activities/07_slr_cat_predictor.html#exercise-2-visualizations",
     "href": "activities/07_slr_cat_predictor.html#exercise-2-visualizations",
-    "title": "Simple linear regression: categorical predictor",
+    "title": "07. Simple linear regression with a categorical predictor",
     "section": "Exercise 2: Visualizations",
     "text": "Exercise 2: Visualizations\nStart by visualizing this relationship of interest, that between price and cut.\n\nThe appropriate plot depends upon the type of variables we’re plotting. When exploring the relationship between a quantitative response (ridership) and a quantitative predictor (temperature), a scatterplot was an effective choice. After running the code below, explain why a scatterplot is not effective for exploring the relationship between ridership and our categorical cut predictor.\n\n\n# Try a scatterplot\nggplot(diamonds, aes(y = price, x = cut)) + \n    geom_point()\n\n\nSeparately run each chunk below, with two plots. Comment (#) on what changes in the code / output.\n\n\n# Univariate boxplot\nggplot(diamonds, aes(y = price)) + \n    geom_boxplot()\n\n\n# ???\nggplot(diamonds, aes(y = price, x = cut)) + \n    geom_boxplot()\n\n\n# Univariate density plot\nggplot(diamonds, aes(x = price)) + \n    geom_density()\n\n\n# ???\nggplot(diamonds, aes(x = price, color = cut)) + \n    geom_density()\n\n\n# Univariate histogram\nggplot(diamonds, aes(x = price)) + \n    geom_histogram()\n\n\n# ???\nggplot(diamonds, aes(x = price)) + \n    geom_histogram() + \n    facet_wrap(~ cut)\n\n\nDo you notice anything interesting about the relationship between price and cut? What do you think might be happening here?",
     "crumbs": [
-      "Simple linear regression: categorical predictor"
+      "07. Simple linear regression with a categorical predictor"
     ]
   },
   {
     "objectID": "activities/07_slr_cat_predictor.html#exercise-3-numerical-summaries",
     "href": "activities/07_slr_cat_predictor.html#exercise-3-numerical-summaries",
-    "title": "Simple linear regression: categorical predictor",
+    "title": "07. Simple linear regression with a categorical predictor",
     "section": "Exercise 3: Numerical summaries",
     "text": "Exercise 3: Numerical summaries\nLet’s follow up our plots with some numerical summaries.\n\nTo warm up, first calculate the mean price across all diamonds.\n\n\n# HINT CODE: don't change this\ndiamonds %&gt;% \n    ___(mean(___))\n\n\n# Your solution\n\n\nTo summarize the trends we observed in the grouped plots above, we can calculate the mean price for each type of cut. This requires the inclusion of the group_by() function:\n\n\n# HINT CODE\n# Calculate mean price by cut\ndiamonds %&gt;% \n    group_by(cut) %&gt;% \n    ___(mean(___))\n\n\n# Your solution\n\n\nExamine the group mean measurements, and make sure that you can match these numbers up with what you see in the plots.",
     "crumbs": [
-      "Simple linear regression: categorical predictor"
+      "07. Simple linear regression with a categorical predictor"
     ]
   },
   {
     "objectID": "activities/07_slr_cat_predictor.html#exercise-4-modeling-trend",
     "href": "activities/07_slr_cat_predictor.html#exercise-4-modeling-trend",
-    "title": "Simple linear regression: categorical predictor",
+    "title": "07. Simple linear regression with a categorical predictor",
     "section": "Exercise 4: Modeling trend",
     "text": "Exercise 4: Modeling trend\nThe plots and mean calculations provide some insight into the relationship between price and cut. Next, let’s model the trend in this relationship. After examining the summary table below, complete the model formula:\n\n\nE[price | cut] = ___ +/- ___ cutGood +/- ___ cutVery Good +/- ___ cutPremium +/- ___ cutIdeal\n \n\n# Construct the model\ndiamond_mod &lt;- lm(price ~ cut, data = diamonds)\n\n# Summarize the model\ncoef(summary(diamond_mod))\n\n\nPAUSE: Categorical predictors\nNotice that our cut variable shows up as 4 different indicator variables in our model. An indicator variable numerically indicates if a categorical variable is at a particular level:\n\ncutGood = 1 if the diamond is of Good cut\ncutGood = 0 otherwise (any other value of cut (Fair, Very Good, Premium, Ideal))\n\n\n\nNOTE: We see 4 indicator variables (for Good, Very Good, Premium, and Ideal), but we do not see cutFair in the model output. This is because Fair is the reference level of the cut variable (it’s first alphabetically). You’ll see below that it is, indeed, still in the model. You’ll also see why the term “reference level” makes sense!",
     "crumbs": [
-      "Simple linear regression: categorical predictor"
+      "07. Simple linear regression with a categorical predictor"
     ]
   },
   {
     "objectID": "activities/07_slr_cat_predictor.html#exercise-5-making-sense-of-the-model",
     "href": "activities/07_slr_cat_predictor.html#exercise-5-making-sense-of-the-model",
-    "title": "Simple linear regression: categorical predictor",
+    "title": "07. Simple linear regression with a categorical predictor",
     "section": "Exercise 5: Making sense of the model",
     "text": "Exercise 5: Making sense of the model\nRecall our model: E[price | cut] = 4358.7578 - 429.8933 cutGood - 376.9979 cutVery Good + 225.4999 cutPremium - 901.2158 cutIdeal\n\nUse the model formula to calculate the expected/typical price for diamonds of Good cut.\nSimilarly, calculate the expected/typical price for diamonds of Fair cut.\nRe-examine these 2 calculations. Where have you seen these numbers before?!",
     "crumbs": [
-      "Simple linear regression: categorical predictor"
+      "07. Simple linear regression with a categorical predictor"
     ]
   },
   {
     "objectID": "activities/07_slr_cat_predictor.html#exercise-6-interpreting-coefficients",
     "href": "activities/07_slr_cat_predictor.html#exercise-6-interpreting-coefficients",
-    "title": "Simple linear regression: categorical predictor",
+    "title": "07. Simple linear regression with a categorical predictor",
     "section": "Exercise 6: Interpreting coefficients",
     "text": "Exercise 6: Interpreting coefficients\nRecall that our model formula is not a formula for a line. Thus we can’t interpret the coefficients as “slopes” as we have before. Taking this into account and reflecting upon your calculations above…\n\nInterpret the intercept coefficient (4358.7578) in terms of the data context. Make sure to use non-causal language, include units, and talk about averages rather than individual cases.\nInterpret the cutGood and cutVery Good coefficients (-429.8933 and -376.9979) in terms of the data context. Hint: where did you use these value in the prediction calculations above?",
     "crumbs": [
-      "Simple linear regression: categorical predictor"
+      "07. Simple linear regression with a categorical predictor"
     ]
   },
   {
     "objectID": "activities/07_slr_cat_predictor.html#exercise-7-modeling-choices-challenge",
     "href": "activities/07_slr_cat_predictor.html#exercise-7-modeling-choices-challenge",
-    "title": "Simple linear regression: categorical predictor",
+    "title": "07. Simple linear regression with a categorical predictor",
     "section": "Exercise 7: Modeling choices (CHALLENGE)",
     "text": "Exercise 7: Modeling choices (CHALLENGE)\nWhy do we fit this model in this way (using 4 indicator variables cutGood, cutVery Good, cutPremium, cutIdeal)? Instead, suppose that we created a single variable cutCat that gave each category a numerical value: 0 for Fair, 1 for Good, 2 for Very Good, 3 for Premium, and 4 for Ideal.\nHow would this change things? What are the pros and cons of each approach?",
     "crumbs": [
-      "Simple linear regression: categorical predictor"
+      "07. Simple linear regression with a categorical predictor"
     ]
   },
   {
     "objectID": "activities/07_slr_cat_predictor.html#reflection",
     "href": "activities/07_slr_cat_predictor.html#reflection",
-    "title": "Simple linear regression: categorical predictor",
+    "title": "07. Simple linear regression with a categorical predictor",
     "section": "Reflection",
     "text": "Reflection\nThrough the exercises above, you learned how to build and interpret models that incorporate a categorical predictor variable. For the benefit of your future self, summarize how one can interpret the coefficients for a categorical predictor.\n\nResponse: Put your response here.",
     "crumbs": [
-      "Simple linear regression: categorical predictor"
+      "07. Simple linear regression with a categorical predictor"
     ]
   },
   {
     "objectID": "activities/07_slr_cat_predictor.html#render-your-work",
     "href": "activities/07_slr_cat_predictor.html#render-your-work",
-    "title": "Simple linear regression: categorical predictor",
+    "title": "07. Simple linear regression with a categorical predictor",
     "section": "Render your work",
     "text": "Render your work\n\nClick the “Render” button in the menu bar for this pane (blue arrow pointing right). This will create an HTML file containing all of the directions, code, and responses from this activity. A preview of the HTML will appear in the browser.\nScroll through and inspect the document to check that your work translated to the HTML format correctly.\nClose the browser tab.\nGo to the “Background Jobs” pane in RStudio and click the Stop button to end the rendering process.\nNavigate to your “Activities” subfolder within your “STAT155” folder and locate the HTML file. You can open it again in your browser to double check.",
     "crumbs": [
-      "Simple linear regression: categorical predictor"
+      "07. Simple linear regression with a categorical predictor"
     ]
   },
   {
     "objectID": "activities/07_slr_cat_predictor.html#exercise-8-diamond-color",
     "href": "activities/07_slr_cat_predictor.html#exercise-8-diamond-color",
-    "title": "Simple linear regression: categorical predictor",
+    "title": "07. Simple linear regression with a categorical predictor",
     "section": "Exercise 8: Diamond color",
     "text": "Exercise 8: Diamond color\nConsider modeling price by color.\n\nBefore creating a visualization that shows the relationship between price and color, write down what you expect the plot to look like. Then construct and interpret an apporpriate plot.\nCompute the average price for each color.\nFit an appropriate linear model with lm() and display a short summary of the model.\nWrite out the model formula from the above summary.\nWhich color is the reference level? How can you tell from the model summary?\nInterpret the intercept and two other coefficients from the model in terms of the data context.",
     "crumbs": [
-      "Simple linear regression: categorical predictor"
+      "07. Simple linear regression with a categorical predictor"
     ]
   },
   {
     "objectID": "activities/07_slr_cat_predictor.html#exercise-9-diamond-clarity",
     "href": "activities/07_slr_cat_predictor.html#exercise-9-diamond-clarity",
-    "title": "Simple linear regression: categorical predictor",
+    "title": "07. Simple linear regression with a categorical predictor",
     "section": "Exercise 9: Diamond clarity",
     "text": "Exercise 9: Diamond clarity\nIf you want more practice, repeat the steps from Exercise 8 for the clarity variable.\n\nSolutions",
     "crumbs": [
-      "Simple linear regression: categorical predictor"
+      "07. Simple linear regression with a categorical predictor"
     ]
   },
   {
     "objectID": "activities/08_mlr_intro.html#learning-goals",
     "href": "activities/08_mlr_intro.html#learning-goals",
-    "title": "Introduction to multiple regression",
+    "title": "08. Introduction to multiple regression",
     "section": "Learning goals",
     "text": "Learning goals\nBy the end of this lesson, you should be familiar with:\n\nsome limitations of simple linear regression\nthe general goals behind multiple linear regression\nstrategies for visualizing and interpreting multiple linear regression models of \\(y\\) vs 2 predictors, 1 quantitative and 1 categorical"
   },
   {
     "objectID": "activities/08_mlr_intro.html#readings-and-videos",
     "href": "activities/08_mlr_intro.html#readings-and-videos",
-    "title": "Introduction to multiple regression",
+    "title": "08. Introduction to multiple regression",
     "section": "Readings and videos",
     "text": "Readings and videos\nToday is a day to discover ideas, so no readings or videos to go through before class."
   },
   {
     "objectID": "activities/08_mlr_intro.html#motivation",
     "href": "activities/08_mlr_intro.html#motivation",
-    "title": "Introduction to multiple regression",
+    "title": "08. Introduction to multiple regression",
     "section": "Motivation",
     "text": "Motivation\nEXAMPLE 1\nLet’s explore some data on penguins. First, enter install.packages(\"palmerpenguins\") in the console (not Rmd). Then load the penguins data. You can find a codebook for these data by typing ?penguins in your console (not Rmd).\n\n# Load packages\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\n\n# Load data\nlibrary(palmerpenguins)\ndata(penguins)\npenguins &lt;- penguins %&gt;% \n  filter(species != \"Adelie\", bill_length_mm &lt; 57)\n\n# Check it out\nhead(penguins)\n\nOur goal is to build a model that we can use to get good predictions of penguins’ flipper (“arm”) lengths. Consider 2 simple linear regression models of flipper_length_mm by penguin sex and species:\n\nsummary(lm(flipper_length_mm ~ sex, penguins))$r.squared\nsummary(lm(flipper_length_mm ~ species, penguins))$r.squared\n\nHow might we improve our predictions of flipper_length_mm using only these 2 predictors? What do you think our new R-squared would be?\nEXAMPLE 2\nConsider a simple linear regression model of flipper_length_mm by bill_length_mm:\n\npenguins %&gt;% \n  ggplot(aes(y = flipper_length_mm, x = bill_length_mm)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE)\n\nThoughts? What’s going on here? How does this highlight the limitations of a simple linear regression model?\nEXAMPLE 3\nThe cps dataset contains employment information collected by the U.S. Current Population Survey (CPS) in 2018. We can use these data to explore wages among 18-34 year olds. The original codebook is here.\n\n# Import data\ncps &lt;- read_csv(\"https://mac-stat.github.io/data/cps_2018.csv\") %&gt;% \n  select(-education, -hours) %&gt;% \n  filter(age &gt;= 18, age &lt;= 34) %&gt;% \n  filter(wage &lt; 250000)\n\n\n# Check it out\nhead(cps)\n\nWe can use a simple linear regression model to summarize the relationship of wage with marital status:\n\n# Build the model\nwage_mod &lt;- lm(wage ~ marital, data = cps)\n\n# Summarize the model\ncoef(summary(wage_mod))\n\nWhat do you / don’t you conclude from this model? How does it highlight the limitations of a simple linear regression model?\nReflection: Why are multiple regression models so useful?\nWe can put more than 1 predictor into a regression model! Adding predictors to models…\n\nPredictive viewpoint: Helps us better predict the response\nDescriptive viewpoint: Helps us better understand the isolated (causal) effect of a variable by holding constant confounders\n\nMultiple linear regression model formula\nIn general, a multiple linear regression model of \\(y\\) with multiple predictors \\((x_1, x_2, ..., x_p)\\) is represented by the following formula:\n\\[E[y \\mid x_1, x_2, ..., x_p] = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + ... + \\beta_p x_p\\]"
   },
   {
     "objectID": "activities/08_mlr_intro.html#exercise-1-visualizing-the-relationship",
     "href": "activities/08_mlr_intro.html#exercise-1-visualizing-the-relationship",
-    "title": "Introduction to multiple regression",
+    "title": "08. Introduction to multiple regression",
     "section": "Exercise 1: Visualizing the relationship",
     "text": "Exercise 1: Visualizing the relationship\nWe’ve learned how to visualize the relationship of flipper_length_mm by bill_length_mm alone:\n\npenguins %&gt;% \n  ggplot(aes(y = flipper_length_mm, x = bill_length_mm)) + \n  geom_point()\n\n\nTHINK: How might we change the scatterplot points to also indicate information about penguin species? (There’s more than 1 approach!)\nTry out your idea by modifying the code below. If you get stuck, talk with the tables around you!\n\n\n# penguins %&gt;% \n#   ggplot(aes(y = flipper_length_mm, x = bill_length_mm, ___ = ___)) + \n#   geom_point()"
   },
   {
     "objectID": "activities/08_mlr_intro.html#exercise-2-visualizing-the-model",
     "href": "activities/08_mlr_intro.html#exercise-2-visualizing-the-model",
-    "title": "Introduction to multiple regression",
+    "title": "08. Introduction to multiple regression",
     "section": "Exercise 2: Visualizing the model",
     "text": "Exercise 2: Visualizing the model\nWe’ve also learned that a simple linear regression model of flipper_length_mm by bill_length_mm alone can be represented by a line:\n\npenguins %&gt;% \n  ggplot(aes(y = flipper_length_mm, x = bill_length_mm)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE)\n\n\nTHINK: Reflecting on your plot of flipper_length_mm by bill_length_mm and species in Exercise 1, how do you think a multiple regression model of flipper_length_mm using both of these predictors would be represented?\nCheck your intuition below by modifying the code below to include species in this plot, as you did in Exercise 1.\n\n\n# penguins %&gt;%\n#   ggplot(aes(y = flipper_length_mm, x = bill_length_mm, ___ = ___)) +\n#   geom_point() +\n#   geom_smooth(method = \"lm\", se = FALSE)"
   },
   {
     "objectID": "activities/08_mlr_intro.html#exercise-3-intuition",
     "href": "activities/08_mlr_intro.html#exercise-3-intuition",
-    "title": "Introduction to multiple regression",
+    "title": "08. Introduction to multiple regression",
     "section": "Exercise 3: Intuition",
     "text": "Exercise 3: Intuition\nYour plot in Exercise 2 demonstrated that the multiple linear regression model of flipper_length_mm by bill_length_mm and species is represented by 2 lines. Let’s interpret the punchlines! For each question, provide an answer along with evidence from the model lines that supports your answer.\n\nWhat’s the relationship between flipper_length_mm and species, no matter a penguin’s bill_length_mm?\nWhat’s the relationship between flipper_length_mm and bill_length_mm, no matter a penguin’s species?\nDoes the rate of increase in flipper_length_mm with bill_length_mm differ between the two species?"
   },
   {
     "objectID": "activities/08_mlr_intro.html#exercise-4-model-formula",
     "href": "activities/08_mlr_intro.html#exercise-4-model-formula",
-    "title": "Introduction to multiple regression",
+    "title": "08. Introduction to multiple regression",
     "section": "Exercise 4: Model formula",
     "text": "Exercise 4: Model formula\nOf course, there’s a formula behind the multiple regression model. We can obtain this using the usual lm() function.\n\n# Build the model\npenguin_mod &lt;- lm(flipper_length_mm ~ bill_length_mm + species, data = penguins)\n\n# Summarize the model\ncoef(summary(penguin_mod))\n\n\nIn the lm() function, how did we communicate that we wanted to model flipper_length_mm by both bill_length_mm and species?\nComplete the following model formula:\nE[flipper_length_mm | bill_length_mm, speciesGentoo] = ___ + ___ * bill_length_mm + ___ * speciesGentoo"
   },
   {
     "objectID": "activities/08_mlr_intro.html#exercise-5-sub-model-formulas",
     "href": "activities/08_mlr_intro.html#exercise-5-sub-model-formulas",
-    "title": "Introduction to multiple regression",
+    "title": "08. Introduction to multiple regression",
     "section": "Exercise 5: Sub-model formulas",
     "text": "Exercise 5: Sub-model formulas\nOk. We now have a single formula for the model. And we observed earlier that this formula is represented by two lines: one describing the relationship between flipper_length_mm and bill_length_mm for Chinstrap penguins and the other for Gentoo penguins. Let’s bring these ideas together. Utilize the model formula to obtain the equations of these two lines, i.e. to obtain the sub-model formulas for the 2 species. Hint: Plug speciesGentoo = 0 and speciesGentoo = 1.\nChinstrap: flipper_length_mm = ___ + ___ bill_length_mm\nGentoo: flipper_length_mm = ___ + ___ bill_length_mm"
   },
   {
     "objectID": "activities/08_mlr_intro.html#exercise-6-coefficients-physical-interpretation",
     "href": "activities/08_mlr_intro.html#exercise-6-coefficients-physical-interpretation",
-    "title": "Introduction to multiple regression",
+    "title": "08. Introduction to multiple regression",
     "section": "Exercise 6: coefficients – physical interpretation",
     "text": "Exercise 6: coefficients – physical interpretation\nReflecting on Exercise 5, let’s interpret what the model coefficients tell us about the physical properties of the two 2 sub-model lines. Choose the correct option given in parentheses:\n\nThe intercept coefficient, 127.75, is the intercept of the line for (Chinstrap / Gentoo) penguins.\nThe bill_length_mm coefficient, 1.40, is the (intercept / slope) of both lines.\nThe speciesGentoo coefficient, 22.85, indicates that the (intercept / slope) of the line for Gentoo is 22.85mm higher than the (intercept / slope) of the line for Chinstrap. Similarly, since the lines are parallel, the line for Gentoo is 22.85mm higher than the line for Chinstrap at any bill_length_mm."
   },
   {
     "objectID": "activities/08_mlr_intro.html#exercise-7-coefficients-contextual-interpretation",
     "href": "activities/08_mlr_intro.html#exercise-7-coefficients-contextual-interpretation",
-    "title": "Introduction to multiple regression",
+    "title": "08. Introduction to multiple regression",
     "section": "Exercise 7: coefficients – contextual interpretation",
     "text": "Exercise 7: coefficients – contextual interpretation\nNext, interpret each coefficient in a contextually meaningful way. What do they tell us about penguin flipper lengths?!\n\nInterpret 127.75 (intercept of the Chinstrap line).\nInterpret 1.40 (slope of both lines). For both Chinstrap and Gentoo penguins, we expect…\nInterpret 22.85. At any bill_length_mm, we expect…"
   },
   {
     "objectID": "activities/08_mlr_intro.html#exercise-8-prediction",
     "href": "activities/08_mlr_intro.html#exercise-8-prediction",
-    "title": "Introduction to multiple regression",
+    "title": "08. Introduction to multiple regression",
     "section": "Exercise 8: Prediction",
     "text": "Exercise 8: Prediction\nNow that we better understand the model, let’s use it to predict flipper lengths! Recall the model summary and visualization:\n\ncoef(summary(penguin_mod))\n\npenguins %&gt;% \n  ggplot(aes(y = flipper_length_mm, x = bill_length_mm, color = species)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE)\n\n\nPredict the flipper length of a Chinstrap penguin with a 50mm long bill. Make sure your calculation is consistent with the plot.\n\n\n# 127.75 + 1.40*___ + 22.85*___\n\n\nPredict the flipper length of a Gentoo penguin with a 50mm long bill. Make sure your calculation is consistent with the plot.\n\n\n# 127.75 + 1.40*___ + 22.85*___\n\n\nUse the predict() function to confirm your predictions in parts a and b.\n\n\n# Confirm the calculation in part a\n# predict(penguin_mod,\n#         newdata = data.frame(bill_length_mm = ___, species = \"___\"))\n\n# Confirm the calculation in part b\n# predict(penguin_mod,\n#         newdata = data.frame(bill_length_mm = ___, species = \"___\"))"
   },
   {
     "objectID": "activities/08_mlr_intro.html#exercise-9-r-squared",
     "href": "activities/08_mlr_intro.html#exercise-9-r-squared",
-    "title": "Introduction to multiple regression",
+    "title": "08. Introduction to multiple regression",
     "section": "Exercise 9: R-squared",
     "text": "Exercise 9: R-squared\nFinally, recall that improving our predictions was one motivation for multiple linear regression (using 2 predictors instead of 1). To this end, consider the R-squared values of the simple linear regression models that use just one predictor at a time:\n\nsummary(lm(flipper_length_mm ~ bill_length_mm, data = penguins))$r.squared\n\nsummary(lm(flipper_length_mm ~ species, data = penguins))$r.squared\n\n\nIf you had to use only 1 of our 2 predictors, which would give the better predictions of flipper_length_mm?\nWhat do you guess is the R-squared of our multiple regression model that uses both of these predictors? Why?\nCheck your intuition. How does the R-squared of our multiple regression model compare to that of the 2 separate simple linear regression models?\n\n\nsummary(penguin_mod)$r.squared"
   },
   {
     "objectID": "activities/08_mlr_intro.html#reflection",
     "href": "activities/08_mlr_intro.html#reflection",
-    "title": "Introduction to multiple regression",
+    "title": "08. Introduction to multiple regression",
     "section": "Reflection",
     "text": "Reflection\nYou’ve now explored your first multiple regression model! Thus you likely have a lot of questions about what’s to come. What are they?\n\nResponse: Put your response here.\n\n\nSolutions"
   },
@@ -1371,331 +1371,331 @@
   {
     "objectID": "activities/02_foundations_univariate.html",
     "href": "activities/02_foundations_univariate.html",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "",
     "text": "Download the .qmd file for this activity here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\nOpen the qmd file in Rstudio, and use it to type your answers/code to the exercises and reflection on the in-class activities.\nFollow this process for this and all future activities",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#learning-goals",
     "href": "activities/02_foundations_univariate.html#learning-goals",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Learning goals",
     "text": "Learning goals\nBy the end of this lesson, you should be able to:\n\nUnderstand the basics of working with Quarto documents in RStudio\nDescribe what a case (or unit of analysis) represents in a dataset.\nDescribe what a variable represents in a dataset.\nIdentify whether a variable is categorical or quantitative and what summarizations and visualizations are appropriate for that variable\nWrite R code to read in data and to summarize and visualize a single variable at a time.\nInterpret key features of barplots, boxplots, histograms, and density plots\nDescribe information about the distribution of a quantitative variable using the concepts of shape, center, spread, and outliers\nRelate summary statistics of data to the concepts of shape, center, spread, and outliers",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#readings-and-videos",
     "href": "activities/02_foundations_univariate.html#readings-and-videos",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Readings and videos",
     "text": "Readings and videos\nChoose either the reading or the videos to go through before class.\n\nReading: Sections 2.1-2.4, 2.6 in the STAT 155 Notes\nVideos:\n\nUnivariate visualization and summarization (slides)\nR Code for Categorical Visualization and Summarization\nR Code for Quantitative Visualization and Summarization",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-1-get-curious",
     "href": "activities/02_foundations_univariate.html#exercise-1-get-curious",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 1: Get curious",
     "text": "Exercise 1: Get curious\n\nHypothesize with each other: what themes do you think might come up often in Dear Abby letters?\nAfter brainstorming, take a quick glance at the original article from The Pudding to see what themes they explored.\nGo to the very end of the Pudding article to the section titled “Data and Method”. In thinking about the who, what, when, where, why, and how of data context, what concerns/limitations surface with regards to using this data to learn about Americans’ concerns over the decades?",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-2-importing-and-getting-to-know-the-data",
     "href": "activities/02_foundations_univariate.html#exercise-2-importing-and-getting-to-know-the-data",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 2: Importing and getting to know the data",
     "text": "Exercise 2: Importing and getting to know the data\n\n# Load package\nlibrary(tidyverse)\nlibrary(readr)\n\n# Read in the course evaluation data\nabby &lt;- read_csv(\"https://mac-stat.github.io/data/dear_abby.csv\")\n\n\nClick on the Environment tab (generally in the upper right hand pane in RStudio). Then click the abby line. The abby data will pop up as a separate pane (like viewing a spreadsheet) – check it out.\nIn this tidy dataset, what is the unit of observation? That is, what is represented in each row of the dataset?\nWhat term do we use for the columns of the dataset?\nTry out each function below. Identify what each function tells you about the abby data and note this in the ???:\n\n\n# ??? [what do both numbers mean?]\ndim(abby)\n\n# ???\nnrow(abby)\n\n# ???\nncol(abby)\n\n# ???\nhead(abby)\n\n# ???\nnames(abby)\n\n\nWe can learn what functions do by pulling up help pages. To do this, click inside the Console pane, and enter ?function_name. For example, to pull up a help page for the dim() function, we can type ?dim and hit Enter. Pull up the help page for the head() function.\n\nRead the Description.\nChallenge: Look at the Arguments and Examples sections to figure out how to display the first 10 rows of the evals data (instead of the default first 6 rows).",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-3-preparing-to-summarize-and-visualize-the-data",
     "href": "activities/02_foundations_univariate.html#exercise-3-preparing-to-summarize-and-visualize-the-data",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 3: Preparing to summarize and visualize the data",
     "text": "Exercise 3: Preparing to summarize and visualize the data\nIn the next exercises, we will be exploring themes in the Dear Abby questions and the overall “mood” or sentiment of the questions. Before continuing, read the codebook for this dataset for some context about sentiment analysis, which gives us a measure of the mood/sentiment of a text.\n\nWhat sentiment variables do we have in the dataset? Are they quantitative or categorical?\nIf we were able to create a theme variable that took values like “friendship”, “marriage”, and “relationships”, would theme be quantitative or categorical?\nWhat visualizations are appropriate for looking at the distribution of a single quantitative variable? What about a single categorical variable?",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-4-exploring-themes-in-the-letters",
     "href": "activities/02_foundations_univariate.html#exercise-4-exploring-themes-in-the-letters",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 4: Exploring themes in the letters",
     "text": "Exercise 4: Exploring themes in the letters\nThe dplyr package provides many useful functions for managing data (like creating new variables, summarizing information). The stringr package provides tools for working with strings (text). We’ll use these packages to search for words in the questions in order to (roughly) identify themes/subjects.\nThe code below searches for words related to mothers, fathers, marriage, and money and combines them into a single theme variable.\n\nInside mutate() the line moms = ifelse(str_detect(question_only, \"mother|mama|mom\"), \"mom\", \"no mom\") creates a new variable called moms. If any of the text “mother”, “mama”, or “mom” (which covers “mommy”) is found, then the variable takes the value “mom”. Otherwise, the variable takes the value “no mom”.\nThe dads, marriage, and money variables are created similarly.\nThe themes = str_c(moms, dads, marriage, money, sep = \"|\") line takes the 4 created variables and combines the text of those variables separated with a |. For example, one value of the themes variable is “mom|no_dad|no_marriage|no_money” (which contains words about moms but not dads, marriage, or money).\n\n\nlibrary(dplyr)\nlibrary(stringr)\n\nabby &lt;- abby %&gt;% \n    mutate(\n        moms = ifelse(str_detect(question_only, \"mother|mama|mom\"), \"mom\", \"no mom\"),\n        dads = ifelse(str_detect(question_only, \"father|papa|dad\"), \"dad\", \"no dad\"),\n        marriage = ifelse(str_detect(question_only, \"marriage|marry|married\"), \"marriage\", \"no marriage\"),\n        money = ifelse(str_detect(question_only, \"money|finance\"), \"money\", \"no money\"),\n        themes = str_c(moms, dads, marriage, money, sep = \"|\")\n    )\n\n\nModify the code above however you wish to replace themes (e.g., replace “moms” with something else) or add new themes to search for. If you want to add a new subject to search for, copy and paste a line for an existing subject above the themes line, and modify the code like this:\n\nIf your subject is captured by multiple words: YOUR_SUBJECT = ifelse(str_detect(question_only, \"WORD1|WORD2|ETC\"), \"SUBJECT\", \"NO SUBJECT\"),\nIf your subject is captured by a single word: YOUR_SUBJECT = ifelse(str_detect(question_only, \"WORD\"), \"SUBJECT\", \"NO SUBJECT\"),\nTry to have no more than 6 subjects—otherwise we’ll have too many themes, which will complicate exploration.\n\nThe code below makes a barplot of the themes variable using the ggplot2 visualization package. Before making the plot, make note of what you expect the plot might look like. (This might be hard–just do your best!) Then compare to what you observe when you run the code chunk to make the plot. (Clearly defining your expectations first is good scientific practice to avoid confirmation bias.)\n\n\n# Load package\nlibrary(ggplot2)\n\n# barplot\nggplot(abby, aes(x = themes)) +\n    geom_bar() +\n    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))\n\n\nWe can follow up on the barplot with a simple numerical summary. Whereas the ggplot2 package is great for visualizations, dplyr is great for numerical summaries. The code below constructs a table of the number of questions with each theme. Make sure that these numerical summaries match up with what you saw in the barplot.\n\n\n# Construct a table of counts\nabby %&gt;% \n    count(themes)\n\n\nBefore proceeding, let’s break down the plotting code above. Run each chunk to see how the two lines of code above build up the plot in “layers”. Add comments (on the lines starting with #) to document what you notice.\n\n\n# ???\nggplot(abby, aes(x = themes))\n\n\n# ???\nggplot(abby, aes(x = themes)) +\n    geom_bar()\n\n\n# ???\nggplot(abby, aes(x = themes)) +\n    geom_bar() +\n    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))\n\n\n# ???\nggplot(abby, aes(x = themes)) +\n    geom_bar() +\n    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +\n    theme_classic()",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-5-exploring-sentiment",
     "href": "activities/02_foundations_univariate.html#exercise-5-exploring-sentiment",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 5: Exploring sentiment",
     "text": "Exercise 5: Exploring sentiment\nWe’ll look at the distribution of the afinn_overall sentiment variable and associated summary statistics.\n\nThe code below creates a boxplot of this variable. In the comment, make note of how this code is simliar to the code for the barplot above. As in the previous exercise, before running the code chunk to create the plot, make note of what you expect the boxplot to look like.\n\n\n# ???\nggplot(abby, aes(x = afinn_overall)) +\n    geom_boxplot()\n\n\nChallenge: Using the code for the barplot and boxplot as a guide, try to make a histogram and a density plot of the overall average ratings.\n\nWhat information is given by the tallest bar of the histogram?\nHow would you describe the shape of the distribution?\n\n\n\n# Histogram\n\n# Density plot\n\n\nWe can compute summary statistics (numerical summaries) for a quantitative variable using the summary() function or with the summarize() function from the dplyr package. (1st Qu. and 3rd Qu. stand for first and third quartile.) After inspecting these summaries, look back to your boxplot, histogram, and density plot. Which plots show which summaries most clearly?\n\n\n# Summary statistics\n# Using summary() - convenient for computing many summaries in one command\n# Does not show the standard deviation\nsummary(abby$afinn_overall)\n\n# Using summarize() from dplyr\n# Note that we use %&gt;% to pipe the data into the summarize() function\n# We need to use na.rm = TRUE because there are missing values (NAs)\nabby %&gt;% \n    summarize(mean(afinn_overall, na.rm = TRUE), median(afinn_overall, na.rm = TRUE), sd(afinn_overall, na.rm = TRUE))\n\n\nWrite a good paragraph describing the information in the histogram (or density plot) by discussing shape, center, spread, and outliers. Incorporate the numerical summaries from part c.",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-6-box-plots-vs.-histograms-vs.-density-plots",
     "href": "activities/02_foundations_univariate.html#exercise-6-box-plots-vs.-histograms-vs.-density-plots",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 6: Box plots vs. histograms vs. density plots",
     "text": "Exercise 6: Box plots vs. histograms vs. density plots\nWe took 3 different approaches to plotting the quantitative average course variable above. They all have pros and cons.\n\nWhat is one pro about the boxplot in comparison to the histogram and density plot?\nWhat is one con about the boxplot in comparison to the histogram and density plots?\nIn this example, which plot do you prefer and why?",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-7-explore-outliers",
     "href": "activities/02_foundations_univariate.html#exercise-7-explore-outliers",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 7: Explore outliers",
     "text": "Exercise 7: Explore outliers\nGiven that Dear Abby column is an advice column, it seems natural that the sentiment of the questions would lean more negative. What’s going on with the questions that have particularly positive sentiments?\nWe can use the filter() function in the dplyr package to look at the . Based on the plots of afinn_overall that you made in Exercise 5, pick a threshold for the afinn_overall variable—we’ll say that questions with an overall sentiment score above this threshold are high outliers. Fill in this number where it says YOUR_THRESHOLD below.\n\nabby %&gt;% \n    filter(afinn_overall &gt; YOUR_THRESHOLD) %&gt;% \n    pull(question_only)\n\nWhat do you notice? Why might these questions have such high sentiment scores?",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-8-returning-to-our-context-looking-ahead",
     "href": "activities/02_foundations_univariate.html#exercise-8-returning-to-our-context-looking-ahead",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 8: Returning to our context, looking ahead",
     "text": "Exercise 8: Returning to our context, looking ahead\nIn this activity, we explored data on Dear Abby question, with a focus on exploring a single variable at a time.\n\nIn big picture terms, what have we learned about Dear Abby questions?\nWhat further curiosities do you have about the data?",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-9-different-ways-to-think-about-data-visualization",
     "href": "activities/02_foundations_univariate.html#exercise-9-different-ways-to-think-about-data-visualization",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 9: Different ways to think about data visualization",
     "text": "Exercise 9: Different ways to think about data visualization\nIn working with and visualizing data, it’s important to keep in mind what a data point represents. It can reflect the experience of a real person. It might reflect the sentiment in a piece of art. It might reflect history. We’ve taken one very narrow and technical approach to data visualization. Check out the following examples, and write some notes about anything you find interesting.\n\nDear Data\nW.E.B. DuBois\nDecolonizing Data Viz\nPhase Change Project (by Prof Kim, Mac research students)",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-10-rendering-your-work",
     "href": "activities/02_foundations_univariate.html#exercise-10-rendering-your-work",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 10: Rendering your work",
     "text": "Exercise 10: Rendering your work\nSave this file, and then click the “Render” button in the menu bar for this pane (blue arrow pointing right). This will create an HTML file containing all of the directions, code, and responses from this activity. A preview of the HTML will appear in the browser.\n\nScroll through and inspect the document to see how your work was translated into this HTML format. Neat!\nClose the browser tab.\nGo to the “Background Jobs” pane in RStudio and click the Stop button to end the rendering process.\nNavigate to your “Activities” subfolder within your “STAT155” folder and locate the HTML file. You can open it again in your browser to double check.",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#reflection",
     "href": "activities/02_foundations_univariate.html#reflection",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Reflection",
     "text": "Reflection\nGo to the top of this file and review the learning objectives for this lesson. Which objectives do you have a good handle on, are at least familiar with, or are struggling with? What feels challenging right now? What are some wins from the day?\n\nResponse: Put your response here.",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-11-read-in-and-get-to-know-the-weather-data",
     "href": "activities/02_foundations_univariate.html#exercise-11-read-in-and-get-to-know-the-weather-data",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 11: Read in and get to know the weather data",
     "text": "Exercise 11: Read in and get to know the weather data\nDaily weather data are available for 3 locations in Perth, Australia.\n\nView the codebook here.\nComplete the code below to read in the data.\n\n\n# Replace the ??? with your own name for the weather data\n# Replace the ___ with the correct function\n??? &lt;- ___(\"https://mac-stat.github.io/data/weather_3_locations.csv\")",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-12-exploring-the-data-structure",
     "href": "activities/02_foundations_univariate.html#exercise-12-exploring-the-data-structure",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 12: Exploring the data structure",
     "text": "Exercise 12: Exploring the data structure\nCheck out the basic features of the weather data.\n\n# Examine the first six cases\n\n# Find the dimensions of the data\n\nWhat does a case represent in this data?",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-13-exploring-rainfall",
     "href": "activities/02_foundations_univariate.html#exercise-13-exploring-rainfall",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 13: Exploring rainfall",
     "text": "Exercise 13: Exploring rainfall\nThe raintoday variable contains information about rainfall.\n\nIs this variable quantitative or categorical?\nCreate an appropriate visualization, and compute appropriate numerical summaries.\nWhat do you learn about rainfall in Perth?\n\n\n# Visualization\n\n# Numerical summaries",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-14-exploring-temperature",
     "href": "activities/02_foundations_univariate.html#exercise-14-exploring-temperature",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 14: Exploring temperature",
     "text": "Exercise 14: Exploring temperature\nThe maxtemp variable contains information on the daily high temperature.\n\nIs this variable quantitative or categorical?\nCreate an appropriate visualization, and compute appropriate numerical summaries.\nWhat do you learn about high temperatures in Perth?\n\n\n# Visualization\n\n# Numerical summaries",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/02_foundations_univariate.html#exercise-15-customizing-challenge",
     "href": "activities/02_foundations_univariate.html#exercise-15-customizing-challenge",
-    "title": "Univariate visualization and summaries",
+    "title": "02. Univariate visualization and summaries",
     "section": "Exercise 15: Customizing! (CHALLENGE)",
     "text": "Exercise 15: Customizing! (CHALLENGE)\nThough you will naturally absorb some RStudio code throughout the semester, being an effective statistical thinker and “programmer” does not require that we memorize all code. That would be impossible! In contrast, using the foundation you built today, do some digging online to learn how to customize your visualizations.\n\nFor the histogram below, add a title and more meaningful axis labels. Specifically, title the plot “Distribution of max temperatures in Perth”, change the x-axis label to “Maximum temperature” and y-axis label to “Number of days”. HINT: Do a Google search for something like “add axis labels ggplot”.\n\n\n# Add a title and axis labels\nggplot(weather, aes(x = maxtemp)) + \n    geom_histogram()\n\n\nAdjust the code below in order to color the bars green. NOTE: Color can be an effective tool, but here it is simply gratuitous.\n\n\n# Make the bars green\nggplot(weather, aes(x = raintoday)) + \n    geom_bar()\n\n\nCheck out the ggplot2 cheat sheet. Try making some of the other kinds of univariate plots outlined there.\nWhat else would you like to change about your plot? Try it!\n\n\nSolutions",
     "crumbs": [
-      "Univariate visualization and summaries"
+      "02. Univariate visualization and summaries"
     ]
   },
   {
     "objectID": "activities/03_slr_introduction.html",
     "href": "activities/03_slr_introduction.html",
-    "title": "Simple linear regression: Visualization and Introduction",
+    "title": "03. Simple linear regression: Visualization and Introduction",
     "section": "",
     "text": "Download the .qmd file for this activity here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\nOpen the qmd file in RStudio, and use it to type your answers/code to the exercises and reflection on the in-class activities.",
     "crumbs": [
-      "Simple linear regression: Visualization and Introduction"
+      "03. Simple linear regression: Visualization and Introduction"
     ]
   },
   {
     "objectID": "activities/03_slr_introduction.html#learning-goals",
     "href": "activities/03_slr_introduction.html#learning-goals",
-    "title": "Simple linear regression: Visualization and Introduction",
+    "title": "03. Simple linear regression: Visualization and Introduction",
     "section": "Learning goals",
     "text": "Learning goals\nBy the end of this lesson, you should be able to:\n\nVisualize and describe the relationship between two quantitative variables using a scatterplot\nWrite R code to create a scatterplot and compute the linear correlation between two quantitative variables\nDescribe/identify weak / strong, and positive / negative correlation from a point cloud\nBuild intuition for fitting lines to quantify the relationship between two quantitative variables",
     "crumbs": [
-      "Simple linear regression: Visualization and Introduction"
+      "03. Simple linear regression: Visualization and Introduction"
     ]
   },
   {
     "objectID": "activities/03_slr_introduction.html#readings-and-videos",
     "href": "activities/03_slr_introduction.html#readings-and-videos",
-    "title": "Simple linear regression: Visualization and Introduction",
+    "title": "03. Simple linear regression: Visualization and Introduction",
     "section": "Readings and videos",
     "text": "Readings and videos\n\nReading: Sections 2.8, 3.1-3.3, 3.6 in the STAT 155 Notes\nVideos:\n\nSummarizing the Relationships between Two Quantitative Variables (Time: 12:12)\nIntroduction to Linear Models (Time: 10:57)\nMethod of Least Squares (Time: 5:10)\nInterpretation of Intercept and Slope (Time: 11:09)\nR Code for Fitting a Linear Model (Time: 11:07)",
     "crumbs": [
-      "Simple linear regression: Visualization and Introduction"
+      "03. Simple linear regression: Visualization and Introduction"
     ]
   },
   {
     "objectID": "activities/03_slr_introduction.html#exercise-1-get-to-know-the-data",
     "href": "activities/03_slr_introduction.html#exercise-1-get-to-know-the-data",
-    "title": "Simple linear regression: Visualization and Introduction",
+    "title": "03. Simple linear regression: Visualization and Introduction",
     "section": "Exercise 1: Get to know the data",
     "text": "Exercise 1: Get to know the data\n\nCreate a new code chunk by clicking the green “C” button with a green + sign in the top right of the menu bar. In this code chunk, use an appropriate function to look at the first few rows of the data.\nCreate a new code chunk, and use an appropriate function to learn how much data we have (in terms of cases and variables).\nWhat does a case represent?\nNavigate to the FAQ page and read the response to the “How does this site work? Do you just download results from the federations?” question. What do you learn about data quality and completeness from this response?",
     "crumbs": [
-      "Simple linear regression: Visualization and Introduction"
+      "03. Simple linear regression: Visualization and Introduction"
     ]
   },
   {
     "objectID": "activities/03_slr_introduction.html#exercise-2-mutating-our-data",
     "href": "activities/03_slr_introduction.html#exercise-2-mutating-our-data",
-    "title": "Simple linear regression: Visualization and Introduction",
+    "title": "03. Simple linear regression: Visualization and Introduction",
     "section": "Exercise 2: Mutating our data",
     "text": "Exercise 2: Mutating our data\nStrength-to-weight ratio (SWR) is defined as TotalKg/BodyweightKg. We can use the mutate() function from the dplyr package to create a new variable in our dataframe for SWR using the following code:\n\n# The %&gt;% is called a \"pipe\" and feeds what comes before it\n# into what comes after (lifts data is \"fed into\" the mutate() function).\n# When creating a new variable, we often reassign the data frame to itself,\n# which updates the existing columns in lifts with the additional \"new\" column(s)\n# in lifts!\nlifts &lt;- lifts %&gt;% \n    mutate(NEW_VARIABLE_NAME = Age/BestSquatKg)\n\nAdapt the example above to create a new variable called SWR, where SWR is defined as TotalKg/BodyweightKg.",
     "crumbs": [
-      "Simple linear regression: Visualization and Introduction"
+      "03. Simple linear regression: Visualization and Introduction"
     ]
   },
   {
     "objectID": "activities/03_slr_introduction.html#exercise-3-get-to-know-the-outcomeresponse-variable",
     "href": "activities/03_slr_introduction.html#exercise-3-get-to-know-the-outcomeresponse-variable",
-    "title": "Simple linear regression: Visualization and Introduction",
+    "title": "03. Simple linear regression: Visualization and Introduction",
     "section": "Exercise 3: Get to know the outcome/response variable",
     "text": "Exercise 3: Get to know the outcome/response variable\nLet’s get acquainted with the SWR variable.\n\nConstruct an appropriate plot to visualize the distribution of this variable, and compute appropriate numerical summaries.\nWrite a good paragraph interpreting the plot and numerical summaries.",
     "crumbs": [
-      "Simple linear regression: Visualization and Introduction"
+      "03. Simple linear regression: Visualization and Introduction"
     ]
   },
   {
     "objectID": "activities/03_slr_introduction.html#exercise-4-data-visualization---two-quantitative-variables",
     "href": "activities/03_slr_introduction.html#exercise-4-data-visualization---two-quantitative-variables",
-    "title": "Simple linear regression: Visualization and Introduction",
+    "title": "03. Simple linear regression: Visualization and Introduction",
     "section": "Exercise 4: Data visualization - two quantitative variables",
     "text": "Exercise 4: Data visualization - two quantitative variables\nWe’d like to visualize the relationship between body weight and the strength-to-weight ratio. A scatterplot (or informally, a “point cloud”) allows us to do this! The code below creates a scatterplot of body weight vs. SWR using ggplot().\n\n# scatterplot\n\n# The alpha = 0.5 in geom_point() adds transparency to the points\n# to make them easier to see. You can make this smaller for more transparency\nlifts %&gt;%\n  ggplot(aes(x = BodyweightKg, y = SWR)) +\n  geom_point(alpha = 0.5)\n\n\nThis is your first bivariate data visualization (visualization for two variables)! What differences do you notice in the code structure when creating a bivariate visualization, compared to univariate visualizations we’ve worked with before?\nWhat similarities do you notice in the code structure?\nDoes there appear to be some sort of pattern in the structure of the point cloud? Describe it, in no more than three sentences! Comment on the direction of the relationship between the two variables (positive? negative?) and the spread of the points (are they dispersed? close together?).",
     "crumbs": [
-      "Simple linear regression: Visualization and Introduction"
+      "03. Simple linear regression: Visualization and Introduction"
     ]
   },
   {
     "objectID": "activities/03_slr_introduction.html#exercise-5-scatterplots---patterns-in-point-clouds",
     "href": "activities/03_slr_introduction.html#exercise-5-scatterplots---patterns-in-point-clouds",
-    "title": "Simple linear regression: Visualization and Introduction",
+    "title": "03. Simple linear regression: Visualization and Introduction",
     "section": "Exercise 5: Scatterplots - patterns in point clouds",
     "text": "Exercise 5: Scatterplots - patterns in point clouds\nSometimes, it can be easier to see a pattern in a point cloud by adding a smoothing line to our scatterplots. The code below adapts the code in Exercise 4 to do this:\n\n# scatterplot with smoothing line\nlifts %&gt;%\n  ggplot(aes(x = BodyweightKg, y = SWR)) +\n  geom_point(alpha = 0.5) +\n  geom_smooth()\n\n\nLook back at your answer to Exercise 4 (c). Does the smoothing line assist you in seeing a pattern, or change your answer at all? Why or why not?\nBased on the scatterplot with the smoothing line added above, does there appear to be a linear relationship between body weight and SWR (i.e. would a straight line do a decent job at summarizing the relationship between these two variables)? Why or why not?",
     "crumbs": [
-      "Simple linear regression: Visualization and Introduction"
+      "03. Simple linear regression: Visualization and Introduction"
     ]
   },
   {
     "objectID": "activities/03_slr_introduction.html#exercise-6-correlation",
     "href": "activities/03_slr_introduction.html#exercise-6-correlation",
-    "title": "Simple linear regression: Visualization and Introduction",
+    "title": "03. Simple linear regression: Visualization and Introduction",
     "section": "Exercise 6: Correlation",
     "text": "Exercise 6: Correlation\nWe can quantify the linear relationship between two quantitative variables using a numerical summary known as correlation (sometimes known as a “correlation coefficient” or “Pearson’s correlation”). Correlation can range from -1 to 1, where a correlation of 0 indicates that there is no linear relationship between the two quantitative variables.\n\n\n\n\n\n\nCorrelation\n\n\n\n\n\nThe Pearson correlation coefficient, \\(r_{x, y}\\), of \\(x\\) and \\(y\\) is the (almost) average of products of the z-scores of variables \\(x\\) and \\(y\\):\n\\[\nr_{x, y} = \\frac{\\sum z_x z_y}{n - 1}\n\\]\n\n\n\nIn general, we will want to be able to describe (qualitatively) two aspects of correlation:\n\nStrength\n\n\nIs the correlation between x and y strong, or weak, i.e. how closely do the points fit around a line? This has to do with how dispersed our point clouds are.\n\n\nDirection\n\n\nIs the correlation between x and y positive or negative, i.e. does y go “up” when x goes “up” (positive), or does y go “down” when x goes “up” (negative)?\n\nStronger correlations will be further from 0 (closer to -1 or 1), and positive and negative correlations will have the appropriate respective sign (above or below zero).\n\nRather than a smooth trend line, we can force the line we add to our scatterplots to be linear using geom_smooth(method = 'lm'), as below:\n\n\n# scatterplot with linear trend line\nlifts %&gt;%\n  ggplot(aes(x = BodyweightKg, y = SWR)) +\n  geom_point(alpha = 0.5) +\n  geom_smooth(method = \"lm\")\n\n\nBased on the above scatterplot, how would you describe the correlation between body weight and SWR, in terms of strength and direction?\nMake a guess as to what numerical value the correlation between body weight and SWR will have, based on your response to part (b).",
     "crumbs": [
-      "Simple linear regression: Visualization and Introduction"
+      "03. Simple linear regression: Visualization and Introduction"
     ]
   },
   {
     "objectID": "activities/03_slr_introduction.html#exercise-7-computing-correlation-in-r",
     "href": "activities/03_slr_introduction.html#exercise-7-computing-correlation-in-r",
-    "title": "Simple linear regression: Visualization and Introduction",
+    "title": "03. Simple linear regression: Visualization and Introduction",
     "section": "Exercise 7: Computing correlation in R",
     "text": "Exercise 7: Computing correlation in R\nWe can compute the correlation between body weight and SWR using summarize and cor functions:\n\n# correlation\n\n# Note: the order in which you put your two quantitative variables into the cor\n# function doesn't matter! Try switching them around to cpmfor, this for yourself\nlifts %&gt;%\n  summarize(cor(SWR, BodyweightKg))\n\nIs the computed correlation close to what you guessed in Exercise 6 part (c)?",
     "crumbs": [
-      "Simple linear regression: Visualization and Introduction"
+      "03. Simple linear regression: Visualization and Introduction"
     ]
   },
   {
     "objectID": "activities/03_slr_introduction.html#exercise-8-limitations-of-correlation",
     "href": "activities/03_slr_introduction.html#exercise-8-limitations-of-correlation",
-    "title": "Simple linear regression: Visualization and Introduction",
+    "title": "03. Simple linear regression: Visualization and Introduction",
     "section": "Exercise 8: Limitations of correlation",
     "text": "Exercise 8: Limitations of correlation\nWe previously noted that correlation was a numerical summary of the linear relationship between two variables. We’ll now go through some examples of relationships between quantitative variables to demonstrate why it is incredibly important to visualize our data in addition to just computing numerical summaries!\nFor this exercise, we’ll be working with the anscombe dataset, which is built in to R. To load this dataset into our environment, we run the following code:\n\n# load anscombe data\ndata(\"anscombe\")\n\nThe anscombe dataset contains four different pairs of quantitative variables:\n\nx1, y1\nx2, y2\nx3, y3\nx4, y4\n\nAdapt the code we used in Exercise 7 to compute the correlation between each of these four pairs of variables, below:\n\n# correlation between x1, y1\n\n# correlation between x2, y2\n\n# correlation between x3, y3\n\n# correlation between x4, y4\n\n\nWhat do you notice about each of these correlations (if the answer to this isn’t obvious, double-check your code)?\nDescribe these correlations in terms of strength and direction, using only the numerical summary to assist you in your description.\nDraw an example on the white board or at your tables of what you think the point clouds for these pairs of variables might look like. There are only 11 observations, so you can draw all 11 points if you’d like!\nAdapt the code for scatterplots given previously in this activity to make four distinct scatterplots for each pair of quantitative variables in the anscombe dataset. You do not need to add a smooth trend line or a linear trend line to these plots.\n\n\n# scatterplot: x1, y1\n\n# scatterplot: x2, y2\n\n# scatterplot: x3, y3\n\n# scatterplot: x4, y4\n\n\nBased on the correlations you calculated and scatterplots you made, what is the message of this last exercise as it relates to the limits of correlation?",
     "crumbs": [
-      "Simple linear regression: Visualization and Introduction"
+      "03. Simple linear regression: Visualization and Introduction"
     ]
   },
   {
     "objectID": "activities/03_slr_introduction.html#reflection",
     "href": "activities/03_slr_introduction.html#reflection",
-    "title": "Simple linear regression: Visualization and Introduction",
+    "title": "03. Simple linear regression: Visualization and Introduction",
     "section": "Reflection",
     "text": "Reflection\nMuch of statistics is about making (hopefully) reasonable assumptions in attempt to summarize observed relationships in data. Today we started considering assumptions of linear relationships between quantitative variables.\nReview the learning objectives at the top of this file and today’s activity. How do you imagine assumptions of linearity might be useful in terms of quantifying relationships between quantitative variables? How do you imagine these assumptions could sometimes fall short, or even be unethical in certain cases?\n\nResponse: Put your response here.",
     "crumbs": [
-      "Simple linear regression: Visualization and Introduction"
+      "03. Simple linear regression: Visualization and Introduction"
     ]
   },
   {
     "objectID": "activities/03_slr_introduction.html#exercise-9-lines-of-best-fit",
     "href": "activities/03_slr_introduction.html#exercise-9-lines-of-best-fit",
-    "title": "Simple linear regression: Visualization and Introduction",
+    "title": "03. Simple linear regression: Visualization and Introduction",
     "section": "Exercise 9: Lines of best fit",
     "text": "Exercise 9: Lines of best fit\nIn this activity, we’ve learned how to fit straight lines to data, to help us visualize the relationship between two quantitative variables. So far, ggplot has chosen the line for us. How does it know which line is “best”, and what does “best” even mean?\nFor this exercise, we’ll consider the relationship between x1 and y1 in the anscombe dataset. Run the following code, which creates a scatterplot with a fitted line to our data using the function geom_abline:\n\n# scatterplot with a fitted line, whose slope is 0.4 and intercept is 3\nanscombe %&gt;%\n  ggplot(aes(x = x1, y = y1)) +\n  geom_point() +\n  geom_abline(slope = 0.4, intercept = 3, col = \"blue\", size = 1)\n\nDescribe the line that you see. Do you think the line is “good”? What are you using to define “good”?\nSome things to think about:\n\nHow many points are above the line?\nHow many points are below the line?\nAre the distances of the points above and below the line roughly similar, or is there meaningful difference?\n\nNow we’ll add another line to our plot. Which line do you think is better suited for this data? Why? Be specific!\n\n# scatterplot with a fitted line, whose slope is 0.4 and intercept is 3\nanscombe %&gt;%\n  ggplot(aes(x = x1, y = y1)) +\n  geom_point() +\n  geom_abline(slope = 0.4, intercept = 3, col = \"blue\", size = 1) +\n  geom_abline(slope = 0.5, intercept = 4, col = \"orange\", size = 1)\n\nIt’s usually quite simple to note when a line is bad, but more difficult to quantify when a line is a good fit for our data. Consider the following line:\n\n# scatterplot with a fitted line, whose slope is 0.4 and intercept is 3\nanscombe %&gt;%\n  ggplot(aes(x = x1, y = y1)) +\n  geom_point() +\n  geom_abline(slope = -0.5, intercept = 10, col = \"red\", size = 1) \n\nIn the next activity, we’ll formalize the principle of least squares, which will give us one particular definition of a line of best fit that is commonly used in statistics! We’ll take advantage of the vertical distances between each point and the fitted line (residuals), which will help us define (mathematically) a line that best fits our data:\n\nlibrary(broom)\nanscombe %&gt;%\n  lm(y1 ~ x1, data = .) %&gt;%\n  augment() %&gt;%\n  ggplot(aes(x = x1, y = y1)) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  geom_segment(aes(xend = x1, yend = .fitted), col = \"red\") +\n  geom_point()",
     "crumbs": [
-      "Simple linear regression: Visualization and Introduction"
+      "03. Simple linear regression: Visualization and Introduction"
     ]
   },
   {
     "objectID": "activities/03_slr_introduction.html#exercise-10-correlation-and-extreme-values",
     "href": "activities/03_slr_introduction.html#exercise-10-correlation-and-extreme-values",
-    "title": "Simple linear regression: Visualization and Introduction",
+    "title": "03. Simple linear regression: Visualization and Introduction",
     "section": "Exercise 10: Correlation and extreme values",
     "text": "Exercise 10: Correlation and extreme values\nIn this exercise, we’ll explore how correlation changes with the addition of extreme values, or observations. We’ll begin by generating a toy dataset called dat with two quantitative variables, x and y. Run the code below to create the dataset.\nwhile not required, recall that you can look up function documentation in R using the ? in front of a function name to figure out what that function is doing!\n\n# create a toy dataset\nset.seed(1234)\nx &lt;- rnorm(100, mean = 5, sd = 2)\ny &lt;- -3 * x + rnorm(100, sd = 4)\ndat &lt;- data.frame(x = x, y = y)\n\n\nMake a scatterplot of x vs. y.\n\n\n# scatterplot\n\n\nBased on your scatterplot, describe the correlation between x and y in terms of strength and direction.\nGuess the correlation (the numerical value) between x and y.\nCompute the correlation between x and y. Was your guess from part (c) close?\n\n\n# correlation\n\n\nSuppose we observe an additional observation with x = 15 and y = -45. We can create a new data frame, dat_new1, that contains this observation in addition to the original ones as follows:\n\n\n# creating dat_new1\nx1 &lt;- c(x, 15)\ny1 &lt;- c(y, -45)\ndat_new1 &lt;- data.frame(x = x1, y = y1)\n\n\nMake a scatterplot of x vs. y for this new data frame, and compute the correlation between x and y. Did your correlation change very much with the addition of this observation? Hypothesize why or why not.\n\n\n# scatterplot\n\n# correlation\n\n\nSuppose instead of our additional observation having values x = 15 and y = -45, we instead observe x = 15 and y = -15. We can create a new data frame, dat_new2, that contains this observation in addition to the original ones as follows:\n\n\n# creating dat_new1\nx2 &lt;- c(x, 15)\ny2 &lt;- c(y, 45)\ndat_new2 &lt;- data.frame(x = x2, y = y2)\n\n\nMake a scatterplot of x vs. y for this new data frame, and compute the correlation between x and y. Did your correlation change very much with the addition of this observation? Hypothesize why or why not.\n\n\n# scatterplot\n\n# correlation\n\n\nWhat do you think the takeaway message is of this exercise?\n\n\nChallenge Add linear trend lines to your scatterplots from parts (f) and (h). Does this give you any additional insight into why the correlations may have changed in different ways with the addition of a new observation?\n\n\nSolutions",
     "crumbs": [
-      "Simple linear regression: Visualization and Introduction"
+      "03. Simple linear regression: Visualization and Introduction"
     ]
   }
 ]

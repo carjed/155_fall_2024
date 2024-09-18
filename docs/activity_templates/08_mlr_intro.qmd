@@ -1,5 +1,5 @@
 ---
-title: "Introduction to multiple regression"
+title: "08. Introduction to multiple regression"
 subtitle: "Notes and in-class exercises"
 format: 
   html:

@@ -1,5 +1,5 @@
 ---
-title: "Simple linear regression: Visualization and Introduction"
+title: "03. Simple linear regression: Visualization and Introduction"
 subtitle: "Notes and in-class exercises"
 format: 
   html:

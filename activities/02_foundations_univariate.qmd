@@ -1,5 +1,5 @@
 ---
-title: "Univariate visualization and summaries"
+title: "02. Univariate visualization and summaries"
 subtitle: "Notes and in-class exercises"
 format: 
   html:

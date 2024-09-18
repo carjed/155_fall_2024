@@ -1,5 +1,5 @@
 ---
-title: "Simple linear regression: categorical predictor"
+title: "07. Simple linear regression with a categorical predictor"
 subtitle: "Notes and in-class exercises"
 format: 
   html:

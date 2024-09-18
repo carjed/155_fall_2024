@@ -1,5 +1,5 @@
 ---
-title: "Simple linear regression: Transformations"
+title: "06. Simple linear regression: Transformations"
 subtitle: "Notes and in-class exercises"
 format: 
   html:
