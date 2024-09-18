@@ -4802,7 +4802,7 @@ vertical-align: -.125em;
   </li>  
         <li>
     <a class="dropdown-item" href="../activities/07_slr_cat_predictor.html">
- <span class="dropdown-text">07. Simple linear regression with a categorical predictor</span></a>
+ <span class="dropdown-text">Simple linear regression: categorical predictor</span></a>
   </li>  
     </ul>
   </li>
@@ -4837,12 +4837,13 @@ vertical-align: -.125em;
   <li><a href="#exercise-1-get-to-know-the-data" id="toc-exercise-1-get-to-know-the-data" class="nav-link active" data-scroll-target="#exercise-1-get-to-know-the-data">Exercise 1: Get to know the data</a></li>
   <li><a href="#exercise-2-visualizations" id="toc-exercise-2-visualizations" class="nav-link" data-scroll-target="#exercise-2-visualizations">Exercise 2: Visualizations</a></li>
   <li><a href="#exercise-3-numerical-summaries" id="toc-exercise-3-numerical-summaries" class="nav-link" data-scroll-target="#exercise-3-numerical-summaries">Exercise 3: Numerical summaries</a></li>
-  <li><a href="#exercise-4-modeling-trend" id="toc-exercise-4-modeling-trend" class="nav-link" data-scroll-target="#exercise-4-modeling-trend">Exercise 4: Modeling trend</a></li>
-  <li><a href="#exercise-5-making-sense-of-the-model" id="toc-exercise-5-making-sense-of-the-model" class="nav-link" data-scroll-target="#exercise-5-making-sense-of-the-model">Exercise 5: Making sense of the model</a></li>
-  <li><a href="#exercise-6-interpreting-coefficients" id="toc-exercise-6-interpreting-coefficients" class="nav-link" data-scroll-target="#exercise-6-interpreting-coefficients">Exercise 6: Interpreting coefficients</a></li>
-  <li><a href="#exercise-7-modeling-choices-challenge" id="toc-exercise-7-modeling-choices-challenge" class="nav-link" data-scroll-target="#exercise-7-modeling-choices-challenge">Exercise 7: Modeling choices (CHALLENGE)</a></li>
-  <li><a href="#exercise-8-diamond-color" id="toc-exercise-8-diamond-color" class="nav-link" data-scroll-target="#exercise-8-diamond-color">Exercise 8: Diamond color</a></li>
-  <li><a href="#exercise-9-diamond-clarity" id="toc-exercise-9-diamond-clarity" class="nav-link" data-scroll-target="#exercise-9-diamond-clarity">Exercise 9: Diamond clarity</a></li>
+  <li><a href="#exercise-4-modeling-trend-using-a-categorical-predictor-with-exactly-2-categories" id="toc-exercise-4-modeling-trend-using-a-categorical-predictor-with-exactly-2-categories" class="nav-link" data-scroll-target="#exercise-4-modeling-trend-using-a-categorical-predictor-with-exactly-2-categories">Exercise 4: Modeling trend using a categorical predictor with exactly 2 categories</a></li>
+  <li><a href="#exercise-5-modeling-trend-using-a-categorical-predictor-with-2-categories" id="toc-exercise-5-modeling-trend-using-a-categorical-predictor-with-2-categories" class="nav-link" data-scroll-target="#exercise-5-modeling-trend-using-a-categorical-predictor-with-2-categories">Exercise 5: Modeling trend using a categorical predictor with &gt;2 categories</a></li>
+  <li><a href="#exercise-6-making-sense-of-the-model" id="toc-exercise-6-making-sense-of-the-model" class="nav-link" data-scroll-target="#exercise-6-making-sense-of-the-model">Exercise 6: Making sense of the model</a></li>
+  <li><a href="#exercise-7-interpreting-coefficients" id="toc-exercise-7-interpreting-coefficients" class="nav-link" data-scroll-target="#exercise-7-interpreting-coefficients">Exercise 7: Interpreting coefficients</a></li>
+  <li><a href="#exercise-8-modeling-choices-challenge" id="toc-exercise-8-modeling-choices-challenge" class="nav-link" data-scroll-target="#exercise-8-modeling-choices-challenge">Exercise 8: Modeling choices (CHALLENGE)</a></li>
+  <li><a href="#exercise-9-diamond-color" id="toc-exercise-9-diamond-color" class="nav-link" data-scroll-target="#exercise-9-diamond-color">Exercise 9: Diamond color</a></li>
+  <li><a href="#exercise-10-diamond-clarity" id="toc-exercise-10-diamond-clarity" class="nav-link" data-scroll-target="#exercise-10-diamond-clarity">Exercise 10: Diamond clarity</a></li>
   </ul>
 </nav>
     </div>
@@ -5089,19 +5090,68 @@ vertical-align: -.125em;
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(cut) <span class="sc">%&gt;%</span> </span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(price))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  cut       `mean(price)`
+  &lt;fct&gt;             &lt;dbl&gt;
+1 Fair              4359.
+2 Good              3929.
+3 Very Good         3982.
+4 Premium           4584.
+5 Ideal             3458.</code></pre>
+</div>
 </div>
 <ol start="3" type="a">
-<li>Group means should reflect what you see in the plots (easiest to see in the boxplots)</li>
+<li><p>Group means should reflect what you see in the plots (easiest to see in the boxplots)</p></li>
+<li><p>Create our new <code>cutFair</code> variable:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutFair=</span><span class="fu">ifelse</span>(cut <span class="sc">==</span> <span class="st">&quot;Fair&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="a">
+<li>Calculate the group means based on this new variable</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(cutFair) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(price))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  cutFair `mean(price)`
+    &lt;dbl&gt;         &lt;dbl&gt;
+1       0         3920.
+2       1         4359.</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-4-modeling-trend-using-a-categorical-predictor-with-exactly-2-categories" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4-modeling-trend-using-a-categorical-predictor-with-exactly-2-categories">Exercise 4: Modeling trend using a categorical predictor with exactly 2 categories</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct the model</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>diamond_mod0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> cutFair, <span class="at">data =</span> diamonds)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize the model</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_mod0))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Estimate Std. Error    t value     Pr(&gt;|t|)
+(Intercept) 3919.6946    17.4367 224.795616 0.000000e+00
+cutFair      439.0632   100.9269   4.350309 1.361951e-05</code></pre>
+</div>
+</div>
+<p>The intercept is the expected value (mean) of the price for all diamonds with a cut quality that isn’t Fair (Good, Very Good, Premium, or Ideal, i.e. when <code>cutFair</code> = 0)–the same as we saw in exercise 3e.</p>
+<ol start="3" type="a">
+<li>When we add the intercept and coefficient for <code>cutFair</code>, we get <code>3919.69 + 439.06 = 4358.75</code>–this is the mean price for all diamonds with a Fair cut quality that we saw in exercise 3e! Therefore, the coefficient of <code>cutFair</code> (439.06) is interpreted as the difference between the mean value of diamonds with a Fair cut quality and the mean value of diamonds with a higher cut quality.</li>
 </ol>
 </section>
-<section id="exercise-4-modeling-trend" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4-modeling-trend">Exercise 4: Modeling trend</h2>
+<section id="exercise-5-modeling-trend-using-a-categorical-predictor-with-2-categories" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5-modeling-trend-using-a-categorical-predictor-with-2-categories">Exercise 5: Modeling trend using a categorical predictor with &gt;2 categories</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct the model</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>diamond_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> cut, <span class="at">data =</span> diamonds)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize the model</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_mod))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct the model</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>diamond_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> cut, <span class="at">data =</span> diamonds)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize the model</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_mod))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              Estimate Std. Error   t value     Pr(&gt;|t|)
 (Intercept)  4358.7578   98.78795 44.122361 0.000000e+00
@@ -5111,16 +5161,19 @@ cutPremium    225.4999  104.39521  2.160060 3.077240e-02
 cutIdeal     -901.2158  102.41155 -8.799943 1.408406e-18</code></pre>
 </div>
 </div>
-<p>E[price | cut] = 4358.7578 - 429.8933 cutGood - 376.9979 cutVery Good + 225.4999 cutPremium - 901.2158 cutIdeal</p>
+<ol type="a">
+<li><p>We are seeing 4 coefficient estimates because each category is being assigned to a separate indicator variable–<code>cutGood</code> = 1 when <code>cut == &quot;Good&quot;</code> and 0 otherwise, <code>cutVery Good</code> = 1 when `cut == “Very Good” and 0 otherwise, and so on.</p></li>
+<li><p>E[price | cut] = 4358.7578 - 429.8933 cutGood - 376.9979 cutVery Good + 225.4999 cutPremium - 901.2158 cutIdeal</p></li>
+</ol>
 </section>
-<section id="exercise-5-making-sense-of-the-model" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5-making-sense-of-the-model">Exercise 5: Making sense of the model</h2>
+<section id="exercise-6-making-sense-of-the-model" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6-making-sense-of-the-model">Exercise 6: Making sense of the model</h2>
 <ol type="a">
 <li>Expected/typical price for diamonds of <em>Good</em> cut:</li>
 </ol>
 <p>E[price | cut] = 4358.7578 - 429.8933 * 1 - 376.9979 * 0 + 225.4999 * 0 - 901.2158 * 0 = 4358.7578 - 429.8933 = $3928.865</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(diamond_mod, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">cut =</span> <span class="st">&quot;Good&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(diamond_mod, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">cut =</span> <span class="st">&quot;Good&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       1 
 3928.864 </code></pre>
@@ -5131,18 +5184,18 @@ cutIdeal     -901.2158  102.41155 -8.799943 1.408406e-18</code></pre>
 </ol>
 <p>E[price | cut] = 4358.7578 - 429.8933 * 0 - 376.9979 * 0 + 225.4999 * 0 - 901.2158 * 0 = $4358.7578</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(diamond_mod, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">cut =</span> <span class="st">&quot;Fair&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(diamond_mod, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">cut =</span> <span class="st">&quot;Fair&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       1 
 4358.758 </code></pre>
 </div>
 </div>
 <ol start="3" type="a">
-<li>These come from our group mean calculations in Exercise 3b!</li>
+<li>These come from our group mean calculations in Exercise 3b! The predicted value for diamonds of <em>Fair</em> cut is also the same as what we obtained using the SLR model in exercise 4 with only a single <code>cutFair</code> indicator variable.</li>
 </ol>
 </section>
-<section id="exercise-6-interpreting-coefficients" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-6-interpreting-coefficients">Exercise 6: Interpreting coefficients</h2>
+<section id="exercise-7-interpreting-coefficients" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7-interpreting-coefficients">Exercise 7: Interpreting coefficients</h2>
 <p>Recall that our model formula is <em>not a formula for a line</em>. Thus we can’t interpret the coefficients as “slopes” as we have before. Taking this into account and reflecting upon your calculations above…</p>
 <ol type="a">
 <li><p>The average price of a Fair cut diamonds is $4358.7578.</p></li>
@@ -5152,23 +5205,23 @@ cutIdeal     -901.2158  102.41155 -8.799943 1.408406e-18</code></pre>
 </ul></li>
 </ol>
 </section>
-<section id="exercise-7-modeling-choices-challenge" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-7-modeling-choices-challenge">Exercise 7: Modeling choices (CHALLENGE)</h2>
+<section id="exercise-8-modeling-choices-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8-modeling-choices-challenge">Exercise 8: Modeling choices (CHALLENGE)</h2>
 <p>Why do we fit this model in this way (using 4 indicator variables <code>cutGood</code>, <code>cutVery Good</code>, <code>cutPremium</code>, <code>cutIdeal</code>)? Instead, suppose that we created a single variable <code>cutCat</code> that gave each category a numerical value: 0 for Fair, 1 for Good, 2 for Very Good, 3 for Premium, and 4 for Ideal.</p>
 <ul>
 <li>If we used 0-4 instead of creating indicator variables, we would be constraining the change from 0 to 1, from 1 to 2, etc. to always be of the same magnitude. That is, a 1 unit change in the cut variable would always have the same change in price in our model.</li>
 <li>Using separate indicator variables allows the difference between subsequent categories to be different, which allows our model to be a bit more nuanced. It is possible to take nuance too far though. For example, in our previous investigations of bikeshare data, we modeled ridership versus temperature. We treated temperature as a quantitative predictor. Imagine if we had created an indicator variable for each unique temperature in the data—that would be so many variables! Having so many variables creates a very complex model which can be hard to make sense of. (These ideas are addressed further in STAT 253: Statistical Machine Learning!)</li>
 </ul>
 </section>
-<section id="exercise-8-diamond-color" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-8-diamond-color">Exercise 8: Diamond color</h2>
+<section id="exercise-9-diamond-color" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9-diamond-color">Exercise 9: Diamond color</h2>
 <p>Consider modeling <code>price</code> by <code>color</code>.</p>
 <ul>
 <li>The best color diamonds are J, and worst are D. We would expect D diamonds to have the lowest price and increase steadily as we get to J. This is in fact what we see in the boxplots.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> color, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> color, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -5176,9 +5229,9 @@ cutIdeal     -901.2158  102.41155 -8.799943 1.408406e-18</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(color) <span class="sc">%&gt;%</span> </span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(price))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(color) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(price))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7 × 2
   color `mean(price)`
@@ -5196,9 +5249,9 @@ cutIdeal     -901.2158  102.41155 -8.799943 1.408406e-18</code></pre>
 <li>We fit a linear model and obtain the model formula: E[price | color] = 3169.95 - 93.20 colorE + 554.93 colorF + 829.18 colorG + 1316.72 colorH + 1921.92 colorI + 2153.86 colorJ</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>diamond_mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> color, <span class="at">data =</span> diamonds)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_mod2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>diamond_mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> color, <span class="at">data =</span> diamonds)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_mod2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              Estimate Std. Error   t value      Pr(&gt;|t|)
 (Intercept) 3169.95410   47.70694 66.446391  0.000000e+00
@@ -5217,12 +5270,12 @@ colorJ      2153.86392   88.13203 24.439060 3.414906e-131</code></pre>
 <li>Interpretation of the <code>colorF</code> coefficient: Diamonds with F color cost $554.93 <strong>more</strong> than D color diamonds on average.</li>
 </ul>
 </section>
-<section id="exercise-9-diamond-clarity" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-9-diamond-clarity">Exercise 9: Diamond clarity</h2>
+<section id="exercise-10-diamond-clarity" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10-diamond-clarity">Exercise 10: Diamond clarity</h2>
 <p>We see the unexpected result that diamonds of better clarity (VS1 and higher) have lower average prices. In fact the best clarity diamonds (VVS1 and IF) have the <em>lowest</em> average prices. What might be going on? What if the most clear diamonds were also quite small…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> clarity, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> clarity, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -5230,9 +5283,9 @@ colorJ      2153.86392   88.13203 24.439060 3.414906e-131</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(clarity) <span class="sc">%&gt;%</span> </span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(price))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(clarity) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(price))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 2
   clarity `mean(price)`
@@ -5246,9 +5299,9 @@ colorJ      2153.86392   88.13203 24.439060 3.414906e-131</code></pre>
 7 VVS1            2523.
 8 IF              2865.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>diamond_mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> clarity, <span class="at">data =</span> diamonds)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_mod3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>diamond_mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> clarity, <span class="at">data =</span> diamonds)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(diamond_mod3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                 Estimate Std. Error      t value      Pr(&gt;|t|)
 (Intercept)  3924.1686910   144.5619 27.145247517 3.513547e-161

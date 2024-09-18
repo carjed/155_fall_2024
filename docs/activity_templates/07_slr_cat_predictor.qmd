@@ -1,11 +1,11 @@
 ---
-title: "07. Simple linear regression with a categorical predictor"
+title: "Simple linear regression: categorical predictor"
 subtitle: "Notes and in-class exercises"
 format: 
   html:
     embed-resources: true
     toc: true
-eval: false # change this to "true" if you want to render a complete .qmd    
+eval: false # change this to "true" if you want to render a complete .qmd document    
 ---
 
 # Notes
@@ -154,18 +154,51 @@ diamonds %>%
 
 c. Examine the group mean measurements, and make sure that you can match these numbers up with what you see in the plots.
 
+d. Based on the results above, we can see that, on average, diamonds with a "Fair" cut tend to cost more than higher-quality cuts. Let's construct a new variable named `cutFair`, using on the following criteria:
+
+- `cutFair` = 1 if the diamond is of Fair cut
+- `cutFair` = 0 otherwise (any other value of cut (Good, Very Good, Premium, Ideal))
+
+```{r eval=FALSE}
+# HINT CODE: don't change this
+diamonds <- diamonds %>%
+  mutate(cutFair=ifelse(___ == "Fair", __, __))
+```
+
+```{r}
+# Your solution
+```
+
+Variables like `cutFair` that are coded as 0/1 to numerically indicate if a categorical variable is at a particular state are known as an **indicator variable**. You will sometimes see these referred to as a "binary variable" or "dichotomous variable"; you may also encounter the term "dummy variable" in older statistical literature.
+
+e. Now, let's calculate the group means based on the new `cutFair` indicator variable:
+
+```{r}
+diamonds %>% 
+    group_by(cutFair) %>% 
+    summarize(mean(price))
+```
+
+## Exercise 4: Modeling trend using a categorical predictor with exactly 2 categories 
+
+Next, let's *model* the trend in the relationship between the `cutFair` and `price` variables using a simple linear regression model:
+
+```{r}
+# Construct the model
+diamond_mod0 <- lm(price ~ cutFair, data = diamonds)
+
+# Summarize the model
+coef(summary(diamond_mod0))
+```
 
 
-## Exercise 4: Modeling trend
+Compare these results to the output of exercise 3e. What do you notice? How do you interpret the intercept and `cutFair` coefficient terms from this model?
 
-The plots and mean calculations provide *some* insight into the relationship between `price` and `cut`. Next, let's *model* the trend in this relationship. After examining the summary table below, complete the model formula:
+> your answer here
 
-\
+## Exercise 5: Modeling trend using a categorical predictor with >2 categories
 
-E[price | cut] = ___ +/- ___ cutGood +/- ___ cutVery Good +/- ___ cutPremium +/- ___ cutIdeal
-
-\   
-
+Using a single binary predictor like the `cutFair` indicator variable is useful when there are two clearly delineated categories. However, the `cut` variable actually contains 5 categories! Because we've collapsed all non-Fair classifications into a single category (i.e. `cutFair = 0`), the model above can't tell us anything about the difference in expected price between, say, *Premium* and *Ideal* cuts. The good news is that it is very straightforward to model categorical predictors with >2 categories. We can do this by using the `cut` variable as our predictor: 
 
 ```{r}
 # Construct the model
@@ -175,26 +208,26 @@ diamond_mod <- lm(price ~ cut, data = diamonds)
 coef(summary(diamond_mod))
 ```
 
+a. Even though we specified a single predictor variable in the model, we are seeing 4 coefficient estimates--why do you think this is the case?
 
+> your answer here
 
 ---
-
-**PAUSE: Categorical predictors**
-
-Notice that our `cut` variable shows up as 4 different **indicator variables** in our model. An indicator variable numerically indicates if a categorical variable is at a particular level:
-
-- cutGood = 1 if the diamond is of Good cut
-- cutGood = 0 otherwise (any other value of cut (Fair, Very Good, Premium, Ideal))
-
-\
 
 NOTE: We see 4 indicator variables (for Good, Very Good, Premium, and Ideal), but we do not see `cutFair` in the model output. This is because `Fair` is the **reference level** of the `cut` variable (it's first alphabetically). You'll see below that it is, indeed, still in the model. You'll also see why the term "reference level" makes sense!
   
 ---
 
+b. After examining the summary table output from the code chunk above, complete the model formula:
+
+\
+
+E[price | cut] = ___ +/- ___ cutGood +/- ___ cutVery Good +/- ___ cutPremium +/- ___ cutIdeal
+
+\   
 
 
-## Exercise 5: Making sense of the model
+## Exercise 6: Making sense of the model
 
 Recall our model:  E[price | cut] = 4358.7578 - 429.8933 cutGood - 376.9979 cutVery Good + 225.4999 cutPremium - 901.2158 cutIdeal
 
@@ -205,7 +238,7 @@ b. Similarly, calculate the expected/typical price for diamonds of *Fair* cut.
 c. Re-examine these 2 calculations. Where have you seen these numbers before?!
 
 
-## Exercise 6: Interpreting coefficients
+## Exercise 7: Interpreting coefficients
 
 Recall that our model formula is *not a formula for a line*. Thus we can't interpret the coefficients as "slopes" as we have before. Taking this into account and reflecting upon your calculations above...   
 
@@ -215,7 +248,7 @@ b. Interpret the `cutGood` and `cutVery Good` coefficients (`-429.8933` and `-37
 
 
 
-## Exercise 7: Modeling choices (CHALLENGE)
+## Exercise 8: Modeling choices (CHALLENGE)
 
 Why do we fit this model in this way (using 4 indicator variables `cutGood`,  `cutVery Good`, `cutPremium`, `cutIdeal`)? Instead, suppose that we created a single variable `cutCat` that gave each category a numerical value: 0 for Fair, 1 for Good, 2 for Very Good, 3 for Premium, and 4 for Ideal.
 
@@ -243,7 +276,7 @@ Through the exercises above, you learned how to build and interpret models that 
 
 # Additional Practice
 
-## Exercise 8: Diamond color
+## Exercise 9: Diamond color
 
 Consider modeling `price` by `color`.
 
@@ -256,11 +289,9 @@ Consider modeling `price` by `color`.
 
 
 
-## Exercise 9: Diamond clarity
+## Exercise 10: Diamond clarity
 
 If you want more practice, repeat the steps from Exercise 8 for the `clarity` variable.
-
-
 
 <br><br><br><br><br><br>
 

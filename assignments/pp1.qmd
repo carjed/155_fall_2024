@@ -73,6 +73,11 @@ bechdel %>%
 
 Your turn. Define a new variable `budget_mil` which measures budget in MILLIONS of dollars (on the 2013 scale). Similarly, define a new variable `intgross_mil` which measures international gross in MILLIONS of dollars (on the 2013 scale). Store these in `bechdel` and confirm your results match those here:
 
+```{r}
+
+```
+
+
 ```         
 ## # A tibble: 3 x 2
 ##   budget_mil intgross_mil
@@ -120,7 +125,7 @@ Construct a visualization of the `clean_test` variable, and construct a correspo
 
 ```{r}
 ggplot(bechdel, aes(x = clean_test)) + 
-    geom_bar()
+    geom_bar(
 ```
 
 ## Exercise 4: How much money did it make?
