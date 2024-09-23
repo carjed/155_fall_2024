@@ -80,7 +80,7 @@ Before class:
 
 :::
 
-::: {.callout-tip icon=false collapse="false" title="Week 3: 9/16 - 9/20 (Simple linear regression: model evaluation and variable transformations)"}
+::: {.callout-tip icon=false collapse="true" title="Week 3: 9/16 - 9/20 (Simple linear regression: model evaluation and variable transformations)"}
 
 #### Announcements
 
@@ -109,7 +109,7 @@ Before class:
 
 :::
 
-::: {.callout-tip icon=false collapse="true" title="Week 4: 9/23 - 9/27 (Simple linear regression: categorical predictors)"}
+::: {.callout-tip icon=false collapse="false" title="Week 4: 9/23 - 9/27 (Simple linear regression: categorical predictors)"}
 
 #### Announcements
 

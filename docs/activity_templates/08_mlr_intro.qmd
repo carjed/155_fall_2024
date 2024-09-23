@@ -10,8 +10,6 @@ eval: false # change this to "true" if you want to render a complete .qmd
 
 # Notes
 
-# Notes
-
 - Download the `.qmd` file for this activity [here](../activity_templates/08_mlr_intro.qmd).
 - **File organization:** Save this file in the "Activities" subfolder of your "STAT155" folder.
 - Open the `qmd` file in RStudio, and use it to type your answers/code to the exercises and reflection on the in-class activities. 

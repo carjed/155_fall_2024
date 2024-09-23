@@ -4881,7 +4881,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -4943,6 +4943,10 @@ window.Quarto = {
     <a class="dropdown-item" href="../activities/07_slr_cat_predictor.html">
  <span class="dropdown-text">07. Simple linear regression with a categorical predictor</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../activities/08_mlr_intro.html">
+ <span class="dropdown-text">08. Introduction to multiple regression</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -4963,18 +4967,82 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../activities/08_mlr_intro.html">08. Introduction to multiple regression</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/01_foundations_welcome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01. Collecting and Summarizing Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/02_foundations_univariate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02. Univariate visualization and summaries</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/03_slr_introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03. Simple linear regression: Visualization and Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/04_slr_formalization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04. Simple linear regression: formalizing concepts</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/05_slr_model_eval.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05. Simple linear regression: model evaluation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/06_slr_transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06. Simple linear regression: Transformations</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/07_slr_cat_predictor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07. Simple linear regression with a categorical predictor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/08_mlr_intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">08. Introduction to multiple regression</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#notes" id="toc-notes" class="nav-link active" data-scroll-target="#notes">Notes</a></li>
-  <li><a href="#notes-1" id="toc-notes-1" class="nav-link" data-scroll-target="#notes-1">Notes</a>
+  <li><a href="#notes" id="toc-notes" class="nav-link active" data-scroll-target="#notes">Notes</a>
   <ul class="collapse">
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
   <li><a href="#readings-and-videos" id="toc-readings-and-videos" class="nav-link" data-scroll-target="#readings-and-videos">Readings and videos</a></li>
@@ -5020,9 +5088,6 @@ window.Quarto = {
 
 
 <section id="notes" class="level1">
-<h1>Notes</h1>
-</section>
-<section id="notes-1" class="level1">
 <h1>Notes</h1>
 <ul>
 <li>Download the <code>.qmd</code> file for this activity <a href="../activity_templates/08_mlr_intro.qmd">here</a>.</li>
