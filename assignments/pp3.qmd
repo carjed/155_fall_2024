@@ -1,9 +1,12 @@
 ---
 title: "Practice Problems 3"
 author: "STUDENT NAME"
-format: 
+date: now
+date-format: "YYYY-MM-DDTHH:mm:ssZ"
+format:
   html:
     embed-resources: true
+    code-tools: true    
 ---
 
 <center>
