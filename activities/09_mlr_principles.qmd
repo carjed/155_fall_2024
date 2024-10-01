@@ -243,34 +243,13 @@ Modify the code below to recreate these 2 plots.
 # Left plot
 # bikes %>% 
 #   ggplot(aes(y = rides, x = windspeed, ___ = ___)) + 
-#   geom_point()
+#   geom_point(alpha=0.5) 
 
 # Right plot
 # bikes %>% 
 #   ggplot(aes(y = rides, x = windspeed, ___ = ___)) + 
 #   geom_point()
 ```
-
-
-With some new code in the `plotly` (not `ggplot2`) package, we can also plot these 3 quantitative variables in 3D, each getting their own axis!
-First, enter `install.packages("plotly")` in the *console* (not Rmd).
-Then play around with this code:
-
-```{r warning = FALSE, message = FALSE}
-library(plotly)
-
-plot_ly(data = bikes,
-        z = ~rides, y = ~windspeed, x = ~temp_feel, 
-        type = "scatter3d", mode = "markers", size = 0.5)
-```
-
-
-
-
-
-
-
-
 
 ## Exercise 9: follow-up
 
