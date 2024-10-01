@@ -109,7 +109,7 @@ Before class:
 
 :::
 
-::: {.callout-tip icon=false collapse="false" title="Week 4: 9/23 - 9/27 (Simple linear regression: categorical predictors)"}
+::: {.callout-tip icon=false collapse="true" title="Week 4: 9/23 - 9/27 (Simple linear regression: categorical predictors)"}
 
 #### Announcements
 
@@ -125,11 +125,19 @@ Before class:
 
 :::
 
-::: {.callout-tip icon=false collapse="true" title="Week 5: 9/30 - 10/4 (Multiple linear regression: confounding)"}
+::: {.callout-tip icon=false collapse="false" title="Week 5: 9/30 - 10/4 (Multiple linear regression: principles + confounding)"}
 
 #### Announcements
 
+Grades for Quiz #1 and PP #2 will be posted soon
+
 #### Tuesday
+
+Before class:
+
+- Complete today’s checkpoint on Moodle
+  - Do either the readings or videos for the Day 6 Activity (see Moodle for links)
+  - due 30 minutes before class on 10/1
 
 #### Thursday
 
