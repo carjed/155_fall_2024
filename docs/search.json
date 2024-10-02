@@ -585,74 +585,255 @@
     ]
   },
   {
-    "objectID": "activities/06_slr_transformations.html",
-    "href": "activities/06_slr_transformations.html",
-    "title": "06. Simple linear regression: Transformations",
+    "objectID": "activities/10_mlr_confounding.html",
+    "href": "activities/10_mlr_confounding.html",
+    "title": "10. Confounding variables",
     "section": "",
-    "text": "Download the .qmd file for this activity here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\nOpen the qmd file in RStudio, and use it to type your answers/code to the exercises and reflection on the in-class activities.\n\n\n\nBy the end of this lesson, you should be able to:\n\nDistinguish between the different motivations for transformations of variables (interpretation, regression assumptions, etc.)\nDetermine when a particular transformation (center, scale, or log) may be appropriate\nInterpret regression coefficients after a transformation has taken place\n\n\n\n\nPlease watch the following video before class.\n\nVideo: Simple Linear Regression: Transformations\n\nThe following reading is optional.\n\nSection 3.8.4 in the STAT 155 Notes covers log transformations, and the “ladder of power,” which we will not cover in class.",
+    "text": "You can download a template file to work with here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\n\n\n\nBy the end of this lesson, you should be familiar with:\n\nconfounding variables\nhow to control for confounding variables in our models\nhow to represent the role of confounding variables using causal diagrams\n\n\n\n\nBefore class you should have read and watched:\n\nSections 3.9.2 in the STAT 155 Notes\nConfounding (and other causal diagrams)\n\nWatch from 0:00 - 6:54",
     "crumbs": [
-      "06. Simple linear regression: Transformations"
+      "10. Confounding variables"
     ]
   },
   {
-    "objectID": "activities/06_slr_transformations.html#learning-goals",
-    "href": "activities/06_slr_transformations.html#learning-goals",
-    "title": "06. Simple linear regression: Transformations",
+    "objectID": "activities/10_mlr_confounding.html#learning-goals",
+    "href": "activities/10_mlr_confounding.html#learning-goals",
+    "title": "10. Confounding variables",
     "section": "",
-    "text": "By the end of this lesson, you should be able to:\n\nDistinguish between the different motivations for transformations of variables (interpretation, regression assumptions, etc.)\nDetermine when a particular transformation (center, scale, or log) may be appropriate\nInterpret regression coefficients after a transformation has taken place",
+    "text": "By the end of this lesson, you should be familiar with:\n\nconfounding variables\nhow to control for confounding variables in our models\nhow to represent the role of confounding variables using causal diagrams",
     "crumbs": [
-      "06. Simple linear regression: Transformations"
+      "10. Confounding variables"
     ]
   },
   {
-    "objectID": "activities/06_slr_transformations.html#readings-and-videos",
-    "href": "activities/06_slr_transformations.html#readings-and-videos",
-    "title": "06. Simple linear regression: Transformations",
+    "objectID": "activities/10_mlr_confounding.html#readings-and-videos",
+    "href": "activities/10_mlr_confounding.html#readings-and-videos",
+    "title": "10. Confounding variables",
     "section": "",
-    "text": "Please watch the following video before class.\n\nVideo: Simple Linear Regression: Transformations\n\nThe following reading is optional.\n\nSection 3.8.4 in the STAT 155 Notes covers log transformations, and the “ladder of power,” which we will not cover in class.",
+    "text": "Before class you should have read and watched:\n\nSections 3.9.2 in the STAT 155 Notes\nConfounding (and other causal diagrams)\n\nWatch from 0:00 - 6:54",
     "crumbs": [
-      "06. Simple linear regression: Transformations"
+      "10. Confounding variables"
     ]
   },
   {
-    "objectID": "activities/06_slr_transformations.html#exercise-1-location-transformations",
-    "href": "activities/06_slr_transformations.html#exercise-1-location-transformations",
-    "title": "06. Simple linear regression: Transformations",
-    "section": "Exercise 1: Location transformations",
-    "text": "Exercise 1: Location transformations\nLocation transformations are ones that shift a predictor variable up or down by a fixed amount. Using a location transformation is sometimes also called centering a predictor.\nWe’ll use the homes data in this exercise.\n\nFit a linear regression model of Price as a function of Living.Area, and call this model home_mod.\n\n\n# Fit the model\n\n\n# Display model summary output\n\n\nInterpret the intercept and the coefficient for Living.Area. Is the interpretation of the intercept meaningful?\nWe can use a location transformation on Living.Area to “start” it at a more reasonable value. We can see from the summarize() code below that the smallest house is 616 quare feet, so let’s center this predictor at 600 square feet. There is no code to fill in here, but make note of the mutate() syntax.\n\n\nhomes %&gt;% \n    summarize(min(Living.Area))\n\n# What is mutate() doing???\nhomes &lt;- homes %&gt;%\n    mutate(Living.Area.Shifted = Living.Area-600)\n\n\nWe can actually determine the coefficients of the Price ~ Living.Area.Shifted model by hand.\n\nFirst, write out in general terms (without specific numbers) how we would interpret the intercept and slope in this model.\nUse these general interpretations as well as the summary output of home_mod to determine what these new coefficients should be.\n\nNow check your answer to part d by fitting the model.\n\n\n# Fit a model of Price vs. Living.Area.Shifted\n\n\n# Display model summary output",
+    "objectID": "activities/10_mlr_confounding.html#exercise-1-review",
+    "href": "activities/10_mlr_confounding.html#exercise-1-review",
+    "title": "10. Confounding variables",
+    "section": "Exercise 1: Review",
+    "text": "Exercise 1: Review\nThe peaks data includes information on hiking trails in the 46 “high peaks” in the Adirondack mountains of northern New York state:\n\n# Load useful packages and data\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\npeaks &lt;- read_csv(\"https://mac-stat.github.io/data/high_peaks.csv\") %&gt;%\n    mutate(ascent = ascent / 1000)\n\n# Check it out \nhead(peaks)\n\nBelow is a model of the time (in hours) that it takes to complete a hike by the hike’s length (in miles), vertical ascent(in 1000s of feet), and rating (easy, moderate, or difficult):\n\npeaks_model &lt;- lm(time ~ length + ascent + rating, data = peaks)\ncoef(summary(peaks_model))\n\nInterpret the length and ratingeasy coefficients in the model formula below by using our strategy:\n\nStrategy: When interpreting a coefficient for a variable x, compare two units whose values of x differ by 1 but who are identical for all other variables.\n\nE[time | length, ascent, rating] = 6.511 + 0.459 length + 0.187 ascent - 3.169 ratingeasy - 2.477 ratingmoderate\n\nSynthesis:\n\nInterpreting the coefficient \\(\\beta_Q\\) for a quantitative variable Q:\n\nHolding all other variables constant, each unit increase in Q is associated with \\(\\beta_Q\\) change (note if it’s an increase or decrease) in Y on average.\n\nInterpreting the coefficient \\(\\beta_C\\) for an indicator variable:\n\nHolding all other variables constant, the average outcome for the group referenced by this indicator (group for whom indicator = 1), is \\(\\beta_C\\) higher/lower than that of the reference group.",
     "crumbs": [
-      "06. Simple linear regression: Transformations"
+      "10. Confounding variables"
     ]
   },
   {
-    "objectID": "activities/06_slr_transformations.html#exercise-2-scale-transformations",
-    "href": "activities/06_slr_transformations.html#exercise-2-scale-transformations",
-    "title": "06. Simple linear regression: Transformations",
-    "section": "Exercise 2: Scale transformations",
-    "text": "Exercise 2: Scale transformations\nIn this exercise, we’ll explore the relationship between four-year graduation rate and admissions rate of colleges.\nIn the code chunk below, construct a visualization comparing graduation rate (our outcome variable) and admissions rate (our predictor of interest). Remember that your outcome variable should be on the y-axis, in general!\n\n# Scatterplot of graduation rate vs. admissions rate\n\n\nDescribe the relationship you observe between the two quantitative variables, in terms of correlation (weak/strong, positive/negative). Does the relationship appear to be roughly linear?\nWrite a linear regression model formula of the form E[Y | X] = … (filling in Y and X appropriately).\nFit this model in R, and report (don’t interpret yet!) the slope coefficient and intercept coefficient estimates.\n\n\n# Linear regression model with GradRate as the outcome, AdmisRate as predictor of interest\n\n\nIntercept Estimate: Your response here\n\n\nSlope Estimate: Your response here\n\n\nConsidering the units of AdmisRate, what does it mean for AdmisRate to change by one unit? What are the units for AdmisRate (and GradRate, for that matter!)?\nSuppose I want the interpretation of my slope coefficient for AdmisRate in my linear model to be in terms a “1% increase in admissions rate.” To achieve this, we could mutate our AdmisRate variable to range from 0 to 100. Let’s do that for GradRate too (just because!):\n\n\n# Mutate\ncollege &lt;- college %&gt;%\n  mutate(AdmisRate = AdmisRate * ___,\n         GradRate = ___ * ___)\n\n\nFit a new linear regression model with the updated AdmisRate and GradRate variables as your predictor of interest and outcome, respectively. Again, report the intercept and slope estimate from your model.\n\n\n# Linear regression model with updated GradRate as the outcome, updated AdmisRate as predictor of interest\n\n\nIntercept Estimate: Your response here\n\n\nSlope Estimate: Your response here\n\nHow have your intercept and slope estimates changed from the previous model, if at all?\n\nInterpret the regression coefficient that corresponds to the estimated linear relationship between admissions and graduation rates, in the context of the problem. Make sure to use non-causal language, include units, and talk about averages rather than individual cases.",
+    "objectID": "activities/10_mlr_confounding.html#exercise-2-confounders",
+    "href": "activities/10_mlr_confounding.html#exercise-2-confounders",
+    "title": "10. Confounding variables",
+    "section": "Exercise 2: Confounders",
+    "text": "Exercise 2: Confounders\n\nResearch question: Is there a wage gap, hence possibly discrimination, by marital status among 18-34 year olds?\n\nTo explore, we can revisit the cps data with employment information collected by the U.S. Current Population Survey (CPS) in 2018. View the codebook here.\n\n# Import data\ncps &lt;- read_csv(\"https://mac-stat.github.io/data/cps_2018.csv\") %&gt;% \n    filter(age &gt;= 18, age &lt;= 34) %&gt;% \n    filter(wage &lt; 250000)\n\n# Check it out\nhead(cps)\n\nRecall that a simple linear regression model of wage by marital suggests that single workers make $17,052 less than married workers:\n\nwage_model_1 &lt;- lm(wage ~ marital, data = cps)\ncoef(summary(wage_model_1))\n\nThat’s a big gap!!\nBUT this model ignores important confounding variables that might help explain this gap.\nA confounding variable is a cause of both the predictor of interest (marital) and of the response variable (wage).\nWe can represent this idea with a causal diagram:\nAnother definition of a confounding variable is one that\n\nis a cause of the outcome (wage)\nis associated with the main variable of interest (marital status)\nNOT caused by the variable of interest\n\nWe can represent this on the causal diagram with a line from the confounder to the variable of interest (instead of an arrow):\nName at least 2 potential confounders.",
     "crumbs": [
-      "06. Simple linear regression: Transformations"
+      "10. Confounding variables"
     ]
   },
   {
-    "objectID": "activities/06_slr_transformations.html#exercise-3-log-transformations",
-    "href": "activities/06_slr_transformations.html#exercise-3-log-transformations",
-    "title": "06. Simple linear regression: Transformations",
-    "section": "Exercise 3: Log transformations",
-    "text": "Exercise 3: Log transformations\nThe Big Mac Index has been published by The Economist since 1986 as a metric for comparing purchasing power between countries, giving rise to the phrase Burgernomics. It was developed (sort of jokingly) as a way to explain exchange rates in digestible terms.\nAs an example, suppose a Big Mac in Switzerland costs 6.70 Swiss franc, and in the U.S. a Big Mac costs 5.58 USD. Then the Big Mac Index is 6.70/5.58 = 1.20, and is the implied exchange rate between Swiss franc and USD.\nIf you’d like to read more about the Big Mac index, here’s an article in The Economist (this may be behind a pay-wall for you, you can read up to 5 free articles in the Economist per month).\nFor this exercise, we’ll explore the relationship between average teaching salary in a country and the amount of time someone needs to work to be able to afford a Big Mac. The variables we’ll consider are:\n\nbigmac_mins: average minutes to earn 1 Big Mac\ngross_annual_teacher_income: average gross teacher salary in 1 year (USD)\n\n\nCreate an appropriate visualization that displays the relationship between average minutes to earn a Big Mac and gross annual, average teaching salary, and describe what you observe.\n\n\n# Visualization: Big Mac minutes vs. gross annual teacher income\n\n\nExplain why correlation might not be an appropriate numerical summary for the relationship between the two variables you plotted above.\nFit a linear regression model with bigmac_mins as the outcome and gross_annual_teacher_income as the predictor of interest, and interpret the coefficient for gross_annual_teacher_income, in context. Make sure to use non-causal language, include units, and talk about averages rather than individual cases.\n\n\n# Linear regression code\n\n\nPlot residuals vs. fitted values for the model you fit, and describe what you observe. Are there any noticeable patterns in the residuals? Describe them!\n\n\n# Residuals vs. fitted values plot\n\n\nFor which observations do the residuals from the linear regression model appear to be relatively large (i.e. for which observations would predictions fall farthest from observed outcomes)? What possible consequences would this have for people using this model to predict the amount of time it takes for them to earn enough money to afford a Big Mac?\n\nWe’ll now consider a log transformation of teaching salary. In the code chunk below, create a new variable called log_sal that contains the logged values of gross_annual_teacher_income.\n\n# Creating new variable log_sal\nbigmac &lt;- bigmac %&gt;%\n  mutate(log_sal = log(___))\n\n\nCreate an appropriate visualization that displays the relationship between average minutes to earn a Big Mac and logged gross annual, average teaching salary, and describe what you observe. Does correlation seem like it may be an appropriate numerical summary for the relationship between these two variables? Explain why or why not.\nFit a linear regression model with bigmac_mins as the outcome and log_sal as the predictor of interest, and interpret the coefficient for log_sal, in context. Make sure to use non-causal language, include units, and talk about averages rather than individual cases.\nPlot residuals vs. fitted values for the model you fit, and describe what you observe. Are there any noticeable patterns in the residuals? Describe them!\n\n\n# Residuals vs. fitted values plot",
+    "objectID": "activities/10_mlr_confounding.html#exercise-3-controlling-for-confounders",
+    "href": "activities/10_mlr_confounding.html#exercise-3-controlling-for-confounders",
+    "title": "10. Confounding variables",
+    "section": "Exercise 3: Controlling for confounders",
+    "text": "Exercise 3: Controlling for confounders\nWhen exploring the relationship between response a response variable y (wage) and some predictor x (marital), there are often confounding variables for which we want to control or adjust.\n\nSometimes, we can control (adjust) for confounding variables through a carefully designed experiment. For example, in comparing the effectiveness (y) of 2 different cold remedies (x), we might want to control for the age, general health, and severity of symptoms among the participants. How might we do that?\nBUT we’re often working with observational, not experimental, data. Why? Well, explain what an experiment might look like if we wanted to explore the relationship between wage (y) and marital status (x) while controlling for age.",
     "crumbs": [
-      "06. Simple linear regression: Transformations"
+      "10. Confounding variables"
     ]
   },
   {
-    "objectID": "activities/06_slr_transformations.html#reflection",
-    "href": "activities/06_slr_transformations.html#reflection",
-    "title": "06. Simple linear regression: Transformations",
+    "objectID": "activities/10_mlr_confounding.html#exercise-4-age",
+    "href": "activities/10_mlr_confounding.html#exercise-4-age",
+    "title": "10. Confounding variables",
+    "section": "Exercise 4: Age",
+    "text": "Exercise 4: Age\nWe’re in luck.\nWe can control (adjust) for confounding variables by including them in our model!\nThat’s one of the superpowers of multiple linear regression.\nLet’s start simple, by controlling for age in our model of wages by marital status:\n\n# Construct the model\nwage_model_2 &lt;- lm(wage ~ marital + age, cps)\ncoef(summary(wage_model_2))\n\n\nVisualize this model by modifying the code below. Note: The last line makes sure that the geom_smooth matches our model assumptions.\n\n\nggplot(cps, aes(y = ___, x = ___, color = ___)) +\n    geom____(size = 0.1, alpha = 0.5) +\n    geom_line(aes(y = wage_model_2$fitted.values), linewidth = 1.25)\n\n\nSuppose 2 workers are the same age, but one is married and one is single. By how much do we expect the single worker’s wage to differ from the married worker’s wage? (How does this compare to the $17,052 marital gap among all workers?)\nHow can we interpret the maritalsingle coefficient?",
+    "crumbs": [
+      "10. Confounding variables"
+    ]
+  },
+  {
+    "objectID": "activities/10_mlr_confounding.html#exercise-5-more-confounders",
+    "href": "activities/10_mlr_confounding.html#exercise-5-more-confounders",
+    "title": "10. Confounding variables",
+    "section": "Exercise 5: More confounders",
+    "text": "Exercise 5: More confounders\nLet’s control for even more potential confounders!\nModel wages by marital status while controlling for age and years of education:\n\nwage_model_3 &lt;- lm(wage ~ marital + age + education, cps)\ncoef(summary(wage_model_3))\n\n\nWith so many variables, this is a tough model to visualize. If you had to draw it, how would the model trend appear: 1 point, 2 points, 2 lines, 1 plane, or 2 planes? Explain your rationale. Hint: pay attention to whether your predictors are quantitative or categorical.\nGiven our research question, which coefficient is of primary interest? Interpret this coefficient.\nInterpret the two other coefficients in this model.",
+    "crumbs": [
+      "10. Confounding variables"
+    ]
+  },
+  {
+    "objectID": "activities/10_mlr_confounding.html#exercise-6-even-more",
+    "href": "activities/10_mlr_confounding.html#exercise-6-even-more",
+    "title": "10. Confounding variables",
+    "section": "Exercise 6: Even more",
+    "text": "Exercise 6: Even more\nLet’s control for another potential confounder, the job industry in which one works (categorical):\n\nwage_model_4 &lt;- lm(wage ~ marital + age + education + industry, cps)\ncoef(summary(wage_model_4))\n\nIf we had to draw it, this model would appear as 12 planes.\nThe original plane explains the relationship between wage and the 2 quantitative predictors, age and education.\nThen this plane is split into 12 (2*6) individual planes, 1 for each possible combination of marital status (2 possibilities) and industry (6 possibilities).\n\nInterpret the main coefficient of interest for our research question.\nWhen controlling for a worker’s age, marital status, and education level, which industry tends to have the highest wages? The lowest? Note: the following table shows the 6 industries:\n\n\ncps %&gt;% count(industry)",
+    "crumbs": [
+      "10. Confounding variables"
+    ]
+  },
+  {
+    "objectID": "activities/10_mlr_confounding.html#exercise-7-biggest-model-yet",
+    "href": "activities/10_mlr_confounding.html#exercise-7-biggest-model-yet",
+    "title": "10. Confounding variables",
+    "section": "Exercise 7: Biggest model yet",
+    "text": "Exercise 7: Biggest model yet\nBuild a model that helps us explore wage by marital status while controlling for: age, education, job industry, typical number of work hours, and health status.\nStore this model as wage_model_5.",
+    "crumbs": [
+      "10. Confounding variables"
+    ]
+  },
+  {
+    "objectID": "activities/10_mlr_confounding.html#exercise-8-reflection",
+    "href": "activities/10_mlr_confounding.html#exercise-8-reflection",
+    "title": "10. Confounding variables",
+    "section": "Exercise 8: Reflection",
+    "text": "Exercise 8: Reflection\nTake two workers – one is married and the other is single.\nThe models above provided the following insights into the typical difference in wages for these two groups:\n\n\n\nModel\nAssume the two people have the same…\nWage difference\n\n\n\n\nwage_model_1\nNA\n-$17,052\n\n\nwage_model_2\nage\n-$7,500\n\n\nwage_model_3\nage, education\n-$6,478\n\n\nwage_model_4\nage, education, industry\n-$5,893\n\n\nwage_model_5\nage, education, industry, hours, health\n-$4,993\n\n\n\n\nThough not the case in every analysis, the marital coefficient got closer and closer to 0 as we controlled for more confounders. Explain the significance of this phenomenon, in context - what does it mean?\nDo you still find the wage gap for single vs married people to be meaningfully “large”? Can you think of any remaining factors that might explain part of this remaining gap? Or do you think we’ve found evidence of inequitable wage practices for single vs married workers?",
+    "crumbs": [
+      "10. Confounding variables"
+    ]
+  },
+  {
+    "objectID": "activities/10_mlr_confounding.html#exercise-9-a-new-extreme-example",
+    "href": "activities/10_mlr_confounding.html#exercise-9-a-new-extreme-example",
+    "title": "10. Confounding variables",
+    "section": "Exercise 9: A new (extreme) example",
+    "text": "Exercise 9: A new (extreme) example\nFor a more extreme example of why it’s important to control for confounding variables, let’s return to the diamonds data:\n\n# Import and wrangle the data\ndata(diamonds)\ndiamonds &lt;- diamonds %&gt;% \n    mutate(\n        cut = factor(cut, ordered = FALSE),\n        color = factor(color, ordered = FALSE),\n        clarity = factor(clarity, ordered = FALSE)\n    ) %&gt;% \n    select(price, clarity, cut, color, carat)\n\nOur goal is to explore how the price of a diamond depends upon its clarity (a measure of quality).\nClarity is classified as follows, in order from best to worst:\n\n\n\nclarity\ndescription\n\n\n\n\nIF\nflawless (no internal imperfections)\n\n\nVVS1\nvery very slightly imperfect\n\n\nVVS2\n” ”\n\n\nVS1\nvery slightly imperfect\n\n\nVS2\n” ”\n\n\nSI1\nslightly imperfect\n\n\nSI2\n” ”\n\n\nI1\nimperfect\n\n\n\n\nCheck out a model of price by clarity. What clarity has the highest average price? The lowest? (This is surprising!)\n\n\ndiamond_model_1 &lt;- lm(price ~ clarity, data = diamonds)\n\n# Get a model summary\ncoef(summary(diamond_model_1))\n\n\nWhat confounding variable might explain these results? What’s your rationale?",
+    "crumbs": [
+      "10. Confounding variables"
+    ]
+  },
+  {
+    "objectID": "activities/10_mlr_confounding.html#exercise-10-size",
+    "href": "activities/10_mlr_confounding.html#exercise-10-size",
+    "title": "10. Confounding variables",
+    "section": "Exercise 10: Size",
+    "text": "Exercise 10: Size\nIt turns out that carat, the size of a diamond, is an important confounding variable.\nLet’s explore what happens when we control for this in our model:\n\ndiamond_model_2 &lt;- lm(price ~ clarity + carat, data = diamonds)\n\n# Get a model summary\ncoef(summary(diamond_model_2))\n\n# Plot the model\ndiamonds %&gt;% \n    ggplot(aes(y = price, x = carat, color = clarity)) + \n    geom_line(aes(y = diamond_model_2$fitted.values))\n\nWhat do you think now?\nWhich clarity has the highest expected price?\nThe lowest?\nProvide numerical evidence from the model.",
+    "crumbs": [
+      "10. Confounding variables"
+    ]
+  },
+  {
+    "objectID": "activities/10_mlr_confounding.html#exercise-11-simpsons-paradox",
+    "href": "activities/10_mlr_confounding.html#exercise-11-simpsons-paradox",
+    "title": "10. Confounding variables",
+    "section": "Exercise 11: Simpson’s Paradox",
+    "text": "Exercise 11: Simpson’s Paradox\nControlling for carat didn’t just change the clarity coefficients, hence our understanding of the relationship between price and clarity… It flipped the signs of many of these coefficients.\nThis extreme scenario has a name: Simpson’s paradox.\nCHALLENGE: Explain why this happened and support your argument with graphical evidence.\nHINTS: Think about the causal diagram below. How do you think carat influences clarity? How do you think carat influences price? Make 2 ggplot() that support your answers.",
+    "crumbs": [
+      "10. Confounding variables"
+    ]
+  },
+  {
+    "objectID": "activities/10_mlr_confounding.html#exercise-12-final-conclusion",
+    "href": "activities/10_mlr_confounding.html#exercise-12-final-conclusion",
+    "title": "10. Confounding variables",
+    "section": "Exercise 12: Final conclusion",
+    "text": "Exercise 12: Final conclusion\nWhat’s your final conclusion about diamond prices?\nWhich diamonds are more expensive: flawed ones or flawless ones?",
+    "crumbs": [
+      "10. Confounding variables"
+    ]
+  },
+  {
+    "objectID": "activities/10_mlr_confounding.html#reflection",
+    "href": "activities/10_mlr_confounding.html#reflection",
+    "title": "10. Confounding variables",
     "section": "Reflection",
-    "text": "Reflection\nTwo of the main motivations for transforming variables in our regression models is to (1) intentionally change the interpretation of regression coefficients, and (2) to better satisfy linear regression assumptions (e.g. remove “patterns” from our residual plots). The first is nearly always justified by the scientific context of the research questions you are trying to answer, while the second is a bit more muddy.\nThink about the pros and cons of transforming your variables to satisfy linear regression assumptions. Is there a limit to how much you would be willing to transform your variables? Would transforming too much leave you with un-interpretable regression coefficients?\n\nResponse: Put your response here.\n\n\nSolutions",
+    "text": "Reflection\nWrite a one-sentence warning label for what might happen if we do not control for confounding variables in our model.\n\nResponse: Put your response here.\n\nSolutions",
     "crumbs": [
-      "06. Simple linear regression: Transformations"
+      "10. Confounding variables"
     ]
+  },
+  {
+    "objectID": "solutions/10_mlr_confounding.html",
+    "href": "solutions/10_mlr_confounding.html",
+    "title": "Solutions for Activity 10: Confounding variables",
+    "section": "",
+    "text": "# Load useful packages and data\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\npeaks &lt;- read_csv(\"https://mac-stat.github.io/data/high_peaks.csv\") %&gt;%\n    mutate(ascent = ascent / 1000)\n\n# Check it out \nhead(peaks)\n\n# A tibble: 6 × 7\n  peak           elevation difficulty ascent length  time rating   \n  &lt;chr&gt;              &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    \n1 Mt. Marcy           5344          5   3.17   14.8  10   moderate \n2 Algonquin Peak      5114          5   2.94    9.6   9   moderate \n3 Mt. Haystack        4960          7   3.57   17.8  12   difficult\n4 Mt. Skylight        4926          7   4.26   17.9  15   difficult\n5 Whiteface Mtn.      4867          4   2.54   10.4   8.5 easy     \n6 Dix Mtn.            4857          5   2.8    13.2  10   moderate \n\n\n\npeaks_model &lt;- lm(time ~ length + ascent + rating, data = peaks)\ncoef(summary(peaks_model))\n\n                 Estimate Std. Error   t value     Pr(&gt;|t|)\n(Intercept)     6.5106514 1.62983740  3.994663 2.627176e-04\nlength          0.4590819 0.08158314  5.627166 1.465288e-06\nascent          0.1874830 0.34215350  0.547950 5.866973e-01\nratingeasy     -3.1685224 0.86219113 -3.674965 6.827232e-04\nratingmoderate -2.4767827 0.61058560 -4.056405 2.177589e-04\n\n\n\nlength coefficient:\n\nAmong hikes with the same vertical ascent and challenge rating, each additional mile of the hike is associated with a 0.46 hour increase in completion time on average.\nHolding vertical ascent and challenge rating constant (fixed), each additional mile of the hike is associated with a 0.46 hour increase in completion time on average.\n\nratingeasy coefficient:\n\nAmong hikes with the same length and vertical ascent, the average completion time of easy hikes is 3.2 hours less than that of difficult hikes (reference category).\nHolding constant hike length and vertical ascent, the average completion time of easy hikes is 3.2 hours less than that of difficult hikes."
+  },
+  {
+    "objectID": "solutions/10_mlr_confounding.html#exercise-1-review",
+    "href": "solutions/10_mlr_confounding.html#exercise-1-review",
+    "title": "Solutions for Activity 10: Confounding variables",
+    "section": "",
+    "text": "# Load useful packages and data\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\npeaks &lt;- read_csv(\"https://mac-stat.github.io/data/high_peaks.csv\") %&gt;%\n    mutate(ascent = ascent / 1000)\n\n# Check it out \nhead(peaks)\n\n# A tibble: 6 × 7\n  peak           elevation difficulty ascent length  time rating   \n  &lt;chr&gt;              &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    \n1 Mt. Marcy           5344          5   3.17   14.8  10   moderate \n2 Algonquin Peak      5114          5   2.94    9.6   9   moderate \n3 Mt. Haystack        4960          7   3.57   17.8  12   difficult\n4 Mt. Skylight        4926          7   4.26   17.9  15   difficult\n5 Whiteface Mtn.      4867          4   2.54   10.4   8.5 easy     \n6 Dix Mtn.            4857          5   2.8    13.2  10   moderate \n\n\n\npeaks_model &lt;- lm(time ~ length + ascent + rating, data = peaks)\ncoef(summary(peaks_model))\n\n                 Estimate Std. Error   t value     Pr(&gt;|t|)\n(Intercept)     6.5106514 1.62983740  3.994663 2.627176e-04\nlength          0.4590819 0.08158314  5.627166 1.465288e-06\nascent          0.1874830 0.34215350  0.547950 5.866973e-01\nratingeasy     -3.1685224 0.86219113 -3.674965 6.827232e-04\nratingmoderate -2.4767827 0.61058560 -4.056405 2.177589e-04\n\n\n\nlength coefficient:\n\nAmong hikes with the same vertical ascent and challenge rating, each additional mile of the hike is associated with a 0.46 hour increase in completion time on average.\nHolding vertical ascent and challenge rating constant (fixed), each additional mile of the hike is associated with a 0.46 hour increase in completion time on average.\n\nratingeasy coefficient:\n\nAmong hikes with the same length and vertical ascent, the average completion time of easy hikes is 3.2 hours less than that of difficult hikes (reference category).\nHolding constant hike length and vertical ascent, the average completion time of easy hikes is 3.2 hours less than that of difficult hikes."
+  },
+  {
+    "objectID": "solutions/10_mlr_confounding.html#exercise-2-confounders",
+    "href": "solutions/10_mlr_confounding.html#exercise-2-confounders",
+    "title": "Solutions for Activity 10: Confounding variables",
+    "section": "Exercise 2: Confounders",
+    "text": "Exercise 2: Confounders\n\n# Import data\ncps &lt;- read_csv(\"https://mac-stat.github.io/data/cps_2018.csv\") %&gt;% \n    filter(age &gt;= 18, age &lt;= 34) %&gt;% \n    filter(wage &lt; 250000)\n\nRows: 10000 Columns: 8\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (4): marital, industry, health, education_level\ndbl (4): wage, age, education, hours\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n# Check it out\nhead(cps)\n\n# A tibble: 6 × 8\n   wage   age education marital industry   health    hours education_level\n  &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;          \n1 75000    33        16 single  management fair         40 bachelors      \n2 33000    19        16 single  management very_good    40 bachelors      \n3 43000    33        16 married management good         40 bachelors      \n4 50000    32        12 single  management excellent    40 HS             \n5 14400    28        12 single  service    excellent    40 HS             \n6 33000    31        16 married management very_good    45 bachelors      \n\n\nage, education, job industry, …"
+  },
+  {
+    "objectID": "solutions/10_mlr_confounding.html#exercise-3-controlling-for-confounders",
+    "href": "solutions/10_mlr_confounding.html#exercise-3-controlling-for-confounders",
+    "title": "Solutions for Activity 10: Confounding variables",
+    "section": "Exercise 3: Controlling for confounders",
+    "text": "Exercise 3: Controlling for confounders\n\ncreate 2 separate groups that are as similar as possible with respect to these variables. give the groups different remedies.\nwe’d have to get 2 groups that are similar with respect to age, and assign 1 group to get married and 1 group to be single. that would be weird (and unethical)."
+  },
+  {
+    "objectID": "solutions/10_mlr_confounding.html#exercise-4-age",
+    "href": "solutions/10_mlr_confounding.html#exercise-4-age",
+    "title": "Solutions for Activity 10: Confounding variables",
+    "section": "Exercise 4: Age",
+    "text": "Exercise 4: Age\n\n# Construct the model\nwage_model_2 &lt;- lm(wage ~ marital + age, cps)\ncoef(summary(wage_model_2))\n\n                Estimate Std. Error   t value     Pr(&gt;|t|)\n(Intercept)   -19595.948  3691.6998 -5.308110 1.184066e-07\nmaritalsingle  -7500.146  1191.8526 -6.292847 3.545964e-10\nage             2213.869   120.7701 18.331265 2.035782e-71\n\n\n\n.\n\n\ncps %&gt;%\nggplot(aes(y = wage, x = age, color = marital)) +\n    geom_point(size = 0.1, alpha = 0.5) +\n    geom_line(aes(y = wage_model_2$fitted.values), size = 1.25)\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n\n\n\n\n\n\n\n\n-$7500\n\nWhen controlling for (“holding constant”) age, single workers make $7500 less than married workers on average.\nAmong workers of the same age, single workers make $7500 less than married workers on average."
+  },
+  {
+    "objectID": "solutions/10_mlr_confounding.html#exercise-5-more-confounders",
+    "href": "solutions/10_mlr_confounding.html#exercise-5-more-confounders",
+    "title": "Solutions for Activity 10: Confounding variables",
+    "section": "Exercise 5: More confounders",
+    "text": "Exercise 5: More confounders\n\nwage_model_3 &lt;- lm(wage ~ marital + age + education, cps)\ncoef(summary(wage_model_3))\n\n                Estimate Std. Error    t value     Pr(&gt;|t|)\n(Intercept)   -64898.607  4099.8737 -15.829416 2.254709e-54\nmaritalsingle  -6478.094  1119.9345  -5.784351 7.988760e-09\nage             1676.796   116.3086  14.416777 1.102113e-45\neducation       4285.259   207.2158  20.680173 3.209448e-89\n\n\n\n2 planes: There are 2 quantitative predictors which form the dimensions of the plane. The marital status categorical predictor creates 2 planes.\nThe maritalsingle coefficient is of main interest:\n\nAmong workers of the same age and years of education, single workers earn $6478 less than married workers.\n\n\nage coefficient: Among workers of the same marital status and years of education, each additional year of age is associated with a $1677 increase in salary on average.\neducation coefficient: Among workers of the same marital status and age, each additional year of education is associated with a $4285 increase in salary on average."
+  },
+  {
+    "objectID": "solutions/10_mlr_confounding.html#exercise-6-even-more",
+    "href": "solutions/10_mlr_confounding.html#exercise-6-even-more",
+    "title": "Solutions for Activity 10: Confounding variables",
+    "section": "Exercise 6: Even more",
+    "text": "Exercise 6: Even more\n\nwage_model_4 &lt;- lm(wage ~ marital + age + education + industry, cps)\ncoef(summary(wage_model_4))\n\n                                  Estimate Std. Error    t value     Pr(&gt;|t|)\n(Intercept)                     -52498.857  7143.8481 -7.3488206 2.533275e-13\nmaritalsingle                    -5892.842  1105.6898 -5.3295615 1.053631e-07\nage                               1493.360   116.1673 12.8552586 6.651441e-37\neducation                         3911.117   243.0192 16.0938565 4.500408e-56\nindustryconstruction              5659.082  6218.5649  0.9100302 3.628760e-01\nindustryinstallation_production   1865.650  6109.2613  0.3053806 7.600964e-01\nindustrymanagement                1476.884  6031.2901  0.2448704 8.065727e-01\nindustryservice                  -7930.403  5945.6509 -1.3338158 1.823603e-01\nindustrytransportation           -1084.176  6197.2462 -0.1749448 8.611342e-01\n\n\n\nAmong workers of the same job industry, education, and age, single workers make $5893 less than a married worker on average.\nhighest = construction (because it has the highest positive coefficient), lowest = service (because it has the most negative coefficient)"
+  },
+  {
+    "objectID": "solutions/10_mlr_confounding.html#exercise-7-biggest-model-yet",
+    "href": "solutions/10_mlr_confounding.html#exercise-7-biggest-model-yet",
+    "title": "Solutions for Activity 10: Confounding variables",
+    "section": "Exercise 7: Biggest model yet",
+    "text": "Exercise 7: Biggest model yet\n\nwage_model_5 &lt;- lm(wage ~ marital + age + education + industry + hours + health, cps)\ncoef(summary(wage_model_5))\n\n                                   Estimate Std. Error     t value     Pr(&gt;|t|)\n(Intercept)                     -64886.5747 6914.18198 -9.38456275 1.171028e-20\nmaritalsingle                    -4992.7685 1061.84882 -4.70195794 2.687274e-06\nage                               1061.1410  115.83503  9.16079518 9.031462e-20\neducation                         3443.7625  236.12723 14.58435151 1.128646e-46\nindustryconstruction              5381.3857 5959.05620  0.90306007 3.665630e-01\nindustryinstallation_production   2951.0372 5854.23981  0.50408547 6.142365e-01\nindustrymanagement                5107.6364 5782.95334  0.88322283 3.771832e-01\nindustryservice                  -3074.5127 5705.56537 -0.53886207 5.900201e-01\nindustrytransportation            -207.3439 5940.02074 -0.03490626 9.721567e-01\nhours                              732.1340   43.72488 16.74410733 2.340115e-60\nhealthfair                       -7407.7981 2901.71339 -2.55290483 1.072955e-02\nhealthgood                       -2470.8096 1259.44276 -1.96182766 4.987035e-02\nhealthpoor                       -9086.9110 7657.43781 -1.18667774 2.354441e-01\nhealthvery_good                    292.5278 1020.89213  0.28654136 7.744823e-01"
+  },
+  {
+    "objectID": "solutions/10_mlr_confounding.html#exercise-8-reflection",
+    "href": "solutions/10_mlr_confounding.html#exercise-8-reflection",
+    "title": "Solutions for Activity 10: Confounding variables",
+    "section": "Exercise 8: Reflection",
+    "text": "Exercise 8: Reflection\n\nThese confounders explained away more and more of the wage gap between single and married workers.\nAnswers will vary. A potential factor that we haven’t considered is a worker’s role within a given industry."
+  },
+  {
+    "objectID": "solutions/10_mlr_confounding.html#exercise-9-a-new-extreme-example",
+    "href": "solutions/10_mlr_confounding.html#exercise-9-a-new-extreme-example",
+    "title": "Solutions for Activity 10: Confounding variables",
+    "section": "Exercise 9: A new (extreme) example",
+    "text": "Exercise 9: A new (extreme) example\n\n\n\nclarity\ndescription\n\n\n\n\nIF\nflawless (no internal imperfections)\n\n\nVVS1\nvery very slightly imperfect\n\n\nVVS2\n” ”\n\n\nVS1\nvery slightly imperfect\n\n\nVS2\n” ”\n\n\nSI1\nslightly imperfect\n\n\nSI2\n” ”\n\n\nI1\nimperfect\n\n\n\n\ndiamond_model_1 &lt;- lm(price ~ clarity, data = diamonds)\n\n# Get a model summary\ncoef(summary(diamond_model_1))\n\n               Estimate Std. Error    t value     Pr(&gt;|t|)\n(Intercept)  3677.41676   25.88161 142.086092 0.000000e+00\nclarity.L   -1723.35264   98.72036 -17.456913 4.696367e-68\nclarity.Q    -428.36467   96.70081  -4.429794 9.450847e-06\nclarity.C     647.87442   83.30820   7.776838 7.567234e-15\nclarity^4    -123.13052   66.72533  -1.845334 6.499443e-02\nclarity^5     804.80570   54.62487  14.733320 4.907171e-49\nclarity^6    -273.65013   47.67881  -5.739449 9.549240e-09\nclarity^7      81.18721   42.01910   1.932150 5.334619e-02\n\n\n\nhighest = SI2, lowest = VVS1\nwill vary."
+  },
+  {
+    "objectID": "solutions/10_mlr_confounding.html#exercise-10-size",
+    "href": "solutions/10_mlr_confounding.html#exercise-10-size",
+    "title": "Solutions for Activity 10: Confounding variables",
+    "section": "Exercise 10: Size",
+    "text": "Exercise 10: Size\n\ndiamond_model_2 &lt;- lm(price ~ clarity + carat, data = diamonds)\n\n# Get a model summary\ncoef(summary(diamond_model_2))\n\n               Estimate Std. Error      t value      Pr(&gt;|t|)\n(Intercept) -2977.26896   13.11110 -227.0799509  0.000000e+00\nclarity.L    4216.77507   33.65424  125.2969766  0.000000e+00\nclarity.Q   -1931.40632   31.87080  -60.6011296  0.000000e+00\nclarity.C    1005.84704   27.39341   36.7185805 1.486332e-291\nclarity^4    -480.17830   21.94294  -21.8830399 1.089041e-105\nclarity^5     283.94435   17.97527   15.7963882  4.403172e-56\nclarity^6      12.66308   15.68062    0.8075624  4.193461e-01\nclarity^7     198.04828   13.81518   14.3355543  1.597902e-46\ncarat        8440.05729   12.65126  667.1315412  0.000000e+00\n\n# Plot the model\ndiamonds %&gt;% \n    ggplot(aes(y = price, x = carat, color = clarity)) + \n    geom_line(aes(y = diamond_model_2$fitted.values))\n\n\n\n\n\n\n\n\nhighest = IF, lowest = I1 (reference category)\nThis is what we would have expected!"
+  },
+  {
+    "objectID": "solutions/10_mlr_confounding.html#exercise-11-simpsons-paradox",
+    "href": "solutions/10_mlr_confounding.html#exercise-11-simpsons-paradox",
+    "title": "Solutions for Activity 10: Confounding variables",
+    "section": "Exercise 11: Simpson’s Paradox",
+    "text": "Exercise 11: Simpson’s Paradox\nThe bigger the diamond the bigger the price:\n\ndiamonds %&gt;% \n    ggplot(aes(y = price, x = carat)) + \n    geom_point()\n\n\n\n\n\n\n\n\nBUT the bigger the diamond, the more flawed it tends to be:\n\ndiamonds %&gt;% \n    ggplot(aes(y = carat, x = clarity)) + \n    geom_boxplot()\n\n\n\n\n\n\n\n\nThus flawed diamonds looked more expensive, but only because they also tend to be bigger (and size is a bigger driver of price)."
+  },
+  {
+    "objectID": "solutions/10_mlr_confounding.html#exercise-12-final-conclusion",
+    "href": "solutions/10_mlr_confounding.html#exercise-12-final-conclusion",
+    "title": "Solutions for Activity 10: Confounding variables",
+    "section": "Exercise 12: Final conclusion",
+    "text": "Exercise 12: Final conclusion\nFlawless diamonds are more expensive."
   },
   {
     "objectID": "solutions/05_slr_model_eval.html",
@@ -919,14 +1100,14 @@
     "href": "index.html",
     "title": "STAT 155: Introduction to Statistical Modeling",
     "section": "",
-    "text": "Macalester College, Fall 2024\n\nLearn the fundamentals of summarizing, visualizing, and modeling data to answer research questions.\n\n\nInstructor: Jedidiah Carlson  Class meeting times:\n\nSection 05: Tu/Th 1:20-2:50pm\nSection 06: Tu/Th 3:00-4:30pm\n\nClass location: THEATR 202 \nInstructor drop-in hours:\n\nlocation: My office (OLRI 235)\ntimes: See this calendar (Tentatively from 1-3pm on Wednesdays and 10am-11am on Thursdays, but subject to change based on responses to the introductions survey).\n1:1 appointments: I’m also happy to meet one-on-one if my normal drop-in hours don’t work for you. You can schedule a time to meet with me using this link.\n\n\n\n\n\n\n\n\n\nWeek 1: 9/2 - 9/6 (Data fundamentals, univariate visualization and summaries)\n\n\n\n\n\n\n\nWelcome (back) to campus!\n\n\n\nBefore class:\n\nreview the course syllabus\ncomplete the Introductions survey\ntry downloading R and RStudio\n\n\n\n\nBefore class:\n\nDownload and familiarize yourself with R and RStudio\nComplete the Introductions survey (if you haven’t already!)\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 2 Activity (see Moodle for links)\ndue 30 minutes before class on 9/5\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2: 9/9 - 9/13 (Simple linear regression)\n\n\n\n\n\n\n\n\nPractice Problems #1 will be due on Friday, 9/13 at 5pm!\nFriday, 9/13 is also the add/drop deadline\nPreceptor office hours start this week–see the course calendar for times\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 3 Activity (see Moodle for links)\ndue 30 minutes before class on 9/10\n\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 4 Activity (see Moodle for links)\ndue 30 minutes before class on 9/12\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 3: 9/16 - 9/20 (Simple linear regression: model evaluation and variable transformations)\n\n\n\n\n\n\n\n\nPractice Problems #2 will be due Friday, 9/20 at 5pm\nReminder that preceptor office hours are held in the Sub-Hub (the glass room in the middle of the first floor of OLRI)\n\nsee Moodle for the preceptor office hours calendar, or add this calendar in your Mac Google account\n\nPlease remember to read your email 🥲\n\n\n\n\nBefore class:\n\nComplete the Project Preferences survey\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 5 Activity (see Moodle for links)\ndue 30 minutes before class on 9/17\n\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 6 Activity (see Moodle for links)\n\nLibrary data discovery day!\n\n\n\n\n\n\n\n\n\n\n\nWeek 4: 9/23 - 9/27 (Simple linear regression: categorical predictors)\n\n\n\n\n\n\n\n\n\n\nBefore class:\n\nNo readings/videos/checkpoints for today!\n\n\n\n\n\nQuiz 1 today (1 hour in class)\n\n\n\n\n\n\n\n\n\n\n\nWeek 5: 9/30 - 10/4 (Multiple linear regression: principles + confounding)\n\n\n\n\n\n\n\nGrades for Quiz #1 and PP #2 will be posted soon\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 6 Activity (see Moodle for links)\ndue 30 minutes before class on 10/1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 6: 10/7 - 10/11 (Multiple linear regression: interaction)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 7: 10/14 - 10/18 (Multiple linear regression: model building) (Fall Break)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 8: 10/21 - 10/25 (Logistic regression)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 9: 10/28 - 11/1 (Tools for statistical inference)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 10: 11/4 - 11/8 (Confidence intervals)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 11: 11/11 - 11/15 (Hypothesis testing)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 12: 11/18 - 11/22 (Hypothesis testing)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 13: 11/25 - 11/29 (Hypothesis testing, p-values) (Thanksgiving Break)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 14: 12/2 - 12/6 (Project work)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 15: 12/9 - 12/13 (Project work, paper, and presentations)\n\n\n\n\n\n\n\n\n\n\n(Last day of class)\n\n\n\n\nIf you find any typos, bugs, dead links, or have other questions, please email jcarls13@macalester.edu"
+    "text": "Macalester College, Fall 2024\n\nLearn the fundamentals of summarizing, visualizing, and modeling data to answer research questions.\n\n\nInstructor: Jedidiah Carlson  Class meeting times:\n\nSection 05: Tu/Th 1:20-2:50pm\nSection 06: Tu/Th 3:00-4:30pm\n\nClass location: THEATR 202 \nInstructor drop-in hours:\n\nlocation: My office (OLRI 235)\ntimes: See this calendar (Tentatively from 1-3pm on Wednesdays and 10am-11am on Thursdays, but subject to change based on responses to the introductions survey).\n1:1 appointments: I’m also happy to meet one-on-one if my normal drop-in hours don’t work for you. You can schedule a time to meet with me using this link.\n\n\n\n\n\n\n\n\n\nWeek 1: 9/2 - 9/6 (Data fundamentals, univariate visualization and summaries)\n\n\n\n\n\n\n\nWelcome (back) to campus!\n\n\n\nBefore class:\n\nreview the course syllabus\ncomplete the Introductions survey\ntry downloading R and RStudio\n\n\n\n\nBefore class:\n\nDownload and familiarize yourself with R and RStudio\nComplete the Introductions survey (if you haven’t already!)\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 2 Activity (see Moodle for links)\ndue 30 minutes before class on 9/5\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2: 9/9 - 9/13 (Simple linear regression)\n\n\n\n\n\n\n\n\nPractice Problems #1 will be due on Friday, 9/13 at 5pm!\nFriday, 9/13 is also the add/drop deadline\nPreceptor office hours start this week–see the course calendar for times\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 3 Activity (see Moodle for links)\ndue 30 minutes before class on 9/10\n\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 4 Activity (see Moodle for links)\ndue 30 minutes before class on 9/12\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 3: 9/16 - 9/20 (Simple linear regression: model evaluation and variable transformations)\n\n\n\n\n\n\n\n\nPractice Problems #2 will be due Friday, 9/20 at 5pm\nReminder that preceptor office hours are held in the Sub-Hub (the glass room in the middle of the first floor of OLRI)\n\nsee Moodle for the preceptor office hours calendar, or add this calendar in your Mac Google account\n\nPlease remember to read your email 🥲\n\n\n\n\nBefore class:\n\nComplete the Project Preferences survey\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 5 Activity (see Moodle for links)\ndue 30 minutes before class on 9/17\n\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 6 Activity (see Moodle for links)\n\nLibrary data discovery day!\n\n\n\n\n\n\n\n\n\n\n\nWeek 4: 9/23 - 9/27 (Simple linear regression: categorical predictors)\n\n\n\n\n\n\n\n\n\n\nBefore class:\n\nNo readings/videos/checkpoints for today!\n\n\n\n\n\nQuiz 1 today (1 hour in class)\n\n\n\n\n\n\n\n\n\n\n\nWeek 5: 9/30 - 10/4 (Multiple linear regression: principles + confounding)\n\n\n\n\n\n\n\n\nGrades for Quiz #1 and PP #2 are posted on Moodle\nPractice Problems #3 will be due Friday, 10/4 at 5pm\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\ndue 30 minutes before class on 10/1\n\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\ndue 30 minutes before class on 10/3\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 6: 10/7 - 10/11 (Multiple linear regression: interaction)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 7: 10/14 - 10/18 (Multiple linear regression: model building) (Fall Break)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 8: 10/21 - 10/25 (Logistic regression)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 9: 10/28 - 11/1 (Tools for statistical inference)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 10: 11/4 - 11/8 (Confidence intervals)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 11: 11/11 - 11/15 (Hypothesis testing)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 12: 11/18 - 11/22 (Hypothesis testing)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 13: 11/25 - 11/29 (Hypothesis testing, p-values) (Thanksgiving Break)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 14: 12/2 - 12/6 (Project work)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 15: 12/9 - 12/13 (Project work, paper, and presentations)\n\n\n\n\n\n\n\n\n\n\n(Last day of class)\n\n\n\n\nIf you find any typos, bugs, dead links, or have other questions, please email jcarls13@macalester.edu"
   },
   {
     "objectID": "index.html#course-schedule-announcements",
     "href": "index.html#course-schedule-announcements",
     "title": "STAT 155: Introduction to Statistical Modeling",
     "section": "",
-    "text": "Week 1: 9/2 - 9/6 (Data fundamentals, univariate visualization and summaries)\n\n\n\n\n\n\n\nWelcome (back) to campus!\n\n\n\nBefore class:\n\nreview the course syllabus\ncomplete the Introductions survey\ntry downloading R and RStudio\n\n\n\n\nBefore class:\n\nDownload and familiarize yourself with R and RStudio\nComplete the Introductions survey (if you haven’t already!)\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 2 Activity (see Moodle for links)\ndue 30 minutes before class on 9/5\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2: 9/9 - 9/13 (Simple linear regression)\n\n\n\n\n\n\n\n\nPractice Problems #1 will be due on Friday, 9/13 at 5pm!\nFriday, 9/13 is also the add/drop deadline\nPreceptor office hours start this week–see the course calendar for times\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 3 Activity (see Moodle for links)\ndue 30 minutes before class on 9/10\n\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 4 Activity (see Moodle for links)\ndue 30 minutes before class on 9/12\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 3: 9/16 - 9/20 (Simple linear regression: model evaluation and variable transformations)\n\n\n\n\n\n\n\n\nPractice Problems #2 will be due Friday, 9/20 at 5pm\nReminder that preceptor office hours are held in the Sub-Hub (the glass room in the middle of the first floor of OLRI)\n\nsee Moodle for the preceptor office hours calendar, or add this calendar in your Mac Google account\n\nPlease remember to read your email 🥲\n\n\n\n\nBefore class:\n\nComplete the Project Preferences survey\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 5 Activity (see Moodle for links)\ndue 30 minutes before class on 9/17\n\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 6 Activity (see Moodle for links)\n\nLibrary data discovery day!\n\n\n\n\n\n\n\n\n\n\n\nWeek 4: 9/23 - 9/27 (Simple linear regression: categorical predictors)\n\n\n\n\n\n\n\n\n\n\nBefore class:\n\nNo readings/videos/checkpoints for today!\n\n\n\n\n\nQuiz 1 today (1 hour in class)\n\n\n\n\n\n\n\n\n\n\n\nWeek 5: 9/30 - 10/4 (Multiple linear regression: principles + confounding)\n\n\n\n\n\n\n\nGrades for Quiz #1 and PP #2 will be posted soon\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 6 Activity (see Moodle for links)\ndue 30 minutes before class on 10/1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 6: 10/7 - 10/11 (Multiple linear regression: interaction)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 7: 10/14 - 10/18 (Multiple linear regression: model building) (Fall Break)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 8: 10/21 - 10/25 (Logistic regression)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 9: 10/28 - 11/1 (Tools for statistical inference)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 10: 11/4 - 11/8 (Confidence intervals)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 11: 11/11 - 11/15 (Hypothesis testing)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 12: 11/18 - 11/22 (Hypothesis testing)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 13: 11/25 - 11/29 (Hypothesis testing, p-values) (Thanksgiving Break)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 14: 12/2 - 12/6 (Project work)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 15: 12/9 - 12/13 (Project work, paper, and presentations)\n\n\n\n\n\n\n\n\n\n\n(Last day of class)\n\n\n\n\nIf you find any typos, bugs, dead links, or have other questions, please email jcarls13@macalester.edu"
+    "text": "Week 1: 9/2 - 9/6 (Data fundamentals, univariate visualization and summaries)\n\n\n\n\n\n\n\nWelcome (back) to campus!\n\n\n\nBefore class:\n\nreview the course syllabus\ncomplete the Introductions survey\ntry downloading R and RStudio\n\n\n\n\nBefore class:\n\nDownload and familiarize yourself with R and RStudio\nComplete the Introductions survey (if you haven’t already!)\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 2 Activity (see Moodle for links)\ndue 30 minutes before class on 9/5\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2: 9/9 - 9/13 (Simple linear regression)\n\n\n\n\n\n\n\n\nPractice Problems #1 will be due on Friday, 9/13 at 5pm!\nFriday, 9/13 is also the add/drop deadline\nPreceptor office hours start this week–see the course calendar for times\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 3 Activity (see Moodle for links)\ndue 30 minutes before class on 9/10\n\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 4 Activity (see Moodle for links)\ndue 30 minutes before class on 9/12\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 3: 9/16 - 9/20 (Simple linear regression: model evaluation and variable transformations)\n\n\n\n\n\n\n\n\nPractice Problems #2 will be due Friday, 9/20 at 5pm\nReminder that preceptor office hours are held in the Sub-Hub (the glass room in the middle of the first floor of OLRI)\n\nsee Moodle for the preceptor office hours calendar, or add this calendar in your Mac Google account\n\nPlease remember to read your email 🥲\n\n\n\n\nBefore class:\n\nComplete the Project Preferences survey\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 5 Activity (see Moodle for links)\ndue 30 minutes before class on 9/17\n\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\nDo either the readings or videos for the Day 6 Activity (see Moodle for links)\n\nLibrary data discovery day!\n\n\n\n\n\n\n\n\n\n\n\nWeek 4: 9/23 - 9/27 (Simple linear regression: categorical predictors)\n\n\n\n\n\n\n\n\n\n\nBefore class:\n\nNo readings/videos/checkpoints for today!\n\n\n\n\n\nQuiz 1 today (1 hour in class)\n\n\n\n\n\n\n\n\n\n\n\nWeek 5: 9/30 - 10/4 (Multiple linear regression: principles + confounding)\n\n\n\n\n\n\n\n\nGrades for Quiz #1 and PP #2 are posted on Moodle\nPractice Problems #3 will be due Friday, 10/4 at 5pm\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\ndue 30 minutes before class on 10/1\n\n\n\n\n\nBefore class:\n\nComplete today’s checkpoint on Moodle\n\ndue 30 minutes before class on 10/3\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 6: 10/7 - 10/11 (Multiple linear regression: interaction)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 7: 10/14 - 10/18 (Multiple linear regression: model building) (Fall Break)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 8: 10/21 - 10/25 (Logistic regression)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 9: 10/28 - 11/1 (Tools for statistical inference)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 10: 11/4 - 11/8 (Confidence intervals)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 11: 11/11 - 11/15 (Hypothesis testing)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 12: 11/18 - 11/22 (Hypothesis testing)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 13: 11/25 - 11/29 (Hypothesis testing, p-values) (Thanksgiving Break)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 14: 12/2 - 12/6 (Project work)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 15: 12/9 - 12/13 (Project work, paper, and presentations)\n\n\n\n\n\n\n\n\n\n\n(Last day of class)\n\n\n\n\nIf you find any typos, bugs, dead links, or have other questions, please email jcarls13@macalester.edu"
   },
   {
     "objectID": "activities/01_foundations_welcome.html",
@@ -1543,6 +1724,76 @@
     "text": "Footnotes\n\n\nhttps://en.wikipedia.org/wiki/W._E._B._Du_Bois↩︎",
     "crumbs": [
       "05. Simple linear regression: model evaluation"
+    ]
+  },
+  {
+    "objectID": "activities/06_slr_transformations.html",
+    "href": "activities/06_slr_transformations.html",
+    "title": "06. Simple linear regression: Transformations",
+    "section": "",
+    "text": "Download the .qmd file for this activity here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\nOpen the qmd file in RStudio, and use it to type your answers/code to the exercises and reflection on the in-class activities.\n\n\n\nBy the end of this lesson, you should be able to:\n\nDistinguish between the different motivations for transformations of variables (interpretation, regression assumptions, etc.)\nDetermine when a particular transformation (center, scale, or log) may be appropriate\nInterpret regression coefficients after a transformation has taken place\n\n\n\n\nPlease watch the following video before class.\n\nVideo: Simple Linear Regression: Transformations\n\nThe following reading is optional.\n\nSection 3.8.4 in the STAT 155 Notes covers log transformations, and the “ladder of power,” which we will not cover in class.",
+    "crumbs": [
+      "06. Simple linear regression: Transformations"
+    ]
+  },
+  {
+    "objectID": "activities/06_slr_transformations.html#learning-goals",
+    "href": "activities/06_slr_transformations.html#learning-goals",
+    "title": "06. Simple linear regression: Transformations",
+    "section": "",
+    "text": "By the end of this lesson, you should be able to:\n\nDistinguish between the different motivations for transformations of variables (interpretation, regression assumptions, etc.)\nDetermine when a particular transformation (center, scale, or log) may be appropriate\nInterpret regression coefficients after a transformation has taken place",
+    "crumbs": [
+      "06. Simple linear regression: Transformations"
+    ]
+  },
+  {
+    "objectID": "activities/06_slr_transformations.html#readings-and-videos",
+    "href": "activities/06_slr_transformations.html#readings-and-videos",
+    "title": "06. Simple linear regression: Transformations",
+    "section": "",
+    "text": "Please watch the following video before class.\n\nVideo: Simple Linear Regression: Transformations\n\nThe following reading is optional.\n\nSection 3.8.4 in the STAT 155 Notes covers log transformations, and the “ladder of power,” which we will not cover in class.",
+    "crumbs": [
+      "06. Simple linear regression: Transformations"
+    ]
+  },
+  {
+    "objectID": "activities/06_slr_transformations.html#exercise-1-location-transformations",
+    "href": "activities/06_slr_transformations.html#exercise-1-location-transformations",
+    "title": "06. Simple linear regression: Transformations",
+    "section": "Exercise 1: Location transformations",
+    "text": "Exercise 1: Location transformations\nLocation transformations are ones that shift a predictor variable up or down by a fixed amount. Using a location transformation is sometimes also called centering a predictor.\nWe’ll use the homes data in this exercise.\n\nFit a linear regression model of Price as a function of Living.Area, and call this model home_mod.\n\n\n# Fit the model\n\n\n# Display model summary output\n\n\nInterpret the intercept and the coefficient for Living.Area. Is the interpretation of the intercept meaningful?\nWe can use a location transformation on Living.Area to “start” it at a more reasonable value. We can see from the summarize() code below that the smallest house is 616 quare feet, so let’s center this predictor at 600 square feet. There is no code to fill in here, but make note of the mutate() syntax.\n\n\nhomes %&gt;% \n    summarize(min(Living.Area))\n\n# What is mutate() doing???\nhomes &lt;- homes %&gt;%\n    mutate(Living.Area.Shifted = Living.Area-600)\n\n\nWe can actually determine the coefficients of the Price ~ Living.Area.Shifted model by hand.\n\nFirst, write out in general terms (without specific numbers) how we would interpret the intercept and slope in this model.\nUse these general interpretations as well as the summary output of home_mod to determine what these new coefficients should be.\n\nNow check your answer to part d by fitting the model.\n\n\n# Fit a model of Price vs. Living.Area.Shifted\n\n\n# Display model summary output",
+    "crumbs": [
+      "06. Simple linear regression: Transformations"
+    ]
+  },
+  {
+    "objectID": "activities/06_slr_transformations.html#exercise-2-scale-transformations",
+    "href": "activities/06_slr_transformations.html#exercise-2-scale-transformations",
+    "title": "06. Simple linear regression: Transformations",
+    "section": "Exercise 2: Scale transformations",
+    "text": "Exercise 2: Scale transformations\nIn this exercise, we’ll explore the relationship between four-year graduation rate and admissions rate of colleges.\nIn the code chunk below, construct a visualization comparing graduation rate (our outcome variable) and admissions rate (our predictor of interest). Remember that your outcome variable should be on the y-axis, in general!\n\n# Scatterplot of graduation rate vs. admissions rate\n\n\nDescribe the relationship you observe between the two quantitative variables, in terms of correlation (weak/strong, positive/negative). Does the relationship appear to be roughly linear?\nWrite a linear regression model formula of the form E[Y | X] = … (filling in Y and X appropriately).\nFit this model in R, and report (don’t interpret yet!) the slope coefficient and intercept coefficient estimates.\n\n\n# Linear regression model with GradRate as the outcome, AdmisRate as predictor of interest\n\n\nIntercept Estimate: Your response here\n\n\nSlope Estimate: Your response here\n\n\nConsidering the units of AdmisRate, what does it mean for AdmisRate to change by one unit? What are the units for AdmisRate (and GradRate, for that matter!)?\nSuppose I want the interpretation of my slope coefficient for AdmisRate in my linear model to be in terms a “1% increase in admissions rate.” To achieve this, we could mutate our AdmisRate variable to range from 0 to 100. Let’s do that for GradRate too (just because!):\n\n\n# Mutate\ncollege &lt;- college %&gt;%\n  mutate(AdmisRate = AdmisRate * ___,\n         GradRate = ___ * ___)\n\n\nFit a new linear regression model with the updated AdmisRate and GradRate variables as your predictor of interest and outcome, respectively. Again, report the intercept and slope estimate from your model.\n\n\n# Linear regression model with updated GradRate as the outcome, updated AdmisRate as predictor of interest\n\n\nIntercept Estimate: Your response here\n\n\nSlope Estimate: Your response here\n\nHow have your intercept and slope estimates changed from the previous model, if at all?\n\nInterpret the regression coefficient that corresponds to the estimated linear relationship between admissions and graduation rates, in the context of the problem. Make sure to use non-causal language, include units, and talk about averages rather than individual cases.",
+    "crumbs": [
+      "06. Simple linear regression: Transformations"
+    ]
+  },
+  {
+    "objectID": "activities/06_slr_transformations.html#exercise-3-log-transformations",
+    "href": "activities/06_slr_transformations.html#exercise-3-log-transformations",
+    "title": "06. Simple linear regression: Transformations",
+    "section": "Exercise 3: Log transformations",
+    "text": "Exercise 3: Log transformations\nThe Big Mac Index has been published by The Economist since 1986 as a metric for comparing purchasing power between countries, giving rise to the phrase Burgernomics. It was developed (sort of jokingly) as a way to explain exchange rates in digestible terms.\nAs an example, suppose a Big Mac in Switzerland costs 6.70 Swiss franc, and in the U.S. a Big Mac costs 5.58 USD. Then the Big Mac Index is 6.70/5.58 = 1.20, and is the implied exchange rate between Swiss franc and USD.\nIf you’d like to read more about the Big Mac index, here’s an article in The Economist (this may be behind a pay-wall for you, you can read up to 5 free articles in the Economist per month).\nFor this exercise, we’ll explore the relationship between average teaching salary in a country and the amount of time someone needs to work to be able to afford a Big Mac. The variables we’ll consider are:\n\nbigmac_mins: average minutes to earn 1 Big Mac\ngross_annual_teacher_income: average gross teacher salary in 1 year (USD)\n\n\nCreate an appropriate visualization that displays the relationship between average minutes to earn a Big Mac and gross annual, average teaching salary, and describe what you observe.\n\n\n# Visualization: Big Mac minutes vs. gross annual teacher income\n\n\nExplain why correlation might not be an appropriate numerical summary for the relationship between the two variables you plotted above.\nFit a linear regression model with bigmac_mins as the outcome and gross_annual_teacher_income as the predictor of interest, and interpret the coefficient for gross_annual_teacher_income, in context. Make sure to use non-causal language, include units, and talk about averages rather than individual cases.\n\n\n# Linear regression code\n\n\nPlot residuals vs. fitted values for the model you fit, and describe what you observe. Are there any noticeable patterns in the residuals? Describe them!\n\n\n# Residuals vs. fitted values plot\n\n\nFor which observations do the residuals from the linear regression model appear to be relatively large (i.e. for which observations would predictions fall farthest from observed outcomes)? What possible consequences would this have for people using this model to predict the amount of time it takes for them to earn enough money to afford a Big Mac?\n\nWe’ll now consider a log transformation of teaching salary. In the code chunk below, create a new variable called log_sal that contains the logged values of gross_annual_teacher_income.\n\n# Creating new variable log_sal\nbigmac &lt;- bigmac %&gt;%\n  mutate(log_sal = log(___))\n\n\nCreate an appropriate visualization that displays the relationship between average minutes to earn a Big Mac and logged gross annual, average teaching salary, and describe what you observe. Does correlation seem like it may be an appropriate numerical summary for the relationship between these two variables? Explain why or why not.\nFit a linear regression model with bigmac_mins as the outcome and log_sal as the predictor of interest, and interpret the coefficient for log_sal, in context. Make sure to use non-causal language, include units, and talk about averages rather than individual cases.\nPlot residuals vs. fitted values for the model you fit, and describe what you observe. Are there any noticeable patterns in the residuals? Describe them!\n\n\n# Residuals vs. fitted values plot",
+    "crumbs": [
+      "06. Simple linear regression: Transformations"
+    ]
+  },
+  {
+    "objectID": "activities/06_slr_transformations.html#reflection",
+    "href": "activities/06_slr_transformations.html#reflection",
+    "title": "06. Simple linear regression: Transformations",
+    "section": "Reflection",
+    "text": "Reflection\nTwo of the main motivations for transforming variables in our regression models is to (1) intentionally change the interpretation of regression coefficients, and (2) to better satisfy linear regression assumptions (e.g. remove “patterns” from our residual plots). The first is nearly always justified by the scientific context of the research questions you are trying to answer, while the second is a bit more muddy.\nThink about the pros and cons of transforming your variables to satisfy linear regression assumptions. Is there a limit to how much you would be willing to transform your variables? Would transforming too much leave you with un-interpretable regression coefficients?\n\nResponse: Put your response here.\n\n\nSolutions",
+    "crumbs": [
+      "06. Simple linear regression: Transformations"
     ]
   },
   {
