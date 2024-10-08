@@ -840,7 +840,7 @@
     "href": "activities/12_mlr_interaction_practice.html",
     "title": "12. Multiple linear regression: interaction terms practice",
     "section": "",
-    "text": "By the end of this lesson, you should be able to:\n\nVisualize interactions between categorical and quantitative predictors using scatterplots and side-by-side or boxplots\nCritically think through whether an interaction term makes sense, or should be included in a multiple linear regression model\nWrite a model formula for a multiple linear regression model with an interaction term between two quantitative predictors, two categorical predictors, or one quantitative and one categorical predictor\nInterpret the intercept and slope coefficients in a multiple linear regression model with an interaction term\n\n\n\n\nChoose either the reading or the videos to go through before class.\n\nReading: Section 3.9.3 in the STAT 155 Notes\nVideo:\n\nInteraction variables\n\n\n\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.",
+    "text": "You can download a template file to work with here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\n\n\n\nBy the end of this lesson, you should be able to:\n\nVisualize interactions between categorical and quantitative predictors using scatterplots and side-by-side or boxplots\nCritically think through whether an interaction term makes sense, or should be included in a multiple linear regression model\nWrite a model formula for a multiple linear regression model with an interaction term between two quantitative predictors, two categorical predictors, or one quantitative and one categorical predictor\nInterpret the intercept and slope coefficients in a multiple linear regression model with an interaction term\n\n\n\n\nChoose either the reading or the videos to go through before class.\n\nReading: Section 3.9.3 in the STAT 155 Notes\nVideo:\n\nInteraction variables\n\n\n\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.",
     "crumbs": [
       "12. Multiple linear regression: interaction terms practice"
     ]
@@ -1706,7 +1706,7 @@
     "href": "activities/11_mlr_interaction_explore.html",
     "title": "11. Multiple linear regression: exploring interaction",
     "section": "",
-    "text": "By the end of this lesson, you should be able to:\n\nDescribe when it would be useful to include an interaction term to a model\nWrite a model formula for an interaction model\nInterpret the coefficients in an interaction model in the data context\n\n\n\n\nToday is a day to discover ideas, so no readings or videos to go through before class.\n\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.",
+    "text": "You can download a template file to work with here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\n\n\n\nBy the end of this lesson, you should be able to:\n\nDescribe when it would be useful to include an interaction term to a model\nWrite a model formula for an interaction model\nInterpret the coefficients in an interaction model in the data context\n\n\n\n\nToday is a day to discover ideas, so no readings or videos to go through before class.\n\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.",
     "crumbs": [
       "11. Multiple linear regression: exploring interaction"
     ]
