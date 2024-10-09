@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>06. Simple linear regression: Transformations – STAT 155</title>
+<title>13. Multiple linear regression: model building (part 1) – STAT 155</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,40 +18,6 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
-}
-
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-{ counter-reset: source-line 0; }
-pre.numberSource code > span
-{ position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-{ content: counter(source-line);
-position: relative; left: -1em; text-align: right; vertical-align: baseline;
-border: none; display: inline-block;
--webkit-touch-callout: none; -webkit-user-select: none;
--khtml-user-select: none; -moz-user-select: none;
--ms-user-select: none; user-select: none;
-padding: 0 4px; width: 4em;
-}
-pre.numberSource { margin-left: 3em; padding-left: 4px; }
-div.sourceCode
-{ }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -4853,7 +4819,7 @@ vertical-align: -.125em;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../activities/06_slr_transformations.html">06. Simple linear regression: Transformations</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../activities/13_mlr_model_building_1.html">13. Multiple linear regression: model building (part 1)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -4897,7 +4863,7 @@ vertical-align: -.125em;
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../activities/06_slr_transformations.html" class="sidebar-item-text sidebar-link active">
+  <a href="../activities/06_slr_transformations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">06. Simple linear regression: Transformations</span></a>
   </div>
 </li>
@@ -4939,7 +4905,7 @@ vertical-align: -.125em;
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../activities/13_mlr_model_building_1.html" class="sidebar-item-text sidebar-link">
+  <a href="../activities/13_mlr_model_building_1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">13. Multiple linear regression: model building (part 1)</span></a>
   </div>
 </li>
@@ -4960,10 +4926,12 @@ vertical-align: -.125em;
   </ul></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
-  <li><a href="#exercise-1-location-transformations" id="toc-exercise-1-location-transformations" class="nav-link" data-scroll-target="#exercise-1-location-transformations">Exercise 1: Location transformations</a></li>
-  <li><a href="#exercise-2-scale-transformations" id="toc-exercise-2-scale-transformations" class="nav-link" data-scroll-target="#exercise-2-scale-transformations">Exercise 2: Scale transformations</a></li>
-  <li><a href="#exercise-3-log-transformations" id="toc-exercise-3-log-transformations" class="nav-link" data-scroll-target="#exercise-3-log-transformations">Exercise 3: Log transformations</a></li>
+  <li><a href="#exercise-1-descriptive-research-questions" id="toc-exercise-1-descriptive-research-questions" class="nav-link" data-scroll-target="#exercise-1-descriptive-research-questions">Exercise 1: Descriptive research questions</a></li>
+  <li><a href="#exercise-2-predictive-research-questions" id="toc-exercise-2-predictive-research-questions" class="nav-link" data-scroll-target="#exercise-2-predictive-research-questions">Exercise 2: Predictive research questions</a></li>
+  <li><a href="#exercise-3-causal-research-questions" id="toc-exercise-3-causal-research-questions" class="nav-link" data-scroll-target="#exercise-3-causal-research-questions">Exercise 3: Causal research questions</a></li>
+  <li><a href="#exercise-4-cultivating-curiosity" id="toc-exercise-4-cultivating-curiosity" class="nav-link" data-scroll-target="#exercise-4-cultivating-curiosity">Exercise 4: Cultivating curiosity</a></li>
   <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
+  <li><a href="#render-your-work" id="toc-render-your-work" class="nav-link" data-scroll-target="#render-your-work">Render your work</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -4973,7 +4941,7 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">06. Simple linear regression: Transformations</h1>
+<h1 class="title">13. Multiple linear regression: model building (part 1)</h1>
 <p class="subtitle lead">Notes and in-class exercises</p>
 </div>
 
@@ -4994,191 +4962,110 @@ vertical-align: -.125em;
 <section id="notes" class="level1">
 <h1>Notes</h1>
 <ul>
-<li>Download the <code>.qmd</code> file for this activity <a href="../activity_templates/06_slr_transformations.qmd">here</a>.</li>
+<li>You can download a template file to work with <a href="../activity_templates/13_mlr_model_building_1.qmd">here</a>.</li>
 <li><strong>File organization:</strong> Save this file in the “Activities” subfolder of your “STAT155” folder.</li>
-<li>Open the <code>qmd</code> file in RStudio, and use it to type your answers/code to the exercises and reflection on the in-class activities.</li>
 </ul>
 <section id="learning-goals" class="level2">
 <h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
 <p>By the end of this lesson, you should be able to:</p>
 <ul>
-<li>Distinguish between the different motivations for transformations of variables (interpretation, regression assumptions, etc.)</li>
-<li>Determine when a particular transformation (center, scale, or log) may be appropriate</li>
-<li>Interpret regression coefficients after a transformation has taken place</li>
+<li>Iterate on a broach research question to make it more precise and answerable</li>
+<li>Choose appropriate models for addressing a research question</li>
 </ul>
 </section>
 <section id="readings-and-videos" class="level2">
 <h2 class="anchored" data-anchor-id="readings-and-videos">Readings and videos</h2>
 <p>Please watch the following video <strong>before</strong> class.</p>
 <ul>
-<li>Video: <a href="https://youtu.be/HIcqQhn3vSM">Simple Linear Regression: Transformations</a></li>
-</ul>
-<p>The following reading is <strong>optional</strong>.</p>
-<ul>
-<li>Section 3.8.4 in the <a href="https://mac-stat.github.io/Stat155Notes/">STAT 155 Notes</a> covers log transformations, and the “ladder of power,” which we will not cover in class.</li>
+<li>Video: <a href="https://voicethread.com/share/15362352/">Causal Diagrams and Confounding Variables</a></li>
 </ul>
 <!-- This section is for any mini-lecture, review material, material to motivate today's lesson, more guided / structured examples than the exercises section below. -->
 </section>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<p><strong>Context:</strong> Today we’ll explore three different datasets that motivate center (location), scale, and log transformations of our predictor of interest. We’ll see why these transformations can change the interpretations of our regression coefficients in meaningful ways in certain contexts. Read in the data below.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages and import data</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>homes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://mac-stat.github.io/data/homes.csv&quot;</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>bigmac <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://mac-stat.github.io/data/bigmac.csv&quot;</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>college <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://mac-stat.github.io/data/college.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="exercise-1-location-transformations" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1-location-transformations">Exercise 1: Location transformations</h2>
-<p>Location transformations are ones that shift a predictor variable up or down by a fixed amount. Using a location transformation is sometimes also called <strong>centering</strong> a predictor.</p>
-<p>We’ll use the <code>homes</code> data in this exercise.</p>
-<ol type="a">
-<li>Fit a linear regression model of <code>Price</code> as a function of <code>Living.Area</code>, and call this model <code>home_mod</code>.</li>
+<section id="exercise-1-descriptive-research-questions" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-descriptive-research-questions">Exercise 1: Descriptive research questions</h2>
+<p>Consider the following 2 research questions:</p>
+<ol type="1">
+<li>What are the average home prices in different neighborhoods of St. Paul, MN in 2023?</li>
+<li>How have rental prices in St. Paul changed over the past five years?</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display model summary output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="2" type="a">
-<li><p>Interpret the intercept and the coefficient for <code>Living.Area</code>. Is the interpretation of the intercept meaningful?</p></li>
-<li><p>We can use a location transformation on <code>Living.Area</code> to “start” it at a more reasonable value. We can see from the <code>summarize()</code> code below that the smallest house is 616 quare feet, so let’s center this predictor at 600 square feet. There is no code to fill in here, but make note of the <code>mutate()</code> syntax.</p></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>homes <span class="sc">%&gt;%</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="fu">min</span>(Living.Area))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># What is mutate() doing???</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>homes <span class="ot">&lt;-</span> homes <span class="sc">%&gt;%</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Living.Area.Shifted =</span> Living.Area<span class="dv">-600</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="4" type="a">
-<li>We can actually determine the coefficients of the <code>Price ~ Living.Area.Shifted</code> model by hand.
+<p>For each question, answer the following:</p>
 <ul>
-<li>First, write out in general terms (without specific numbers) how we would interpret the intercept and slope in this model.</li>
-<li>Use these general interpretations as well as the summary output of <code>home_mod</code> to determine what these new coefficients should be.</li>
+<li>Who would be interested in the answer to this question?</li>
+<li>What variables would we need in a dataset to address this question?</li>
+<li>What model(s), plot(s), and or data summaries would be appropriate to use to address this question and why?
+<ul>
+<li>For models, write the model formula, and indicate which coefficient(s) is/are of interest.</li>
+<li>For plots, describe the type of plot and what variables are linked to the axes and possibly other features (like point shape and color).</li>
+<li>For data summaries, describe the summary statistics and groupings you would use.</li>
 </ul></li>
-<li>Now check your answer to part d by fitting the model.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a model of Price vs. Living.Area.Shifted</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display model summary output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="exercise-2-scale-transformations" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2-scale-transformations">Exercise 2: Scale transformations</h2>
-<p>In this exercise, we’ll explore the relationship between four-year graduation rate and admissions rate of colleges.</p>
-<p>In the code chunk below, construct a visualization comparing graduation rate (our outcome variable) and admissions rate (our predictor of interest). Remember that your outcome variable should be on the y-axis, in general!</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot of graduation rate vs. admissions rate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="a">
-<li><p>Describe the relationship you observe between the two quantitative variables, in terms of correlation (weak/strong, positive/negative). Does the relationship appear to be roughly linear?</p></li>
-<li><p>Write a linear regression model formula of the form E[Y | X] = … (filling in Y and X appropriately).</p></li>
-<li><p>Fit this model in R, and report (don’t interpret yet!) the slope coefficient and intercept coefficient estimates.</p></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear regression model with GradRate as the outcome, AdmisRate as predictor of interest</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<blockquote class="blockquote">
-<p>Intercept Estimate: <strong>Your response here</strong></p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Slope Estimate: <strong>Your response here</strong></p>
-</blockquote>
-<ol start="3" type="a">
-<li><p>Considering the units of <code>AdmisRate</code>, what does it mean for <code>AdmisRate</code> to change by one unit? What <strong>are</strong> the units for <code>AdmisRate</code> (and <code>GradRate</code>, for that matter!)?</p></li>
-<li><p>Suppose I want the interpretation of my slope coefficient for <code>AdmisRate</code> in my linear model to be in terms a “1% increase in admissions rate.” To achieve this, we could <strong>mutate</strong> our <code>AdmisRate</code> variable to range from 0 to 100. Let’s do that for <code>GradRate</code> too (just because!):</p></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mutate</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>college <span class="ot">&lt;-</span> college <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">AdmisRate =</span> AdmisRate <span class="sc">*</span> ___,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">GradRate =</span> ___ <span class="sc">*</span> ___)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="5" type="a">
-<li>Fit a <em>new</em> linear regression model with the updated <code>AdmisRate</code> and <code>GradRate</code> variables as your predictor of interest and outcome, respectively. Again, report the intercept and slope estimate from your model.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear regression model with updated GradRate as the outcome, updated AdmisRate as predictor of interest</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<blockquote class="blockquote">
-<p>Intercept Estimate: <strong>Your response here</strong></p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Slope Estimate: <strong>Your response here</strong></p>
-</blockquote>
-<p>How have your intercept and slope estimates changed from the previous model, if at all?</p>
-<ol start="6" type="a">
-<li>Interpret the regression coefficient that corresponds to the estimated linear relationship between admissions and graduation rates, in the context of the problem. <em>Make sure to use non-causal language, include units, and talk about averages rather than individual cases.</em></li>
-</ol>
-</section>
-<section id="exercise-3-log-transformations" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3-log-transformations">Exercise 3: Log transformations</h2>
-<p>The Big Mac Index has been published by The Economist since 1986 as a metric for comparing purchasing power between countries, giving rise to the phrase <strong>Burgernomics</strong>. It was developed (sort of jokingly) as a way to explain exchange rates in digestible terms.</p>
-<p>As an example, suppose a Big Mac in Switzerland costs 6.70 Swiss franc, and in the U.S. a Big Mac costs 5.58 USD. Then the Big Mac Index is 6.70/5.58 = 1.20, and is the implied exchange rate between Swiss franc and USD.</p>
-<p>If you’d like to read more about the Big Mac index, here’s an <a href="https://www.economist.com/big-mac-index">article</a> in The Economist (this may be behind a pay-wall for you, you can read up to 5 free articles in the Economist per month).</p>
-<p>For this exercise, we’ll explore the relationship between average teaching salary in a country and the amount of time someone needs to work to be able to afford a Big Mac. The variables we’ll consider are:</p>
-<ul>
-<li><code>bigmac_mins</code>: average minutes to earn 1 Big Mac</li>
-<li><code>gross_annual_teacher_income</code>: average gross teacher salary in 1 year (USD)</li>
 </ul>
-<ol type="a">
-<li>Create an appropriate visualization that displays the relationship between average minutes to earn a Big Mac and gross annual, average teaching salary, and describe what you observe.</li>
+<p>Why do you think the questions here are often called <strong>descriptive</strong> research questions? Were concepts of confounders, precision variables, effect modifiers, mediators, and/or colliders relevant here? If so, where and why?</p>
+</section>
+<section id="exercise-2-predictive-research-questions" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-predictive-research-questions">Exercise 2: Predictive research questions</h2>
+<p>Consider the following 2 research questions:</p>
+<ol type="1">
+<li>Can we predict the likelihood of a property being sold within 30 days of listing based on its listing details and property characteristics?</li>
+<li>Can we predict how much over or under the listing price a property will be sold for based on its listing details and property characteristics?</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualization: Big Mac minutes vs. gross annual teacher income</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="2" type="a">
-<li><p>Explain why correlation might not be an appropriate numerical summary for the relationship between the two variables you plotted above.</p></li>
-<li><p>Fit a linear regression model with <code>bigmac_mins</code> as the outcome and <code>gross_annual_teacher_income</code> as the predictor of interest, and interpret the coefficient for <code>gross_annual_teacher_income</code>, in context. <em>Make sure to use non-causal language, include units, and talk about averages rather than individual cases.</em></p></li>
+<p>For each question, answer the following:</p>
+<ul>
+<li>Who would be interested in the answer to this question?</li>
+<li>What variables would we need in a dataset to address this question?</li>
+<li>What model(s), plot(s), and or data summaries would be appropriate to use to address this question and why?
+<ul>
+<li>For models, write the model formula, and indicate which coefficient(s) is/are of interest.</li>
+<li>For plots, describe the type of plot and what variables are linked to the axes and possibly other features (like point shape and color).</li>
+<li>For data summaries, describe the summary statistics and groupings you would use.</li>
+</ul></li>
+</ul>
+<p>How do predictive research questions differ from descriptive research questions? Were concepts of confounders, precision variables, effect modifiers, mediators, and/or colliders relevant here? If so, where and why?</p>
+</section>
+<section id="exercise-3-causal-research-questions" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-causal-research-questions">Exercise 3: Causal research questions</h2>
+<p>Consider the following 2 research questions:</p>
+<ol type="1">
+<li>Does proximity to highly-rated schools raise home prices?</li>
+<li>How much does the renovation of a property (e.g., adding a new bathroom or kitchen) affect its market value?</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear regression code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="4" type="a">
-<li>Plot residuals vs. fitted values for the model you fit, and describe what you observe. Are there any noticeable patterns in the residuals? Describe them!</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Residuals vs. fitted values plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="5" type="a">
-<li>For which observations do the residuals from the linear regression model appear to be relatively large (i.e. for which observations would predictions fall farthest from observed outcomes)? What possible consequences would this have for people using this model to predict the amount of time it takes for them to earn enough money to afford a Big Mac?</li>
-</ol>
-<p>We’ll now consider a log transformation of teaching salary. In the code chunk below, create a new variable called <code>log_sal</code> that contains the logged values of <code>gross_annual_teacher_income</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating new variable log_sal</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>bigmac <span class="ot">&lt;-</span> bigmac <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_sal =</span> <span class="fu">log</span>(___))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="6" type="a">
-<li><p>Create an appropriate visualization that displays the relationship between average minutes to earn a Big Mac and <em>logged</em> gross annual, average teaching salary, and describe what you observe. Does correlation seem like it may be an appropriate numerical summary for the relationship between these two variables? Explain why or why not.</p></li>
-<li><p>Fit a linear regression model with <code>bigmac_mins</code> as the outcome and <code>log_sal</code> as the predictor of interest, and interpret the coefficient for <code>log_sal</code>, in context. <em>Make sure to use non-causal language, include units, and talk about averages rather than individual cases.</em></p></li>
-<li><p>Plot residuals vs. fitted values for the model you fit, and describe what you observe. Are there any noticeable patterns in the residuals? Describe them!</p></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Residuals vs. fitted values plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>For each question, answer the following:</p>
+<ul>
+<li>Who would be interested in the answer to this question?</li>
+<li>What variables would we need in a dataset to address this question?</li>
+<li>What model(s), plot(s), and or data summaries would be appropriate to use to address this question and why?
+<ul>
+<li>For models, write the model formula, and indicate which coefficient(s) is/are of interest.</li>
+<li>For plots, describe the type of plot and what variables are linked to the axes and possibly other features (like point shape and color).</li>
+<li>For data summaries, describe the summary statistics and groupings you would use.</li>
+</ul></li>
+</ul>
+<p>How do causal research questions differ from predictive and descriptive questions? Were concepts of confounders, precision variables, effect modifiers, mediators, and/or colliders relevant here? If so, where and why?</p>
+</section>
+<section id="exercise-4-cultivating-curiosity" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4-cultivating-curiosity">Exercise 4: Cultivating curiosity</h2>
+<p>Think about the role that housing plays in your life right now or may play in the future. What other questions might you have about housing data that haven’t come up in the previous exercises? Do these questions seem descriptive, predictive, or causal in nature?</p>
 </section>
 <section id="reflection" class="level2">
 <h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
-<p>Two of the main motivations for transforming variables in our regression models is to (1) intentionally change the interpretation of regression coefficients, and (2) to better satisfy linear regression assumptions (e.g. remove “patterns” from our residual plots). The first is nearly always justified by the scientific context of the research questions you are trying to answer, while the second is a bit more muddy.</p>
-<p>Think about the pros and cons of transforming your variables to satisfy linear regression assumptions. Is there a limit to how much you would be willing to transform your variables? Would transforming <strong>too</strong> much leave you with un-interpretable regression coefficients?</p>
+<p>Today was all about letting good questions lead the way and using questions to guide the way we explore data. How confident do you feel about running with questions that come up in your daily life and thinking about what data would answer them and how they would be answered? What might help you feel more confident?</p>
 <blockquote class="blockquote">
 <p><strong>Response:</strong> Put your response here.</p>
 </blockquote>
+</section>
+<section id="render-your-work" class="level2">
+<h2 class="anchored" data-anchor-id="render-your-work">Render your work</h2>
+<ul>
+<li>Click the “Render” button in the menu bar for this pane (blue arrow pointing right). This will create an HTML file containing all of the directions, code, and responses from this activity. A preview of the HTML will appear in the browser.</li>
+<li>Scroll through and inspect the document to check that your work translated to the HTML format correctly.</li>
+<li>Close the browser tab.</li>
+<li>Go to the “Background Jobs” pane in RStudio and click the Stop button to end the rendering process.</li>
+<li>Navigate to your “Activities” subfolder within your “STAT155” folder and locate the HTML file. You can open it again in your browser to double check.</li>
+</ul>
 <p><br><br><br><br><br><br></p>
-<p><a href="../solutions/06_slr_transformations.html">Solutions</a></p>
+<p><a href="../solutions/13_mlr_model_building_1.html">Solutions</a></p>
 
 
 </section>

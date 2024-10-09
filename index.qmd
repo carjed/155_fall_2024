@@ -125,7 +125,7 @@ Before class:
 
 :::
 
-::: {.callout-tip icon=false collapse="false" title="Week 5: 9/30 - 10/4 (Multiple linear regression: principles + confounding)"}
+::: {.callout-tip icon=false collapse="true" title="Week 5: 9/30 - 10/4 (Multiple linear regression: principles + confounding)"}
 
 #### Announcements
 
@@ -148,13 +148,22 @@ Before class:
 
 :::
 
-::: {.callout-tip icon=false collapse="true" title="Week 6: 10/7 - 10/11 (Multiple linear regression: interaction)"}
+::: {.callout-tip icon=false collapse="false" title="Week 6: 10/7 - 10/11 (Multiple linear regression: interaction)"}
 
 #### Announcements
+
+- Practice Problems #4 will be due Friday, 10/11 at 5pm
+- Try to submit Project Checkpoint #1 by Friday, 10/11 at 11pm
+- 
 
 #### Tuesday
 
 #### Thursday
+
+Before class:
+
+- Complete today’s checkpoints (note that there are two!) on Moodle
+  - due ~~30 minutes before class on 10/10~~ 30 minutes before usual class time on Friday, 10/11, since I forgot to open the checkpoints on Moodle at the usual time
 
 :::
 
@@ -165,6 +174,8 @@ Before class:
 #### Tuesday
 
 #### Thursday
+
+No class! (Fall Break)
 
 :::
 
