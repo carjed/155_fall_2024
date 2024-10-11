@@ -148,7 +148,7 @@ Before class:
 
 :::
 
-::: {.callout-tip icon=false collapse="false" title="Week 6: 10/7 - 10/11 (Multiple linear regression: interaction)"}
+::: {.callout-tip icon=false collapse="true" title="Week 6: 10/7 - 10/11 (Multiple linear regression: interaction)"}
 
 #### Announcements
 
@@ -172,6 +172,8 @@ Before class:
 #### Announcements
 
 #### Tuesday
+
+No Moodle checkpoint today
 
 #### Thursday
 
