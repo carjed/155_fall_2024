@@ -4971,6 +4971,14 @@ window.Quarto = {
     <a class="dropdown-item" href="../activities/14_mlr_model_building_2.html">
  <span class="dropdown-text">14. Multiple linear regression: model building (part 2)</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../activities/15_prob_odds.html">
+ <span class="dropdown-text">15. Probability &amp; Odds</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../activities/16_logistic_univariate.html">
+ <span class="dropdown-text">16. Simple logistic regression</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -5090,6 +5098,18 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../activities/14_mlr_model_building_2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">14. Multiple linear regression: model building (part 2)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/15_prob_odds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15. Probability &amp; Odds</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../activities/16_logistic_univariate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">16. Simple logistic regression</span></a>
   </div>
 </li>
     </ul>
@@ -5408,7 +5428,8 @@ window.Quarto = {
 <section id="exercise-8-adjusted-r-squared" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-8-adjusted-r-squared">Exercise 8: Adjusted R-squared</h2>
 <p>We’ve seen that, unless a predictor is redundant with another, R-squared will increase. Even if that predictor is strongly multicollinear with another. Even if that predictor isn’t a good predictor! Thus if we only look at R-squared we might get overly greedy. We can check our greedy impulses a few ways. We take a more in depth approach in STAT 253, but one quick alternative is reported right in our model <code>summary()</code> tables. <strong>Adjusted R-squared</strong> includes a <em>penalty</em> for incorporating more and more predictors. Mathematically:</p>
-<p><span class="math display">\[\text{Adjusted } R^2 = R^2 - (1-R^2)\frac{\text{# of non-intercept coefficients}}{\text{sample size}} = R^2 - \text{ penalty}\]</span></p>
+<p><span class="math display">\[\text{Adjusted } R^2 = 1 - (1 - R^2) \left( \frac{n-1}{n-p-1} \right)\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is the number of observations and <span class="math inline">\(p\)</span> is the number of predictors (excluding the intercept).</p>
 <p>Thus unlike R-squared, Adjusted R-squared can <em>decrease</em> when the information that a predictor contributes to a model isn’t enough to offset the complexity it adds to that model. Consider two models:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>example_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(bill_length_mm <span class="sc">~</span> species, penguins)</span>

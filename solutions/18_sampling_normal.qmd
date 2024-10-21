@@ -1,0 +1,204 @@
+---
+title: "Solutions for 18. The Normal model & sampling variation"
+subtitle: "Notes and in-class exercises"
+format: 
+  html:
+    embed-resources: true
+    toc: true
+---
+
+
+```{r}
+# Load the data & handy packages
+library(tidyverse)
+library(usdata)
+data(county_complete)
+
+shaded_normal <- function(mean, sd, a = NULL, b = NULL){
+  min_x <- mean - 4*sd
+  max_x <- mean + 4*sd
+  a <- max(a, min_x)
+  b <- min(b, max_x)
+  ggplot() + 
+    scale_x_continuous(limits = c(min_x, max_x), breaks = c(mean - sd*(0:3), mean + sd*(1:3))) +
+    stat_function(fun = dnorm, args = list(mean = mean, sd = sd)) + 
+    stat_function(geom = "area", fun = dnorm, args = list(mean = mean, sd = sd), xlim = c(a, b), fill = "blue") + 
+    labs(y = "density") + 
+    theme_minimal()
+}
+
+# Wrangle the data
+county_clean <- county_complete %>% 
+  mutate(pci_2019 = per_capita_income_2019 / 1000, 
+         pci_2017 = per_capita_income_2017 / 1000) %>% 
+  select(state, name, fips, pci_2019, pci_2017)
+
+# Plot the relationship
+county_clean %>% 
+  ggplot(aes(y = pci_2019, x = pci_2017)) +
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE)
+
+# Model the relationship
+pop_model <- lm(pci_2019 ~ pci_2017, data = county_clean)
+coef(summary(pop_model))
+```
+
+
+
+```{r}
+# Import the experiment results
+library(gsheet)
+results <- gsheet2tbl('https://docs.google.com/spreadsheets/d/11OT1VnLTTJasp5BHSKulgJiCbSLiutv8mKDOfvvXZSo/edit?usp=sharing')
+```
+
+
+## Exercise 1: Using the Normal model
+
+a. .
+
+```{r}
+shaded_normal(mean = 55, sd = 5, a = 50, b = 60)
+```
+
+b. 16% (32/2)
+
+c. between 0.0015 and 0.025
+
+
+
+
+## Exercise 2: Z-scores
+
+a. intuition
+
+
+b. .
+
+```{r}
+# Driver A
+(60 - 55) / 5
+
+# Driver B
+(36 - 30) / 3
+```
+
+c. B, they are 2 standard deviations above the mean (the speed limit)
+
+
+
+
+## Exercise 3: Parameter vs estimate
+
+intuition
+
+
+
+## Exercise 4: Random sampling
+
+```{r}
+# Observe that the 2 counties change every time & differ from your neighbors' samples
+sample_n(county_clean, size = 2, replace = FALSE)
+```
+
+```{r}
+# Observe that the 2 counties are the same every time & are the same as your neighbors' samples
+set.seed(155)
+sample_n(county_clean, size = 2, replace = FALSE)
+```
+
+
+
+
+
+
+## Exercise 5: Take your own sample
+    
+will vary from student to student
+
+
+
+
+
+
+
+## Exercise 6: Sampling variation
+
+The sample estimates *vary* around the population model:
+
+```{r}
+# Import the experiment results
+library(gsheet)
+results <- gsheet2tbl('https://docs.google.com/spreadsheets/d/11OT1VnLTTJasp5BHSKulgJiCbSLiutv8mKDOfvvXZSo/edit?usp=sharing')
+
+county_clean %>% 
+  ggplot(aes(y = pci_2019, x = pci_2017)) +
+  geom_abline(data = results, aes(intercept = sample_intercept, slope = sample_slope), color = "gray") + 
+  geom_smooth(method = "lm", color = "red", se = FALSE)
+```
+    
+
+
+
+
+
+
+## Exercise 7: Sample intercepts
+
+
+The intercepts are roughly normal, centered around the population intercept (1.294), and range from roughly `r round(quantile(results$sample_intercept, 0.025), 3)` to `r round(quantile(results$sample_intercept, 0.975), 3)`:
+
+```{r}
+results %>% 
+  ggplot(aes(x = sample_intercept)) + 
+  geom_density() + 
+  geom_vline(xintercept = 1.294, color = "red")
+```    
+
+
+
+
+
+
+
+
+
+## Exercise 8: Slopes
+
+a. intuition
+b. intuition
+c. Check your intuition:        
+
+```{r}
+results %>% 
+  ggplot(aes(x = sample_slope)) + 
+  geom_density() + 
+  geom_vline(xintercept = 1.027, color = "red")
+```    
+
+d. Will vary, but should roughly be `r round(sd(results$sample_slope), 2)`.
+
+
+
+
+
+
+## Exercise 9: Standard error
+
+a. For example, suppose my estimate were 1.1:
+    
+```{r}
+1.1 - 1.027
+```
+
+
+
+b. For example, suppose my estimate were 1.1. Then my Z-score is (1.1 - 1.027) / `r round(sd(results$sample_slope), 2)` = `r (1.1 - 1.027) / round(sd(results$sample_slope), 2)`
+    
+
+c. This is somewhat subjective. But we'll learn that if your estimate is within 2 sd of the actual slope, i.e. your Z-score is between -2 and 2, you're pretty "lucky".
+
+
+
+
+    
