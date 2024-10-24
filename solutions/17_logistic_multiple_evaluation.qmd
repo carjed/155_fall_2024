@@ -1,5 +1,5 @@
 ---
-title: "Solutions for 17. Multivariate logistic regression"
+title: "Solutions for 17. Multiple logistic regression"
 subtitle: "Notes and in-class exercises"
 format: 
   html:

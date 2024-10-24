@@ -1,5 +1,5 @@
 ---
-title: "17. Multivariate logistic regression"
+title: "17. Multiple logistic regression"
 subtitle: "Notes and in-class exercises"
 format: 
   html:
@@ -10,7 +10,7 @@ eval: false # change this to "true" if you want to render a complete .qmd
 
 # Notes
 
-- You can download a template file to work with [here](../activity_templates/17_logistic_multivariate_evaluation.qmd).
+- You can download a template file to work with [here](../activity_templates/17_logistic_multiple_evaluation.qmd).
 - **File organization:** Save this file in the "Activities" subfolder of your "STAT155" folder.
 
 ## Learning goals
@@ -316,4 +316,4 @@ Prompt
 
 <br><br><br><br><br><br>
 
-[Solutions](../solutions/17_logistic_multivariate_evaluation.qmd)
+[Solutions](../solutions/17_logistic_multiple_evaluation.qmd)
