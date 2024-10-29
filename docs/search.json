@@ -1164,7 +1164,7 @@
     "href": "solutions/18_sampling_normal.html#exercise-4-random-sampling",
     "title": "Solutions for 18. The Normal model & sampling variation",
     "section": "Exercise 4: Random sampling",
-    "text": "Exercise 4: Random sampling\n\n# Observe that the 2 counties change every time & differ from your neighbors' samples\nsample_n(county_clean, size = 2, replace = FALSE)\n\n         state          name  fips pci_2019 pci_2017\n1   Washington Yakima County 53077   23.459 21.30769\n2 South Dakota  Dewey County 46041   17.504 16.33673\n\n\n\n# Observe that the 2 counties are the same every time & are the same as your neighbors' samples\nset.seed(155)\nsample_n(county_clean, size = 2, replace = FALSE)\n\n      state             name  fips pci_2019 pci_2017\n1 Tennessee Robertson County 47147   29.524 26.29889\n2  Illinois    Shelby County 17173   27.029 24.84449"
+    "text": "Exercise 4: Random sampling\n\n# Observe that the 2 counties change every time & differ from your neighbors' samples\nsample_n(county_clean, size = 2, replace = FALSE)\n\n     state           name  fips pci_2019 pci_2017\n1 Maryland Calvert County 24009   45.783 40.81254\n2    Texas  Sabine County 48403   24.870 18.49041\n\n\n\n# Observe that the 2 counties are the same every time & are the same as your neighbors' samples\nset.seed(155)\nsample_n(county_clean, size = 2, replace = FALSE)\n\n      state             name  fips pci_2019 pci_2017\n1 Tennessee Robertson County 47147   29.524 26.29889\n2  Illinois    Shelby County 17173   27.029 24.84449"
   },
   {
     "objectID": "solutions/18_sampling_normal.html#exercise-5-take-your-own-sample",
