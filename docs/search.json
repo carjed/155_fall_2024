@@ -715,7 +715,7 @@
     "href": "activities/19_sampling_dist_clt.html",
     "title": "19. Sampling distributions & the CLT",
     "section": "",
-    "text": "Let \\(\\beta\\) be some population parameter and \\(\\hat{\\beta}\\) be a sample estimate of \\(\\beta\\). Our goals for the day are to:\n\nuse simulation to solidify our understanding of sampling distributions and standard errors\nexplore the appropriateness of the Central Limit Theorem in approximating a sampling distribution\nexplore the impact of sample size on sampling distributions and standard errors\n\n\n\n\nPlease watch the following videos and readings before class:\n\nReading: Section 6.7 in the STAT 155 Notes\nVideo 1: sampling distributions\nVideo 2: Central Limit Theorem",
+    "text": "You can download a template file to work with here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\n\n\n\nLet \\(\\beta\\) be some population parameter and \\(\\hat{\\beta}\\) be a sample estimate of \\(\\beta\\). Our goals for the day are to:\n\nuse simulation to solidify our understanding of sampling distributions and standard errors\nexplore the appropriateness of the Central Limit Theorem in approximating a sampling distribution\nexplore the impact of sample size on sampling distributions and standard errors\n\n\n\n\nPlease watch the following videos and readings before class:\n\nReading: Section 6.7 in the STAT 155 Notes\nVideo 1: sampling distributions\nVideo 2: Central Limit Theorem",
     "crumbs": [
       "19. Sampling distributions & the CLT"
     ]
@@ -2696,7 +2696,7 @@
     "href": "solutions/18_sampling_normal.html#exercise-4-random-sampling",
     "title": "Solutions for 18. The Normal model & sampling variation",
     "section": "Exercise 4: Random sampling",
-    "text": "Exercise 4: Random sampling\n\n# Observe that the 2 counties change every time & differ from your neighbors' samples\nsample_n(county_clean, size = 2, replace = FALSE)\n\n   state            name  fips pci_2019 pci_2017\n1 Kansas Sheridan County 20179   35.465 31.47917\n2 Kansas     Clay County 20027   29.235 30.46314\n\n\n\n# Observe that the 2 counties are the same every time & are the same as your neighbors' samples\nset.seed(155)\nsample_n(county_clean, size = 2, replace = FALSE)\n\n      state             name  fips pci_2019 pci_2017\n1 Tennessee Robertson County 47147   29.524 26.29889\n2  Illinois    Shelby County 17173   27.029 24.84449"
+    "text": "Exercise 4: Random sampling\n\n# Observe that the 2 counties change every time & differ from your neighbors' samples\nsample_n(county_clean, size = 2, replace = FALSE)\n\n     state            name  fips pci_2019 pci_2017\n1 New York  Wyoming County 36121   27.947 27.48912\n2 Nebraska Frontier County 31063   28.899 29.04643\n\n\n\n# Observe that the 2 counties are the same every time & are the same as your neighbors' samples\nset.seed(155)\nsample_n(county_clean, size = 2, replace = FALSE)\n\n      state             name  fips pci_2019 pci_2017\n1 Tennessee Robertson County 47147   29.524 26.29889\n2  Illinois    Shelby County 17173   27.029 24.84449"
   },
   {
     "objectID": "solutions/18_sampling_normal.html#exercise-5-take-your-own-sample",
@@ -3618,7 +3618,7 @@
     "href": "activities/20_bootstrapping.html",
     "title": "20. Bootstrapping",
     "section": "",
-    "text": "You will not be able to render this document until you’ve filled in the code!\n\n\nLet \\(\\beta\\) be some population parameter and \\(\\hat{\\beta}\\) be a sample estimate of \\(\\beta\\). In order to study the potential error in \\(\\hat{\\beta}\\), you will…\n\nexplore two approaches to approximating the sampling distribution of \\(\\hat{\\beta}\\):\n\nCentral Limit Theorem (CLT)\nbootstrapping\n\nidentify the difference between sampling and resampling\nintuit how bootstrapping results can be used to make inferences about \\(\\beta\\)\n\n\n\n\nPlease watch the following video after class:\n\nbootstrapping",
+    "text": "You can download a template file to work with here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\n\n\n\nLet \\(\\beta\\) be some population parameter and \\(\\hat{\\beta}\\) be a sample estimate of \\(\\beta\\). In order to study the potential error in \\(\\hat{\\beta}\\), you will…\n\nexplore two approaches to approximating the sampling distribution of \\(\\hat{\\beta}\\):\n\nCentral Limit Theorem (CLT)\nbootstrapping\n\nidentify the difference between sampling and resampling\nintuit how bootstrapping results can be used to make inferences about \\(\\beta\\)\n\n\n\n\nPlease watch the following video after class:\n\nbootstrapping",
     "crumbs": [
       "20. Bootstrapping"
     ]

@@ -10,7 +10,8 @@ eval: false # change this to "true" if you want to render a complete .qmd
 
 # Notes
 
-
+- You can download a template file to work with [here](../activity_templates/19_sampling_dist_clt.qmd).
+- **File organization:** Save this file in the "Activities" subfolder of your "STAT155" folder.
 
 ## Learning goals
 

@@ -8,17 +8,11 @@ format:
 eval: false # change this to "true" if you want to render a complete .qmd        
 ---
 
-<!-- NOTES to instructor: -->
-
-<!-- - I didn't put in any readings or math boxes. -->
-
-<!-- - I recommend doing the review exercises together -->
-
 
 # Notes
 
-You will not be able to render this document until you've filled in the code!
-
+- You can download a template file to work with [here](../activity_templates/20_bootstrapping.qmd).
+- **File organization:** Save this file in the "Activities" subfolder of your "STAT155" folder.
 
 
 ## Learning goals
