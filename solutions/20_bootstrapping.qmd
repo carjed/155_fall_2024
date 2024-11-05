@@ -1,0 +1,217 @@
+---
+title: "Solutions for 20. Bootstrapping"
+subtitle: "Notes and in-class exercises"
+format: 
+  html:
+    embed-resources: true
+    toc: true
+---
+
+
+# Notes
+
+You will not be able to render this document until you've filled in the code!
+
+
+
+## Learning goals
+
+Let $\beta$ be some *population parameter* and $\hat{\beta}$ be a *sample estimate* of $\beta$.
+In order to study the potential error in $\hat{\beta}$, you will...
+
+- explore two approaches to approximating the sampling distribution of $\hat{\beta}$:       
+    - Central Limit Theorem (CLT)
+    - bootstrapping
+
+- identify the difference between *sampling* and *resampling*
+
+- intuit how bootstrapping results can be used to make inferences about $\beta$
+
+
+
+
+
+
+
+
+## Readings and videos
+
+Please watch the following video **after** class:
+
+- [bootstrapping](https://voicethread.com/myvoice/thread/15611638/97563140)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+# Load the data & packages
+library(tidyverse)
+library(readr)
+fish <- read_csv("https://Mac-STAT.github.io/data/Mercury.csv")
+```
+
+Plot and model the relationship of mercury concentration with length:
+
+```{r}
+fish %>% 
+  ggplot(aes(y = Concen, x = Length)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE)
+
+fish_model <- lm(Concen ~ Length, data = fish)
+coef(summary(fish_model))
+```
+
+
+## Exercise 1: sample vs population
+
+a. sample estimate
+
+b. no idea (at this point at least)! we don't know the actual population slope
+
+
+
+
+
+## Exercise 2: The rub
+
+We only have access to a *sample* of fish, not the entire population.
+
+
+
+
+
+
+
+
+## Exercise 3: CLT
+
+0.005
+
+
+
+
+
+
+## Exercise 4: Challenge
+
+
+The results are all the same.
+Since we sampled without replacement, we got the same sample hence the same sample estimates every time.
+
+
+
+
+
+## Exercise 5: Resampling
+
+a. We always get the same sample (the original 5 fish), just in a different order. Thus the mean is always the sample.
+
+b. They differ.
+
+c. Sampling the same fish more than once is like observing different fish with similar characteristics.
+
+
+
+
+
+
+
+
+
+
+## Exercise 6: Bootstrapping
+
+
+```{r}
+# Set the seed so we get the same results
+set.seed(155)
+
+# Build 500 bootstrap models using REsamples of size 171
+fish_models_bootstrap <- mosaic::do(500)*(
+  fish %>% 
+    sample_n(size = 171, replace = TRUE) %>% 
+    with(lm(Concen ~ Length))
+)
+
+head(fish_models_bootstrap)
+```
+
+
+
+
+
+
+## Exercise 7: Bootstrap results
+
+
+a. `fish_model`
+
+b. intuition
+
+c. They are normally distributed around our original sample estimate.
+
+
+
+
+
+
+
+
+## Exercise 8: Bootstrap standard errors
+
+
+a. .
+
+```{r}
+fish_models_bootstrap %>%
+  summarize(sd(Length))
+```
+
+
+b. very close!
+
+
+  
+    
+    
+## Exercise 9: Looking ahead at intervals
+
+
+a. Will vary. Maybe 0.0375ish to 0.07ish.
+
+
+
+b. Will vary. For example, if we lop off the extreme 2.5% (the smallest and biggest estimates) and just keep the middle 95%:
+
+```{r}
+fish_models_bootstrap %>%
+  summarize(quantile(Length, 0.025), quantile(Length, 0.975))
+```
+
+
+
+
+
+
+
+## Exercise 10: Looking ahead at hypothesis testing
+
+
+a. Yes. All of the lines reflect a positive association.
+
+
+b. Yes. It falls entirely above 0 (a slope of 0 indicating no association).
+
+
+

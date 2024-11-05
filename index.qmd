@@ -199,15 +199,30 @@ No class! (Fall Break)
 
 #### Thursday
 
+Quiz #2
+
 :::
 
-::: {.callout-tip icon=false collapse="true" title="Week 10: 11/4 - 11/8 (Confidence intervals)"}
+::: {.callout-tip icon=false collapse="false" title="Week 10: 11/4 - 11/8 (Confidence intervals)"}
 
 #### Announcements
 
+PP#6 due on Friday, 11/8 at 5pm
+
 #### Tuesday
 
+Before class:
+
+- Complete today’s checkpoint on Moodle
+  - due 30 minutes before class on 11/5
+
 #### Thursday
+
+Before class:
+
+- Complete today’s checkpoint on Moodle
+  - due 30 minutes before class on 11/7
+
 
 :::
 
