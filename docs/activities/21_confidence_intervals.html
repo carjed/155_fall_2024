@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>16. Simple logistic regression – STAT 155</title>
+<title>21. Confidence intervals – STAT 155</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4885,7 +4885,7 @@ vertical-align: -.125em;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../activities/16_logistic_univariate.html">16. Simple logistic regression</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../activities/21_confidence_intervals.html">21. Confidence intervals</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -4899,7 +4899,7 @@ vertical-align: -.125em;
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../activities/21_confidence_intervals.html" class="sidebar-item-text sidebar-link">
+  <a href="../activities/21_confidence_intervals.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">21. Confidence intervals</span></a>
   </div>
 </li>
@@ -4929,7 +4929,7 @@ vertical-align: -.125em;
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../activities/16_logistic_univariate.html" class="sidebar-item-text sidebar-link active">
+  <a href="../activities/16_logistic_univariate.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">16. Simple logistic regression</span></a>
   </div>
 </li>
@@ -5040,12 +5040,27 @@ vertical-align: -.125em;
   </ul></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
-  <li><a href="#exercise-1-exploring-age" id="toc-exercise-1-exploring-age" class="nav-link" data-scroll-target="#exercise-1-exploring-age">Exercise 1: Exploring age</a></li>
-  <li><a href="#exercise-2-exploring-sex-and-ticket-class" id="toc-exercise-2-exploring-sex-and-ticket-class" class="nav-link" data-scroll-target="#exercise-2-exploring-sex-and-ticket-class">Exercise 2: Exploring sex and ticket class</a></li>
-  <li><a href="#exercise-3-linear-regression-model" id="toc-exercise-3-linear-regression-model" class="nav-link" data-scroll-target="#exercise-3-linear-regression-model">Exercise 3: Linear regression model</a></li>
-  <li><a href="#exercise-4-logistic-regression-model" id="toc-exercise-4-logistic-regression-model" class="nav-link" data-scroll-target="#exercise-4-logistic-regression-model">Exercise 4: Logistic regression model</a></li>
-  <li><a href="#exercise-5-linear-vs.-logistic-modeling" id="toc-exercise-5-linear-vs.-logistic-modeling" class="nav-link" data-scroll-target="#exercise-5-linear-vs.-logistic-modeling">Exercise 5: Linear vs. logistic modeling</a></li>
-  <li><a href="#render-your-work" id="toc-render-your-work" class="nav-link" data-scroll-target="#render-your-work">Render your work</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a>
+  <ul class="collapse">
+  <li><a href="#part-a" id="toc-part-a" class="nav-link" data-scroll-target="#part-a">Part a</a></li>
+  <li><a href="#part-b" id="toc-part-b" class="nav-link" data-scroll-target="#part-b">Part b</a></li>
+  <li><a href="#part-c" id="toc-part-c" class="nav-link" data-scroll-target="#part-c">Part c</a></li>
+  <li><a href="#part-d" id="toc-part-d" class="nav-link" data-scroll-target="#part-d">Part d</a></li>
+  </ul></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a>
+  <ul class="collapse">
+  <li><a href="#part-a-1" id="toc-part-a-1" class="nav-link" data-scroll-target="#part-a-1">Part a</a></li>
+  <li><a href="#part-b-1" id="toc-part-b-1" class="nav-link" data-scroll-target="#part-b-1">Part b</a></li>
+  <li><a href="#part-c-1" id="toc-part-c-1" class="nav-link" data-scroll-target="#part-c-1">Part c</a></li>
+  </ul></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a>
+  <ul class="collapse">
+  <li><a href="#part-a-2" id="toc-part-a-2" class="nav-link" data-scroll-target="#part-a-2">Part a</a></li>
+  <li><a href="#part-b-2" id="toc-part-b-2" class="nav-link" data-scroll-target="#part-b-2">Part b</a></li>
+  <li><a href="#part-c-2" id="toc-part-c-2" class="nav-link" data-scroll-target="#part-c-2">Part c</a></li>
+  </ul></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -5055,7 +5070,7 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">16. Simple logistic regression</h1>
+<h1 class="title">21. Confidence intervals</h1>
 <p class="subtitle lead">Notes and in-class exercises</p>
 </div>
 
@@ -5076,214 +5091,179 @@ vertical-align: -.125em;
 <section id="notes" class="level1">
 <h1>Notes</h1>
 <ul>
-<li>You can download a template file to work with <a href="../activity_templates/16_logistic_univariate.qmd">here</a>.</li>
+<li>You can download a template file to work with <a href="../activity_templates/21_confidence_intervals.qmd">here</a>.</li>
 <li><strong>File organization:</strong> Save this file in the “Activities” subfolder of your “STAT155” folder.</li>
 </ul>
 <section id="learning-goals" class="level2">
 <h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
 <p>By the end of this lesson, you should be able to:</p>
 <ul>
-<li>Explain the differences between linear regression and logistic regression for modeling binary outcomes</li>
-<li>Construct simple logistic regression models in R</li>
-<li>Interpret coefficients in simple logistic regression models</li>
-<li>Use simple logistic regression models to make predictions</li>
-<li>Describe the form (shape) of relationships on the log odds, odds, and probability scales</li>
+<li>Construct (approximate) confidence intervals by hand using the 68-95-99.7 rule</li>
+<li>Construct exact confidence intervals in R</li>
+<li>Interpret confidence intervals in context by referring to the coefficient of interest</li>
+<li>Use confidence intervals to make statements about whether there appear to be true population relationships, changes, and differences</li>
 </ul>
 </section>
 <section id="readings-and-videos" class="level2">
 <h2 class="anchored" data-anchor-id="readings-and-videos">Readings and videos</h2>
-<p>Choose either the reading or the videos to go through <strong>before</strong> class.</p>
+<p>Please complete the following reading <strong>before</strong> class.</p>
 <ul>
-<li>Reading: Sections 4.1-4.3 in the <a href="https://mac-stat.github.io/Stat155Notes/">STAT 155 Notes</a></li>
-<li>Video: <a href="https://youtu.be/yi7I2vmxbiQ">Logistic regression</a> (<a href="https://drive.google.com/file/d/1o5WwSnShEazkV_HTWtOCeK4W0snrsep3/view?usp=sharing">slides</a>)</li>
+<li>Reading: Section 7 Introduction, Section 7.1, Section 7.2 (stop when you get to 7.2.4.3 Confidence Intervals for Prediction) in the <a href="https://mac-stat.github.io/Stat155Notes/">STAT 155 Notes</a></li>
+</ul>
+<p>Optionally you can use the following videos as a companion to the reading (not in place of the reading):</p>
+<ul>
+<li>Video 1: <a href="https://youtu.be/CCgpmFjENwA">Introduction to Confidence Intervals</a></li>
+<li>Video 2: <a href="https://youtu.be/QAbRYk5g8D8">Confidence Intervals: Construction and Interpretation</a></li>
 </ul>
 <!-- This section is for any mini-lecture, review material, material to motivate today's lesson, more guided / structured examples than the exercises section below. -->
 </section>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<p><strong>Context:</strong> The <em>Titanic</em> was a British passenger ship that famously sank in 1912 after hitting an iceberg in the North Atlantic Ocean. Approximately 2200 passengers were on board the Titanic, and it’s estimated that 1500 of them did not survive the crash. Historians have worked diligently to collect data on the passengers that were aboard the Titanic.</p>
-<p>We have data for 1313 passengers, where the following information is available for each passenger:</p>
-<ul>
-<li><code>Name</code>: name</li>
-<li><code>PClass</code>: ticket class (1st, 2nd, 3rd)</li>
-<li><code>Age</code>: age (years)</li>
-<li><code>Sex</code>: binary sex (female, male)</li>
-<li><code>Survived</code>: indicator that the passenger survived (1 = survived, 0 = died)</li>
-</ul>
-<p>Our question of interest is: <em>how do different factors relate to survival?</em></p>
-<p>In the Console, run <code>install.packages(&quot;ggmosaic&quot;)</code> to install the <code>ggmosaic</code> package that we’ll be using to make a specialized type of plot.</p>
+<p>For the first 2 exercises, we’ll revisit the bikeshare dataset.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages and import data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmosaic)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://mac-stat.github.io/data/titanic.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>bikes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://mac-stat.github.io/data/bikeshare.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="exercise-1-exploring-age" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1-exploring-age">Exercise 1: Exploring age</h2>
-<p>Did younger passengers tend to have higher survival rates than older passengers?</p>
-<p>Visualizing the relationship between a binary response and a quantitative predictor can be tricky. We will take a few approaches here.</p>
-<ol type="1">
-<li>Create a boxplot where one box corresponds to the age distribution of survivors and the second to that of non-survivors.</li>
-<li>Create density plots with separate colors for the survivors and non-survivors.</li>
-<li>The remainder of the code below creates a plot of the fraction who survived at each age. (Since we have a large data set and multiple (though sometimes not many) observations at most ages, we can manually calculate the survival fraction.</li>
-</ol>
-<p>After inspecting the plots, summarize what you learn.</p>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p><strong>Research question:</strong> Is the relationship between wind speed (<code>windspeed</code>) (in miles per hour) and number of riders (<code>riders_total</code>) different across weekdays and weekends?</p>
+<section id="part-a" class="level3">
+<h3 class="anchored" data-anchor-id="part-a">Part a</h3>
+<p>Construct and interpret a visualization that would address this question.</p>
+</section>
+<section id="part-b" class="level3">
+<h3 class="anchored" data-anchor-id="part-b">Part b</h3>
+<p>Fit a regression model that would address our research question. (Should it be a linear or a logistic regression model?) Interpret only the coefficient of interest.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a boxplot</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that you&#39;ll need to force R to view Survived as a binary categorical variable by using x = factor(Survived) instead of just x = Survived in the aes() part of your plot</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a density plot (you&#39;ll need to use factor(Survived) again)</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the code below to create a plot of the fraction who survived at each age</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>titanic_summ <span class="ot">&lt;-</span> titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Age) <span class="sc">%&gt;%</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">frac_survived =</span> <span class="fu">mean</span>(Survived))</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(titanic_summ, <span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> frac_survived)) <span class="sc">+</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mod_bikes <span class="ot">&lt;-</span> ___</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-2-exploring-sex-and-ticket-class" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2-exploring-sex-and-ticket-class">Exercise 2: Exploring sex and ticket class</h2>
-<p>Were males or females more likely to survive? Did 1st class passengers tend to survive more than 2nd and 3rd class passengers?</p>
-<p>The code below creates plots that allow us to explore how <code>Sex</code> and <code>PClass</code> relate to survival. The first two plots are standard bar plots that use color to indicate what fraction of each group survived. The last two plots are mosaic plots that are much like the standard bar plots, but the width of the bars reflects the distribution of the x-axis variable. (The widest bar is the most prevalent category.)</p>
-<p>Summarize what you learn about the relationship between sex, ticket class, and survival.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard bar plots</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(titanic, <span class="fu">aes</span>(<span class="at">x =</span> Sex, <span class="at">fill =</span> <span class="fu">factor</span>(Survived))) <span class="sc">+</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;fill&quot;</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(titanic, <span class="fu">aes</span>(<span class="at">x =</span> PClass, <span class="at">fill =</span> <span class="fu">factor</span>(Survived))) <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;fill&quot;</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Mosaic plots</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> titanic <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Survived =</span> <span class="fu">as.factor</span>(Survived))) <span class="sc">+</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(Sex), <span class="at">fill =</span> Survived))</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> titanic <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Survived =</span> <span class="fu">as.factor</span>(Survived))) <span class="sc">+</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(PClass), <span class="at">fill =</span> Survived))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="exercise-3-linear-regression-model" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3-linear-regression-model">Exercise 3: Linear regression model</h2>
-<p>For now we will focus on exploring the relationship between (ticket) class and survival.</p>
-<p>Let’s tabulate survival across classes. We can tabulate across two variables by providing both variables to <code>count()</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>titanic <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(PClass, Survived)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="a">
-<li>Use the <code>count()</code> output to fill in the following contingency table:</li>
-</ol>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Class</th>
-<th>Died</th>
-<th>Survived</th>
-<th>Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1st Class</td>
-<td>___</td>
-<td>___</td>
-<td>___</td>
-</tr>
-<tr class="even">
-<td>2nd Class</td>
-<td>___</td>
-<td>___</td>
-<td>___</td>
-</tr>
-<tr class="odd">
-<td>3rd Class</td>
-<td>___</td>
-<td>___</td>
-<td>___</td>
-</tr>
-<tr class="even">
-<td>Total</td>
-<td>___</td>
-<td>___</td>
-<td>___</td>
-</tr>
-</tbody>
-</table>
-<ol start="2" type="a">
-<li>Using your table, estimate the following:
+<section id="part-c" class="level3">
+<h3 class="anchored" data-anchor-id="part-c">Part c</h3>
 <ul>
-<li>the probability of surviving among 1st class passengers</li>
-<li>the probability of surviving among 2nd class passengers</li>
-<li>the probability of surviving among 3rd class passengers</li>
-<li>the difference in the probability of surviving, comparing 2nd class passengers to 1st class passengers (i.e., how much lower is the probability of 2nd class passengers as compared to 1st class passengers?)</li>
-<li>the difference in the probability of surviving, comparing 3rd class passengers to 1st class passengers (i.e., how much lower is the probability of 3rd class passengers as compared to 1st class passengers?)</li>
-</ul></li>
-<li>After fitting the linear regression model below, write out the model formula using correct notation. Explain carefully what it means to talk about the expected/average value of a binary variable.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lin_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Survived <span class="sc">~</span> PClass, <span class="at">data =</span> titanic)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lin_mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="4" type="a">
-<li>Write an interpretation of each of the coefficients in your linear regression model. How do your coefficient estimates compare to your answers in part b?</li>
-</ol>
-</section>
-<section id="exercise-4-logistic-regression-model" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4-logistic-regression-model">Exercise 4: Logistic regression model</h2>
-<ol type="a">
-<li>Refer back to your contingency table from Exercise 3a. Using your table, estimate the following:
-<ul>
-<li>the odds of surviving among 1st class passengers</li>
-<li>the odds of surviving among 2nd class passengers</li>
-<li>the odds of surviving among 3rd class passengers</li>
-<li>the ratio of the odds of surviving, comparing 2nd class passengers to 1st class passengers (i.e., how many times higher/lower is the odds of survival among 2nd class passengers as compared to 1st class passengers?)</li>
-<li>the ratio of the odds of surviving, comparing 3rd class passengers to 1st class passengers</li>
-</ul></li>
-<li>After fitting the logistic regression model below, write out the model formula using correct notation.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>log_mod <span class="ot">&lt;-</span> <span class="fu">glm</span>(Survived <span class="sc">~</span> PClass, <span class="at">data =</span> titanic, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(log_mod))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="4" type="a">
-<li>Write an interpretation of each of the <em>exponentiated</em> coefficients in your logistic regression model. Think carefully about what we are modeling when we fit a logistic regression model. How do these exponentiated coefficient estimates compare to your answers in part a?</li>
-</ol>
-</section>
-<section id="exercise-5-linear-vs.-logistic-modeling" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5-linear-vs.-logistic-modeling">Exercise 5: Linear vs. logistic modeling</h2>
-<p>To highlight a key difference between linear vs. logistic modeling, consider the following linear and logistic regression models of survival with sex and age as predictors in addition to ticket class.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lin_mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Survived <span class="sc">~</span> PClass <span class="sc">+</span> Sex <span class="sc">+</span> Age, <span class="at">data =</span> titanic)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(lin_mod2))</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>log_mod2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(Survived <span class="sc">~</span> PClass <span class="sc">+</span> Sex <span class="sc">+</span> Age, <span class="at">data =</span> titanic, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(log_mod2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="a">
-<li><p>Use the linear regression model to predict the probability of survival for Rose (a 17 year old female in 1st class) and Jack (a 20 year old male in 3rd class). Show your work.</p></li>
-<li><p>Now use the logistic regression model to predict the survival probability for Rose and Jack. Show your work. (Hint: use the logistic regression model to obtain the predicted log odds, exponentiate to get the odds, and then convert to probability.)</p></li>
-<li><p>Comment on differences that you notice in the predictions from parts a and b.</p></li>
-</ol>
-</section>
-<section id="render-your-work" class="level2">
-<h2 class="anchored" data-anchor-id="render-your-work">Render your work</h2>
-<ul>
-<li>Click the “Render” button in the menu bar for this pane (blue arrow pointing right). This will create an HTML file containing all of the directions, code, and responses from this activity. A preview of the HTML will appear in the browser.</li>
-<li>Scroll through and inspect the document to check that your work translated to the HTML format correctly.</li>
-<li>Close the browser tab.</li>
-<li>Go to the “Background Jobs” pane in RStudio and click the Stop button to end the rendering process.</li>
-<li>Navigate to your “Activities” subfolder within your “STAT155” folder and locate the HTML file. You can open it again in your browser to double check.</li>
+<li>Construct an approximate 95% confidence interval (CI) for the coefficient of interest by hand using the 68-95-99.7 rule.</li>
+<li>Compare your confidence interval to the one given by <code>confint()</code> which gives an exact confidence interval. (The columns give the lower and upper ends of the CI for each coefficient.)</li>
+<li>Interpret the exact confidence interval in context.</li>
+<li>Is zero in the interval? Do we have evidence for a real difference in the windspeed-riders relationship across weekends and weekdays?</li>
 </ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By hand (you fill in)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using confint()</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mod_bikes, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="part-d" class="level3">
+<h3 class="anchored" data-anchor-id="part-d">Part d</h3>
+<p>Let’s see if these results agree when looking at adjusted R-squared.</p>
+<p>Fit another regression model that does not have the coefficient of interest from your Part b model. Compare the adjusted R-squared values between this model and the Part b model. Explain your findings.</p>
+</section>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p><strong>Research question:</strong> How different is holiday ridership from non-holidays, after accounting for confounding factors?</p>
+<section id="part-a-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-1">Part a</h3>
+<p>We believe that weather category (<code>weather_cat</code>), temperature (<code>temp_actual</code>), and wind speed (<code>windspeed</code>) confound the relationship of interest.</p>
+<ul>
+<li>Draw a causal graph that shows the 5 variables of interest. Based on your graph do you believe that the 3 potential confounders are indeed confounders (and not mediators or colliders)?</li>
+<li>Construct visualizations that allow you how each potential confounder relates to <code>riders_total</code> and to <code>holiday</code>.</li>
+</ul>
+</section>
+<section id="part-b-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-1">Part b</h3>
+<p>Based on your Part a explorations, fit an appropriate regression model to answer our research question. Interpret only the coefficient of interest.</p>
+<p><strong>A note about scientific notation in R:</strong> Sometimes you may see numbers with the letter <code>e</code> in the middle. This is R’s way of expressing scientific notation. Whenever you see <code>e</code>, replace that with <code>10 to the power of ...</code>. So:</p>
+<ul>
+<li>1.234e+02 is 1.234 x 10^2 = 123.4</li>
+<li>1.234e-02 is 1.234 x 10^(-2) = 0.01234</li>
+</ul>
+</section>
+<section id="part-c-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-c-1">Part c</h3>
+<ul>
+<li>Use <code>confint()</code> to construct a 95% confidence interval for the coefficient of interest.</li>
+<li>Interpret this confidence interval in context.</li>
+<li>Is zero in the interval? Do we have evidence for a real holiday effect on ridership?</li>
+</ul>
+</section>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>The Western Collaborative Group Study (WCGS) was designed in order to investigate a possible link between Type A behavior and coronary heart disease (CHD), and to develop a framework to select patients for intervention in order to decrease risk of CHD. The study contained 3154 cis men between the ages of 39 and 59 in California who had no history of CHD. They were enrolled in the study in 1960 and 1961, underwent a medical examination and covered their medical history, and they were re-examined annually for interim cardiovascular history.</p>
+<p>A full codebook is available <a href="https://github.com/Mac-STAT/data/blob/main/wcgs_codebook.md">here</a>. We will focus on the following variables:</p>
+<ul>
+<li><code>chd</code>: Presence (1) or absence (0) of CHD over followup (outcome)</li>
+<li><code>tabp</code>: Presence (1) or absence (0) of Type A behavior (main variable of interest)</li>
+<li><code>age</code>: Age at time of enrollment in the study (years)</li>
+<li><code>sbp</code>: Systolic blood pressure</li>
+<li><code>dbp</code>: Diastolic blood pressure</li>
+<li><code>chol</code>: Cholesterol (mg/dL)</li>
+<li><code>ncigs</code>: Number of cigarettes smoked per day</li>
+<li><code>arcus</code>: Presence (1) or absence (0) of arcus senilis (a colored ring around the cornea made up of lipids like cholesterol and believed to be a risk factor for CHD)</li>
+<li><code>bmi</code>: BMI = weight * 703 / height^2</li>
+</ul>
+<p><strong>Research question:</strong> Is there a causal effect of Type A/B personality on developing coronary heart disease?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>wcgs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://mac-stat.github.io/data/wcgs.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="part-a-2" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-2">Part a</h3>
+<p>We believe that the following variables are confounders of the relationship between Type A/B personality <code>tabp</code> and coronary heart disease (<code>CHD</code>): <code>age + sbp + dbp + chol + ncigs + arcus + bmi</code>.</p>
+<p>Fit a regression model that would address our research question. (Should it be a linear or a logistic regression model?) Interpret only the coefficient of interest.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>typea_mod <span class="ot">&lt;-</span> ___</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="part-b-2" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-2">Part b</h3>
+<ul>
+<li>Construct a 95% confidence interval for the odds ratio of interest using the following code.</li>
+<li>Interpret the confidence interval in context.</li>
+<li>Is 1 contained in the interval? Why is 1 a relevant value to look for here?</li>
+</ul>
+</section>
+<section id="part-c-2" class="level3">
+<h3 class="anchored" data-anchor-id="part-c-2">Part c</h3>
+<p>(On your own time)</p>
+<p>The data context in this exercise has a fraught history with the smoking industry. Read <a href="https://www.thecut.com/2016/08/the-tobacco-industry-helped-create-the-type-a-personality.html">this article</a> for some context about how the Type A personality came to be defined and studied. (One big takeaway: The smoking industry had a large incentive to find something to blame health problems on other than smoking!)</p>
+</section>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>For each of the following <strong>MISINTERPRETATIONS</strong> of a 95% confidence interval (a,b), explain why the statement is a misinterpretation.</p>
+<ul>
+<li>Misinterpretation 1: “There is a 95% probability that the population parameter is within (a,b).”
+<ul>
+<li><strong>Response:</strong> The population parameter is not random. It is either in the interval or not, so the probability is 1 or 0. The 95% means that 95% of random samples (that are representative of the population of interest) are expected to contain the true population parameter—“95% confidence” is describing confidence in the interval construction process.</li>
+</ul></li>
+<li>Misinterpretation 2: “There is a 5% probability that the population parameter is not within (a,b).”
+<ul>
+<li><strong>Response:</strong> This is incorrect for the same reason as the first misinterpretation.</li>
+</ul></li>
+<li>Misinterpretation 3: “There is a 95% chance that the sample estimate in (a,b).”
+<ul>
+<li><strong>Response:</strong> The sample estimate is always in the interval by construction.</li>
+</ul></li>
+</ul>
+</section>
+<section id="reflection" class="level2">
+<h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
+<p>How are you feeling about your ability to translate research questions into appropriate statistical investigations and addressing those questions using output from those investigations? What has gotten easier? What remains challenging?</p>
+<blockquote class="blockquote">
+<p><strong>Response:</strong></p>
+</blockquote>
 <p><br><br><br><br><br><br></p>
-<p><a href="../solutions/16_logistic_univariate.html">Solutions</a></p>
+<p><a href="../solutions/21_confidence_intervals.html">Solutions</a></p>
 
 
 </section>
