@@ -1148,7 +1148,7 @@
     "href": "solutions/18_sampling_normal.html#exercise-4-random-sampling",
     "title": "Solutions for 18. The Normal model & sampling variation",
     "section": "Exercise 4: Random sampling",
-    "text": "Exercise 4: Random sampling\n\n# Observe that the 2 counties change every time & differ from your neighbors' samples\nsample_n(county_clean, size = 2, replace = FALSE)\n\n      state            name  fips pci_2019 pci_2017\n1 Minnesota Renville County 27129   31.253 31.42672\n2     Texas    Moore County 48341   23.001 19.82154\n\n\n\n# Observe that the 2 counties are the same every time & are the same as your neighbors' samples\nset.seed(155)\nsample_n(county_clean, size = 2, replace = FALSE)\n\n      state             name  fips pci_2019 pci_2017\n1 Tennessee Robertson County 47147   29.524 26.29889\n2  Illinois    Shelby County 17173   27.029 24.84449"
+    "text": "Exercise 4: Random sampling\n\n# Observe that the 2 counties change every time & differ from your neighbors' samples\nsample_n(county_clean, size = 2, replace = FALSE)\n\n     state          name  fips pci_2019 pci_2017\n1  Florida Martin County 12085   42.199 36.98954\n2 Missouri Warren County 29219   28.641 26.03913\n\n\n\n# Observe that the 2 counties are the same every time & are the same as your neighbors' samples\nset.seed(155)\nsample_n(county_clean, size = 2, replace = FALSE)\n\n      state             name  fips pci_2019 pci_2017\n1 Tennessee Robertson County 47147   29.524 26.29889\n2  Illinois    Shelby County 17173   27.029 24.84449"
   },
   {
     "objectID": "solutions/18_sampling_normal.html#exercise-5-take-your-own-sample",
@@ -1655,158 +1655,210 @@
     ]
   },
   {
-    "objectID": "solutions/08_mlr_intro.html",
-    "href": "solutions/08_mlr_intro.html",
-    "title": "Introduction to multiple regression",
+    "objectID": "solutions/20_bootstrapping.html",
+    "href": "solutions/20_bootstrapping.html",
+    "title": "Solutions for 20. Bootstrapping",
     "section": "",
-    "text": "# Load packages\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\n\n# Load data\nlibrary(palmerpenguins)\ndata(penguins)\npenguins &lt;- penguins %&gt;% \n  filter(species != \"Adelie\", bill_length_mm &lt; 57)\n\n# Check it out\nhead(penguins)\n\n# A tibble: 6 × 8\n  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Gentoo  Biscoe           46.1          13.2               211        4500\n2 Gentoo  Biscoe           50            16.3               230        5700\n3 Gentoo  Biscoe           48.7          14.1               210        4450\n4 Gentoo  Biscoe           50            15.2               218        5700\n5 Gentoo  Biscoe           47.6          14.5               215        5400\n6 Gentoo  Biscoe           46.5          13.5               210        4550\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;"
+    "text": "You will not be able to render this document until you’ve filled in the code!\n\n\nLet \\(\\beta\\) be some population parameter and \\(\\hat{\\beta}\\) be a sample estimate of \\(\\beta\\). In order to study the potential error in \\(\\hat{\\beta}\\), you will…\n\nexplore two approaches to approximating the sampling distribution of \\(\\hat{\\beta}\\):\n\nCentral Limit Theorem (CLT)\nbootstrapping\n\nidentify the difference between sampling and resampling\nintuit how bootstrapping results can be used to make inferences about \\(\\beta\\)\n\n\n\n\nPlease watch the following video after class:\n\nbootstrapping\n\n\n# Load the data & packages\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(readr)\nfish &lt;- read_csv(\"https://Mac-STAT.github.io/data/Mercury.csv\")\n\nRows: 171 Columns: 5\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): River\ndbl (4): Station, Length, Weight, Concen\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nPlot and model the relationship of mercury concentration with length:\n\nfish %&gt;% \n  ggplot(aes(y = Concen, x = Length)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\nfish_model &lt;- lm(Concen ~ Length, data = fish)\ncoef(summary(fish_model))\n\n               Estimate  Std. Error   t value     Pr(&gt;|t|)\n(Intercept) -1.13164542 0.213614796 -5.297598 3.617750e-07\nLength       0.05812749 0.005227593 11.119359 6.641225e-22\n\n\n\n\n\n\nsample estimate\nno idea (at this point at least)! we don’t know the actual population slope\n\n\n\n\nWe only have access to a sample of fish, not the entire population.\n\n\n\n0.005\n\n\n\nThe results are all the same. Since we sampled without replacement, we got the same sample hence the same sample estimates every time.\n\n\n\n\nWe always get the same sample (the original 5 fish), just in a different order. Thus the mean is always the sample.\nThey differ.\nSampling the same fish more than once is like observing different fish with similar characteristics.\n\n\n\n\n\n# Set the seed so we get the same results\nset.seed(155)\n\n# Build 500 bootstrap models using REsamples of size 171\nfish_models_bootstrap &lt;- mosaic::do(500)*(\n  fish %&gt;% \n    sample_n(size = 171, replace = TRUE) %&gt;% \n    with(lm(Concen ~ Length))\n)\n\nRegistered S3 method overwritten by 'mosaic':\n  method                           from   \n  fortify.SpatialPolygonsDataFrame ggplot2\n\nhead(fish_models_bootstrap)\n\n   Intercept     Length     sigma r.squared         F numdf dendf .row .index\n1 -1.1802375 0.05827521 0.5834448 0.4127396 118.77693     1   169    1      1\n2 -1.2902917 0.06296431 0.5667005 0.4661328 147.55814     1   169    1      2\n3 -1.0449945 0.05645232 0.5836492 0.4094752 117.18610     1   169    1      3\n4 -1.2721884 0.06065800 0.5253640 0.5043690 171.97948     1   169    1      4\n5 -0.8324804 0.04929179 0.5820092 0.3695009  99.04160     1   169    1      5\n6 -0.8811652 0.05088282 0.5786866 0.3671583  98.04942     1   169    1      6\n\n\n\n\n\n\nfish_model\nintuition\nThey are normally distributed around our original sample estimate.\n\n\n\n\n\n.\n\n\nfish_models_bootstrap %&gt;%\n  summarize(sd(Length))\n\n   sd(Length)\n1 0.005664586\n\n\n\nvery close!\n\n\n\n\n\nWill vary. Maybe 0.0375ish to 0.07ish.\nWill vary. For example, if we lop off the extreme 2.5% (the smallest and biggest estimates) and just keep the middle 95%:\n\n\nfish_models_bootstrap %&gt;%\n  summarize(quantile(Length, 0.025), quantile(Length, 0.975))\n\n  quantile(Length, 0.025) quantile(Length, 0.975)\n1              0.04677145              0.06905934\n\n\n\n\n\n\nYes. All of the lines reflect a positive association.\nYes. It falls entirely above 0 (a slope of 0 indicating no association)."
   },
   {
-    "objectID": "solutions/08_mlr_intro.html#exercise-1-visualizing-the-relationship",
-    "href": "solutions/08_mlr_intro.html#exercise-1-visualizing-the-relationship",
-    "title": "Introduction to multiple regression",
-    "section": "Exercise 1: Visualizing the relationship",
-    "text": "Exercise 1: Visualizing the relationship\n\nno wrong answer\nThere are multiple options!\n\n\npenguins %&gt;% \n  ggplot(aes(y = flipper_length_mm, x = bill_length_mm, color = species)) + \n  geom_point()\n\n\n\n\n\n\n\npenguins %&gt;% \n  ggplot(aes(y = flipper_length_mm, x = bill_length_mm, shape = species)) + \n  geom_point()"
-  },
-  {
-    "objectID": "solutions/08_mlr_intro.html#exercise-2-visualizing-the-model",
-    "href": "solutions/08_mlr_intro.html#exercise-2-visualizing-the-model",
-    "title": "Introduction to multiple regression",
-    "section": "Exercise 2: Visualizing the model",
-    "text": "Exercise 2: Visualizing the model\n\nno wrong answer\n\n\n\npenguins %&gt;% \n  ggplot(aes(y = flipper_length_mm, x = bill_length_mm, color = species)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'"
-  },
-  {
-    "objectID": "solutions/08_mlr_intro.html#exercise-3-intuition",
-    "href": "solutions/08_mlr_intro.html#exercise-3-intuition",
-    "title": "Introduction to multiple regression",
-    "section": "Exercise 3: Intuition",
-    "text": "Exercise 3: Intuition\n\nGentoo tend to have longer flippers.\nFlipper length is positively associated with bill length.\nNo. the lines are parallel / have the same slopes."
-  },
-  {
-    "objectID": "solutions/08_mlr_intro.html#exercise-4-model-formula",
-    "href": "solutions/08_mlr_intro.html#exercise-4-model-formula",
-    "title": "Introduction to multiple regression",
-    "section": "Exercise 4: Model formula",
-    "text": "Exercise 4: Model formula\n\nbill_length_mm + species\nE[flipper_length_mm | bill_length_mm, speciesGentoo] = 127.75 + 1.40 * bill_length_mm + 22.85 * speciesGentoo\n\n\n# Build the model\npenguin_mod &lt;- lm(flipper_length_mm ~ bill_length_mm + species, data = penguins)\n\n# Summarize the model\ncoef(summary(penguin_mod))\n\n                 Estimate Std. Error  t value     Pr(&gt;|t|)\n(Intercept)    127.753693  6.1174521 20.88348 1.194472e-50\nbill_length_mm   1.402367  0.1249665 11.22194 1.194932e-22\nspeciesGentoo   22.848036  0.7938292 28.78206 1.981732e-70"
-  },
-  {
-    "objectID": "solutions/08_mlr_intro.html#exercise-5-sub-model-formulas",
-    "href": "solutions/08_mlr_intro.html#exercise-5-sub-model-formulas",
-    "title": "Introduction to multiple regression",
-    "section": "Exercise 5: Sub-model formulas",
-    "text": "Exercise 5: Sub-model formulas\nChinstrap: flipper_length_mm = 127.75 + 1.40 bill_length_mm\nGentoo: flipper_length_mm = (127.75 + 22.85) + 1.40 bill_length_mm = 150.6 + 1.40 bill_length_mm"
-  },
-  {
-    "objectID": "solutions/08_mlr_intro.html#exercise-6-coefficients-physical-interpretation",
-    "href": "solutions/08_mlr_intro.html#exercise-6-coefficients-physical-interpretation",
-    "title": "Introduction to multiple regression",
-    "section": "Exercise 6: coefficients – physical interpretation",
-    "text": "Exercise 6: coefficients – physical interpretation\n\nThe intercept coefficient, 127.75, is the intercept of the line for Chinstrap penguins.\nThe bill_length_mm coefficient, 1.40, is the slope of both lines.\nThe speciesGentoo coefficient, 22.85, indicates that the intercept of the line for Gentoo is 22.85mm higher than the intercept of the line for Chinstrap. Similarly, since the lines are parallel, the line for Gentoo is 22.85mm higher than the line for Chinstrap at any bill_length_mm."
-  },
-  {
-    "objectID": "solutions/08_mlr_intro.html#exercise-7-coefficients-contextual-interpretation",
-    "href": "solutions/08_mlr_intro.html#exercise-7-coefficients-contextual-interpretation",
-    "title": "Introduction to multiple regression",
-    "section": "Exercise 7: coefficients – contextual interpretation",
-    "text": "Exercise 7: coefficients – contextual interpretation\n\nFor Chinstrap penguins with 0mm bills (silly), we expect a flipper length of 127.75mm.\nFor both Chinstrap and Gentoo penguins, flipper lengths increase by 1.40mm on average for every additional mm in bill length.\nAt any bill_length_mm, we expect the a Gentoo penguin to have 22.85mm longer flippers than a Chinstrap, on average."
-  },
-  {
-    "objectID": "solutions/08_mlr_intro.html#exercise-8-prediction",
-    "href": "solutions/08_mlr_intro.html#exercise-8-prediction",
-    "title": "Introduction to multiple regression",
-    "section": "Exercise 8: Prediction",
-    "text": "Exercise 8: Prediction\n\n# a\n127.75 + 1.40*50 + 22.85*0\n\n[1] 197.75\n\n# b\n127.75 + 1.40*50 + 22.85*1\n\n[1] 220.6\n\n# c\npredict(penguin_mod,\n        newdata = data.frame(bill_length_mm = 50, \n                             species = \"Chinstrap\"))\n\n      1 \n197.872 \n\npredict(penguin_mod,\n        newdata = data.frame(bill_length_mm = 50, \n                             species = \"Gentoo\"))\n\n       1 \n220.7201"
-  },
-  {
-    "objectID": "solutions/08_mlr_intro.html#exercise-9-r-squared",
-    "href": "solutions/08_mlr_intro.html#exercise-9-r-squared",
-    "title": "Introduction to multiple regression",
-    "section": "Exercise 9: R-squared",
-    "text": "Exercise 9: R-squared\n\nspecies\nno wrong answer\nIt’s higher than the R-squared when we use either predictor alone!"
-  },
-  {
-    "objectID": "solutions/19_sampling_dist_clt.html",
-    "href": "solutions/19_sampling_dist_clt.html",
-    "title": "Solutions for 19. Sampling distributions & the CLT",
+    "objectID": "solutions/20_bootstrapping.html#learning-goals",
+    "href": "solutions/20_bootstrapping.html#learning-goals",
+    "title": "Solutions for 20. Bootstrapping",
     "section": "",
-    "text": "# Load the data & handy packages\nlibrary(tidyverse) # this includes dplyr, ggplot2, & other related packages\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(usdata)\ndata(county_complete)\n\n# Wrangle the data\ncounty_clean &lt;- county_complete %&gt;% \n  mutate(pci_2019 = per_capita_income_2019 / 1000, \n         pci_2017 = per_capita_income_2017 / 1000) %&gt;% \n  select(state, name, fips, pci_2019, pci_2017)\n# Model the relationship\npop_model &lt;- lm(pci_2019 ~ pci_2017, data = county_clean)\ncoef(summary(pop_model))\n\n            Estimate  Std. Error    t value     Pr(&gt;|t|)\n(Intercept) 1.293897 0.157901343   8.194339 3.628557e-16\npci_2017    1.026675 0.005883489 174.501046 0.000000e+00\n\n# Plot the relationship\ncounty_clean %&gt;% \n  ggplot(aes(y = pci_2019, x = pci_2017)) +\n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`)."
+    "text": "Let \\(\\beta\\) be some population parameter and \\(\\hat{\\beta}\\) be a sample estimate of \\(\\beta\\). In order to study the potential error in \\(\\hat{\\beta}\\), you will…\n\nexplore two approaches to approximating the sampling distribution of \\(\\hat{\\beta}\\):\n\nCentral Limit Theorem (CLT)\nbootstrapping\n\nidentify the difference between sampling and resampling\nintuit how bootstrapping results can be used to make inferences about \\(\\beta\\)"
   },
   {
-    "objectID": "solutions/19_sampling_dist_clt.html#exercise-1-500-samples-of-size-10",
-    "href": "solutions/19_sampling_dist_clt.html#exercise-1-500-samples-of-size-10",
-    "title": "Solutions for 19. Sampling distributions & the CLT",
-    "section": "Exercise 1: 500 samples of size 10",
-    "text": "Exercise 1: 500 samples of size 10\nReflect\n\ndo() repeats the code within the parentheses as many times as you tell it. do()` is a shortcut for a for loop.\n500 different sample estimates of the model"
+    "objectID": "solutions/20_bootstrapping.html#readings-and-videos",
+    "href": "solutions/20_bootstrapping.html#readings-and-videos",
+    "title": "Solutions for 20. Bootstrapping",
+    "section": "",
+    "text": "Please watch the following video after class:\n\nbootstrapping\n\n\n# Load the data & packages\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(readr)\nfish &lt;- read_csv(\"https://Mac-STAT.github.io/data/Mercury.csv\")\n\nRows: 171 Columns: 5\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): River\ndbl (4): Station, Length, Weight, Concen\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nPlot and model the relationship of mercury concentration with length:\n\nfish %&gt;% \n  ggplot(aes(y = Concen, x = Length)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\nfish_model &lt;- lm(Concen ~ Length, data = fish)\ncoef(summary(fish_model))\n\n               Estimate  Std. Error   t value     Pr(&gt;|t|)\n(Intercept) -1.13164542 0.213614796 -5.297598 3.617750e-07\nLength       0.05812749 0.005227593 11.119359 6.641225e-22"
   },
   {
-    "objectID": "solutions/19_sampling_dist_clt.html#exercise-2-sampling-distribution",
-    "href": "solutions/19_sampling_dist_clt.html#exercise-2-sampling-distribution",
-    "title": "Solutions for 19. Sampling distributions & the CLT",
-    "section": "Exercise 2: Sampling distribution",
-    "text": "Exercise 2: Sampling distribution\nThe 500 sample slopes are normally distributed around the population slope and range from roughly 0.4 to 1.6."
+    "objectID": "solutions/20_bootstrapping.html#exercise-1-sample-vs-population",
+    "href": "solutions/20_bootstrapping.html#exercise-1-sample-vs-population",
+    "title": "Solutions for 20. Bootstrapping",
+    "section": "",
+    "text": "sample estimate\nno idea (at this point at least)! we don’t know the actual population slope"
   },
   {
-    "objectID": "solutions/19_sampling_dist_clt.html#exercise-3-standard-error",
-    "href": "solutions/19_sampling_dist_clt.html#exercise-3-standard-error",
-    "title": "Solutions for 19. Sampling distributions & the CLT",
-    "section": "Exercise 3: Standard error",
-    "text": "Exercise 3: Standard error\nFor example, for samples of size 10, we expect estimates of the sample slope (the expected change in pci_2019 per $1k increase in pci_2017) to be off by 0.16. The standard errors decrease as sample size increases."
+    "objectID": "solutions/20_bootstrapping.html#exercise-2-the-rub",
+    "href": "solutions/20_bootstrapping.html#exercise-2-the-rub",
+    "title": "Solutions for 20. Bootstrapping",
+    "section": "",
+    "text": "We only have access to a sample of fish, not the entire population."
   },
   {
-    "objectID": "solutions/19_sampling_dist_clt.html#exercise-4-central-limit-theorem-clt",
-    "href": "solutions/19_sampling_dist_clt.html#exercise-4-central-limit-theorem-clt",
-    "title": "Solutions for 19. Sampling distributions & the CLT",
-    "section": "Exercise 4: Central Limit Theorem (CLT)",
-    "text": "Exercise 4: Central Limit Theorem (CLT)\nyes"
+    "objectID": "solutions/20_bootstrapping.html#exercise-3-clt",
+    "href": "solutions/20_bootstrapping.html#exercise-3-clt",
+    "title": "Solutions for 20. Bootstrapping",
+    "section": "",
+    "text": "0.005"
   },
   {
-    "objectID": "solutions/19_sampling_dist_clt.html#exercise-5-using-the-clt",
-    "href": "solutions/19_sampling_dist_clt.html#exercise-5-using-the-clt",
-    "title": "Solutions for 19. Sampling distributions & the CLT",
-    "section": "Exercise 5: Using the CLT",
-    "text": "Exercise 5: Using the CLT\n\n95%\n5%\n0.15% ((100 - 99.7%)/2)"
+    "objectID": "solutions/20_bootstrapping.html#exercise-4-challenge",
+    "href": "solutions/20_bootstrapping.html#exercise-4-challenge",
+    "title": "Solutions for 20. Bootstrapping",
+    "section": "",
+    "text": "The results are all the same. Since we sampled without replacement, we got the same sample hence the same sample estimates every time."
   },
   {
-    "objectID": "solutions/19_sampling_dist_clt.html#exercise-6-clt-and-the-68-95-99.7-rule",
-    "href": "solutions/19_sampling_dist_clt.html#exercise-6-clt-and-the-68-95-99.7-rule",
-    "title": "Solutions for 19. Sampling distributions & the CLT",
-    "section": "Exercise 6: CLT and the 68-95-99.7 Rule",
-    "text": "Exercise 6: CLT and the 68-95-99.7 Rule\n68%, 95%, 99.7%"
+    "objectID": "solutions/20_bootstrapping.html#exercise-5-resampling",
+    "href": "solutions/20_bootstrapping.html#exercise-5-resampling",
+    "title": "Solutions for 20. Bootstrapping",
+    "section": "",
+    "text": "We always get the same sample (the original 5 fish), just in a different order. Thus the mean is always the sample.\nThey differ.\nSampling the same fish more than once is like observing different fish with similar characteristics."
   },
   {
-    "objectID": "solutions/19_sampling_dist_clt.html#exercise-7-increasing-sample-size",
-    "href": "solutions/19_sampling_dist_clt.html#exercise-7-increasing-sample-size",
-    "title": "Solutions for 19. Sampling distributions & the CLT",
-    "section": "Exercise 7: Increasing sample size",
-    "text": "Exercise 7: Increasing sample size\nintuition. no wrong answer."
+    "objectID": "solutions/20_bootstrapping.html#exercise-6-bootstrapping",
+    "href": "solutions/20_bootstrapping.html#exercise-6-bootstrapping",
+    "title": "Solutions for 20. Bootstrapping",
+    "section": "",
+    "text": "# Set the seed so we get the same results\nset.seed(155)\n\n# Build 500 bootstrap models using REsamples of size 171\nfish_models_bootstrap &lt;- mosaic::do(500)*(\n  fish %&gt;% \n    sample_n(size = 171, replace = TRUE) %&gt;% \n    with(lm(Concen ~ Length))\n)\n\nRegistered S3 method overwritten by 'mosaic':\n  method                           from   \n  fortify.SpatialPolygonsDataFrame ggplot2\n\nhead(fish_models_bootstrap)\n\n   Intercept     Length     sigma r.squared         F numdf dendf .row .index\n1 -1.1802375 0.05827521 0.5834448 0.4127396 118.77693     1   169    1      1\n2 -1.2902917 0.06296431 0.5667005 0.4661328 147.55814     1   169    1      2\n3 -1.0449945 0.05645232 0.5836492 0.4094752 117.18610     1   169    1      3\n4 -1.2721884 0.06065800 0.5253640 0.5043690 171.97948     1   169    1      4\n5 -0.8324804 0.04929179 0.5820092 0.3695009  99.04160     1   169    1      5\n6 -0.8811652 0.05088282 0.5786866 0.3671583  98.04942     1   169    1      6"
   },
   {
-    "objectID": "solutions/19_sampling_dist_clt.html#exercise-8-500-samples-of-size-n",
-    "href": "solutions/19_sampling_dist_clt.html#exercise-8-500-samples-of-size-n",
-    "title": "Solutions for 19. Sampling distributions & the CLT",
-    "section": "Exercise 8: 500 samples of size n",
-    "text": "Exercise 8: 500 samples of size n\n\nset.seed(155)\nsample_models_50 &lt;- mosaic::do(500)*(\n  county_clean %&gt;% \n    sample_n(size = 50, replace = FALSE) %&gt;% \n    with(lm(pci_2019 ~ pci_2017))\n)\n\nRegistered S3 method overwritten by 'mosaic':\n  method                           from   \n  fortify.SpatialPolygonsDataFrame ggplot2\n\n# Check it out\nhead(sample_models_50)\n\n  Intercept  pci_2017    sigma r.squared        F numdf dendf .row .index\n1 1.2445147 1.0206258 1.996879 0.8827145 361.2578     1    48    1      1\n2 2.0351324 0.9993395 1.578092 0.9248192 590.4612     1    48    1      2\n3 3.3140440 0.9590203 1.457254 0.9446582 819.3372     1    48    1      3\n4 1.5031974 1.0400601 2.173192 0.8890306 384.5518     1    48    1      4\n5 2.2960437 0.9795596 1.759872 0.9320475 658.3761     1    48    1      5\n6 0.1674985 1.0487638 2.425859 0.9095534 482.6998     1    48    1      6\n\n\n\nset.seed(155)\nsample_models_200 &lt;- mosaic::do(500)*(\n  county_clean %&gt;% \n    sample_n(size = 200, replace = FALSE) %&gt;% \n    with(lm(pci_2019 ~ pci_2017))\n)\n\n# Check it out\nhead(sample_models_200)\n\n    Intercept  pci_2017    sigma r.squared        F numdf dendf .row .index\n1  1.55222839 1.0133282 2.013702 0.9160050 2159.282     1   198    1      1\n2  1.67853251 0.9994033 2.288979 0.8658330 1277.772     1   198    1      2\n3  0.85803178 1.0394611 1.811912 0.9301205 2635.448     1   198    1      3\n4  0.79740594 1.0414248 2.597108 0.8769687 1404.219     1   197    1      4\n5 -0.05186957 1.0751463 2.563725 0.8845190 1516.568     1   198    1      5\n6  1.06340006 1.0337143 2.094655 0.9126476 2068.681     1   198    1      6"
+    "objectID": "solutions/20_bootstrapping.html#exercise-7-bootstrap-results",
+    "href": "solutions/20_bootstrapping.html#exercise-7-bootstrap-results",
+    "title": "Solutions for 20. Bootstrapping",
+    "section": "",
+    "text": "fish_model\nintuition\nThey are normally distributed around our original sample estimate."
   },
   {
-    "objectID": "solutions/19_sampling_dist_clt.html#exercise-9-impact-of-sample-size-part-i",
-    "href": "solutions/19_sampling_dist_clt.html#exercise-9-impact-of-sample-size-part-i",
-    "title": "Solutions for 19. Sampling distributions & the CLT",
-    "section": "Exercise 9: Impact of sample size (part I)",
-    "text": "Exercise 9: Impact of sample size (part I)\nThe sample model lines become less and less variable from sample to sample."
+    "objectID": "solutions/20_bootstrapping.html#exercise-8-bootstrap-standard-errors",
+    "href": "solutions/20_bootstrapping.html#exercise-8-bootstrap-standard-errors",
+    "title": "Solutions for 20. Bootstrapping",
+    "section": "",
+    "text": ".\n\n\nfish_models_bootstrap %&gt;%\n  summarize(sd(Length))\n\n   sd(Length)\n1 0.005664586\n\n\n\nvery close!"
   },
   {
-    "objectID": "solutions/19_sampling_dist_clt.html#exercise-10-impact-of-sample-size-part-ii",
-    "href": "solutions/19_sampling_dist_clt.html#exercise-10-impact-of-sample-size-part-ii",
-    "title": "Solutions for 19. Sampling distributions & the CLT",
-    "section": "Exercise 10: Impact of sample size (part II)",
-    "text": "Exercise 10: Impact of sample size (part II)\nNo matter the sample size, the sample estimates are normally distributed around the population slope. But as sample size increases, the variability of the sample estimates decreases."
+    "objectID": "solutions/20_bootstrapping.html#exercise-9-looking-ahead-at-intervals",
+    "href": "solutions/20_bootstrapping.html#exercise-9-looking-ahead-at-intervals",
+    "title": "Solutions for 20. Bootstrapping",
+    "section": "",
+    "text": "Will vary. Maybe 0.0375ish to 0.07ish.\nWill vary. For example, if we lop off the extreme 2.5% (the smallest and biggest estimates) and just keep the middle 95%:\n\n\nfish_models_bootstrap %&gt;%\n  summarize(quantile(Length, 0.025), quantile(Length, 0.975))\n\n  quantile(Length, 0.025) quantile(Length, 0.975)\n1              0.04677145              0.06905934"
   },
   {
-    "objectID": "solutions/19_sampling_dist_clt.html#exercise-11-properties-of-sampling-distributions",
-    "href": "solutions/19_sampling_dist_clt.html#exercise-11-properties-of-sampling-distributions",
-    "title": "Solutions for 19. Sampling distributions & the CLT",
-    "section": "Exercise 11: Properties of sampling distributions",
-    "text": "Exercise 11: Properties of sampling distributions\n\nFor all sample sizes, the shape of the sampling distribution is roughly normal and the sampling distribution is roughly centered around 1.027, the true population slope.\nAs sample size increases:\nThe average sample slope estimate IS FAIRLY STABLE.\nThe standard error of the sample slopes DECREASES / IS FAIRLY STABLE.\nThus, as sample size increases, our sample slopes become MORE RELIABLE."
+    "objectID": "solutions/20_bootstrapping.html#exercise-10-looking-ahead-at-hypothesis-testing",
+    "href": "solutions/20_bootstrapping.html#exercise-10-looking-ahead-at-hypothesis-testing",
+    "title": "Solutions for 20. Bootstrapping",
+    "section": "",
+    "text": "Yes. All of the lines reflect a positive association.\nYes. It falls entirely above 0 (a slope of 0 indicating no association)."
+  },
+  {
+    "objectID": "activities/21_confidence_intervals.html",
+    "href": "activities/21_confidence_intervals.html",
+    "title": "21. Confidence intervals",
+    "section": "",
+    "text": "You can download a template file to work with here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\n\n\n\nBy the end of this lesson, you should be able to:\n\nConstruct (approximate) confidence intervals by hand using the 68-95-99.7 rule\nConstruct exact confidence intervals in R\nInterpret confidence intervals in context by referring to the coefficient of interest\nUse confidence intervals to make statements about whether there appear to be true population relationships, changes, and differences\n\n\n\n\nPlease complete the following reading before class.\n\nReading: Section 7 Introduction, Section 7.1, Section 7.2 (stop when you get to 7.2.4.3 Confidence Intervals for Prediction) in the STAT 155 Notes\n\nOptionally you can use the following videos as a companion to the reading (not in place of the reading):\n\nVideo 1: Introduction to Confidence Intervals\nVideo 2: Confidence Intervals: Construction and Interpretation",
+    "crumbs": [
+      "21. Confidence intervals"
+    ]
+  },
+  {
+    "objectID": "activities/21_confidence_intervals.html#learning-goals",
+    "href": "activities/21_confidence_intervals.html#learning-goals",
+    "title": "21. Confidence intervals",
+    "section": "",
+    "text": "By the end of this lesson, you should be able to:\n\nConstruct (approximate) confidence intervals by hand using the 68-95-99.7 rule\nConstruct exact confidence intervals in R\nInterpret confidence intervals in context by referring to the coefficient of interest\nUse confidence intervals to make statements about whether there appear to be true population relationships, changes, and differences",
+    "crumbs": [
+      "21. Confidence intervals"
+    ]
+  },
+  {
+    "objectID": "activities/21_confidence_intervals.html#readings-and-videos",
+    "href": "activities/21_confidence_intervals.html#readings-and-videos",
+    "title": "21. Confidence intervals",
+    "section": "",
+    "text": "Please complete the following reading before class.\n\nReading: Section 7 Introduction, Section 7.1, Section 7.2 (stop when you get to 7.2.4.3 Confidence Intervals for Prediction) in the STAT 155 Notes\n\nOptionally you can use the following videos as a companion to the reading (not in place of the reading):\n\nVideo 1: Introduction to Confidence Intervals\nVideo 2: Confidence Intervals: Construction and Interpretation",
+    "crumbs": [
+      "21. Confidence intervals"
+    ]
+  },
+  {
+    "objectID": "activities/21_confidence_intervals.html#exercise-1",
+    "href": "activities/21_confidence_intervals.html#exercise-1",
+    "title": "21. Confidence intervals",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nResearch question: Is the relationship between wind speed (windspeed) (in miles per hour) and number of riders (riders_total) different across weekdays and weekends?\n\nPart a\nConstruct and interpret a visualization that would address this question.\n\n\nPart b\nFit a regression model that would address our research question. (Should it be a linear or a logistic regression model?) Interpret only the coefficient of interest.\n\nmod_bikes &lt;- ___\n\n\n\nPart c\n\nConstruct an approximate 95% confidence interval (CI) for the coefficient of interest by hand using the 68-95-99.7 rule.\nCompare your confidence interval to the one given by confint() which gives an exact confidence interval. (The columns give the lower and upper ends of the CI for each coefficient.)\nInterpret the exact confidence interval in context.\nIs zero in the interval? Do we have evidence for a real difference in the windspeed-riders relationship across weekends and weekdays?\n\n\n# By hand (you fill in)\n\n\n# Using confint()\nconfint(mod_bikes, level = 0.95)\n\n\n\nPart d\nLet’s see if these results agree when looking at adjusted R-squared.\nFit another regression model that does not have the coefficient of interest from your Part b model. Compare the adjusted R-squared values between this model and the Part b model. Explain your findings.",
+    "crumbs": [
+      "21. Confidence intervals"
+    ]
+  },
+  {
+    "objectID": "activities/21_confidence_intervals.html#exercise-2",
+    "href": "activities/21_confidence_intervals.html#exercise-2",
+    "title": "21. Confidence intervals",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nResearch question: How different is holiday ridership from non-holidays, after accounting for confounding factors?\n\nPart a\nWe believe that weather category (weather_cat), temperature (temp_actual), and wind speed (windspeed) confound the relationship of interest.\n\nDraw a causal graph that shows the 5 variables of interest. Based on your graph do you believe that the 3 potential confounders are indeed confounders (and not mediators or colliders)?\nConstruct visualizations that allow you how each potential confounder relates to riders_total and to holiday.\n\n\n\nPart b\nBased on your Part a explorations, fit an appropriate regression model to answer our research question. Interpret only the coefficient of interest.\nA note about scientific notation in R: Sometimes you may see numbers with the letter e in the middle. This is R’s way of expressing scientific notation. Whenever you see e, replace that with 10 to the power of .... So:\n\n1.234e+02 is 1.234 x 10^2 = 123.4\n1.234e-02 is 1.234 x 10^(-2) = 0.01234\n\n\n\nPart c\n\nUse confint() to construct a 95% confidence interval for the coefficient of interest.\nInterpret this confidence interval in context.\nIs zero in the interval? Do we have evidence for a real holiday effect on ridership?",
+    "crumbs": [
+      "21. Confidence intervals"
+    ]
+  },
+  {
+    "objectID": "activities/21_confidence_intervals.html#exercise-3",
+    "href": "activities/21_confidence_intervals.html#exercise-3",
+    "title": "21. Confidence intervals",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nThe Western Collaborative Group Study (WCGS) was designed in order to investigate a possible link between Type A behavior and coronary heart disease (CHD), and to develop a framework to select patients for intervention in order to decrease risk of CHD. The study contained 3154 cis men between the ages of 39 and 59 in California who had no history of CHD. They were enrolled in the study in 1960 and 1961, underwent a medical examination and covered their medical history, and they were re-examined annually for interim cardiovascular history.\nA full codebook is available here. We will focus on the following variables:\n\nchd: Presence (1) or absence (0) of CHD over followup (outcome)\ntabp: Presence (1) or absence (0) of Type A behavior (main variable of interest)\nage: Age at time of enrollment in the study (years)\nsbp: Systolic blood pressure\ndbp: Diastolic blood pressure\nchol: Cholesterol (mg/dL)\nncigs: Number of cigarettes smoked per day\narcus: Presence (1) or absence (0) of arcus senilis (a colored ring around the cornea made up of lipids like cholesterol and believed to be a risk factor for CHD)\nbmi: BMI = weight * 703 / height^2\n\nResearch question: Is there a causal effect of Type A/B personality on developing coronary heart disease?\n\nwcgs &lt;- read_csv(\"https://mac-stat.github.io/data/wcgs.csv\")\n\n\nPart a\nWe believe that the following variables are confounders of the relationship between Type A/B personality tabp and coronary heart disease (CHD): age + sbp + dbp + chol + ncigs + arcus + bmi.\nFit a regression model that would address our research question. (Should it be a linear or a logistic regression model?) Interpret only the coefficient of interest.\n\ntypea_mod &lt;- ___\n\n\n\nPart b\n\nConstruct a 95% confidence interval for the odds ratio of interest using the following code.\nInterpret the confidence interval in context.\nIs 1 contained in the interval? Why is 1 a relevant value to look for here?\n\n\n\nPart c\n(On your own time)\nThe data context in this exercise has a fraught history with the smoking industry. Read this article for some context about how the Type A personality came to be defined and studied. (One big takeaway: The smoking industry had a large incentive to find something to blame health problems on other than smoking!)",
+    "crumbs": [
+      "21. Confidence intervals"
+    ]
+  },
+  {
+    "objectID": "activities/21_confidence_intervals.html#exercise-4",
+    "href": "activities/21_confidence_intervals.html#exercise-4",
+    "title": "21. Confidence intervals",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nFor each of the following MISINTERPRETATIONS of a 95% confidence interval (a,b), explain why the statement is a misinterpretation.\n\nMisinterpretation 1: “There is a 95% probability that the population parameter is within (a,b).”\n\nResponse: The population parameter is not random. It is either in the interval or not, so the probability is 1 or 0. The 95% means that 95% of random samples (that are representative of the population of interest) are expected to contain the true population parameter—“95% confidence” is describing confidence in the interval construction process.\n\nMisinterpretation 2: “There is a 5% probability that the population parameter is not within (a,b).”\n\nResponse: This is incorrect for the same reason as the first misinterpretation.\n\nMisinterpretation 3: “There is a 95% chance that the sample estimate in (a,b).”\n\nResponse: The sample estimate is always in the interval by construction.",
+    "crumbs": [
+      "21. Confidence intervals"
+    ]
+  },
+  {
+    "objectID": "activities/21_confidence_intervals.html#reflection",
+    "href": "activities/21_confidence_intervals.html#reflection",
+    "title": "21. Confidence intervals",
+    "section": "Reflection",
+    "text": "Reflection\nHow are you feeling about your ability to translate research questions into appropriate statistical investigations and addressing those questions using output from those investigations? What has gotten easier? What remains challenging?\n\nResponse:\n\n\nSolutions",
+    "crumbs": [
+      "21. Confidence intervals"
+    ]
+  },
+  {
+    "objectID": "solutions/11_mlr_interaction_explore.html",
+    "href": "solutions/11_mlr_interaction_explore.html",
+    "title": "Solutions for Multiple linear regression: exploring interaction",
+    "section": "",
+    "text": "By the end of this lesson, you should be able to:\n\nDescribe when it would be useful to include an interaction term to a model\nWrite a model formula for an interaction model\nInterpret the coefficients in an interaction model in the data context\n\n\n\n\nToday is a day to discover ideas, so no readings or videos to go through before class.\n\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder."
+  },
+  {
+    "objectID": "solutions/11_mlr_interaction_explore.html#learning-goals",
+    "href": "solutions/11_mlr_interaction_explore.html#learning-goals",
+    "title": "Solutions for Multiple linear regression: exploring interaction",
+    "section": "",
+    "text": "By the end of this lesson, you should be able to:\n\nDescribe when it would be useful to include an interaction term to a model\nWrite a model formula for an interaction model\nInterpret the coefficients in an interaction model in the data context"
+  },
+  {
+    "objectID": "solutions/11_mlr_interaction_explore.html#readings-and-videos",
+    "href": "solutions/11_mlr_interaction_explore.html#readings-and-videos",
+    "title": "Solutions for Multiple linear regression: exploring interaction",
+    "section": "",
+    "text": "Today is a day to discover ideas, so no readings or videos to go through before class.\n\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder."
+  },
+  {
+    "objectID": "solutions/11_mlr_interaction_explore.html#exercise-1-wages-across-all-industries",
+    "href": "solutions/11_mlr_interaction_explore.html#exercise-1-wages-across-all-industries",
+    "title": "Solutions for Multiple linear regression: exploring interaction",
+    "section": "Exercise 1: Wages across all industries",
+    "text": "Exercise 1: Wages across all industries\nThe plot below illustrates the relationship between wage and education for all of the industries in our cps dataset.\n\n# Plot\nggplot(cps, aes(y = wage, x = education, color = industry)) + \n    geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nThe industry-specific lines all have different slopes.\nag (first in alphabetical order)\nThis is a challenge! Compare your prediction to what you see when fitting the model in part d.\n\n\n\n# Fit an interaction model called wage_model\nwage_model &lt;- lm(wage ~ education*industry, data = cps)\n\n# Display summarized model output\ncoef(summary(wage_model))\n\n                                              Estimate Std. Error     t value\n(Intercept)                                31475.87521  22370.504  1.40702574\neducation                                     61.95396   2039.257  0.03038065\nindustryconstruction                      -14427.01189  25740.953 -0.56046923\nindustryinstallation_production           -33208.72359  25346.017 -1.31021469\nindustrymanagement                        -97066.48097  23305.235 -4.16500759\nindustryservice                           -55462.76415  23229.134 -2.38763810\nindustrytransportation                     -6834.25066  27495.549 -0.24855844\neducation:industryconstruction              2295.51232   2297.659  0.99906577\neducation:industryinstallation_production   3759.05906   2244.792  1.67456904\neducation:industrymanagement                8616.31984   2080.190  4.14208220\neducation:industryservice                   4384.72036   2092.523  2.09542317\neducation:industrytransportation            1036.09210   2409.093  0.43007562\n                                              Pr(&gt;|t|)\n(Intercept)                               1.594509e-01\neducation                                 9.757641e-01\nindustryconstruction                      5.751720e-01\nindustryinstallation_production           1.901533e-01\nindustrymanagement                        3.139604e-05\nindustryservice                           1.697551e-02\nindustrytransportation                    8.037075e-01\neducation:industryconstruction            3.177870e-01\neducation:industryinstallation_production 9.405013e-02\neducation:industrymanagement              3.470009e-05\neducation:industryservice                 3.615851e-02\neducation:industrytransportation          6.671499e-01\n\n\n\nIn the management industry, wages increase the most per year of education. The increase is 61.95396 + 8616.31984 = $8678.274 per year. That is, every additional year of education is associated with an average increase of $8678.27 in yearly wages in the management industry.\nIn the agriculture industry, wages increase the least per year of education. The increase is $61.95 per year. That is, every additional year of education is associated with an average increase of $61.95 in yearly wages in the ag industry."
+  },
+  {
+    "objectID": "solutions/11_mlr_interaction_explore.html#exercise-2-thinking-beyond",
+    "href": "solutions/11_mlr_interaction_explore.html#exercise-2-thinking-beyond",
+    "title": "Solutions for Multiple linear regression: exploring interaction",
+    "section": "Exercise 2: Thinking beyond",
+    "text": "Exercise 2: Thinking beyond\nIf a variable x has an interaction with the industry variable in affecting wages, then the relationship between x and wages must be different by industry. We might suspect that this could be the case for hours worked per week. We can make a plot to verify that this is actually the case:\n\nggplot(cps, aes(y = wage, x = hours, color = industry)) + \n    geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
     "objectID": "tech_setup.html",
@@ -2216,210 +2268,235 @@
     "text": "Context before content\nRigorous statistical reasoning demands that we understand the context of our data and our research questions before we run a model and obtain/interpret results. I also aim to be mindful of various other contexts that shape our learning experience: our individual identities/histories, the classroom environment, the campus climate, etc. Throughout the semester, we will create space to address and discuss whatever contexts might impact our ability to engage the material (and how they may even relate to the material!), whether it’s a flickering light in the classroom that’s distracting, a looming election, or anywhere in between."
   },
   {
-    "objectID": "solutions/11_mlr_interaction_explore.html",
-    "href": "solutions/11_mlr_interaction_explore.html",
-    "title": "Solutions for Multiple linear regression: exploring interaction",
+    "objectID": "activities/22_hypothesis_testing_discovery.html",
+    "href": "activities/22_hypothesis_testing_discovery.html",
+    "title": "22. Hypothesis testing discovery",
     "section": "",
-    "text": "By the end of this lesson, you should be able to:\n\nDescribe when it would be useful to include an interaction term to a model\nWrite a model formula for an interaction model\nInterpret the coefficients in an interaction model in the data context\n\n\n\n\nToday is a day to discover ideas, so no readings or videos to go through before class.\n\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder."
+    "text": "You can download a template file to work with here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\n\n\n\nBy the end of this lesson, you should be able to:\n\nUnderstand how standard errors and confidence intervals enable us to make statistical inferences\n\nArticulate how we can formalize a research question as a testable, statistical hypothesis\n\n\n\n\nThis is a discovery activity, so no assigned readings/videos today."
   },
   {
-    "objectID": "solutions/11_mlr_interaction_explore.html#learning-goals",
-    "href": "solutions/11_mlr_interaction_explore.html#learning-goals",
-    "title": "Solutions for Multiple linear regression: exploring interaction",
+    "objectID": "activities/22_hypothesis_testing_discovery.html#learning-goals",
+    "href": "activities/22_hypothesis_testing_discovery.html#learning-goals",
+    "title": "22. Hypothesis testing discovery",
     "section": "",
-    "text": "By the end of this lesson, you should be able to:\n\nDescribe when it would be useful to include an interaction term to a model\nWrite a model formula for an interaction model\nInterpret the coefficients in an interaction model in the data context"
+    "text": "By the end of this lesson, you should be able to:\n\nUnderstand how standard errors and confidence intervals enable us to make statistical inferences\n\nArticulate how we can formalize a research question as a testable, statistical hypothesis"
   },
   {
-    "objectID": "solutions/11_mlr_interaction_explore.html#readings-and-videos",
-    "href": "solutions/11_mlr_interaction_explore.html#readings-and-videos",
-    "title": "Solutions for Multiple linear regression: exploring interaction",
+    "objectID": "activities/22_hypothesis_testing_discovery.html#readings-and-videos",
+    "href": "activities/22_hypothesis_testing_discovery.html#readings-and-videos",
+    "title": "22. Hypothesis testing discovery",
     "section": "",
-    "text": "Today is a day to discover ideas, so no readings or videos to go through before class.\n\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder."
+    "text": "This is a discovery activity, so no assigned readings/videos today."
   },
   {
-    "objectID": "solutions/11_mlr_interaction_explore.html#exercise-1-wages-across-all-industries",
-    "href": "solutions/11_mlr_interaction_explore.html#exercise-1-wages-across-all-industries",
-    "title": "Solutions for Multiple linear regression: exploring interaction",
-    "section": "Exercise 1: Wages across all industries",
-    "text": "Exercise 1: Wages across all industries\nThe plot below illustrates the relationship between wage and education for all of the industries in our cps dataset.\n\n# Plot\nggplot(cps, aes(y = wage, x = education, color = industry)) + \n    geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\nThe industry-specific lines all have different slopes.\nag (first in alphabetical order)\nThis is a challenge! Compare your prediction to what you see when fitting the model in part d.\n\n\n\n# Fit an interaction model called wage_model\nwage_model &lt;- lm(wage ~ education*industry, data = cps)\n\n# Display summarized model output\ncoef(summary(wage_model))\n\n                                              Estimate Std. Error     t value\n(Intercept)                                31475.87521  22370.504  1.40702574\neducation                                     61.95396   2039.257  0.03038065\nindustryconstruction                      -14427.01189  25740.953 -0.56046923\nindustryinstallation_production           -33208.72359  25346.017 -1.31021469\nindustrymanagement                        -97066.48097  23305.235 -4.16500759\nindustryservice                           -55462.76415  23229.134 -2.38763810\nindustrytransportation                     -6834.25066  27495.549 -0.24855844\neducation:industryconstruction              2295.51232   2297.659  0.99906577\neducation:industryinstallation_production   3759.05906   2244.792  1.67456904\neducation:industrymanagement                8616.31984   2080.190  4.14208220\neducation:industryservice                   4384.72036   2092.523  2.09542317\neducation:industrytransportation            1036.09210   2409.093  0.43007562\n                                              Pr(&gt;|t|)\n(Intercept)                               1.594509e-01\neducation                                 9.757641e-01\nindustryconstruction                      5.751720e-01\nindustryinstallation_production           1.901533e-01\nindustrymanagement                        3.139604e-05\nindustryservice                           1.697551e-02\nindustrytransportation                    8.037075e-01\neducation:industryconstruction            3.177870e-01\neducation:industryinstallation_production 9.405013e-02\neducation:industrymanagement              3.470009e-05\neducation:industryservice                 3.615851e-02\neducation:industrytransportation          6.671499e-01\n\n\n\nIn the management industry, wages increase the most per year of education. The increase is 61.95396 + 8616.31984 = $8678.274 per year. That is, every additional year of education is associated with an average increase of $8678.27 in yearly wages in the management industry.\nIn the agriculture industry, wages increase the least per year of education. The increase is $61.95 per year. That is, every additional year of education is associated with an average increase of $61.95 in yearly wages in the ag industry."
-  },
-  {
-    "objectID": "solutions/11_mlr_interaction_explore.html#exercise-2-thinking-beyond",
-    "href": "solutions/11_mlr_interaction_explore.html#exercise-2-thinking-beyond",
-    "title": "Solutions for Multiple linear regression: exploring interaction",
-    "section": "Exercise 2: Thinking beyond",
-    "text": "Exercise 2: Thinking beyond\nIf a variable x has an interaction with the industry variable in affecting wages, then the relationship between x and wages must be different by industry. We might suspect that this could be the case for hours worked per week. We can make a plot to verify that this is actually the case:\n\nggplot(cps, aes(y = wage, x = hours, color = industry)) + \n    geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'"
-  },
-  {
-    "objectID": "activities/21_confidence_intervals.html",
-    "href": "activities/21_confidence_intervals.html",
-    "title": "21. Confidence intervals",
-    "section": "",
-    "text": "You can download a template file to work with here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\n\n\n\nBy the end of this lesson, you should be able to:\n\nConstruct (approximate) confidence intervals by hand using the 68-95-99.7 rule\nConstruct exact confidence intervals in R\nInterpret confidence intervals in context by referring to the coefficient of interest\nUse confidence intervals to make statements about whether there appear to be true population relationships, changes, and differences\n\n\n\n\nPlease complete the following reading before class.\n\nReading: Section 7 Introduction, Section 7.1, Section 7.2 (stop when you get to 7.2.4.3 Confidence Intervals for Prediction) in the STAT 155 Notes\n\nOptionally you can use the following videos as a companion to the reading (not in place of the reading):\n\nVideo 1: Introduction to Confidence Intervals\nVideo 2: Confidence Intervals: Construction and Interpretation",
-    "crumbs": [
-      "21. Confidence intervals"
-    ]
-  },
-  {
-    "objectID": "activities/21_confidence_intervals.html#learning-goals",
-    "href": "activities/21_confidence_intervals.html#learning-goals",
-    "title": "21. Confidence intervals",
-    "section": "",
-    "text": "By the end of this lesson, you should be able to:\n\nConstruct (approximate) confidence intervals by hand using the 68-95-99.7 rule\nConstruct exact confidence intervals in R\nInterpret confidence intervals in context by referring to the coefficient of interest\nUse confidence intervals to make statements about whether there appear to be true population relationships, changes, and differences",
-    "crumbs": [
-      "21. Confidence intervals"
-    ]
-  },
-  {
-    "objectID": "activities/21_confidence_intervals.html#readings-and-videos",
-    "href": "activities/21_confidence_intervals.html#readings-and-videos",
-    "title": "21. Confidence intervals",
-    "section": "",
-    "text": "Please complete the following reading before class.\n\nReading: Section 7 Introduction, Section 7.1, Section 7.2 (stop when you get to 7.2.4.3 Confidence Intervals for Prediction) in the STAT 155 Notes\n\nOptionally you can use the following videos as a companion to the reading (not in place of the reading):\n\nVideo 1: Introduction to Confidence Intervals\nVideo 2: Confidence Intervals: Construction and Interpretation",
-    "crumbs": [
-      "21. Confidence intervals"
-    ]
-  },
-  {
-    "objectID": "activities/21_confidence_intervals.html#exercise-1",
-    "href": "activities/21_confidence_intervals.html#exercise-1",
-    "title": "21. Confidence intervals",
+    "objectID": "activities/22_hypothesis_testing_discovery.html#exercise-1",
+    "href": "activities/22_hypothesis_testing_discovery.html#exercise-1",
+    "title": "22. Hypothesis testing discovery",
     "section": "Exercise 1",
-    "text": "Exercise 1\nResearch question: Is the relationship between wind speed (windspeed) (in miles per hour) and number of riders (riders_total) different across weekdays and weekends?\n\nPart a\nConstruct and interpret a visualization that would address this question.\n\n\nPart b\nFit a regression model that would address our research question. (Should it be a linear or a logistic regression model?) Interpret only the coefficient of interest.\n\nmod_bikes &lt;- ___\n\n\n\nPart c\n\nConstruct an approximate 95% confidence interval (CI) for the coefficient of interest by hand using the 68-95-99.7 rule.\nCompare your confidence interval to the one given by confint() which gives an exact confidence interval. (The columns give the lower and upper ends of the CI for each coefficient.)\nInterpret the exact confidence interval in context.\nIs zero in the interval? Do we have evidence for a real difference in the windspeed-riders relationship across weekends and weekdays?\n\n\n# By hand (you fill in)\n\n\n# Using confint()\nconfint(mod_bikes, level = 0.95)\n\n\n\nPart d\nLet’s see if these results agree when looking at adjusted R-squared.\nFit another regression model that does not have the coefficient of interest from your Part b model. Compare the adjusted R-squared values between this model and the Part b model. Explain your findings.",
-    "crumbs": [
-      "21. Confidence intervals"
-    ]
+    "text": "Exercise 1\nResearch question: Is there evidence that the mercury concentration in fish (Concen) differs according to the River they were sampled from?\nFit a simple linear regression model that would address our research question\n\nmod_fish &lt;- ___\nsummary(mod_fish)\n\nInterpret the intercept from this model.\n\nResponse\n\nUsing the 68-95-99.7 rule, construct an approximate 95% confidence interval for the intercept term, and provide an appropriate interpretation.\n\nResponse\n\nLet’s get an exact 95% confidence interval for the model coefficients:\n\nconfint(fish_mod, level=0.95)\n\nSuppose we take 200 different samples of fish from the Lumber River. Based on these results, in how many of those samples would you expect to observe mean mercury concentration greater than 1.25ppm?\n\nResponse\n\nSuppose we take a sample of fish from the Lumber river and find none of the fish in this sample had detectable levels of mercury (mean mercury concentration = 0ppm). Are you surprised by this result? How many standard deviations is this away from the expected mercury concentration for fish in this river (as estimated by our model)?\n\nResponse\n\nNow suppose we sample a single fish from the Lumber River and find it has a mercury concentration of 2.5ppm. Are you surprised by this result? Why or why not? (Hint: create a code chunk that calculates the mean, standard deviation, and maximum of the Concen variable in our original sample)\n\nResponse"
   },
   {
-    "objectID": "activities/21_confidence_intervals.html#exercise-2",
-    "href": "activities/21_confidence_intervals.html#exercise-2",
-    "title": "21. Confidence intervals",
+    "objectID": "activities/22_hypothesis_testing_discovery.html#exercise-2",
+    "href": "activities/22_hypothesis_testing_discovery.html#exercise-2",
+    "title": "22. Hypothesis testing discovery",
     "section": "Exercise 2",
-    "text": "Exercise 2\nResearch question: How different is holiday ridership from non-holidays, after accounting for confounding factors?\n\nPart a\nWe believe that weather category (weather_cat), temperature (temp_actual), and wind speed (windspeed) confound the relationship of interest.\n\nDraw a causal graph that shows the 5 variables of interest. Based on your graph do you believe that the 3 potential confounders are indeed confounders (and not mediators or colliders)?\nConstruct visualizations that allow you how each potential confounder relates to riders_total and to holiday.\n\n\n\nPart b\nBased on your Part a explorations, fit an appropriate regression model to answer our research question. Interpret only the coefficient of interest.\nA note about scientific notation in R: Sometimes you may see numbers with the letter e in the middle. This is R’s way of expressing scientific notation. Whenever you see e, replace that with 10 to the power of .... So:\n\n1.234e+02 is 1.234 x 10^2 = 123.4\n1.234e-02 is 1.234 x 10^(-2) = 0.01234\n\n\n\nPart c\n\nUse confint() to construct a 95% confidence interval for the coefficient of interest.\nInterpret this confidence interval in context.\nIs zero in the interval? Do we have evidence for a real holiday effect on ridership?",
-    "crumbs": [
-      "21. Confidence intervals"
-    ]
+    "text": "Exercise 2\nLet’s look at the model summary output again:\n\nsummary(fish_mod)\n\nNow, let’s interpret the RiverWacamaw coefficient. Based only on the coefficient (don’t think about the standard error yet), what can we say about the difference in mercury concentration among fish in the two rivers?\n\nResponse\n\nUsing the 68-95-99.7 rule, construct an approximate 95% confidence interval for the RiverWacamaw coefficient, and provide an appropriate interpretation.\n\nResponse\n\nSuppose we take a new sample of fish from the Wacamaw River and found a mean mercury concentration of 1.5ppm in the sample (for simplicity, let’s assume that the true mean mercury concentration in the Lumber River fish population is 1.08ppm). Are you surprised by this result? Why or why not?\n\nResponse\n\nDo you believe it plausible that the mean mercury concentration of the fish population in the Wacamaw River is approximately the same as that of the fish population in the Lumber River? How would you confirm this? What assumptions are you making?\n\nResponse\n\nSuppose we sample 10 times as many fish from the Wacamaw River, and get a similar coefficient estimate (0.2). Thinking back to the Central Limit Theorem, what should happen to the standard error of the RiverWacamaw coefficient? How small of a standard error would we need to more conclusively say that there is an actual difference in mean mercury concentrations of the Lumber River and Wacamaw River fish populations?\n\nResponse\n\nSuppose the true population coefficient for the RiverWacamawparameter is 0.02 (i.e. the average mercury concentration is 0.02ppm higher for the Wacamaw River fish population compared to that of the Lumber River). Is this meaningful?\n\nResponse"
   },
   {
-    "objectID": "activities/21_confidence_intervals.html#exercise-3",
-    "href": "activities/21_confidence_intervals.html#exercise-3",
-    "title": "21. Confidence intervals",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nThe Western Collaborative Group Study (WCGS) was designed in order to investigate a possible link between Type A behavior and coronary heart disease (CHD), and to develop a framework to select patients for intervention in order to decrease risk of CHD. The study contained 3154 cis men between the ages of 39 and 59 in California who had no history of CHD. They were enrolled in the study in 1960 and 1961, underwent a medical examination and covered their medical history, and they were re-examined annually for interim cardiovascular history.\nA full codebook is available here. We will focus on the following variables:\n\nchd: Presence (1) or absence (0) of CHD over followup (outcome)\ntabp: Presence (1) or absence (0) of Type A behavior (main variable of interest)\nage: Age at time of enrollment in the study (years)\nsbp: Systolic blood pressure\ndbp: Diastolic blood pressure\nchol: Cholesterol (mg/dL)\nncigs: Number of cigarettes smoked per day\narcus: Presence (1) or absence (0) of arcus senilis (a colored ring around the cornea made up of lipids like cholesterol and believed to be a risk factor for CHD)\nbmi: BMI = weight * 703 / height^2\n\nResearch question: Is there a causal effect of Type A/B personality on developing coronary heart disease?\n\nwcgs &lt;- read_csv(\"https://mac-stat.github.io/data/wcgs.csv\")\n\n\nPart a\nWe believe that the following variables are confounders of the relationship between Type A/B personality tabp and coronary heart disease (CHD): age + sbp + dbp + chol + ncigs + arcus + bmi.\nFit a regression model that would address our research question. (Should it be a linear or a logistic regression model?) Interpret only the coefficient of interest.\n\ntypea_mod &lt;- ___\n\n\n\nPart b\n\nConstruct a 95% confidence interval for the odds ratio of interest using the following code.\nInterpret the confidence interval in context.\nIs 1 contained in the interval? Why is 1 a relevant value to look for here?\n\n\n\nPart c\n(On your own time)\nThe data context in this exercise has a fraught history with the smoking industry. Read this article for some context about how the Type A personality came to be defined and studied. (One big takeaway: The smoking industry had a large incentive to find something to blame health problems on other than smoking!)",
-    "crumbs": [
-      "21. Confidence intervals"
-    ]
-  },
-  {
-    "objectID": "activities/21_confidence_intervals.html#exercise-4",
-    "href": "activities/21_confidence_intervals.html#exercise-4",
-    "title": "21. Confidence intervals",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nFor each of the following MISINTERPRETATIONS of a 95% confidence interval (a,b), explain why the statement is a misinterpretation.\n\nMisinterpretation 1: “There is a 95% probability that the population parameter is within (a,b).”\n\nResponse: The population parameter is not random. It is either in the interval or not, so the probability is 1 or 0. The 95% means that 95% of random samples (that are representative of the population of interest) are expected to contain the true population parameter—“95% confidence” is describing confidence in the interval construction process.\n\nMisinterpretation 2: “There is a 5% probability that the population parameter is not within (a,b).”\n\nResponse: This is incorrect for the same reason as the first misinterpretation.\n\nMisinterpretation 3: “There is a 95% chance that the sample estimate in (a,b).”\n\nResponse: The sample estimate is always in the interval by construction.",
-    "crumbs": [
-      "21. Confidence intervals"
-    ]
-  },
-  {
-    "objectID": "activities/21_confidence_intervals.html#reflection",
-    "href": "activities/21_confidence_intervals.html#reflection",
-    "title": "21. Confidence intervals",
+    "objectID": "activities/22_hypothesis_testing_discovery.html#reflection",
+    "href": "activities/22_hypothesis_testing_discovery.html#reflection",
+    "title": "22. Hypothesis testing discovery",
     "section": "Reflection",
-    "text": "Reflection\nHow are you feeling about your ability to translate research questions into appropriate statistical investigations and addressing those questions using output from those investigations? What has gotten easier? What remains challenging?\n\nResponse:\n\n\nSolutions",
-    "crumbs": [
-      "21. Confidence intervals"
-    ]
+    "text": "Reflection\nBased on this activity and the inference tools you’ve learned about so far (sampling distributions, standard errors, confidence intervals), can you think of and describe a way that you can quantify evidence “for” or “against” a coefficient being equal to some particular value? (for example, we have evidence that the average mercury concentration in Lumber River fish is ~1.08ppm, and the standard error of this estimate suggests that observing a fish with 0ppm is very unlikely. How can we quantify that evidence?)\n\nResponse:\n\n\nSolutions"
   },
   {
-    "objectID": "solutions/20_bootstrapping.html",
-    "href": "solutions/20_bootstrapping.html",
-    "title": "Solutions for 20. Bootstrapping",
+    "objectID": "solutions/19_sampling_dist_clt.html",
+    "href": "solutions/19_sampling_dist_clt.html",
+    "title": "Solutions for 19. Sampling distributions & the CLT",
     "section": "",
-    "text": "You will not be able to render this document until you’ve filled in the code!\n\n\nLet \\(\\beta\\) be some population parameter and \\(\\hat{\\beta}\\) be a sample estimate of \\(\\beta\\). In order to study the potential error in \\(\\hat{\\beta}\\), you will…\n\nexplore two approaches to approximating the sampling distribution of \\(\\hat{\\beta}\\):\n\nCentral Limit Theorem (CLT)\nbootstrapping\n\nidentify the difference between sampling and resampling\nintuit how bootstrapping results can be used to make inferences about \\(\\beta\\)\n\n\n\n\nPlease watch the following video after class:\n\nbootstrapping\n\n\n# Load the data & packages\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(readr)\nfish &lt;- read_csv(\"https://Mac-STAT.github.io/data/Mercury.csv\")\n\nRows: 171 Columns: 5\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): River\ndbl (4): Station, Length, Weight, Concen\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nPlot and model the relationship of mercury concentration with length:\n\nfish %&gt;% \n  ggplot(aes(y = Concen, x = Length)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\nfish_model &lt;- lm(Concen ~ Length, data = fish)\ncoef(summary(fish_model))\n\n               Estimate  Std. Error   t value     Pr(&gt;|t|)\n(Intercept) -1.13164542 0.213614796 -5.297598 3.617750e-07\nLength       0.05812749 0.005227593 11.119359 6.641225e-22\n\n\n\n\n\n\nsample estimate\nno idea (at this point at least)! we don’t know the actual population slope\n\n\n\n\nWe only have access to a sample of fish, not the entire population.\n\n\n\n0.005\n\n\n\nThe results are all the same. Since we sampled without replacement, we got the same sample hence the same sample estimates every time.\n\n\n\n\nWe always get the same sample (the original 5 fish), just in a different order. Thus the mean is always the sample.\nThey differ.\nSampling the same fish more than once is like observing different fish with similar characteristics.\n\n\n\n\n\n# Set the seed so we get the same results\nset.seed(155)\n\n# Build 500 bootstrap models using REsamples of size 171\nfish_models_bootstrap &lt;- mosaic::do(500)*(\n  fish %&gt;% \n    sample_n(size = 171, replace = TRUE) %&gt;% \n    with(lm(Concen ~ Length))\n)\n\nRegistered S3 method overwritten by 'mosaic':\n  method                           from   \n  fortify.SpatialPolygonsDataFrame ggplot2\n\nhead(fish_models_bootstrap)\n\n   Intercept     Length     sigma r.squared         F numdf dendf .row .index\n1 -1.1802375 0.05827521 0.5834448 0.4127396 118.77693     1   169    1      1\n2 -1.2902917 0.06296431 0.5667005 0.4661328 147.55814     1   169    1      2\n3 -1.0449945 0.05645232 0.5836492 0.4094752 117.18610     1   169    1      3\n4 -1.2721884 0.06065800 0.5253640 0.5043690 171.97948     1   169    1      4\n5 -0.8324804 0.04929179 0.5820092 0.3695009  99.04160     1   169    1      5\n6 -0.8811652 0.05088282 0.5786866 0.3671583  98.04942     1   169    1      6\n\n\n\n\n\n\nfish_model\nintuition\nThey are normally distributed around our original sample estimate.\n\n\n\n\n\n.\n\n\nfish_models_bootstrap %&gt;%\n  summarize(sd(Length))\n\n   sd(Length)\n1 0.005664586\n\n\n\nvery close!\n\n\n\n\n\nWill vary. Maybe 0.0375ish to 0.07ish.\nWill vary. For example, if we lop off the extreme 2.5% (the smallest and biggest estimates) and just keep the middle 95%:\n\n\nfish_models_bootstrap %&gt;%\n  summarize(quantile(Length, 0.025), quantile(Length, 0.975))\n\n  quantile(Length, 0.025) quantile(Length, 0.975)\n1              0.04677145              0.06905934\n\n\n\n\n\n\nYes. All of the lines reflect a positive association.\nYes. It falls entirely above 0 (a slope of 0 indicating no association)."
+    "text": "# Load the data & handy packages\nlibrary(tidyverse) # this includes dplyr, ggplot2, & other related packages\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(usdata)\ndata(county_complete)\n\n# Wrangle the data\ncounty_clean &lt;- county_complete %&gt;% \n  mutate(pci_2019 = per_capita_income_2019 / 1000, \n         pci_2017 = per_capita_income_2017 / 1000) %&gt;% \n  select(state, name, fips, pci_2019, pci_2017)\n# Model the relationship\npop_model &lt;- lm(pci_2019 ~ pci_2017, data = county_clean)\ncoef(summary(pop_model))\n\n            Estimate  Std. Error    t value     Pr(&gt;|t|)\n(Intercept) 1.293897 0.157901343   8.194339 3.628557e-16\npci_2017    1.026675 0.005883489 174.501046 0.000000e+00\n\n# Plot the relationship\ncounty_clean %&gt;% \n  ggplot(aes(y = pci_2019, x = pci_2017)) +\n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\nWarning: Removed 2 rows containing non-finite outside the scale range\n(`stat_smooth()`).\n\n\nWarning: Removed 2 rows containing missing values or values outside the scale range\n(`geom_point()`)."
   },
   {
-    "objectID": "solutions/20_bootstrapping.html#learning-goals",
-    "href": "solutions/20_bootstrapping.html#learning-goals",
-    "title": "Solutions for 20. Bootstrapping",
-    "section": "",
-    "text": "Let \\(\\beta\\) be some population parameter and \\(\\hat{\\beta}\\) be a sample estimate of \\(\\beta\\). In order to study the potential error in \\(\\hat{\\beta}\\), you will…\n\nexplore two approaches to approximating the sampling distribution of \\(\\hat{\\beta}\\):\n\nCentral Limit Theorem (CLT)\nbootstrapping\n\nidentify the difference between sampling and resampling\nintuit how bootstrapping results can be used to make inferences about \\(\\beta\\)"
+    "objectID": "solutions/19_sampling_dist_clt.html#exercise-1-500-samples-of-size-10",
+    "href": "solutions/19_sampling_dist_clt.html#exercise-1-500-samples-of-size-10",
+    "title": "Solutions for 19. Sampling distributions & the CLT",
+    "section": "Exercise 1: 500 samples of size 10",
+    "text": "Exercise 1: 500 samples of size 10\nReflect\n\ndo() repeats the code within the parentheses as many times as you tell it. do()` is a shortcut for a for loop.\n500 different sample estimates of the model"
   },
   {
-    "objectID": "solutions/20_bootstrapping.html#readings-and-videos",
-    "href": "solutions/20_bootstrapping.html#readings-and-videos",
-    "title": "Solutions for 20. Bootstrapping",
-    "section": "",
-    "text": "Please watch the following video after class:\n\nbootstrapping\n\n\n# Load the data & packages\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(readr)\nfish &lt;- read_csv(\"https://Mac-STAT.github.io/data/Mercury.csv\")\n\nRows: 171 Columns: 5\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): River\ndbl (4): Station, Length, Weight, Concen\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nPlot and model the relationship of mercury concentration with length:\n\nfish %&gt;% \n  ggplot(aes(y = Concen, x = Length)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\nfish_model &lt;- lm(Concen ~ Length, data = fish)\ncoef(summary(fish_model))\n\n               Estimate  Std. Error   t value     Pr(&gt;|t|)\n(Intercept) -1.13164542 0.213614796 -5.297598 3.617750e-07\nLength       0.05812749 0.005227593 11.119359 6.641225e-22"
+    "objectID": "solutions/19_sampling_dist_clt.html#exercise-2-sampling-distribution",
+    "href": "solutions/19_sampling_dist_clt.html#exercise-2-sampling-distribution",
+    "title": "Solutions for 19. Sampling distributions & the CLT",
+    "section": "Exercise 2: Sampling distribution",
+    "text": "Exercise 2: Sampling distribution\nThe 500 sample slopes are normally distributed around the population slope and range from roughly 0.4 to 1.6."
   },
   {
-    "objectID": "solutions/20_bootstrapping.html#exercise-1-sample-vs-population",
-    "href": "solutions/20_bootstrapping.html#exercise-1-sample-vs-population",
-    "title": "Solutions for 20. Bootstrapping",
-    "section": "",
-    "text": "sample estimate\nno idea (at this point at least)! we don’t know the actual population slope"
+    "objectID": "solutions/19_sampling_dist_clt.html#exercise-3-standard-error",
+    "href": "solutions/19_sampling_dist_clt.html#exercise-3-standard-error",
+    "title": "Solutions for 19. Sampling distributions & the CLT",
+    "section": "Exercise 3: Standard error",
+    "text": "Exercise 3: Standard error\nFor example, for samples of size 10, we expect estimates of the sample slope (the expected change in pci_2019 per $1k increase in pci_2017) to be off by 0.16. The standard errors decrease as sample size increases."
   },
   {
-    "objectID": "solutions/20_bootstrapping.html#exercise-2-the-rub",
-    "href": "solutions/20_bootstrapping.html#exercise-2-the-rub",
-    "title": "Solutions for 20. Bootstrapping",
-    "section": "",
-    "text": "We only have access to a sample of fish, not the entire population."
+    "objectID": "solutions/19_sampling_dist_clt.html#exercise-4-central-limit-theorem-clt",
+    "href": "solutions/19_sampling_dist_clt.html#exercise-4-central-limit-theorem-clt",
+    "title": "Solutions for 19. Sampling distributions & the CLT",
+    "section": "Exercise 4: Central Limit Theorem (CLT)",
+    "text": "Exercise 4: Central Limit Theorem (CLT)\nyes"
   },
   {
-    "objectID": "solutions/20_bootstrapping.html#exercise-3-clt",
-    "href": "solutions/20_bootstrapping.html#exercise-3-clt",
-    "title": "Solutions for 20. Bootstrapping",
-    "section": "",
-    "text": "0.005"
+    "objectID": "solutions/19_sampling_dist_clt.html#exercise-5-using-the-clt",
+    "href": "solutions/19_sampling_dist_clt.html#exercise-5-using-the-clt",
+    "title": "Solutions for 19. Sampling distributions & the CLT",
+    "section": "Exercise 5: Using the CLT",
+    "text": "Exercise 5: Using the CLT\n\n95%\n5%\n0.15% ((100 - 99.7%)/2)"
   },
   {
-    "objectID": "solutions/20_bootstrapping.html#exercise-4-challenge",
-    "href": "solutions/20_bootstrapping.html#exercise-4-challenge",
-    "title": "Solutions for 20. Bootstrapping",
-    "section": "",
-    "text": "The results are all the same. Since we sampled without replacement, we got the same sample hence the same sample estimates every time."
+    "objectID": "solutions/19_sampling_dist_clt.html#exercise-6-clt-and-the-68-95-99.7-rule",
+    "href": "solutions/19_sampling_dist_clt.html#exercise-6-clt-and-the-68-95-99.7-rule",
+    "title": "Solutions for 19. Sampling distributions & the CLT",
+    "section": "Exercise 6: CLT and the 68-95-99.7 Rule",
+    "text": "Exercise 6: CLT and the 68-95-99.7 Rule\n68%, 95%, 99.7%"
   },
   {
-    "objectID": "solutions/20_bootstrapping.html#exercise-5-resampling",
-    "href": "solutions/20_bootstrapping.html#exercise-5-resampling",
-    "title": "Solutions for 20. Bootstrapping",
-    "section": "",
-    "text": "We always get the same sample (the original 5 fish), just in a different order. Thus the mean is always the sample.\nThey differ.\nSampling the same fish more than once is like observing different fish with similar characteristics."
+    "objectID": "solutions/19_sampling_dist_clt.html#exercise-7-increasing-sample-size",
+    "href": "solutions/19_sampling_dist_clt.html#exercise-7-increasing-sample-size",
+    "title": "Solutions for 19. Sampling distributions & the CLT",
+    "section": "Exercise 7: Increasing sample size",
+    "text": "Exercise 7: Increasing sample size\nintuition. no wrong answer."
   },
   {
-    "objectID": "solutions/20_bootstrapping.html#exercise-6-bootstrapping",
-    "href": "solutions/20_bootstrapping.html#exercise-6-bootstrapping",
-    "title": "Solutions for 20. Bootstrapping",
-    "section": "",
-    "text": "# Set the seed so we get the same results\nset.seed(155)\n\n# Build 500 bootstrap models using REsamples of size 171\nfish_models_bootstrap &lt;- mosaic::do(500)*(\n  fish %&gt;% \n    sample_n(size = 171, replace = TRUE) %&gt;% \n    with(lm(Concen ~ Length))\n)\n\nRegistered S3 method overwritten by 'mosaic':\n  method                           from   \n  fortify.SpatialPolygonsDataFrame ggplot2\n\nhead(fish_models_bootstrap)\n\n   Intercept     Length     sigma r.squared         F numdf dendf .row .index\n1 -1.1802375 0.05827521 0.5834448 0.4127396 118.77693     1   169    1      1\n2 -1.2902917 0.06296431 0.5667005 0.4661328 147.55814     1   169    1      2\n3 -1.0449945 0.05645232 0.5836492 0.4094752 117.18610     1   169    1      3\n4 -1.2721884 0.06065800 0.5253640 0.5043690 171.97948     1   169    1      4\n5 -0.8324804 0.04929179 0.5820092 0.3695009  99.04160     1   169    1      5\n6 -0.8811652 0.05088282 0.5786866 0.3671583  98.04942     1   169    1      6"
+    "objectID": "solutions/19_sampling_dist_clt.html#exercise-8-500-samples-of-size-n",
+    "href": "solutions/19_sampling_dist_clt.html#exercise-8-500-samples-of-size-n",
+    "title": "Solutions for 19. Sampling distributions & the CLT",
+    "section": "Exercise 8: 500 samples of size n",
+    "text": "Exercise 8: 500 samples of size n\n\nset.seed(155)\nsample_models_50 &lt;- mosaic::do(500)*(\n  county_clean %&gt;% \n    sample_n(size = 50, replace = FALSE) %&gt;% \n    with(lm(pci_2019 ~ pci_2017))\n)\n\nRegistered S3 method overwritten by 'mosaic':\n  method                           from   \n  fortify.SpatialPolygonsDataFrame ggplot2\n\n# Check it out\nhead(sample_models_50)\n\n  Intercept  pci_2017    sigma r.squared        F numdf dendf .row .index\n1 1.2445147 1.0206258 1.996879 0.8827145 361.2578     1    48    1      1\n2 2.0351324 0.9993395 1.578092 0.9248192 590.4612     1    48    1      2\n3 3.3140440 0.9590203 1.457254 0.9446582 819.3372     1    48    1      3\n4 1.5031974 1.0400601 2.173192 0.8890306 384.5518     1    48    1      4\n5 2.2960437 0.9795596 1.759872 0.9320475 658.3761     1    48    1      5\n6 0.1674985 1.0487638 2.425859 0.9095534 482.6998     1    48    1      6\n\n\n\nset.seed(155)\nsample_models_200 &lt;- mosaic::do(500)*(\n  county_clean %&gt;% \n    sample_n(size = 200, replace = FALSE) %&gt;% \n    with(lm(pci_2019 ~ pci_2017))\n)\n\n# Check it out\nhead(sample_models_200)\n\n    Intercept  pci_2017    sigma r.squared        F numdf dendf .row .index\n1  1.55222839 1.0133282 2.013702 0.9160050 2159.282     1   198    1      1\n2  1.67853251 0.9994033 2.288979 0.8658330 1277.772     1   198    1      2\n3  0.85803178 1.0394611 1.811912 0.9301205 2635.448     1   198    1      3\n4  0.79740594 1.0414248 2.597108 0.8769687 1404.219     1   197    1      4\n5 -0.05186957 1.0751463 2.563725 0.8845190 1516.568     1   198    1      5\n6  1.06340006 1.0337143 2.094655 0.9126476 2068.681     1   198    1      6"
   },
   {
-    "objectID": "solutions/20_bootstrapping.html#exercise-7-bootstrap-results",
-    "href": "solutions/20_bootstrapping.html#exercise-7-bootstrap-results",
-    "title": "Solutions for 20. Bootstrapping",
-    "section": "",
-    "text": "fish_model\nintuition\nThey are normally distributed around our original sample estimate."
+    "objectID": "solutions/19_sampling_dist_clt.html#exercise-9-impact-of-sample-size-part-i",
+    "href": "solutions/19_sampling_dist_clt.html#exercise-9-impact-of-sample-size-part-i",
+    "title": "Solutions for 19. Sampling distributions & the CLT",
+    "section": "Exercise 9: Impact of sample size (part I)",
+    "text": "Exercise 9: Impact of sample size (part I)\nThe sample model lines become less and less variable from sample to sample."
   },
   {
-    "objectID": "solutions/20_bootstrapping.html#exercise-8-bootstrap-standard-errors",
-    "href": "solutions/20_bootstrapping.html#exercise-8-bootstrap-standard-errors",
-    "title": "Solutions for 20. Bootstrapping",
-    "section": "",
-    "text": ".\n\n\nfish_models_bootstrap %&gt;%\n  summarize(sd(Length))\n\n   sd(Length)\n1 0.005664586\n\n\n\nvery close!"
+    "objectID": "solutions/19_sampling_dist_clt.html#exercise-10-impact-of-sample-size-part-ii",
+    "href": "solutions/19_sampling_dist_clt.html#exercise-10-impact-of-sample-size-part-ii",
+    "title": "Solutions for 19. Sampling distributions & the CLT",
+    "section": "Exercise 10: Impact of sample size (part II)",
+    "text": "Exercise 10: Impact of sample size (part II)\nNo matter the sample size, the sample estimates are normally distributed around the population slope. But as sample size increases, the variability of the sample estimates decreases."
   },
   {
-    "objectID": "solutions/20_bootstrapping.html#exercise-9-looking-ahead-at-intervals",
-    "href": "solutions/20_bootstrapping.html#exercise-9-looking-ahead-at-intervals",
-    "title": "Solutions for 20. Bootstrapping",
-    "section": "",
-    "text": "Will vary. Maybe 0.0375ish to 0.07ish.\nWill vary. For example, if we lop off the extreme 2.5% (the smallest and biggest estimates) and just keep the middle 95%:\n\n\nfish_models_bootstrap %&gt;%\n  summarize(quantile(Length, 0.025), quantile(Length, 0.975))\n\n  quantile(Length, 0.025) quantile(Length, 0.975)\n1              0.04677145              0.06905934"
+    "objectID": "solutions/19_sampling_dist_clt.html#exercise-11-properties-of-sampling-distributions",
+    "href": "solutions/19_sampling_dist_clt.html#exercise-11-properties-of-sampling-distributions",
+    "title": "Solutions for 19. Sampling distributions & the CLT",
+    "section": "Exercise 11: Properties of sampling distributions",
+    "text": "Exercise 11: Properties of sampling distributions\n\nFor all sample sizes, the shape of the sampling distribution is roughly normal and the sampling distribution is roughly centered around 1.027, the true population slope.\nAs sample size increases:\nThe average sample slope estimate IS FAIRLY STABLE.\nThe standard error of the sample slopes DECREASES / IS FAIRLY STABLE.\nThus, as sample size increases, our sample slopes become MORE RELIABLE."
   },
   {
-    "objectID": "solutions/20_bootstrapping.html#exercise-10-looking-ahead-at-hypothesis-testing",
-    "href": "solutions/20_bootstrapping.html#exercise-10-looking-ahead-at-hypothesis-testing",
-    "title": "Solutions for 20. Bootstrapping",
+    "objectID": "solutions/08_mlr_intro.html",
+    "href": "solutions/08_mlr_intro.html",
+    "title": "Introduction to multiple regression",
     "section": "",
-    "text": "Yes. All of the lines reflect a positive association.\nYes. It falls entirely above 0 (a slope of 0 indicating no association)."
+    "text": "# Load packages\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\n\n# Load data\nlibrary(palmerpenguins)\ndata(penguins)\npenguins &lt;- penguins %&gt;% \n  filter(species != \"Adelie\", bill_length_mm &lt; 57)\n\n# Check it out\nhead(penguins)\n\n# A tibble: 6 × 8\n  species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Gentoo  Biscoe           46.1          13.2               211        4500\n2 Gentoo  Biscoe           50            16.3               230        5700\n3 Gentoo  Biscoe           48.7          14.1               210        4450\n4 Gentoo  Biscoe           50            15.2               218        5700\n5 Gentoo  Biscoe           47.6          14.5               215        5400\n6 Gentoo  Biscoe           46.5          13.5               210        4550\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;"
+  },
+  {
+    "objectID": "solutions/08_mlr_intro.html#exercise-1-visualizing-the-relationship",
+    "href": "solutions/08_mlr_intro.html#exercise-1-visualizing-the-relationship",
+    "title": "Introduction to multiple regression",
+    "section": "Exercise 1: Visualizing the relationship",
+    "text": "Exercise 1: Visualizing the relationship\n\nno wrong answer\nThere are multiple options!\n\n\npenguins %&gt;% \n  ggplot(aes(y = flipper_length_mm, x = bill_length_mm, color = species)) + \n  geom_point()\n\n\n\n\n\n\n\npenguins %&gt;% \n  ggplot(aes(y = flipper_length_mm, x = bill_length_mm, shape = species)) + \n  geom_point()"
+  },
+  {
+    "objectID": "solutions/08_mlr_intro.html#exercise-2-visualizing-the-model",
+    "href": "solutions/08_mlr_intro.html#exercise-2-visualizing-the-model",
+    "title": "Introduction to multiple regression",
+    "section": "Exercise 2: Visualizing the model",
+    "text": "Exercise 2: Visualizing the model\n\nno wrong answer\n\n\n\npenguins %&gt;% \n  ggplot(aes(y = flipper_length_mm, x = bill_length_mm, color = species)) + \n  geom_point() + \n  geom_smooth(method = \"lm\", se = FALSE)\n\n`geom_smooth()` using formula = 'y ~ x'"
+  },
+  {
+    "objectID": "solutions/08_mlr_intro.html#exercise-3-intuition",
+    "href": "solutions/08_mlr_intro.html#exercise-3-intuition",
+    "title": "Introduction to multiple regression",
+    "section": "Exercise 3: Intuition",
+    "text": "Exercise 3: Intuition\n\nGentoo tend to have longer flippers.\nFlipper length is positively associated with bill length.\nNo. the lines are parallel / have the same slopes."
+  },
+  {
+    "objectID": "solutions/08_mlr_intro.html#exercise-4-model-formula",
+    "href": "solutions/08_mlr_intro.html#exercise-4-model-formula",
+    "title": "Introduction to multiple regression",
+    "section": "Exercise 4: Model formula",
+    "text": "Exercise 4: Model formula\n\nbill_length_mm + species\nE[flipper_length_mm | bill_length_mm, speciesGentoo] = 127.75 + 1.40 * bill_length_mm + 22.85 * speciesGentoo\n\n\n# Build the model\npenguin_mod &lt;- lm(flipper_length_mm ~ bill_length_mm + species, data = penguins)\n\n# Summarize the model\ncoef(summary(penguin_mod))\n\n                 Estimate Std. Error  t value     Pr(&gt;|t|)\n(Intercept)    127.753693  6.1174521 20.88348 1.194472e-50\nbill_length_mm   1.402367  0.1249665 11.22194 1.194932e-22\nspeciesGentoo   22.848036  0.7938292 28.78206 1.981732e-70"
+  },
+  {
+    "objectID": "solutions/08_mlr_intro.html#exercise-5-sub-model-formulas",
+    "href": "solutions/08_mlr_intro.html#exercise-5-sub-model-formulas",
+    "title": "Introduction to multiple regression",
+    "section": "Exercise 5: Sub-model formulas",
+    "text": "Exercise 5: Sub-model formulas\nChinstrap: flipper_length_mm = 127.75 + 1.40 bill_length_mm\nGentoo: flipper_length_mm = (127.75 + 22.85) + 1.40 bill_length_mm = 150.6 + 1.40 bill_length_mm"
+  },
+  {
+    "objectID": "solutions/08_mlr_intro.html#exercise-6-coefficients-physical-interpretation",
+    "href": "solutions/08_mlr_intro.html#exercise-6-coefficients-physical-interpretation",
+    "title": "Introduction to multiple regression",
+    "section": "Exercise 6: coefficients – physical interpretation",
+    "text": "Exercise 6: coefficients – physical interpretation\n\nThe intercept coefficient, 127.75, is the intercept of the line for Chinstrap penguins.\nThe bill_length_mm coefficient, 1.40, is the slope of both lines.\nThe speciesGentoo coefficient, 22.85, indicates that the intercept of the line for Gentoo is 22.85mm higher than the intercept of the line for Chinstrap. Similarly, since the lines are parallel, the line for Gentoo is 22.85mm higher than the line for Chinstrap at any bill_length_mm."
+  },
+  {
+    "objectID": "solutions/08_mlr_intro.html#exercise-7-coefficients-contextual-interpretation",
+    "href": "solutions/08_mlr_intro.html#exercise-7-coefficients-contextual-interpretation",
+    "title": "Introduction to multiple regression",
+    "section": "Exercise 7: coefficients – contextual interpretation",
+    "text": "Exercise 7: coefficients – contextual interpretation\n\nFor Chinstrap penguins with 0mm bills (silly), we expect a flipper length of 127.75mm.\nFor both Chinstrap and Gentoo penguins, flipper lengths increase by 1.40mm on average for every additional mm in bill length.\nAt any bill_length_mm, we expect the a Gentoo penguin to have 22.85mm longer flippers than a Chinstrap, on average."
+  },
+  {
+    "objectID": "solutions/08_mlr_intro.html#exercise-8-prediction",
+    "href": "solutions/08_mlr_intro.html#exercise-8-prediction",
+    "title": "Introduction to multiple regression",
+    "section": "Exercise 8: Prediction",
+    "text": "Exercise 8: Prediction\n\n# a\n127.75 + 1.40*50 + 22.85*0\n\n[1] 197.75\n\n# b\n127.75 + 1.40*50 + 22.85*1\n\n[1] 220.6\n\n# c\npredict(penguin_mod,\n        newdata = data.frame(bill_length_mm = 50, \n                             species = \"Chinstrap\"))\n\n      1 \n197.872 \n\npredict(penguin_mod,\n        newdata = data.frame(bill_length_mm = 50, \n                             species = \"Gentoo\"))\n\n       1 \n220.7201"
+  },
+  {
+    "objectID": "solutions/08_mlr_intro.html#exercise-9-r-squared",
+    "href": "solutions/08_mlr_intro.html#exercise-9-r-squared",
+    "title": "Introduction to multiple regression",
+    "section": "Exercise 9: R-squared",
+    "text": "Exercise 9: R-squared\n\nspecies\nno wrong answer\nIt’s higher than the R-squared when we use either predictor alone!"
+  },
+  {
+    "objectID": "solutions/22_hypothesis_testing_discovery.html",
+    "href": "solutions/22_hypothesis_testing_discovery.html",
+    "title": "Solutions for 22. Hypothesis testing discovery",
+    "section": "",
+    "text": "You can download a template file to work with here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\n\n\n\nBy the end of this lesson, you should be able to:\n\nUnderstand how standard errors and confidence intervals enable us to make statistical inferences\n\nArticulate how we can formalize a research question as a testable, statistical hypothesis\n\n\n\n\nThis is a discovery activity, so no assigned readings/videos today."
+  },
+  {
+    "objectID": "solutions/22_hypothesis_testing_discovery.html#learning-goals",
+    "href": "solutions/22_hypothesis_testing_discovery.html#learning-goals",
+    "title": "Solutions for 22. Hypothesis testing discovery",
+    "section": "",
+    "text": "By the end of this lesson, you should be able to:\n\nUnderstand how standard errors and confidence intervals enable us to make statistical inferences\n\nArticulate how we can formalize a research question as a testable, statistical hypothesis"
+  },
+  {
+    "objectID": "solutions/22_hypothesis_testing_discovery.html#readings-and-videos",
+    "href": "solutions/22_hypothesis_testing_discovery.html#readings-and-videos",
+    "title": "Solutions for 22. Hypothesis testing discovery",
+    "section": "",
+    "text": "This is a discovery activity, so no assigned readings/videos today."
+  },
+  {
+    "objectID": "solutions/22_hypothesis_testing_discovery.html#exercise-1",
+    "href": "solutions/22_hypothesis_testing_discovery.html#exercise-1",
+    "title": "Solutions for 22. Hypothesis testing discovery",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nResearch question: Is there evidence that the mercury concentration in fish (Concen) differs according to the River they were sampled from?\nFit a simple linear regression model that would address our research question\n\nmod_fish &lt;- lm(Concen ~ River, data=fish)\nsummary(mod_fish)\n\n\nCall:\nlm(formula = Concen ~ River, data = fish)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-1.1664 -0.5681 -0.1764  0.4219  2.4219 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   1.07808    0.08866  12.160   &lt;2e-16 ***\nRiverWacamaw  0.19835    0.11712   1.694   0.0922 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.7575 on 169 degrees of freedom\nMultiple R-squared:  0.01669,   Adjusted R-squared:  0.01087 \nF-statistic: 2.868 on 1 and 169 DF,  p-value: 0.09218\n\n\nInterpret the intercept from this model.\n\nOur model estimates an average mercury concentration of 1.078ppm among fish in the Lumber River\n\nUsing the 68-95-99.7 rule, construct an approximate 95% confidence interval for the intercept term, and provide an appropriate interpretation.\n\n1.078 +/- 2*0.089 –&gt; [0.90, 1.256]\n\n\nPreferred interpretation: It is plausible that the true mean mercury concentration among fish in the Lumber River is between 0.90ppm and 1.25ppm.\n\n\n(technical addendum to this interpretation): …specifically, we expect that if we take many different samples, 95% of the resulting intervals will contain the true mean mercury concentration of the entire Lumber River fish population (so there is a 1 in 20 [5%] chance that the true value is outside our estimated interval of 0.90-1.25ppm).\n\n\nNot as preferred interpretation: We are 95% confident that the mean mercury concentration among fish in the Lumber River is between 0.90ppm and 1.25ppm.\n\nLet’s get an exact 95% confidence interval for the model coefficients:\n\nconfint(mod_fish, level=0.95)\n\n                   2.5 %    97.5 %\n(Intercept)   0.90305825 1.2531061\nRiverWacamaw -0.03285077 0.4295435\n\n\nSuppose we take 200 different samples of fish from the Lumber River. In how many of those samples would you expect to observe an estimated mean mercury concentration greater than 1.25ppm?\n\nWe don’t/can’t actually know! This depends on the true population parameter and the accuracy of our sampling distribution.\n\n\nWhat we can say is that if our sampling distribution model is accurate, then about 10 out of 200 samples will produce confidence intervals that don’t contain the population parameter (and we can assume half of these–so 5 samples–are overestimates and the other half are underestimates)\n\nSuppose we take a sample of fish from the Lumber river and find none of the fish in this sample had detectable levels of mercury (mean mercury concentration = 0ppm). Are you surprised by this result? How many standard deviations is this away from the expected mercury concentration for fish in this river (as estimated by our model)?\n\nYes, this is surprising, since a mean of 0ppm is much lower than the lower bound of our confidence interval estimate.\n\n\nObserving an estimate of Beta_0 = 0ppm means that this is (0-1.07808)/0.08866 = -12.16 standard deviations away from the average mercury concentration estimated by our model using the original sample.\n\nNow suppose we sample a single fish from the Lumber River and find it has a mercury concentration of 2.5ppm. Are you surprised by this result? Why or why not? (Hint: create a code chunk that calculates the mean, standard deviation, and maximum of the Concen variable in our original sample)\n\nfish %&gt;% \n  group_by(River) %&gt;% \n  summarise(mean=mean(Concen), \n            sd=sd(Concen), \n            max=max(Concen))\n\n# A tibble: 2 × 4\n  River    mean    sd   max\n  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Lumber   1.08 0.649   3.5\n2 Wacamaw  1.28 0.829   3.6\n\n\n\nObserving a single fish with a mercury concentration of 2.5ppm is actually not that surprising! 2.5ppm is a little more than 2 standard deviations away from the mean mercury concentration in our sample of fish from the Lumber River (1.08+2*0.64=2.43), but there are certainly fish in the sample with even higher mercury concentrations (max=3.5ppm), so this isn’t outside the bounds of what we’d expect."
+  },
+  {
+    "objectID": "solutions/22_hypothesis_testing_discovery.html#exercise-2",
+    "href": "solutions/22_hypothesis_testing_discovery.html#exercise-2",
+    "title": "Solutions for 22. Hypothesis testing discovery",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nLet’s look at the model summary output again:\n\nsummary(mod_fish)\n\n\nCall:\nlm(formula = Concen ~ River, data = fish)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-1.1664 -0.5681 -0.1764  0.4219  2.4219 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   1.07808    0.08866  12.160   &lt;2e-16 ***\nRiverWacamaw  0.19835    0.11712   1.694   0.0922 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.7575 on 169 degrees of freedom\nMultiple R-squared:  0.01669,   Adjusted R-squared:  0.01087 \nF-statistic: 2.868 on 1 and 169 DF,  p-value: 0.09218\n\n\nNow, let’s interpret the RiverWacamaw coefficient. Based only on the coefficient (don’t think about the standard error yet), what can we say about the difference in mercury concentration among fish in the two rivers?\n\nThe RiverWacamaw coefficient is 0.19835, meaning that the mean mercury concentration among fish in the Wacamaw River is, on average, about 0.20ppm higher than that of fish in the Lumber River.\n\nUsing the 68-95-99.7 rule, construct an approximate 95% confidence interval for the RiverWacamaw coefficient, and provide an appropriate interpretation.\n\n0.20 +/- 2*0.11 –&gt; [-0.02, 0.42]\n\n\nPreferred interpretation: It is plausible that the true difference in mean mercury concentration among fish in the Wacamaw River compared to the Lumber River is between -0.02 ppm and 0.42ppm.\n\n\nNot as preferred interpretation: We are 95% confident that the mean mercury concentration among fish in the Wacamaw River somewhere between 0.02ppm less than that of fish in the Lumber River and 0.42ppm more than that of fish in the Lumber River.\n\nSuppose we take a new sample of fish from the Wacamaw River and found a mean mercury concentration of 1.5ppm in the sample (for simplicity, let’s assume that the true mean mercury concentration in the Lumber River fish population is 1.08ppm). Are you surprised by this result? Why or why not?\n\nThis should not be entirely surprising–based on our original model, the upper bound on our 95% confidence interval for the RiverWacamaw coefficient is 0.42ppm. If we know that the mean mercury concentration in the Lumber River fish population is 1.08ppm, then–assuming the sampling distribution model is accurate–we are 95% confident that the true mean mercury concentration in the Wacamaw River fish population is 1.08+0.42=1.5ppm\n\nDo you believe it plausible that the mean mercury concentration of the fish population in the Wacamaw River is approximately the same as that of the fish population in the Lumber River? How would you confirm this? What assumptions are you making?\n\nAnswers may vary–this is certainly plausible, since our 95% CI contains 0 (i.e., there is no difference in means between the two rivers). However, we might also argue that there is SOME evidence of a difference, since most of the CI is &gt; 0.\n\nSuppose we sample 10 times as many fish from the Wacamaw River, and get a similar coefficient estimate (0.2). Thinking back to the Central Limit Theorem, what should happen to the standard error of the RiverWacamaw coefficient? How small of a standard error would we need to more conclusively say that there is an actual difference in mean mercury concentrations of the Lumber River and Wacamaw River fish populations?\n\nA larger sample should result in a smaller standard error of the RiverWacamaw coefficient. If the standard error is smaller than 0.1, then a 95% confidence interval would be [0.004, 0.396]. Since this interval doesn’t include 0, we could conclude that fish in the Wacamaw River, on average, have a higher mercury concentration than fish in the Lumber River. More importantly, the lower standard error of the coefficient allows us to say there is evidence that this difference should be observable across new samples.\n\nSuppose the true population coefficient for the RiverWacamawparameter is 0.02 (i.e. the average mercury concentration is 0.02ppm higher for the Wacamaw River fish population compared to that of the Lumber River). Is this meaningful?\n\nThis will depend on context–a priori, this difference appears to be negligible, and we could potentially chalk it up to uncontrolled confounders (e.g., perhaps fish in one river tend to be older/bigger and therefore have slightly higher mercury concentrations, even if there is no underlying difference in mercury pollution). We also might consider: what is considered a “harmful” mercury concentration, and are fish in either river near that threshold? Has this changed over time, and by how much?"
   },
   {
     "objectID": "activities/16_logistic_univariate.html",
