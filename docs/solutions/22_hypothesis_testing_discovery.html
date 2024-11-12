@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Solutions for 22. Hypothesis testing discovery – STAT 155</title>
+<title>Solutions for 22. Hypothesis testing: discovery – STAT 155</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4777,6 +4777,14 @@ vertical-align: -.125em;
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-activities">    
         <li>
+    <a class="dropdown-item" href="../activities/23_hypothesis_testing_details.html">
+ <span class="dropdown-text">23. Hypothesis testing details and practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../activities/22_hypothesis_testing_discovery.html">
+ <span class="dropdown-text">22. Hypothesis testing: discovery</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../activities/21_confidence_intervals.html">
  <span class="dropdown-text">21. Confidence intervals</span></a>
   </li>  
@@ -4890,16 +4898,8 @@ vertical-align: -.125em;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#notes" id="toc-notes" class="nav-link active" data-scroll-target="#notes">Notes</a>
-  <ul class="collapse">
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning goals</a></li>
-  <li><a href="#readings-and-videos" id="toc-readings-and-videos" class="nav-link" data-scroll-target="#readings-and-videos">Readings and videos</a></li>
-  </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
-  <ul class="collapse">
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link active" data-scroll-target="#exercise-1">Exercise 1</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -4908,7 +4908,7 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Solutions for 22. Hypothesis testing discovery</h1>
+<h1 class="title">Solutions for 22. Hypothesis testing: discovery</h1>
 <p class="subtitle lead">Notes and in-class exercises</p>
 </div>
 
@@ -4926,64 +4926,11 @@ vertical-align: -.125em;
 </header>
 
 
-<section id="notes" class="level1">
-<h1>Notes</h1>
-<ul>
-<li>You can download a template file to work with <a href="../activity_templates/22_hypothesis_testing_discovery.qmd">here</a>.</li>
-<li><strong>File organization:</strong> Save this file in the “Activities” subfolder of your “STAT155” folder.</li>
-</ul>
-<section id="learning-goals" class="level2">
-<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
-<p>By the end of this lesson, you should be able to:</p>
-<ul>
-<li>Understand how standard errors and confidence intervals enable us to make statistical inferences</li>
-<li></li>
-<li>Articulate how we can formalize a research question as a testable, statistical hypothesis</li>
-</ul>
-</section>
-<section id="readings-and-videos" class="level2">
-<h2 class="anchored" data-anchor-id="readings-and-videos">Readings and videos</h2>
-<p>This is a discovery activity, so no assigned readings/videos today.</p>
-</section>
-</section>
-<section id="exercises" class="level1">
-<h1>Exercises</h1>
-<p>Let’s return to the <code>fish</code> dataset. Recall that rivers contain small concentrations of mercury which can accumulate in fish. Scientists studied this phenomenon among 171 largemouth bass in the Wacamaw and Lumber rivers of North Carolina, recording the following:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">variable</th>
-<th style="text-align: left;">meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">River</td>
-<td style="text-align: left;">Lumber or Wacamaw</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Station</td>
-<td style="text-align: left;">Station number where the fish was caught (0, 1, …, 15)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Length</td>
-<td style="text-align: left;">Fish’s length (in centimeters)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Weight</td>
-<td style="text-align: left;">Fish’s weight (in grams)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Concen</td>
-<td style="text-align: left;">Fish’s mercury concentration (in parts per million; ppm)</td>
-</tr>
-</tbody>
-</table>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data &amp; packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>fish <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://Mac-STAT.github.io/data/Mercury.csv&quot;</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>fish <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://mac-stat.github.io/data/Mercury.csv&quot;</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fish)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -5028,7 +4975,7 @@ F-statistic: 2.868 on 1 and 169 DF,  p-value: 0.09218</code></pre>
 </div>
 <p>Interpret the intercept from this model.</p>
 <blockquote class="blockquote">
-<p>Our model estimates an average mercury concentration of 1.078ppm among fish in the Lumber River</p>
+<p>Our model estimates an average mercury concentration of 1.078ppm among fish in the Lumber River.</p>
 </blockquote>
 <p>Using the 68-95-99.7 rule, construct an approximate 95% confidence interval for the intercept term, and provide an appropriate interpretation.</p>
 <blockquote class="blockquote">
@@ -5038,7 +4985,7 @@ F-statistic: 2.868 on 1 and 169 DF,  p-value: 0.09218</code></pre>
 <p>Preferred interpretation: It is plausible that the true mean mercury concentration among fish in the Lumber River is between 0.90ppm and 1.25ppm.</p>
 </blockquote>
 <blockquote class="blockquote">
-<p>(technical addendum to this interpretation): …specifically, we expect that if we take many different samples, 95% of the resulting intervals will contain the true mean mercury concentration of the entire Lumber River fish population (so there is a 1 in 20 [5%] chance that the true value is <em>outside</em> our estimated interval of 0.90-1.25ppm).</p>
+<p>(technical addendum to this interpretation): …specifically, we expect that if we take many different samples, 95% of the resulting intervals will contain the true mean mercury concentration of the entire Lumber River fish population. We hope that our interval is one of the lucky 95% and not one of the unlucky 5% that don’t contain the true population parameter.</p>
 </blockquote>
 <blockquote class="blockquote">
 <p>Not as preferred interpretation: We are 95% confident that the mean mercury concentration among fish in the Lumber River is between 0.90ppm and 1.25ppm.</p>
@@ -5066,7 +5013,7 @@ RiverWacamaw -0.03285077 0.4295435</code></pre>
 <blockquote class="blockquote">
 <p>Observing an estimate of Beta_0 = 0ppm means that this is (0-1.07808)/0.08866 = -12.16 standard deviations away from the average mercury concentration estimated by our model using the original sample.</p>
 </blockquote>
-<p>Now suppose we sample a <em>single</em> fish from the Lumber River and find it has a mercury concentration of 2.5ppm. Are you surprised by this result? Why or why not? (Hint: create a code chunk that calculates the mean, standard deviation, and maximum of the <code>Concen</code> variable in our original sample)</p>
+<p>Now suppose we sample a <em>single</em> fish from the Lumber River and find it has a mercury concentration of 2.5ppm. Are you surprised by this result? Why or why not? (Hint: create a code chunk that calculates the mean, standard deviation, and maximum of the <code>Concen</code> variable in each river in our original sample)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fish <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(River) <span class="sc">%&gt;%</span> </span>
@@ -5135,7 +5082,7 @@ F-statistic: 2.868 on 1 and 169 DF,  p-value: 0.09218</code></pre>
 </blockquote>
 <p>Suppose we sample 10 times as many fish from the Wacamaw River, and get a similar coefficient estimate (0.2). Thinking back to the Central Limit Theorem, what should happen to the standard error of the <code>RiverWacamaw</code> coefficient? How small of a standard error would we need to more conclusively say that there is an actual difference in mean mercury concentrations of the Lumber River and Wacamaw River fish populations?</p>
 <blockquote class="blockquote">
-<p>A larger sample should result in a smaller standard error of the <code>RiverWacamaw</code> coefficient. If the standard error is smaller than 0.1, then a 95% confidence interval would be [0.004, 0.396]. Since this interval doesn’t include 0, we could conclude that fish in the Wacamaw River, on average, have a higher mercury concentration than fish in the Lumber River. More importantly, the lower standard error of the coefficient allows us to say there is evidence <em>that this difference should be observable across new samples.</em></p>
+<p>A larger sample should result in a smaller standard error of the <code>RiverWacamaw</code> coefficient. If the standard error is smaller than 0.1 (say 0.098), then a 95% confidence interval would be [0.004, 0.396]. Since this interval doesn’t include 0, we could conclude that fish in the Wacamaw River, on average, have a higher mercury concentration than fish in the Lumber River. More importantly, the lower standard error of the coefficient allows us to say there is evidence <em>that this difference should be observable across new samples.</em></p>
 </blockquote>
 <p>Suppose the <em>true</em> population coefficient for the <code>RiverWacamaw</code>parameter is 0.02 (i.e. the average mercury concentration is 0.02ppm higher for the Wacamaw River fish population compared to that of the Lumber River). Is this meaningful?</p>
 <blockquote class="blockquote">
@@ -5143,7 +5090,6 @@ F-statistic: 2.868 on 1 and 169 DF,  p-value: 0.09218</code></pre>
 </blockquote>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -36,6 +36,8 @@ website:
     - id: activities
       title: "Activities"
       contents:
+        - "activities/23_hypothesis_testing_details.qmd"
+        - "activities/22_hypothesis_testing_discovery.qmd"
         - "activities/21_confidence_intervals.qmd"
         - "activities/20_bootstrapping.qmd"
         - "activities/19_sampling_dist_clt.qmd"

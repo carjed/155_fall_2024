@@ -1,5 +1,5 @@
 ---
-title: "Solutions for 22. Hypothesis testing discovery"
+title: "Solutions for 22. Hypothesis testing: discovery"
 subtitle: "Notes and in-class exercises"
 format: 
   html:
@@ -7,41 +7,11 @@ format:
     toc: true
 ---
 
-# Notes
-
-- You can download a template file to work with [here](../activity_templates/22_hypothesis_testing_discovery.qmd).
-- **File organization:** Save this file in the "Activities" subfolder of your "STAT155" folder.
-
-## Learning goals
-
-By the end of this lesson, you should be able to:
-
-- Understand how standard errors and confidence intervals enable us to make statistical inferences
-- 
-- Articulate how we can formalize a research question as a testable, statistical hypothesis
-
-## Readings and videos
-
-This is a discovery activity, so no assigned readings/videos today.
-
-# Exercises
-
-Let's return to the `fish` dataset. Recall that rivers contain small concentrations of mercury which can accumulate in fish. Scientists studied this phenomenon among 171 largemouth bass in the Wacamaw and Lumber rivers of North Carolina, recording the following:
-
-
-| variable | meaning                                                  |
-|:---------|:---------------------------------------------------------|
-| River    | Lumber or Wacamaw                                        |
-| Station  | Station number where the fish was caught (0, 1, ..., 15) |
-| Length   | Fish's length (in centimeters)                           |
-| Weight   | Fish's weight (in grams)                                 |
-| Concen   | Fish's mercury concentration (in parts per million; ppm) |
-
 ```{r warning=FALSE, message=FALSE}
 # Load the data & packages
 library(tidyverse)
 library(readr)
-fish <- read_csv("https://Mac-STAT.github.io/data/Mercury.csv")
+fish <- read_csv("https://mac-stat.github.io/data/Mercury.csv")
 
 head(fish)
 ```
@@ -59,7 +29,7 @@ summary(mod_fish)
 
 Interpret the intercept from this model.
 
-> Our model estimates an average mercury concentration of 1.078ppm among fish in the Lumber River 
+> Our model estimates an average mercury concentration of 1.078ppm among fish in the Lumber River.
 
 Using the 68-95-99.7 rule, construct an approximate 95% confidence interval for the intercept term, and provide an appropriate interpretation.
 
@@ -67,7 +37,7 @@ Using the 68-95-99.7 rule, construct an approximate 95% confidence interval for 
 
 > Preferred interpretation: It is plausible that the true mean mercury concentration among fish in the Lumber River is between 0.90ppm and 1.25ppm.
 
-> (technical addendum to this interpretation): ...specifically, we expect that if we take many different samples, 95% of the resulting intervals will contain the true mean mercury concentration of the entire Lumber River fish population (so there is a 1 in 20 [5%] chance that the true value is *outside* our estimated interval of 0.90-1.25ppm).
+> (technical addendum to this interpretation): ...specifically, we expect that if we take many different samples, 95% of the resulting intervals will contain the true mean mercury concentration of the entire Lumber River fish population. We hope that our interval is one of the lucky 95% and not one of the unlucky 5% that don't contain the true population parameter.
 
 > Not as preferred interpretation: We are 95% confident that the mean mercury concentration among fish in the Lumber River is between 0.90ppm and 1.25ppm.
 
@@ -91,7 +61,7 @@ Suppose we take a sample of fish from the Lumber river and find none of the fish
 
 > Observing an estimate of Beta_0 = 0ppm means that this is (0-1.07808)/0.08866 = -12.16 standard deviations away from the average mercury concentration estimated by our model using the original sample.
 
-Now suppose we sample a *single* fish from the Lumber River and find it has a mercury concentration of 2.5ppm. Are you surprised by this result? Why or why not? (Hint: create a code chunk that calculates the mean, standard deviation, and maximum of the `Concen` variable in our original sample)
+Now suppose we sample a *single* fish from the Lumber River and find it has a mercury concentration of 2.5ppm. Are you surprised by this result? Why or why not? (Hint: create a code chunk that calculates the mean, standard deviation, and maximum of the `Concen` variable in each river in our original sample)
 
 ```{r}
 fish %>% 
@@ -133,7 +103,7 @@ Do you believe it *plausible* that the mean mercury concentration of the fish po
 
 Suppose we sample 10 times as many fish from the Wacamaw River, and get a similar coefficient estimate (0.2). Thinking back to the Central Limit Theorem, what should happen to the standard error of the `RiverWacamaw` coefficient? How small of a standard error would we need to more conclusively say that there is an actual difference in mean mercury concentrations of the Lumber River and Wacamaw River fish populations?
 
-> A larger sample should result in a smaller standard error of the `RiverWacamaw` coefficient. If the standard error is smaller than 0.1, then a 95% confidence interval would be [0.004, 0.396]. Since this interval doesn't include 0, we could conclude that fish in the Wacamaw River, on average, have a higher mercury concentration than fish in the Lumber River. More importantly, the lower standard error of the coefficient allows us to say there is evidence *that this difference should be observable across new samples.*
+> A larger sample should result in a smaller standard error of the `RiverWacamaw` coefficient. If the standard error is smaller than 0.1 (say 0.098), then a 95% confidence interval would be [0.004, 0.396]. Since this interval doesn't include 0, we could conclude that fish in the Wacamaw River, on average, have a higher mercury concentration than fish in the Lumber River. More importantly, the lower standard error of the coefficient allows us to say there is evidence *that this difference should be observable across new samples.*
 
 Suppose the *true* population coefficient for the `RiverWacamaw`parameter is 0.02 (i.e. the average mercury concentration is 0.02ppm higher for the Wacamaw River fish population compared to that of the Lumber River). Is this meaningful? 
 

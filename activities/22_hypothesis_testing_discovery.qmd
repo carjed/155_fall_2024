@@ -1,11 +1,11 @@
 ---
-title: "22. Hypothesis testing discovery"
+title: "22. Hypothesis testing: discovery"
 subtitle: "Notes and in-class exercises"
 format: 
   html:
     embed-resources: true
     toc: true
-eval: false # change this to "true" if you want to render a complete .qmd         
+eval: false # change this to "true" if you want to render a complete .qmd
 ---
 
 # Notes
@@ -18,7 +18,6 @@ eval: false # change this to "true" if you want to render a complete .qmd
 By the end of this lesson, you should be able to:
 
 - Understand how standard errors and confidence intervals enable us to make statistical inferences
-- 
 - Articulate how we can formalize a research question as a testable, statistical hypothesis
 
 ## Readings and videos
@@ -42,7 +41,7 @@ Let's return to the `fish` dataset. Recall that rivers contain small concentrati
 # Load the data & packages
 library(tidyverse)
 library(readr)
-fish <- read_csv("https://Mac-STAT.github.io/data/Mercury.csv")
+fish <- read_csv("https://mac-stat.github.io/data/Mercury.csv")
 
 head(fish)
 ```
@@ -69,7 +68,7 @@ Using the 68-95-99.7 rule, construct an approximate 95% confidence interval for 
 Let's get an exact 95% confidence interval for the model coefficients:
 
 ```{r}
-confint(fish_mod, level=0.95)
+confint(mod_fish, level=0.95)
 ```
 
 Suppose we take 200 different samples of fish from the Lumber River. Based on these results, in how many of those samples would you expect to observe mean mercury concentration **greater than** 1.25ppm?
@@ -80,7 +79,7 @@ Suppose we take a sample of fish from the Lumber river and find none of the fish
 
 > **Response**
 
-Now suppose we sample a *single* fish from the Lumber River and find it has a mercury concentration of 2.5ppm. Are you surprised by this result? Why or why not? (Hint: create a code chunk that calculates the mean, standard deviation, and maximum of the `Concen` variable in our original sample)
+Now suppose we sample a *single* fish from the Lumber River and find it has a mercury concentration of 2.5ppm. Are you surprised by this result? Why or why not? (Hint: create a code chunk that calculates the mean, standard deviation, and maximum of the `Concen` variable in each river in our original sample)
 
 > **Response**
 
@@ -89,7 +88,7 @@ Now suppose we sample a *single* fish from the Lumber River and find it has a me
 Let's look at the model summary output again:
 
 ```{r}
-summary(fish_mod)
+summary(mod_fish)
 ```
 
 Now, let's interpret the `RiverWacamaw` coefficient. Based *only* on the coefficient (don't think about the standard error yet), what can we say about the difference in mercury concentration among fish in the two rivers?

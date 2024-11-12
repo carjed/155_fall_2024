@@ -203,7 +203,7 @@ Quiz #2
 
 :::
 
-::: {.callout-tip icon=false collapse="false" title="Week 10: 11/4 - 11/8 (Confidence intervals)"}
+::: {.callout-tip icon=false collapse="true" title="Week 10: 11/4 - 11/8 (Confidence intervals)"}
 
 #### Announcements
 
@@ -226,13 +226,24 @@ Before class:
 
 :::
 
-::: {.callout-tip icon=false collapse="true" title="Week 11: 11/11 - 11/15 (Hypothesis testing)"}
+::: {.callout-tip icon=false collapse="false" title="Week 11: 11/11 - 11/15 (Hypothesis testing)"}
 
 #### Announcements
 
+PP#7 due on Friday, 11/15 at 5pm
+
 #### Tuesday
 
+Before class:
+
+- Complete today’s checkpoint on Moodle
+  - due 30 minutes before class on 11/12
+
 #### Thursday
+
+Before class:
+
+- No checkpoint due today
 
 :::
 
