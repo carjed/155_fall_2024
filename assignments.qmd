@@ -12,4 +12,4 @@ sidebar: false
 - [Practice Problems 5](assignments/pp5.qmd), due 10/25
 - [Practice Problems 6](assignments/pp6.qmd), due 11/8
 - [Practice Problems 7](assignments/pp7.qmd), due 11/15
-- Practice Problems 8, due 11/22
+- [Practice Problems 8](assignments/pp8.qmd), due 11/22
