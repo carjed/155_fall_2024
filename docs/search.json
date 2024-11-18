@@ -2023,70 +2023,100 @@
     "href": "activities/25_f_tests.html",
     "title": "25. Nested Models & F-Tests",
     "section": "",
-    "text": "You can download a template file to work with here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\n\n\n\nBy the end of this activity, you should be able to:\n\nDetermine if one model is nested within another\nDetermine which null and alternative hypotheses require an f-test\nDetermine which f-tests require the use of the anova function in R vs. the overall f-test given in regular regression output\nInterpret the results of an f-test in context\n\n\n\n\nPlease read the following notes before class:\n\nReading: Section 7.3.4 in the STAT 155 Notes\n\n\n\n\n“Nested models” are models where the covariates of one model are a subset of another model. As an example, consider the following models for estimating the association between forced expiratory volume (FEV) and smoking status:\nModel 1:\n\\[\nE[FEV \\mid smoke] = \\beta_0 + \\beta_1 smoke\n\\]\nModel 2:\n\\[\nE[FEV \\mid smoke, age] = \\beta_0 + \\beta_1 smoke + \\beta_2 age\n\\] Here, Model 1 is “nested” inside Model 2, since the covariates included in Model 1 (only smoke) are a subset of those in Model 2 (both smoke and age).\nAn example of non-nested models are…\nModel 3:\n\\[\nE[FEV \\mid smoke, height] = \\beta_0 + \\beta_1 smoke + \\beta_2 height\n\\]\nModel 4:\n\\[\nE[FEV \\mid smoke, sex] = \\beta_0 + \\beta_1 smoke + \\beta_2 sex\n\\]\nHere, even though Model 3 and Model 4 both contain smoke as explanatory variables, neither is nested in the other, since sex is not a part of Model 3, and height is not a part of Model 4."
+    "text": "You can download a template file to work with here.\nFile organization: Save this file in the “Activities” subfolder of your “STAT155” folder.\n\n\n\nBy the end of this activity, you should be able to:\n\nDetermine if one model is nested within another\nDetermine which null and alternative hypotheses require an f-test\nDetermine which f-tests require the use of the anova function in R vs. the overall f-test given in regular regression output\nInterpret the results of an f-test in context\n\n\n\n\nPlease read the following notes before class:\n\nReading: Section 7.3.4 in the STAT 155 Notes\n\n\n\n\n“Nested models” are models where the covariates of one model are a subset of another model. As an example, consider the following models for estimating the association between forced expiratory volume (FEV) and smoking status:\nModel 1:\n\\[\nE[FEV \\mid smoke] = \\beta_0 + \\beta_1 smoke\n\\]\nModel 2:\n\\[\nE[FEV \\mid smoke, age] = \\beta_0 + \\beta_1 smoke + \\beta_2 age\n\\] Here, Model 1 is “nested” inside Model 2, since the covariates included in Model 1 (only smoke) are a subset of those in Model 2 (both smoke and age).\nAn example of non-nested models are…\nModel 3:\n\\[\nE[FEV \\mid smoke, height] = \\beta_0 + \\beta_1 smoke + \\beta_2 height\n\\]\nModel 4:\n\\[\nE[FEV \\mid smoke, sex] = \\beta_0 + \\beta_1 smoke + \\beta_2 sex\n\\]\nHere, even though Model 3 and Model 4 both contain smoke as explanatory variables, neither is nested in the other, since sex is not a part of Model 3, and height is not a part of Model 4.",
+    "crumbs": [
+      "25. Nested Models & F-Tests"
+    ]
   },
   {
     "objectID": "activities/25_f_tests.html#learning-goals",
     "href": "activities/25_f_tests.html#learning-goals",
     "title": "25. Nested Models & F-Tests",
     "section": "",
-    "text": "By the end of this activity, you should be able to:\n\nDetermine if one model is nested within another\nDetermine which null and alternative hypotheses require an f-test\nDetermine which f-tests require the use of the anova function in R vs. the overall f-test given in regular regression output\nInterpret the results of an f-test in context"
+    "text": "By the end of this activity, you should be able to:\n\nDetermine if one model is nested within another\nDetermine which null and alternative hypotheses require an f-test\nDetermine which f-tests require the use of the anova function in R vs. the overall f-test given in regular regression output\nInterpret the results of an f-test in context",
+    "crumbs": [
+      "25. Nested Models & F-Tests"
+    ]
   },
   {
     "objectID": "activities/25_f_tests.html#readings-and-videos",
     "href": "activities/25_f_tests.html#readings-and-videos",
     "title": "25. Nested Models & F-Tests",
     "section": "",
-    "text": "Please read the following notes before class:\n\nReading: Section 7.3.4 in the STAT 155 Notes"
+    "text": "Please read the following notes before class:\n\nReading: Section 7.3.4 in the STAT 155 Notes",
+    "crumbs": [
+      "25. Nested Models & F-Tests"
+    ]
   },
   {
     "objectID": "activities/25_f_tests.html#nested-models",
     "href": "activities/25_f_tests.html#nested-models",
     "title": "25. Nested Models & F-Tests",
     "section": "",
-    "text": "“Nested models” are models where the covariates of one model are a subset of another model. As an example, consider the following models for estimating the association between forced expiratory volume (FEV) and smoking status:\nModel 1:\n\\[\nE[FEV \\mid smoke] = \\beta_0 + \\beta_1 smoke\n\\]\nModel 2:\n\\[\nE[FEV \\mid smoke, age] = \\beta_0 + \\beta_1 smoke + \\beta_2 age\n\\] Here, Model 1 is “nested” inside Model 2, since the covariates included in Model 1 (only smoke) are a subset of those in Model 2 (both smoke and age).\nAn example of non-nested models are…\nModel 3:\n\\[\nE[FEV \\mid smoke, height] = \\beta_0 + \\beta_1 smoke + \\beta_2 height\n\\]\nModel 4:\n\\[\nE[FEV \\mid smoke, sex] = \\beta_0 + \\beta_1 smoke + \\beta_2 sex\n\\]\nHere, even though Model 3 and Model 4 both contain smoke as explanatory variables, neither is nested in the other, since sex is not a part of Model 3, and height is not a part of Model 4."
+    "text": "“Nested models” are models where the covariates of one model are a subset of another model. As an example, consider the following models for estimating the association between forced expiratory volume (FEV) and smoking status:\nModel 1:\n\\[\nE[FEV \\mid smoke] = \\beta_0 + \\beta_1 smoke\n\\]\nModel 2:\n\\[\nE[FEV \\mid smoke, age] = \\beta_0 + \\beta_1 smoke + \\beta_2 age\n\\] Here, Model 1 is “nested” inside Model 2, since the covariates included in Model 1 (only smoke) are a subset of those in Model 2 (both smoke and age).\nAn example of non-nested models are…\nModel 3:\n\\[\nE[FEV \\mid smoke, height] = \\beta_0 + \\beta_1 smoke + \\beta_2 height\n\\]\nModel 4:\n\\[\nE[FEV \\mid smoke, sex] = \\beta_0 + \\beta_1 smoke + \\beta_2 sex\n\\]\nHere, even though Model 3 and Model 4 both contain smoke as explanatory variables, neither is nested in the other, since sex is not a part of Model 3, and height is not a part of Model 4.",
+    "crumbs": [
+      "25. Nested Models & F-Tests"
+    ]
   },
   {
     "objectID": "activities/25_f_tests.html#exercise-1-nested-models",
     "href": "activities/25_f_tests.html#exercise-1-nested-models",
     "title": "25. Nested Models & F-Tests",
     "section": "Exercise 1: Nested Models",
-    "text": "Exercise 1: Nested Models\n\nWhich of the following models are nested in the model \\(E[A \\mid B, C, D] = \\beta_0 + \\beta_1 D + \\beta_2 B + \\beta_3 C + \\beta_4 B * C\\)?\n\n\nModel 1: \\(E[A \\mid B] = \\beta_0 + \\beta_1 B\\)\nModel 2: \\(E[A \\mid B, D] = \\beta_0 + \\beta_1 B + \\beta_2 D\\)\nModel 3: \\(E[B \\mid C] = \\beta_0 + \\beta_1 C\\)\nModel 4: \\(E[A \\mid B, C, D] = \\beta_0 + \\beta_1 B + \\beta_2 C + \\beta_3 D\\)\nModel 5: \\(E[A \\mid B, C, D] = \\beta_0 + \\beta_1 C + \\beta_2 B + \\beta_3 D + \\beta_4 B * D\\)\nModel 6: \\(E[A \\mid D] = \\beta_0 + \\beta_1 D\\)\n\n\nConsider the following models involving variables A, B, C, and D:\n\n\nModel 1: \\(E[A \\mid B] = \\beta_0 + \\beta_1 B\\)\nModel 2: \\(E[A \\mid B, C] = \\beta_0 + \\beta_1 B + \\beta_2 C\\)\nModel 3: \\(E[A \\mid B, C] = \\beta_0 + \\beta_1 B + \\beta_2 C + \\beta_3 BC\\)\nModel 4: \\(E[A \\mid C, D] = \\beta_0 + \\beta_1 C + \\beta_2 D\\)\nModel 5: \\(E[B \\mid A] = \\beta_0 + \\beta_1 A\\)\nModel 6: \\(E[B \\mid A, C] = \\beta_0 + \\beta_1 A + \\beta_2 C + \\beta_3 AC\\)\n\nDetermine for each of the following statements whether that statement is True or False.\n\nModel 1 is nested in Model 2\nModel 1 is nested in Model 3\nModel 1 is nested in Model 4\nModel 2 is nested in Model 3\nModel 3 is nested in Model 2\nModel 2 is nested in Model 6\n\n\nWhat is one (numeric) way to compare nested models? Explain how you would determine which model is “better” based on this metric."
+    "text": "Exercise 1: Nested Models\n\nWhich of the following models are nested in the model \\(E[A \\mid B, C, D] = \\beta_0 + \\beta_1 D + \\beta_2 B + \\beta_3 C + \\beta_4 B * C\\)?\n\n\nModel 1: \\(E[A \\mid B] = \\beta_0 + \\beta_1 B\\)\nModel 2: \\(E[A \\mid B, D] = \\beta_0 + \\beta_1 B + \\beta_2 D\\)\nModel 3: \\(E[B \\mid C] = \\beta_0 + \\beta_1 C\\)\nModel 4: \\(E[A \\mid B, C, D] = \\beta_0 + \\beta_1 B + \\beta_2 C + \\beta_3 D\\)\nModel 5: \\(E[A \\mid B, C, D] = \\beta_0 + \\beta_1 C + \\beta_2 B + \\beta_3 D + \\beta_4 B * D\\)\nModel 6: \\(E[A \\mid D] = \\beta_0 + \\beta_1 D\\)\n\n\nConsider the following models involving variables A, B, C, and D:\n\n\nModel 1: \\(E[A \\mid B] = \\beta_0 + \\beta_1 B\\)\nModel 2: \\(E[A \\mid B, C] = \\beta_0 + \\beta_1 B + \\beta_2 C\\)\nModel 3: \\(E[A \\mid B, C] = \\beta_0 + \\beta_1 B + \\beta_2 C + \\beta_3 BC\\)\nModel 4: \\(E[A \\mid C, D] = \\beta_0 + \\beta_1 C + \\beta_2 D\\)\nModel 5: \\(E[B \\mid A] = \\beta_0 + \\beta_1 A\\)\nModel 6: \\(E[B \\mid A, C] = \\beta_0 + \\beta_1 A + \\beta_2 C + \\beta_3 AC\\)\n\nDetermine for each of the following statements whether that statement is True or False.\n\nModel 1 is nested in Model 2\nModel 1 is nested in Model 3\nModel 1 is nested in Model 4\nModel 2 is nested in Model 3\nModel 3 is nested in Model 2\nModel 2 is nested in Model 6\n\n\nWhat is one (numeric) way to compare nested models? Explain how you would determine which model is “better” based on this metric.",
+    "crumbs": [
+      "25. Nested Models & F-Tests"
+    ]
   },
   {
     "objectID": "activities/25_f_tests.html#exercise-2-f-tests",
     "href": "activities/25_f_tests.html#exercise-2-f-tests",
     "title": "25. Nested Models & F-Tests",
     "section": "Exercise 2: F-Tests",
-    "text": "Exercise 2: F-Tests\nThis exercise involves the MacGrades.csv dataset, which contains a sub-sample (to help preserve anonymity) of every grade assigned to a former Macalester graduating class. For each of the 6414 rows of data, the following information is provided (with a few missing values):\n\nsessionID: A section ID number\nsid: A student ID number\ngrade: The grade obtained, as a numerical value (i.e. an A is a 4, an A- is a 3.67, etc.)\ndept: A department identifier (these have been made ambiguous to maintain anonymity)\nlevel: The course level (e.g. 100-, 200-, 300-, and 600-)\nsem: A semester identifier\nenroll: The section enrollment\niid: An instructor identifier (these have been made ambiguous to maintain anonymity)\n\n\n# load necessary packages\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(readr)\n\n# load datasets\nMacGrades &lt;- read_csv(\"https://mac-stat.github.io/data/MacGrades.csv\")\n\n\nHypothesize the relationships between the variables in the dataset. Your response should include at least five sentences, at a minimum. If you find it useful, you may also draw a DAG for this question.\n\n\nResponse Put your response here\n\n\nExplore the relationship between course grades and other variables in the data. Make at least four visualizations, and describe any patterns you observe.\nNote that the level variable is currently quantitative. For this activity, we’d like to treat it as categorical. Create a new variable level_cat so that we can consider level categorically in the following analysis.\nSuppose we are interested in the relationship between course level (categorical) and student grades. Using grade as your outcome variable, fit a linear regression model to investigate this question.\n\nComment on the nature of the relationship between course level and student grades (this should not be a coefficient interpretation, but instead a description of a general trend, or lack thereof).\n\nState the null and alternative hypotheses associated with the research question in part (d).\n\n\\[\nH_0:\n\\]\n\\[\nH_1:\n\\]\n\nWhat is the p-value associated with this hypothesis test? Do we have enough evidence to reject the null hypothesis, using a significance threshold of 0.05?\nSuppose we are interested in the relationship between course enrollment and student grades. Again, use grade as your outcome variable, and fit a linear regression model to investigate this question.\nState the null and alternative hypotheses associated with the research question in part (g).\n\n\\[\nH_0:\n\\]\n\\[\nH_1:\n\\]\n\nWhat is the p-value associated with this hypothesis test? Do we have enough evidence to reject the null hypothesis, using a significance threshold of 0.05?\n\n\nDo we need to conduct a nested F-test using the anova function to complete our hypothesis testing procedure for the research question posed in part (g)? Explain why or why not."
+    "text": "Exercise 2: F-Tests\nThis exercise involves the MacGrades.csv dataset, which contains a sub-sample (to help preserve anonymity) of every grade assigned to a former Macalester graduating class. For each of the 6414 rows of data, the following information is provided (with a few missing values):\n\nsessionID: A section ID number\nsid: A student ID number\ngrade: The grade obtained, as a numerical value (i.e. an A is a 4, an A- is a 3.67, etc.)\ndept: A department identifier (these have been made ambiguous to maintain anonymity)\nlevel: The course level (e.g. 100-, 200-, 300-, and 600-)\nsem: A semester identifier\nenroll: The section enrollment\niid: An instructor identifier (these have been made ambiguous to maintain anonymity)\n\n\n# load necessary packages\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(readr)\n\n# load datasets\nMacGrades &lt;- read_csv(\"https://mac-stat.github.io/data/MacGrades.csv\")\n\n\nHypothesize the relationships between the variables in the dataset. Your response should include at least five sentences, at a minimum. If you find it useful, you may also draw a DAG for this question.\n\n\nResponse Put your response here\n\n\nExplore the relationship between course grades and other variables in the data. Make at least four visualizations, and describe any patterns you observe.\nNote that the level variable is currently quantitative. For this activity, we’d like to treat it as categorical. Create a new variable level_cat so that we can consider level categorically in the following analysis.\nSuppose we are interested in the relationship between course level (categorical) and student grades. Using grade as your outcome variable, fit a linear regression model to investigate this question.\n\nComment on the nature of the relationship between course level and student grades (this should not be a coefficient interpretation, but instead a description of a general trend, or lack thereof).\n\nState the null and alternative hypotheses associated with the research question in part (d).\n\n\\[\nH_0:\n\\]\n\\[\nH_1:\n\\]\n\nWhat is the p-value associated with this hypothesis test? Do we have enough evidence to reject the null hypothesis, using a significance threshold of 0.05?\nSuppose we are interested in the relationship between course enrollment and student grades. Again, use grade as your outcome variable, and fit a linear regression model to investigate this question.\nState the null and alternative hypotheses associated with the research question in part (g).\n\n\\[\nH_0:\n\\]\n\\[\nH_1:\n\\]\n\nWhat is the p-value associated with this hypothesis test? Do we have enough evidence to reject the null hypothesis, using a significance threshold of 0.05?\n\n\nDo we need to conduct a nested F-test using the anova function to complete our hypothesis testing procedure for the research question posed in part (g)? Explain why or why not.",
+    "crumbs": [
+      "25. Nested Models & F-Tests"
+    ]
   },
   {
     "objectID": "activities/25_f_tests.html#exercise-3-more-f-tests",
     "href": "activities/25_f_tests.html#exercise-3-more-f-tests",
     "title": "25. Nested Models & F-Tests",
     "section": "Exercise 3: More F-tests",
-    "text": "Exercise 3: More F-tests\n\nSuppose we are now interested in the association between course grade and enrollment for classes of the same level. Write a model statement in the form \\(E[Y | X] = ...\\) that will produce a statistical model that will allow us to answer our scientific question. Replace Y and X, where appropriate, with response and predictor variables.\n\n\\[\nE[Y | X] = ___\n\\]\nWhich coefficient(s) in your model is the one that is relevant to your research question?\n\nWhat are the relevant null and alternative hypotheses that address the scientific question in part (a)?\nFit the model you wrote in part (a), calculate a p-value, and report the results of the hypothesis test in part (b)."
+    "text": "Exercise 3: More F-tests\n\nSuppose we are now interested in the association between course grade and enrollment for classes of the same level. Write a model statement in the form \\(E[Y | X] = ...\\) that will produce a statistical model that will allow us to answer our scientific question. Replace Y and X, where appropriate, with response and predictor variables.\n\n\\[\nE[Y | X] = ___\n\\]\nWhich coefficient(s) in your model is the one that is relevant to your research question?\n\nWhat are the relevant null and alternative hypotheses that address the scientific question in part (a)?\nFit the model you wrote in part (a), calculate a p-value, and report the results of the hypothesis test in part (b).",
+    "crumbs": [
+      "25. Nested Models & F-Tests"
+    ]
   },
   {
     "objectID": "activities/25_f_tests.html#reflection",
     "href": "activities/25_f_tests.html#reflection",
     "title": "25. Nested Models & F-Tests",
     "section": "Reflection",
-    "text": "Reflection\nF-tests are useful when the null hypothesis you wish to test is such that more than one covariate is simultaneously equal to a specific number (typically zero). What scenarios, outside of those shown in this example, can you think of where a relevant scientific hypothesis you want to test involves more than one covariate being simultaneously equal to zero?\n\nResponse Put your response here."
+    "text": "Reflection\nF-tests are useful when the null hypothesis you wish to test is such that more than one covariate is simultaneously equal to a specific number (typically zero). What scenarios, outside of those shown in this example, can you think of where a relevant scientific hypothesis you want to test involves more than one covariate being simultaneously equal to zero?\n\nResponse Put your response here.",
+    "crumbs": [
+      "25. Nested Models & F-Tests"
+    ]
   },
   {
     "objectID": "activities/25_f_tests.html#exercise-4",
     "href": "activities/25_f_tests.html#exercise-4",
     "title": "25. Nested Models & F-Tests",
     "section": "Exercise 4",
-    "text": "Exercise 4\nRepeat Exercise 3, supposing we are instead interested in the association between course grade and course level for classes of the same enrollment."
+    "text": "Exercise 4\nRepeat Exercise 3, supposing we are instead interested in the association between course grade and course level for classes of the same enrollment.",
+    "crumbs": [
+      "25. Nested Models & F-Tests"
+    ]
   },
   {
     "objectID": "activities/25_f_tests.html#exercise-5-reference-categories",
     "href": "activities/25_f_tests.html#exercise-5-reference-categories",
     "title": "25. Nested Models & F-Tests",
     "section": "Exercise 5: Reference categories",
-    "text": "Exercise 5: Reference categories\nOur final research question pertains to whether or not there is a relationship between course grade and department. Again, use course grade as the outcome variable in your linear regression model.\n\nState the null and alternative hypotheses in colloquial language associated with the relevant hypothesis test.\n\nH0:\nH1:\n\nFit a linear regression model, and conduct your hypothesis testing procedure to answer the research question posed in this Exercise. State your conclusions accordingly (you do not need to interpret any regression coefficients, just state and interpret the results of your hypothesis test!).\nAre any of the individual department p-values significant?\n\nWhat do these p-values tell us, and why is this not contradictory to your answer in part (b)?\n\nSolutions"
+    "text": "Exercise 5: Reference categories\nOur final research question pertains to whether or not there is a relationship between course grade and department. Again, use course grade as the outcome variable in your linear regression model.\n\nState the null and alternative hypotheses in colloquial language associated with the relevant hypothesis test.\n\nH0:\nH1:\n\nFit a linear regression model, and conduct your hypothesis testing procedure to answer the research question posed in this Exercise. State your conclusions accordingly (you do not need to interpret any regression coefficients, just state and interpret the results of your hypothesis test!).\nAre any of the individual department p-values significant?\n\nWhat do these p-values tell us, and why is this not contradictory to your answer in part (b)?\n\nSolutions",
+    "crumbs": [
+      "25. Nested Models & F-Tests"
+    ]
   },
   {
     "objectID": "project.html",
@@ -2407,35 +2437,50 @@
     "href": "activities/26_p_values_discussion.html",
     "title": "P-value Discussion",
     "section": "",
-    "text": "In this activity, you will read an article about p-values and then discuss a set of prompts as a group. Each group will then share out some highlights of your discussion to the class.\n\n\nYour instructor will assign you to one of four groups, each with a different reading to complete ahead of class time. You are of course welcome to read more than only your assigned reading if you choose to! The group reading assignments are as follows:\n\nGroup 1: The ASA Statement on p-values\nGroup 2: Scientific method: Statistical error\nGroup 3: Moving to a World Beyond “p &lt; 0.05”\nGroup 4: Statistical tests, p-values, confidence intervals, and power: a guide to misinterpretations"
+    "text": "In this activity, you will read an article about p-values and then discuss a set of prompts as a group. Each group will then share out some highlights of your discussion to the class.\n\n\nYour instructor will assign you to one of four groups, each with a different reading to complete ahead of class time. You are of course welcome to read more than only your assigned reading if you choose to! The group reading assignments are as follows:\n\nGroup 1: The ASA Statement on p-values\nGroup 2: Scientific method: Statistical error\nGroup 3: Moving to a World Beyond “p &lt; 0.05”\nGroup 4: Statistical tests, p-values, confidence intervals, and power: a guide to misinterpretations",
+    "crumbs": [
+      "P-value Discussion"
+    ]
   },
   {
     "objectID": "activities/26_p_values_discussion.html#readings-and-videos",
     "href": "activities/26_p_values_discussion.html#readings-and-videos",
     "title": "P-value Discussion",
     "section": "",
-    "text": "Your instructor will assign you to one of four groups, each with a different reading to complete ahead of class time. You are of course welcome to read more than only your assigned reading if you choose to! The group reading assignments are as follows:\n\nGroup 1: The ASA Statement on p-values\nGroup 2: Scientific method: Statistical error\nGroup 3: Moving to a World Beyond “p &lt; 0.05”\nGroup 4: Statistical tests, p-values, confidence intervals, and power: a guide to misinterpretations"
+    "text": "Your instructor will assign you to one of four groups, each with a different reading to complete ahead of class time. You are of course welcome to read more than only your assigned reading if you choose to! The group reading assignments are as follows:\n\nGroup 1: The ASA Statement on p-values\nGroup 2: Scientific method: Statistical error\nGroup 3: Moving to a World Beyond “p &lt; 0.05”\nGroup 4: Statistical tests, p-values, confidence intervals, and power: a guide to misinterpretations",
+    "crumbs": [
+      "P-value Discussion"
+    ]
   },
   {
     "objectID": "activities/26_p_values_discussion.html#step-1-review",
     "href": "activities/26_p_values_discussion.html#step-1-review",
     "title": "P-value Discussion",
     "section": "Step 1: Review",
-    "text": "Step 1: Review\nTake a few minutes to review the assigned reading. Make note of the things you found most important, the things you found most confusing, or the things you still have questions about."
+    "text": "Step 1: Review\nTake a few minutes to review the assigned reading. Make note of the things you found most important, the things you found most confusing, or the things you still have questions about.",
+    "crumbs": [
+      "P-value Discussion"
+    ]
   },
   {
     "objectID": "activities/26_p_values_discussion.html#step-2-discuss",
     "href": "activities/26_p_values_discussion.html#step-2-discuss",
     "title": "P-value Discussion",
     "section": "Step 2: Discuss",
-    "text": "Step 2: Discuss\nOnce everyone in your group is ready, find an empty space at the whiteboard.\nYou’ll discuss the following questions with your group and write down your key takeaways from your conversation on the board. After a few minutes, rotate to the next station: respond/react to the previous responses (e.g., add a + if you agree) and add your own. Repeat until you’ve visited all stations.\nQuestions:\n\nHow does this reading relate to your previous knowledge about p-values?\nWas anything that you learned from the reading particularly surprising?\nWhat are some of the ways in which p-values are often misinterpreted and/or misused?\nWhat suggestions does the article offer in terms of how p-values should be used?\nDoes the article provide any suggestions in terms of other tools that we should use instead of or in addition to p-values?\nWhat are your main takeaways from the reading?"
+    "text": "Step 2: Discuss\nOnce everyone in your group is ready, find an empty space at the whiteboard.\nYou’ll discuss the following questions with your group and write down your key takeaways from your conversation on the board. After a few minutes, rotate to the next station: respond/react to the previous responses (e.g., add a + if you agree) and add your own. Repeat until you’ve visited all stations.\nQuestions:\n\nHow does this reading relate to your previous knowledge about p-values?\nWas anything that you learned from the reading particularly surprising?\nWhat are some of the ways in which p-values are often misinterpreted and/or misused?\nWhat suggestions does the article offer in terms of how p-values should be used?\nDoes the article provide any suggestions in terms of other tools that we should use instead of or in addition to p-values?\nWhat are your main takeaways from the reading?",
+    "crumbs": [
+      "P-value Discussion"
+    ]
   },
   {
     "objectID": "activities/26_p_values_discussion.html#step-3-share-out",
     "href": "activities/26_p_values_discussion.html#step-3-share-out",
     "title": "P-value Discussion",
     "section": "Step 3: Share out",
-    "text": "Step 3: Share out\nDesignate someone from your group who will share the highlights of your discussion with the full class!"
+    "text": "Step 3: Share out\nDesignate someone from your group who will share the highlights of your discussion with the full class!",
+    "crumbs": [
+      "P-value Discussion"
+    ]
   },
   {
     "objectID": "index.html",
@@ -3159,7 +3204,7 @@
     "href": "solutions/18_sampling_normal.html#exercise-4-random-sampling",
     "title": "Solutions for 18. The Normal model & sampling variation",
     "section": "Exercise 4: Random sampling",
-    "text": "Exercise 4: Random sampling\n\n# Observe that the 2 counties change every time & differ from your neighbors' samples\nsample_n(county_clean, size = 2, replace = FALSE)\n\n     state              name  fips pci_2019 pci_2017\n1    Idaho Clearwater County 16035   23.412 26.57970\n2 Colorado   San Juan County  8111   34.502 27.50942\n\n\n\n# Observe that the 2 counties are the same every time & are the same as your neighbors' samples\nset.seed(155)\nsample_n(county_clean, size = 2, replace = FALSE)\n\n      state             name  fips pci_2019 pci_2017\n1 Tennessee Robertson County 47147   29.524 26.29889\n2  Illinois    Shelby County 17173   27.029 24.84449"
+    "text": "Exercise 4: Random sampling\n\n# Observe that the 2 counties change every time & differ from your neighbors' samples\nsample_n(county_clean, size = 2, replace = FALSE)\n\n     state          name  fips pci_2019 pci_2017\n1    Texas Castro County 48069   21.884 21.16940\n2 Oklahoma  Adair County 40001   17.026 15.89717\n\n\n\n# Observe that the 2 counties are the same every time & are the same as your neighbors' samples\nset.seed(155)\nsample_n(county_clean, size = 2, replace = FALSE)\n\n      state             name  fips pci_2019 pci_2017\n1 Tennessee Robertson County 47147   29.524 26.29889\n2  Illinois    Shelby County 17173   27.029 24.84449"
   },
   {
     "objectID": "solutions/18_sampling_normal.html#exercise-5-take-your-own-sample",
